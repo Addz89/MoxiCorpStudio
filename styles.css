@@ -26,6 +26,50 @@ html{
 .nav-links a{
   position:relative;
 }
+.menu-btn{
+  display:none;
+  background:none;
+  border:1px solid rgba(0,102,255,.5);
+  color:white;
+  font-size:1.8rem;
+  padding:8px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+@media(max-width:900px){
+
+  nav{
+    flex-direction:row !important;
+    padding:16px 5%;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .nav-links{
+    display:none !important;
+    position:absolute;
+    top:75px;
+    left:5%;
+    right:5%;
+    flex-direction:column;
+    background:rgba(2,8,23,.97);
+    border:1px solid rgba(0,102,255,.35);
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  .nav-links.active{
+    display:flex !important;
+  }
+
+  .nav-links a{
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+}
 
 .nav-links a::after{
   content:"";
@@ -93,6 +137,7 @@ html{
 .card:hover{
   transform:translateY(-10px) scale(1.02);
 }
+
 
 /* FLOATING STEPS */
 
