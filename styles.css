@@ -9,6 +9,241 @@ body{
   background:#020817;
   color:white;
 }
+html{
+  scroll-behavior:smooth;
+}
+
+/* HERO ANIMATION */
+
+.hero-content{
+  animation:fadeUp 1.2s ease forwards;
+}
+
+.logo{
+  animation:slideDown 1s ease forwards;
+}
+
+.nav-links a{
+  position:relative;
+}
+
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#0066ff;
+  transition:.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* GLOWING BUTTON */
+
+.hero-btn,
+.marketing-card a,
+.work-card a,
+.price-card a,
+.contact-form button{
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-btn::before,
+.marketing-card a::before,
+.work-card a::before,
+.price-card a::before,
+.contact-form button::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  transition:.5s;
+}
+
+.hero-btn:hover::before,
+.marketing-card a:hover::before,
+.work-card a:hover::before,
+.price-card a:hover::before,
+.contact-form button:hover::before{
+  left:100%;
+}
+
+/* CARDS ANIMATION */
+
+.marketing-card,
+.work-card,
+.price-card,
+.card,
+.addons-box,
+.contact-form{
+  animation:fadeUp 1s ease forwards;
+}
+
+.marketing-card:hover,
+.work-card:hover,
+.price-card:hover,
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+}
+
+/* FLOATING STEPS */
+
+.step-number{
+  animation:float 3s ease-in-out infinite;
+}
+
+/* INPUT GLOW */
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:#0066ff;
+  box-shadow:0 0 20px rgba(0,102,255,.45);
+}
+/* ANIMATE EVERY SECTION */
+
+section{
+  animation:pageFadeUp 1s ease both;
+  animation-timeline:view();
+  animation-range:entry 0% cover 30%;
+}
+
+header{
+  animation:pageFadeIn 1.2s ease both;
+}
+
+footer{
+  animation:pageFadeUp 1s ease both;
+}
+
+/* DELAY CARDS */
+
+.marketing-card:nth-child(1),
+.work-card:nth-child(1),
+.price-card:nth-child(1),
+.card:nth-child(1){
+  animation-delay:.1s;
+}
+
+.marketing-card:nth-child(2),
+.work-card:nth-child(2),
+.price-card:nth-child(2),
+.card:nth-child(2){
+  animation-delay:.2s;
+}
+
+.marketing-card:nth-child(3),
+.work-card:nth-child(3),
+.price-card:nth-child(3),
+.card:nth-child(3){
+  animation-delay:.3s;
+}
+
+.marketing-card:nth-child(4),
+.card:nth-child(4){
+  animation-delay:.4s;
+}
+
+/* EXTRA PAGE MOTION */
+
+.marketing,
+.portfolio,
+.pricing,
+.addons,
+.process,
+.contact,
+.services{
+  opacity:0;
+  transform:translateY(60px);
+}
+
+@keyframes pageFadeUp{
+  from{
+    opacity:0;
+    transform:translateY(60px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes pageFadeIn{
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:1;
+  }
+}
+
+/* BACKGROUND GLOW */
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(0,102,255,.25), transparent 35%),
+    radial-gradient(circle at 20% 80%, rgba(0,102,255,.18), transparent 35%);
+  pointer-events:none;
+}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+}
+
+nav,
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+/* KEYFRAMES */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes slideDown{
+  from{
+    opacity:0;
+    transform:translateY(-30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-10px);
+  }
+  100%{
+    transform:translateY(0);
+  }
+}
 
 /* HERO */
 
@@ -30,9 +265,26 @@ body{
 /* NAVBAR */
 
 nav{
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
+  padding:20px 8%;
+
+  background:rgba(2,8,23,.85);
+
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid rgba(0,102,255,.2);
+
+  z-index:9999;
 }
 
 .logo{
@@ -43,6 +295,125 @@ nav{
 
 .logo span{
   color:#0066ff;
+}
+/* FLOATING DOTS */
+
+.floating-dots{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.floating-dots span{
+  position:absolute;
+  display:block;
+
+  width:8px;
+  height:8px;
+
+  background:#0066ff;
+
+  border-radius:50%;
+
+  opacity:.35;
+
+  box-shadow:
+  0 0 10px #0066ff,
+  0 0 20px #0066ff;
+
+  animation:floatDots linear infinite;
+}
+
+/* RANDOM POSITIONS */
+
+.floating-dots span:nth-child(1){
+  left:5%;
+  animation-duration:22s;
+  animation-delay:0s;
+  top:90%;
+}
+
+.floating-dots span:nth-child(2){
+  left:15%;
+  animation-duration:28s;
+  animation-delay:2s;
+  top:95%;
+}
+
+.floating-dots span:nth-child(3){
+  left:25%;
+  animation-duration:18s;
+  animation-delay:4s;
+  top:92%;
+}
+
+.floating-dots span:nth-child(4){
+  left:35%;
+  animation-duration:30s;
+  animation-delay:1s;
+  top:96%;
+}
+
+.floating-dots span:nth-child(5){
+  left:45%;
+  animation-duration:24s;
+  animation-delay:5s;
+  top:91%;
+}
+
+.floating-dots span:nth-child(6){
+  left:55%;
+  animation-duration:20s;
+  animation-delay:3s;
+  top:94%;
+}
+
+.floating-dots span:nth-child(7){
+  left:65%;
+  animation-duration:26s;
+  animation-delay:6s;
+  top:93%;
+}
+
+.floating-dots span:nth-child(8){
+  left:75%;
+  animation-duration:32s;
+  animation-delay:2s;
+  top:95%;
+}
+
+.floating-dots span:nth-child(9){
+  left:85%;
+  animation-duration:21s;
+  animation-delay:4s;
+  top:90%;
+}
+
+.floating-dots span:nth-child(10){
+  left:95%;
+  animation-duration:27s;
+  animation-delay:1s;
+  top:97%;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes floatDots{
+  0%{
+    transform:translateY(0) translateX(0);
+    opacity:0;
+  }
+
+  10%{
+    opacity:.35;
+  }
+
+  100%{
+    transform:translateY(-120vh) translateX(-40px);
+    opacity:0;
+  }
 }
 
 .nav-links{
@@ -67,6 +438,24 @@ nav{
   margin-top:160px;
   max-width:700px;
 }
+.hero{
+  min-height:100vh;
+
+  background:
+  linear-gradient(to right,
+  rgba(2,8,23,.97),
+  rgba(2,8,23,.75)),
+  url("banner.png");
+
+  background-size:cover;
+  background-position:center;
+
+  padding:40px 8%;
+  padding-top:140px;
+
+  position:relative;
+  overflow:hidden;
+}
 
 .hero-content h1{
   font-size:4.5rem;
@@ -84,18 +473,20 @@ nav{
   margin-bottom:35px;
 }
 
-.hero-content button{
+.hero-btn{
+  display:inline-block;
   padding:16px 35px;
   border:none;
   border-radius:10px;
   background:#0066ff;
   color:white;
   font-weight:bold;
+  text-decoration:none;
   cursor:pointer;
   transition:.3s;
 }
 
-.hero-content button:hover{
+.hero-btn:hover{
   transform:translateY(-3px);
   box-shadow:0 0 25px #0066ff;
 }
@@ -494,12 +885,116 @@ footer{
 }
 
 @media(max-width:700px){
+nav{
+    padding:18px 5%;
+    flex-direction:column;
+    gap:16px;
+  }
 
-  .process-grid{
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+  }
+
+  .nav-links a{
+    font-size:.85rem;
+  }
+
+  .hero{
+    padding:160px 6% 80px;
+    text-align:center;
+  }
+
+  .hero-content{
+    margin-top:60px;
+    max-width:100%;
+  }
+
+  .hero-content h1{
+    font-size:2.7rem;
+  }
+
+  .hero-content p{
+    font-size:1rem;
+  }
+
+  .marketing h2,
+  .pricing h2,
+  .portfolio h2,
+  .addons h2,
+  .process h2{
+    font-size:2.2rem;
+  }
+
+  .pricing-grid,
+  .portfolio-grid,
+  .marketing-grid,
+  .services{
     grid-template-columns:1fr;
   }
 
+  .featured{
+    transform:none;
+  }
+
+  .price{
+    font-size:3rem;
+  }
+
+  .contact-form{
+    padding:25px;
+  }
 }
+
+@media(max-width:480px){
+
+  .logo{
+    font-size:1.1rem;
+  }
+
+  .nav-links{
+    gap:10px;
+  }
+
+  .nav-links a{
+    font-size:.78rem;
+  }
+
+  .hero-content h1{
+    font-size:2.1rem;
+  }
+
+  .hero-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  section,
+  .marketing,
+  .portfolio,
+  .pricing,
+  .addons,
+  .process,
+  .contact,
+  .services{
+    padding:70px 5%;
+  }
+
+  .price-card,
+  .marketing-card,
+  .work-card,
+  .card,
+  .addons-box{
+    padding:25px;
+  }
+
+  .work-card img{
+    height:180px;
+  }
+}
+
+
 
 @media(max-width:600px){
   .addon-item{
