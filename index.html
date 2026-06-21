@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moxi Corp Studio | Premium Web Development</title>
+  <link rel="icon" type="image/svg+xml" href="logo1.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -342,7 +343,9 @@
 
     footer { text-align:center; padding:40px; background:var(--bg-deep); color:var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--platinum-border);}
 
-    /* Premium Overlay Modal */
+    /* =========================================
+       PREMIUM STRIPE OVERLAY MODAL
+       ========================================= */
     .purchase-overlay {
       position: fixed; inset: 0; background: rgba(2, 8, 23, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       z-index: 100000; display: flex; align-items: center; justify-content: center;
@@ -854,6 +857,7 @@
     © 2026 Moxi Corp Studio. Based in Donnybrook, VIC. Premium Digital Architecture.
   </footer>
 
+  <!-- PREMIUM STRIPE CHECKOUT OVERLAY -->
   <div class="purchase-overlay" id="purchaseModal">
     <div class="purchase-modal">
       <button class="close-modal" onclick="closeCheckout()">✕</button>
