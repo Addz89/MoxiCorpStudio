@@ -1,0 +1,6 @@
+{
+  "name": "moxi-corp",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
