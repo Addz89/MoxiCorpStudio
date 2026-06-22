@@ -853,8 +853,9 @@
     </form>
   </section>
 
-  <footer>
-    © 2026 Moxi Corp Studio. Based in Donnybrook, VIC. Premium Digital Architecture. <br><br>Email: support@moxicorpstudio.com.au 
+<footer>
+    © 2026 Moxi Corp Studio. Based in Donnybrook, VIC. Premium Digital Architecture. <br><br>
+    Email: support@moxicorpstudio.com.au | <a href="privacy-policy.html" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted); padding-bottom: 2px; transition: 0.3s;">Privacy Policy</a>
   </footer>
 
   <!-- PREMIUM STRIPE CHECKOUT OVERLAY -->
@@ -925,7 +926,7 @@
       const isActive = item.classList.contains('active');
       
       // Close all other FAQs
-      document.querySelectorAll('.faq-item').forEach(faq => {
+      document.querySelectorAll('.faq-item').forEach(faq => { 
         faq.classList.remove('active');
         faq.querySelector('.faq-icon').innerText = '+';
       });
