@@ -4,1135 +4,519 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="5OFwdqIo8JrHgI5FAMws8IkgL1FDuVRzWc6UdQRYPoc" />
-  <title>Moxi Corp Studio | Premium Web Development</title>
-  <link rel="icon" type="image/svg+xml" href="logo1.svg">
-
+  <title>Moxi Corp Studio | Cyber Web Development</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================
-       BASE STYLES & PLATINUM THEME CORE
+       BASE & NEON CYBER THEME
        ========================================= */
     :root {
-      --primary: #0066ff;
-      --primary-hover: #0052cc;
-      --bg-deep: #020817;
-      --bg-card: rgba(10, 15, 35, 0.4); 
-      --platinum-text: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-      --platinum-border: rgba(255, 255, 255, 0.12);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --font-sans: 'Plus Jakarta Sans', sans-serif;
-      --font-mono: 'Fira Code', monospace;
+      --neon-green: #39ff14;
+      --neon-magenta: #ff00ff;
+      --neon-cyan: #00ffff;
+      --bg-dark: #050505;
+      --bg-surface: rgba(15, 15, 18, 0.8);
+      --text-main: #ffffff;
+      --text-muted: #888899;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; overflow-x: hidden; cursor: none; }
-    body { font-family: var(--font-sans); background: var(--bg-deep); color: var(--text-main); overflow-x: hidden; }
-    
-    /* Elegant Mesh/Glow Background with Slow Rotation */
-    body::before {
-      content: ""; position: fixed; inset: 0;
-      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-      opacity: 0.04; pointer-events: none; z-index: 0;
-    }
-    .bg-mesh {
+    body { font-family: var(--font-display); background: var(--bg-dark); color: var(--text-main); overflow-x: hidden; }
+
+    /* Animated Grid Background */
+    .cyber-grid {
       position: fixed; inset: -50%; width: 200%; height: 200%; z-index: 0; pointer-events: none;
-      background: 
-        radial-gradient(circle at 30% 40%, rgba(0, 102, 255, 0.08), transparent 25%),
-        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.03), transparent 25%);
-      animation: rotateMesh 60s linear infinite;
+      background-image: 
+        linear-gradient(to right, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+      animation: gridMove 10s linear infinite;
     }
-    @keyframes rotateMesh { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px); } }
 
-    /* Elegant Fluid Cursor */
-    .custom-cursor {
-      width: 8px; height: 8px; background: #fff; border-radius: 50%;
-      position: fixed; pointer-events: none; z-index: 999999;
-      transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background 0.3s;
-      box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    /* Custom Kinetic Cursor */
+    .cursor-dot {
+      width: 6px; height: 6px; background: var(--neon-green); border-radius: 50%;
+      position: fixed; pointer-events: none; z-index: 999999; transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px var(--neon-green);
     }
-    .custom-cursor-ring {
-      width: 45px; height: 45px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50%;
+    .cursor-box {
+      width: 40px; height: 40px; border: 2px solid var(--neon-cyan);
       position: fixed; pointer-events: none; z-index: 999998;
-      transform: translate(-50%, -50%); transition: top 0.15s ease-out, left 0.15s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
+      transform: translate(-50%, -50%) rotate(45deg); transition: width 0.2s, height 0.2s, transform 0.1s ease-out;
     }
-    a:hover ~ .custom-cursor, button:hover ~ .custom-cursor, .card:hover ~ .custom-cursor, .faq-question:hover ~ .custom-cursor, .addon-item:hover ~ .custom-cursor { width: 15px; height: 15px; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
-    a:hover ~ .custom-cursor-ring, button:hover ~ .custom-cursor-ring, .faq-question:hover ~ .custom-cursor-ring, .addon-item:hover ~ .custom-cursor-ring { width: 65px; height: 65px; border-color: var(--primary); background: rgba(0, 102, 255, 0.05); }
-    @media (max-width: 900px) { html { cursor: auto; } .custom-cursor, .custom-cursor-ring { display: none !important; } }
+    a:hover ~ .cursor-box, button:hover ~ .cursor-box, .cyber-card:hover ~ .cursor-box {
+      width: 60px; height: 60px; border-color: var(--neon-magenta); transform: translate(-50%, -50%) rotate(90deg);
+      background: rgba(255, 0, 255, 0.1);
+    }
+    @media (max-width: 900px) { html { cursor: auto; } .cursor-dot, .cursor-box { display: none !important; } }
 
-    /* Platinum Typography Utilities */
-    .platinum-heading {
-      background: var(--platinum-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: #fff;
+    /* Glitch Typography */
+    .glitch {
+      position: relative; color: white; font-weight: 900; text-transform: uppercase;
+      text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.025em -0.05em 0 rgba(0,255,0,0.75), 0.025em 0.05em 0 rgba(0,0,255,0.75);
+      animation: glitch 2s infinite;
     }
-    /* =========================================
-       NEWSLETTER SECTION
-       ========================================= */
-    .newsletter { text-align: center; padding: 100px 8%; position: relative; z-index: 2;}
-    .newsletter-container {
-      max-width: 800px; margin: 0 auto; background: var(--bg-card); backdrop-filter: blur(15px);
-      border: 1px solid var(--platinum-border); border-radius: 24px; padding: 60px 40px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4); text-align: center;
+    @keyframes glitch {
+      0% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75), -0.025em 0.05em 0 rgba(0,0,255,0.75); }
+      14% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75), -0.025em 0.05em 0 rgba(0,0,255,0.75); }
+      15% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.025em 0 rgba(0,255,0,0.75), -0.05em -0.05em 0 rgba(0,0,255,0.75); }
+      49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.025em 0 rgba(0,255,0,0.75), -0.05em -0.05em 0 rgba(0,0,255,0.75); }
+      50% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75), 0 -0.05em 0 rgba(0,0,255,0.75); }
+      99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75), 0 -0.05em 0 rgba(0,0,255,0.75); }
+      100% { text-shadow: -0.025em 0 0 rgba(255,0,0,0.75), -0.025em -0.025em 0 rgba(0,255,0,0.75), -0.025em -0.05em 0 rgba(0,0,255,0.75); }
     }
-    .newsletter-container h2 { font-size: 2.5rem; margin-bottom: 15px; font-weight: 800; }
-    .newsletter-container p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 35px; line-height: 1.6; }
+
+    /* SCROLL REVEAL ANIMATIONS */
+    .reveal-zoom { opacity: 0; transform: scale(0.5) rotateX(45deg); transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .reveal-zoom.is-visible { opacity: 1; transform: scale(1) rotateX(0deg); }
     
-    .newsletter-form { display: flex; gap: 15px; justify-content: center; max-width: 600px; margin: 0 auto; flex-wrap: wrap; }
-    .newsletter-form input {
-      flex: 1; min-width: 250px; padding: 18px 25px; border-radius: 30px; border: 1px solid var(--platinum-border);
-      background: rgba(0,0,0,0.2); color: #fff; outline: none; font-size: 1rem; font-family: var(--font-sans); transition: 0.3s;
-    }
-    .newsletter-form input:focus { border-color: var(--primary); background: rgba(0,102,255,0.05); }
-    .newsletter-form button {
-      padding: 18px 35px; border: none; border-radius: 30px; background: var(--primary); color: #fff;
-      font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; letter-spacing: 1px;
-    }
-    .newsletter-form button:hover { background: var(--primary-hover); box-shadow: 0 10px 20px rgba(0,102,255,0.3); transform: translateY(-2px); }
-
-    /* RE-TRIGGERING SCROLL REVEALS */
-    .reveal { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform; }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    .reveal-left { opacity: 0; transform: translateX(-60px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-left.is-visible { opacity: 1; transform: translateX(0); }
-    .reveal-right { opacity: 0; transform: translateX(60px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-right.is-visible { opacity: 1; transform: translateX(0); }
-    .reveal-scale { opacity: 0; transform: scale(0.9); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+    .reveal-slide-up { opacity: 0; transform: translateY(100px) skewY(5deg); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .reveal-slide-up.is-visible { opacity: 1; transform: translateY(0) skewY(0); }
 
     /* =========================================
-       NAV & SYSTEM STATUS
+       NAV & HEADER
        ========================================= */
     nav { 
-      position:fixed; top:0; left:0; width:100%; display:flex; justify-content:space-between; align-items:center; 
-      padding:25px 8%; background:rgba(2, 8, 23, 0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom:1px solid var(--platinum-border); z-index:9999; transition: all 0.5s ease;
+      position:fixed; top:20px; left:50%; transform: translateX(-50%); width:90%; max-width: 1200px;
+      display:flex; justify-content:space-between; align-items:center; 
+      padding:15px 30px; background:var(--bg-surface); backdrop-filter:blur(10px);
+      border: 1px solid rgba(0,255,255,0.2); border-radius: 50px; z-index:9999;
+      box-shadow: 0 0 20px rgba(0,255,255,0.1); transition: all 0.5s ease;
     }
-    nav.scrolled { padding: 15px 8%; background:rgba(2, 8, 23, 0.95); box-shadow: 0 10px 40px rgba(0,0,0,0.7); }
-    .logo { font-size:1.5rem; font-weight:800; letter-spacing:1px; z-index: 2; color: #fff;}
-    .logo span { color:var(--primary); }
+    .logo { font-size:1.5rem; font-weight:900; letter-spacing:1px; color: #fff; text-transform: uppercase;}
+    .logo span { color:var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
     
-    .system-status { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; color: #cbd5e1; background: rgba(255, 255, 255, 0.05); padding: 8px 16px; border-radius: 30px; border: 1px solid var(--platinum-border); letter-spacing: 1px; text-transform: uppercase;}
-    .status-dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: pulseDot 2s infinite; }
-    @keyframes pulseDot { 0% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { opacity: 1; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); } 100% { opacity: 0.5; } }
-
-    .nav-links { display:flex; gap:35px; z-index: 2; align-items: center; }
-    .nav-links a { color:var(--text-muted); text-decoration:none; font-size:0.9rem; font-weight: 500; position: relative; transition: color 0.3s; }
-    .nav-links a::after { content:""; position:absolute; left:0; bottom:-6px; width: 0; height: 2px; background:var(--primary); transition: 0.3s ease; }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { color:#fff; }
-    .menu-btn { display:none; background:none; border:1px solid var(--platinum-border); color:white; font-size:1.5rem; padding:8px 14px; border-radius:8px; cursor:pointer; z-index: 2; transition: 0.3s;}
+    .nav-links { display:flex; gap:30px; }
+    .nav-links a { 
+      color:var(--text-main); text-decoration:none; font-size:0.9rem; font-weight: 700; text-transform: uppercase;
+      position: relative; transition: 0.3s;
+    }
+    .nav-links a:hover { color: var(--neon-cyan); text-shadow: 0 0 8px var(--neon-cyan); }
+    .menu-btn { display:none; background:none; border:none; color:var(--neon-green); font-size:2rem; cursor:pointer;}
 
     /* =========================================
-       HERO & PREMIUM 3D IDE
+       HERO & TERMINAL IDE
        ========================================= */
     .hero { 
-      min-height:100vh; background: transparent;
-      padding:160px 8% 60px; position:relative; overflow:hidden; 
+      min-height:100vh; padding:180px 8% 60px; position:relative; z-index: 2;
       display: flex; align-items: center; justify-content: space-between; gap: 50px;
     }
-    .hero-content-left { flex: 1; max-width: 750px; position: relative; z-index: 2; }
-    .hero-content-left h1 { font-size: clamp(3.2rem, 5.5vw, 5.5rem); line-height:1.1; margin-bottom:25px; font-weight: 800; letter-spacing: -1.5px;}
-    .hero-content-left h1 span { color:var(--primary); }
-    .hero-content-left p { font-size:1.2rem; color:var(--text-muted); margin-bottom:45px; line-height: 1.7; max-width: 650px;}
+    .hero-content { flex: 1; max-width: 700px; }
+    .hero-content h1 { font-size: clamp(3rem, 6vw, 6rem); line-height:1; margin-bottom:20px; }
+    .hero-content p { font-size:1.2rem; color:var(--text-muted); margin-bottom:40px; font-family: var(--font-code); }
     
-    .type-cursor { display: inline-block; width: 3px; background-color: var(--primary); margin-left: 5px; animation: blink 1s step-end infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-
-    .hero-btn { 
-      display:inline-block; padding:18px 45px; border:1px solid var(--platinum-border); border-radius: 30px;
-      background:rgba(255, 255, 255, 0.03); color:#fff; font-weight:600; text-decoration:none; cursor:pointer; 
-      position: relative; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); font-size: 1rem; letter-spacing: 1px;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; backdrop-filter: blur(10px);
+    .cyber-btn {
+      display: inline-block; padding: 20px 40px; font-family: var(--font-code); font-weight: 700; font-size: 1rem;
+      color: #000; background: var(--neon-green); text-transform: uppercase; text-decoration: none;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+      transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
     }
-    .hero-btn::before { content: ''; position: absolute; inset: 0; background: var(--primary); opacity: 0; transition: 0.4s ease; z-index: -1;}
-    .hero-btn:hover { border-color: var(--primary); box-shadow: 0 15px 35px rgba(0, 102, 255, 0.3); transform: translateY(-3px);}
-    .hero-btn:hover::before { opacity: 1; }
-
-    .ide-wrapper { perspective: 1200px; flex: 1; max-width: 550px; z-index: 2; }
-    .floating-code {
-      background: rgba(8, 15, 30, 0.8); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-      border: 1px solid var(--platinum-border); border-radius: 16px;
-      box-shadow: 0 40px 80px -20px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,0.1);
-      transform-style: preserve-3d; transition: transform 0.1s ease;
-      animation: floatWidget 8s ease-in-out infinite; 
+    .cyber-btn:hover { background: var(--neon-cyan); box-shadow: 0 0 30px var(--neon-cyan); transform: scale(1.05); }
+    
+    .terminal-wrapper { flex: 1; perspective: 1000px; }
+    .terminal {
+      background: #000; border: 1px solid var(--neon-magenta); padding: 20px;
+      box-shadow: 0 0 30px rgba(255,0,255,0.2), inset 0 0 20px rgba(255,0,255,0.1);
+      font-family: var(--font-code); color: var(--neon-green); font-size: 0.9rem;
+      transform: rotateY(-15deg) rotateX(10deg); transition: transform 0.3s;
+      animation: floatTerminal 6s ease-in-out infinite alternate;
     }
-    @keyframes floatWidget { 0%, 100% { transform: translateY(0) rotateX(2deg) rotateY(-2deg); } 50% { transform: translateY(-15px) rotateX(-2deg) rotateY(2deg); } }
-    
-    .code-header { background: rgba(0,0,0,0.4); padding: 15px 20px; display: flex; gap: 8px; border-bottom: 1px solid var(--platinum-border); border-radius: 16px 16px 0 0; }
-    .code-dot { width: 12px; height: 12px; border-radius: 50%; }
-    .code-body { padding: 35px 30px; font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.8; color: #e2e8f0; overflow-x: auto; }
-    
-    .c-keyword { color: #c586c0; } .c-func { color: #61afef; } .c-string { color: #98c379; } .c-comment { color: #64748b; font-style: italic; } .c-class { color: #e5c07b; }
+    @keyframes floatTerminal { to { transform: translateY(-20px) rotateY(-5deg) rotateX(5deg); } }
+    .terminal-header { border-bottom: 1px solid var(--neon-magenta); padding-bottom: 10px; margin-bottom: 20px; display: flex; gap: 10px;}
+    .terminal-header span { display: block; width: 12px; height: 12px; border-radius: 50%; background: var(--neon-magenta); }
+    .terminal-header span:nth-child(2) { background: var(--neon-cyan); }
+    .terminal-header span:nth-child(3) { background: var(--neon-green); }
 
     /* =========================================
-       DUAL TECH MARQUEE
+       DYNAMIC MARQUEE
        ========================================= */
-    .marquee-wrapper {
-      position: relative; z-index: 2; padding: 50px 0; background: rgba(2, 8, 23, 0.4); 
-      backdrop-filter: blur(10px); border-top: 1px solid var(--platinum-border); border-bottom: 1px solid var(--platinum-border);
-      display: flex; flex-direction: column; gap: 15px; overflow: hidden;
+    .marquee-container {
+      background: var(--neon-green); padding: 15px 0; transform: rotate(-2deg) scale(1.05);
+      position: relative; z-index: 3; box-shadow: 0 0 20px rgba(57, 255, 20, 0.3); margin: 50px 0;
     }
-    .tech-marquee { width: 100%; white-space: nowrap; overflow: hidden; }
-    .marquee-track { display: inline-block; animation: marqueeScroll 35s linear infinite; }
-    .marquee-track.reverse { animation: marqueeScrollReverse 30s linear infinite; }
-    .marquee-track span { font-weight: 600; color: var(--text-muted); font-size: 1.1rem; margin: 0 40px; text-transform: uppercase; letter-spacing: 3px; transition: color 0.3s; opacity: 0.6;}
-    .marquee-track span:hover { color: #fff; opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.3);}
-    @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    @keyframes marqueeScrollReverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+    .marquee-container.reverse { background: var(--neon-magenta); transform: rotate(2deg) scale(1.05); }
+    .marquee-track { display: flex; width: max-content; animation: scrollMarquee 20s linear infinite; }
+    .marquee-container.reverse .marquee-track { animation-direction: reverse; }
+    .marquee-track span {
+      font-family: var(--font-code); font-size: 1.5rem; font-weight: 900; color: #000; text-transform: uppercase; padding: 0 30px;
+    }
+    @keyframes scrollMarquee { to { transform: translateX(-50%); } }
 
     /* =========================================
-       GLOBAL SECTIONS
+       SECTIONS & CYBER CARDS
        ========================================= */
-    section { position: relative; z-index: 2; padding: 140px 8%; }
-    .small-title { color:var(--primary); letter-spacing:4px; font-weight: 700; margin-bottom:15px; font-size: 0.9rem; text-transform: uppercase;}
-    .grid-layout { display:grid; gap:40px; }
+    section { padding: 120px 8%; position: relative; z-index: 2; }
+    .section-title { font-size: 3rem; text-transform: uppercase; margin-bottom: 50px; text-align: center; }
+    .section-title span { color: var(--neon-cyan); }
     
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    
+    .cyber-card {
+      background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.1); padding: 40px;
+      position: relative; transition: all 0.3s ease;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    }
+    /* Vanilla 3D Tilt effect applied via JS */
+    .cyber-card::before {
+      content: ''; position: absolute; inset: 0; background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+      transform: translateX(-100%); transition: 0.5s; pointer-events: none;
+    }
+    .cyber-card:hover { border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0,255,255,0.2); }
+    .cyber-card:hover::before { transform: translateX(100%); }
+    .cyber-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--neon-cyan); font-family: var(--font-code); }
+    .cyber-card p { color: var(--text-muted); line-height: 1.6; }
+    .cyber-card ul { margin-top: 20px; list-style: none; }
+    .cyber-card li { margin-bottom: 10px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .cyber-card li::before { content: '>'; color: var(--neon-magenta); font-family: var(--font-code); font-weight: bold; }
+
     /* =========================================
-       ABOUT & EXPERTISE
+       PORTFOLIO (Hologram Effect)
        ========================================= */
-    .about-container { display: flex; align-items: center; justify-content: space-between; gap: 80px; max-width: 1200px; margin: 0 auto; }
-    .about-text { flex: 1; }
-    .about-text h2 { font-size: clamp(2.8rem, 4vw, 4rem); margin-bottom: 25px; font-weight: 800; line-height: 1.15;}
-    .about-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 25px; line-height: 1.8; }
-    
-    .about-visual { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; perspective: 1000px;}
-    .glass-card { 
-      background: var(--bg-card); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-      padding: 40px 25px; border-radius: 20px; border: 1px solid var(--platinum-border); 
-      text-align: center; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; overflow: hidden;
+    .hologram-wrapper { position: relative; overflow: hidden; border: 1px solid var(--neon-green); padding: 10px; background: #000; }
+    .hologram-wrapper img { width: 100%; height: 250px; object-fit: cover; filter: grayscale(100%) contrast(1.5); transition: 0.5s; }
+    .hologram-wrapper::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: rgba(57, 255, 20, 0.8);
+      box-shadow: 0 0 10px var(--neon-green); animation: scanline 3s linear infinite; pointer-events: none;
     }
-    .glass-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.3);}
-    .glass-card h4 { font-size: 2.8rem; color: #fff; font-weight: 800; margin-bottom: 8px;}
-    .glass-card span { color: var(--primary); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;}
+    @keyframes scanline { 0% { top: -10%; } 100% { top: 110%; } }
+    .cyber-card:hover .hologram-wrapper img { filter: grayscale(0%) contrast(1); transform: scale(1.05); }
 
     /* =========================================
-       SERVICES
+       PRICING
        ========================================= */
-    .services-header { text-align: center; max-width: 800px; margin: 0 auto 70px; }
-    .services-header h2 { font-size: 3.8rem; margin-bottom: 20px; font-weight: 800; line-height: 1.1;}
-    .services-header p { color: var(--text-muted); font-size: 1.15rem; line-height: 1.8; }
+    .price-amount { font-size: 4rem; font-weight: 900; color: var(--neon-magenta); text-shadow: 0 0 15px rgba(255,0,255,0.5); margin: 20px 0; }
+    .featured-card { border-color: var(--neon-magenta); transform: scale(1.05); box-shadow: 0 0 30px rgba(255,0,255,0.15); }
+    .featured-card .cyber-btn { background: var(--neon-magenta); box-shadow: 0 0 20px rgba(255,0,255,0.4); }
     
-    .marketing-grid { grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-    
-    .service-card { 
-      background: var(--bg-card); backdrop-filter: blur(15px); border:1px solid var(--platinum-border); 
-      border-top: 1px solid rgba(255,255,255,0.2); border-radius:24px; 
-      padding:50px 40px; text-align:left; position: relative; overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
-    }
-    .service-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
-    
-    .service-icon { width: 50px; height: auto; margin-bottom: 25px; color: var(--primary); }
-    .service-card h3 { color:#fff; margin-bottom:15px; font-size:1.6rem; font-weight: 700;}
-    .service-card p { color: var(--text-muted); margin-bottom: 25px; font-size: 1.05rem; line-height: 1.6;}
-    .service-card ul { list-style:none;}
-    .service-card li { color:#e2e8f0; margin-bottom:12px; display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; line-height: 1.5;}
-    .service-card li::before { content:"✓"; color:var(--primary); font-weight: bold; font-size: 1.1rem;}
-
     /* =========================================
-       PORTFOLIO 
+       FORMS & INPUTS
        ========================================= */
-    .portfolio { background: rgba(4, 11, 31, 0.4); }
-    .portfolio-grid { grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; margin-top: 60px;}
-    
-    .work-card { 
-      display: block; text-decoration: none; perspective: 1000px; text-align: center; 
-      transition: transform 0.4s;
+    .cyber-input {
+      width: 100%; padding: 20px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; font-family: var(--font-code); margin-bottom: 20px; outline: none; transition: 0.3s;
     }
-    
-    .monitor-mockup {
-      position: relative; background: #0b1120; padding: 3% 3% 6% 3%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin: 0 auto 30px; 
-      box-shadow: 0 25px 50px rgba(0,0,0,0.5); z-index: 2; transition: box-shadow 0.3s;
-    }
-    .work-card:hover .monitor-mockup { box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 50px rgba(0,102,255,0.15); }
-    .monitor-inner { overflow: hidden; border-radius: 4px; background: #000; position: relative;}
-    .monitor-inner img { display: block; width: 100%; height: 240px; object-fit: cover; object-position: top; transition: object-position 7s ease;}
-    .work-card:hover .monitor-inner img { object-position: bottom;}
-    .monitor-stand { position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 60px; height: 15px; background: linear-gradient(to bottom, #1e293b, #0f172a); clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%); }
-    .monitor-base { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: #475569; border-radius: 2px; }
-    
-    .work-card h3 { color:#fff; margin-bottom:10px; font-size: 1.5rem; font-weight: 700; transition: color 0.3s;}
-    .work-card:hover h3 { color: var(--primary); }
-    .work-card p { color:var(--text-muted); font-size: 1rem; margin-bottom: 20px;}
-    .view-project-btn { display: inline-flex; align-items: center; gap: 8px; color: #fff; font-weight: 600; font-size: 0.95rem; opacity: 0.7; transition: 0.3s;}
-    .work-card:hover .view-project-btn { opacity: 1; gap: 12px; color: var(--primary);}
+    .cyber-input:focus { border-color: var(--neon-green); box-shadow: 0 0 15px rgba(57,255,20,0.2); }
+    textarea.cyber-input { height: 150px; resize: none; }
 
     /* =========================================
-       PRICING & ADDONS
-       ========================================= */
-    .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1200px; margin: 60px auto 0; perspective: 1200px;}
-    .price-card { 
-      flex: 1 1 calc(33% - 40px); min-width: 320px; max-width: 440px; 
-      transform-origin: top center; background:var(--bg-card); backdrop-filter: blur(15px);
-      border:1px solid var(--platinum-border); border-top: 1px solid rgba(255,255,255,0.2); border-radius:24px; padding:50px 45px; text-align: left;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
-    }
-    
-    @keyframes swingDownPlatinum { 0% { opacity: 0; transform: rotateX(-40deg) translateY(-40px); } 100% { opacity: 1; transform: rotateX(0deg) translateY(0); } }
-    .pricing .is-visible .price-card { animation: swingDownPlatinum 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-    .pricing:not(.is-visible) .price-card { animation: none; opacity: 0; transform: rotateX(-40deg); }
-
-    .price-card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px rgba(0,0,0,0.6); border-color: rgba(255,255,255,0.3);}
-    .price-card h3 { font-size:1.8rem; margin-bottom:15px; color: #fff; font-weight: 800;}
-    .price { font-size:4rem; color:var(--primary); margin-bottom:20px; font-weight: 800; letter-spacing: -2px;}
-    .plan-text { color:var(--text-muted); margin-bottom:35px; line-height:1.6; font-size: 1.05rem;}
-    .price-card ul { list-style:none; text-align:left; margin-bottom:45px; }
-    .price-card li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; color: #e2e8f0; font-size: 0.95rem; line-height: 1.4;}
-    .price-card li::before { content:"✓"; color:var(--primary); font-weight:bold; background: rgba(0,102,255,0.1); width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0;}
-    
-    .checkout-btn { display:inline-block; width:100%; padding:20px; background:rgba(255,255,255,0.03); color:#fff; font-weight:700; text-align: center; border: 1px solid var(--platinum-border); border-radius: 30px; transition: 0.3s; cursor: pointer; font-size: 1.05rem;}
-    .checkout-btn:hover { background: #fff; color: #000; }
-    
-    .featured { border:1px solid rgba(0, 102, 255, 0.5); box-shadow: 0 0 50px rgba(0, 102, 255, 0.15); transform: scale(1.05); z-index: 2;}
-    .featured .checkout-btn { background: var(--primary); color: #fff; border: none;}
-    .featured .checkout-btn:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 15px 30px rgba(0,102,255,0.4);}
-    .featured:hover { transform: translateY(-10px) scale(1.05); }
-    .popular { position:absolute; top:-16px; left:50%; transform:translateX(-50%); background:var(--primary); padding:8px 24px; font-size:.85rem; font-weight:700; letter-spacing:1px; color: #fff; border-radius: 30px; text-transform: uppercase;}
-
-    /* Add-ons Section */
-    .addons-wrapper { max-width: 1000px; margin: 80px auto 0; background: var(--bg-card); backdrop-filter: blur(15px); border: 1px solid var(--platinum-border); border-radius: 24px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); text-align: left;}
-    .addons-wrapper h3 { font-size: 2rem; color: #fff; font-weight: 800; margin-bottom: 30px; text-align: center;}
-    .addons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .addon-item { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s ease; cursor: default; }
-    .addon-item:hover { border-bottom-color: var(--primary); transform: translateX(8px); }
-    .addon-name { color: #e2e8f0; font-size: 1.05rem; font-weight: 500; }
-    .addon-price { color: var(--primary); font-family: var(--font-mono); font-weight: 700; font-size: 1.1rem; }
-
-    /* =========================================
-       PROCESS SECTION
-       ========================================= */
-    .process-grid { display: grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); max-width:1200px; margin: 60px auto 0; gap: 40px;}
-    .process-step { padding:50px 30px; background: var(--bg-card); backdrop-filter: blur(10px); border-radius: 24px; border: 1px solid var(--platinum-border); transition: 0.4s; text-align: center;}
-    .process-step:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.3);}
-    .step-number { width:70px; height:70px; margin:0 auto 25px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; color:var(--primary); font-weight:800; font-size:1.5rem; }
-    .process-step h3 { color:#fff; font-size:1.4rem; font-weight:700; margin-bottom: 15px;}
-    .process-step p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;}
-
-    /* =========================================
-       TESTIMONIALS (MOCKUP REVIEWS)
-       ========================================= */
-    .testimonials { background: rgba(4, 11, 31, 0.4); }
-    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 60px;}
-    .testimonial-card { 
-      background: var(--bg-card); backdrop-filter: blur(15px); border: 1px solid var(--platinum-border); 
-      border-radius: 24px; padding: 45px 35px; display: flex; flex-direction: column; justify-content: space-between;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
-    }
-    .testimonial-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.3); }
-    .stars { color: var(--primary); font-size: 1.4rem; margin-bottom: 25px; letter-spacing: 4px; text-shadow: 0 0 10px rgba(0,102,255,0.5);}
-    .testimonial-text { color: #f1f5f9; font-size: 1.1rem; line-height: 1.7; font-style: italic; margin-bottom: 35px; font-weight: 300;}
-    .client-info { display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; }
-    .client-avatar { width: 50px; height: 50px; border-radius: 50%; background: rgba(0,102,255,0.1); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--primary); font-size: 1.2rem; }
-    .client-details h4 { font-size: 1.1rem; color: #fff; margin-bottom: 4px; font-weight: 700;}
-    .client-details span { font-size: 0.9rem; color: var(--text-muted); }
-
-    /* =========================================
-       FAQ SECTION (ACCORDION)
-       ========================================= */
-    .faq-wrapper { max-width: 800px; margin: 60px auto 0; text-align: left;}
-    .faq-item { 
-      background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid var(--platinum-border); 
-      border-radius: 16px; margin-bottom: 20px; overflow: hidden; transition: 0.4s ease;
-    }
-    .faq-question { 
-      padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; 
-      font-weight: 700; color: #fff; font-size: 1.15rem; user-select: none; transition: 0.3s;
-    }
-    .faq-question:hover { color: var(--primary); background: rgba(255,255,255,0.02);}
-    .faq-icon { font-size: 1.5rem; color: var(--primary); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-    .faq-answer { 
-      padding: 0 30px; max-height: 0; opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
-      color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;
-    }
-    .faq-item.active { border-color: rgba(0,102,255,0.4); box-shadow: 0 15px 30px rgba(0,0,0,0.3); background: rgba(0,102,255,0.03);}
-    .faq-item.active .faq-icon { transform: rotate(45deg); }
-    .faq-item.active .faq-answer { padding: 0 30px 25px; max-height: 300px; opacity: 1; }
-
-    /* =========================================
-       CONTACT
-       ========================================= */
-    .contact { background: rgba(4, 11, 31, 0.4); text-align: center;}
-    .contact-form { max-width:800px; margin: 60px auto 0; background:var(--bg-card); backdrop-filter: blur(15px); border:1px solid var(--platinum-border); border-radius:24px; padding:60px; box-shadow:0 20px 50px rgba(0,0,0,0.4); }
-    .contact-form input, .contact-form textarea { width:100%; padding:20px; margin-bottom:20px; border-radius:12px; border:1px solid var(--platinum-border); outline:none; font-size:1.05rem; background: rgba(0,0,0,0.2); color: #fff; transition: 0.3s; font-family: var(--font-sans);}
-    .contact-form input:focus, .contact-form textarea:focus { border-color:var(--primary); background: rgba(0,102,255,0.05);}
-    .contact-form textarea { height:180px; resize:none; }
-    .contact-form button { width: 100%; padding:22px; border:none; border-radius:30px; background:#fff; color:#000; font-weight:800; font-size:1.1rem; cursor:pointer; transition: 0.3s; margin-top: 10px;}
-    .contact-form button:hover { background: var(--primary); color: #fff; box-shadow:0 10px 25px rgba(0,102,255,0.3); transform: translateY(-2px);}
-
-    footer { text-align:center; padding:40px; background:var(--bg-deep); color:var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--platinum-border);}
-
-    /* =========================================
-       PREMIUM STRIPE OVERLAY MODAL
-       ========================================= */
-    .purchase-overlay {
-      position: fixed; inset: 0; background: rgba(2, 8, 23, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      z-index: 100000; display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
-    }
-    .purchase-overlay.active { opacity: 1; pointer-events: auto; }
-    .purchase-modal {
-      background: var(--bg-card); border: 1px solid var(--platinum-border); border-top: 1px solid rgba(255,255,255,0.2);
-      border-radius: 24px; width: 90%; max-width: 500px; padding: 40px; position: relative;
-      transform: translateY(30px) scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-    }
-    .purchase-overlay.active .purchase-modal { transform: translateY(0) scale(1); }
-    .close-modal { position: absolute; top: 20px; right: 25px; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; background: transparent; border: none; transition: 0.3s;}
-    .close-modal:hover { color: #fff; transform: rotate(90deg);}
-    .modal-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--platinum-border);}
-    .modal-header h3 { font-size: 1.8rem; color: #fff; margin-bottom: 5px; font-weight: 800;}
-    .modal-header p { color: var(--text-muted); font-size: 0.95rem;}
-    
-    .secure-checkout-btn { width: 100%; padding:18px; border:none; border-radius:30px; background:var(--primary); color:#fff; font-weight:700; font-size:1.05rem; cursor:pointer; transition: 0.3s; margin-top: 10px;}
-    .secure-checkout-btn:hover { background: var(--primary-hover); box-shadow: 0 10px 20px rgba(0,102,255,0.3); transform: translateY(-2px); }
-    .secure-badge { text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px;}
-
-    /* =========================================
-       MOBILE OPTIMIZATIONS 
+       MOBILE MENU
        ========================================= */
     @media(max-width:900px){
-      nav { padding:20px 5%; }
+      nav { width: 100%; top: 0; border-radius: 0; padding: 15px 20px; }
       .menu-btn { display:block; }
       .nav-links { 
-        position:absolute; top:80px; left:5%; width:90%; flex-direction:column; 
-        background:rgba(10, 15, 35, 0.95); backdrop-filter: blur(20px); border:1px solid var(--platinum-border); border-radius: 16px;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-        opacity: 0; pointer-events: none; transform: translateY(-10px); transition: all 0.3s ease;
+        position:absolute; top:100%; left:0; width:100%; flex-direction:column; 
+        background:var(--bg-dark); border-bottom: 2px solid var(--neon-cyan);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: 0.4s ease-in-out;
       }
-      .nav-links.active { opacity: 1; pointer-events: auto; transform: translateY(0); display: flex !important;}
-      .nav-links a { padding:20px; width: 100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.05); }
-      .system-status { display: none; }
-      
-      .hero { flex-direction: column; padding-top: 150px; text-align: center;}
-      .hero-content-left h1 { font-size:3rem; }
-      .ide-wrapper { width: 100%; max-width: 100%; }
-      .floating-code { animation: none; transform: none !important;}
-      
-      .about-container { flex-direction: column; text-align: center; }
-      .about-visual { margin-top: 40px; }
-      .services-header h2, .pricing h2, .portfolio h2, .process h2 { font-size:2.8rem; }
-      .contact-form { padding: 40px 20px; }
-      .faq-question { font-size: 1rem; padding: 20px; }
-      .addons-grid { grid-template-columns: 1fr; }
+      .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+      .nav-links a { padding:20px; border-bottom:1px solid rgba(255,255,255,0.05); text-align: center; }
+      .hero { flex-direction: column; text-align: center; padding-top: 150px;}
+      .terminal-wrapper { width: 100%; }
+      .featured-card { transform: scale(1); }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-mesh"></div>
+  <div class="cyber-grid"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-box"></div>
 
-  <div class="custom-cursor"></div>
-  <div class="custom-cursor-ring"></div>
+  <nav id="navbar">
+    <div class="logo">Moxi<span>.</span>Corp</div>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">Core</a>
+      <a href="#services">Systems</a>
+      <a href="#portfolio">Deployments</a>
+      <a href="#pricing">Access</a>
+      <a href="#contact">Interface</a>
+    </div>
+  </nav>
 
   <header class="hero" id="home">
-    <nav id="navbar">
-      <div class="logo">Moxi Corp Studio<span>.</span></div>
-      
-      <div class="system-status">
-        <div class="status-dot"></div>
-        Accepting New Clients
-      </div>
-
-      <button class="menu-btn" id="menuBtn">☰</button>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">Expertise</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Work</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-
-    <div class="hero-content-left reveal-left">
-      <h1 class="platinum-heading">We Build Websites<br>That <span id="typewriter"></span><span class="type-cursor"></span></h1>
-      <p>Premium digital experiences engineered for ambitious brands. We fuse high-end design with flawless code to scale your business and dominate your market.</p>
-      <a href="#about" class="hero-btn" id="magneticBtn">DISCOVER EXCELLENCE</a>
+    <div class="hero-content reveal-slide-up">
+      <h1 class="glitch" data-text="We Build Digital Dominance.">We Build Digital Dominance.</h1>
+      <p>> STATUS: ACCEPTING NEW TARGETS_<br>> SPECIALTY: HIGH-OCTANE WEB ARCHITECTURE_<br>> OBJECTIVE: MAXIMIZE YOUR REVENUE_</p>
+      <a href="#pricing" class="cyber-btn">INITIALIZE_SEQUENCE</a>
     </div>
 
-    <div class="ide-wrapper reveal-right">
-      <div class="floating-code" id="interactiveIde">
-        <div class="code-header">
-          <div class="code-dot" style="background:#ff5f56"></div>
-          <div class="code-dot" style="background:#ffbd2e"></div>
-          <div class="code-dot" style="background:#27c93f"></div>
-        </div>
-        <div class="code-body">
-<pre><code><span class="c-comment">// Initialize Premium Architecture</span>
-<span class="c-keyword">import</span> { <span class="c-class">DigitalExperience</span> } <span class="c-keyword">from</span> <span class="c-string">'@moxicorp/studio'</span>;
-
-<span class="c-keyword">const</span> <span class="c-func">elevateBrand</span> = <span class="c-keyword">async</span> () => {
-  <span class="c-keyword">const</span> project = <span class="c-keyword">await</span> <span class="c-class">DigitalExperience</span>.<span class="c-func">build</span>({
-    aesthetics: <span class="c-string">'Platinum_Tier'</span>,
-    performance: <span class="c-string">'Sub-second Load'</span>,
-    conversion: <span class="c-string">'Maximized'</span>
-  });
-
-  <span class="c-keyword">return</span> project.<span class="c-func">launch</span>();
-};</code></pre>
-        </div>
+    <div class="terminal-wrapper reveal-zoom">
+      <div class="terminal" id="interactiveTerminal">
+        <div class="terminal-header"><span></span><span></span><span></span></div>
+        <div id="typewriterCode"></div>
       </div>
     </div>
   </header>
 
-  <div class="marquee-wrapper reveal">
-    <div class="tech-marquee">
-      <div class="marquee-track">
-        <span>React.js</span> <span>Next.js</span> <span>Premium UI</span> <span>Framer Motion</span> <span>SEO Architecture</span> <span>Stripe Integration</span> <span>Vercel</span>
-        <span>React.js</span> <span>Next.js</span> <span>Premium UI</span> <span>Framer Motion</span> <span>SEO Architecture</span> <span>Stripe Integration</span> <span>Vercel</span>
-      </div>
-    </div>
-    <div class="tech-marquee">
-      <div class="marquee-track reverse">
-        <span>E-Commerce</span> <span>Tailwind CSS</span> <span>Web Analytics</span> <span>Lead Generation</span> <span>Copywriting</span> <span>TypeScript</span> <span>Node.js</span>
-        <span>E-Commerce</span> <span>Tailwind CSS</span> <span>Web Analytics</span> <span>Lead Generation</span> <span>Copywriting</span> <span>TypeScript</span> <span>Node.js</span>
-      </div>
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <span>React.js</span><span>Next.js</span><span>GSAP</span><span>WebGL</span><span>Three.js</span><span>Stripe</span><span>Vercel</span>
+      <span>React.js</span><span>Next.js</span><span>GSAP</span><span>WebGL</span><span>Three.js</span><span>Stripe</span><span>Vercel</span>
     </div>
   </div>
 
-  <section id="about">
-    <div class="about-container">
-      <div class="about-text reveal-left">
-        <p class="small-title">Our Philosophy</p>
-        <h2 class="platinum-heading">Engineering the Web,<br>Empowering Brands.</h2>
-        <p>Your website is your most valuable digital asset. A slow, outdated, or confusing site hemorrhages revenue every single day. At Moxi Corp Studio, operating out of Donnybrook, Victoria, we believe in building web applications that solve this exact problem.</p>
-        <p>We do not use generic templates or bloated site builders. Every pixel, every animation, and every line of code is bespoke. We partner with visionaries to craft meticulous, lightning-fast digital environments that command authority and convert passive visitors into high-paying clients.</p>
-      </div>
-      <div class="about-visual reveal-right">
-        <div class="glass-card" style="transform: translateY(20px);">
-          <h4>99%</h4>
-          <span>Lighthouse Score</span>
-        </div>
-        <div class="glass-card">
-          <h4>0.5s</h4>
-          <span>Avg. Load Time</span>
-        </div>
-        <div class="glass-card" style="transform: translateY(20px);">
-          <h4>10x</h4>
-          <span>SEO Visibility</span>
-        </div>
-        <div class="glass-card">
-          <h4>24/7</h4>
-          <span>Uptime Reliability</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="services">
-    <div class="services-header reveal-scale">
-      <p class="small-title">Premium Services</p>
-      <h2 class="platinum-heading">Digital Excellence</h2>
-      <p>We deploy high-converting digital ecosystems designed to capture attention, build instant trust, and scale your operations exponentially. Here is how we do it.</p>
-    </div>
-    <div class="grid-layout marketing-grid">
-      <div class="service-card reveal">
-        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <h3>Bespoke Web Design</h3>
-        <p>Pixel-perfect, conversion-optimized interfaces that command authority and reflect the true value of your brand.</p>
+    <h2 class="section-title glitch">Core <span>Systems</span></h2>
+    <div class="grid-3">
+      <div class="cyber-card tilt-card reveal-slide-up">
+        <h3>01 // UI_ARCHITECTURE</h3>
+        <p>Pixel-perfect, hyper-optimized interfaces that command authority and shatter industry standards.</p>
         <ul>
-          <li>High-End UI/UX Architecture</li>
-          <li>Responsive Mobile Interfaces</li>
-          <li>Interactive 3D Elements & Animations</li>
+          <li>Kinetic Interactions</li>
+          <li>Mobile-First Builds</li>
+          <li>3D & WebGL Integration</li>
         </ul>
       </div>
-      <div class="service-card reveal" style="transition-delay: 0.1s;">
-        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><path d="M11 7v8M8 11h6"></path></svg>
-        <h3>Technical SEO</h3>
-        <p>Clean architecture and deep technical optimization designed to dominate Google search results and drive organic traffic.</p>
+      <div class="cyber-card tilt-card reveal-slide-up" style="transition-delay: 0.1s;">
+        <h3>02 // ALGORITHM_SEO</h3>
+        <p>We manipulate search engine parameters to ensure your digital asset dominates organic rankings.</p>
         <ul>
-          <li>Advanced On-Page Audits</li>
-          <li>Competitive Keyword Strategies</li>
-          <li>Google Ecosystem Integration</li>
+          <li>Deep Audit Execution</li>
+          <li>Data-Driven Keywords</li>
+          <li>Sub-second Indexing</li>
         </ul>
       </div>
-      <div class="service-card reveal" style="transition-delay: 0.2s;">
-        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        <h3>Conversion Copywriting</h3>
-        <p>Psychology-driven narratives and precise wording that converts passive readers into active, engaged buyers.</p>
+      <div class="cyber-card tilt-card reveal-slide-up" style="transition-delay: 0.2s;">
+        <h3>03 // PSYCHO_COPY</h3>
+        <p>Persuasive narrative protocols designed to hack human psychology and force conversions.</p>
         <ul>
-          <li>Brand Voice & Identity Development</li>
-          <li>Persuasive Sales & Landing Page Copy</li>
-          <li>Strategic Content Marketing</li>
+          <li>Brand Identity Systems</li>
+          <li>High-Conversion Landing Pages</li>
+          <li>Aggressive Content Marketing</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="portfolio" id="portfolio">
-    <div class="services-header reveal-scale">
-      <p class="small-title">Our Portfolio</p>
-      <h2 class="platinum-heading">Architected Brilliance</h2>
-      <p>Explore a selection of our recent premium digital deployments. Click any project to view the live site.</p>
+  <div class="marquee-container reverse">
+    <div class="marquee-track">
+      <span>E-Commerce</span><span>Lead Gen</span><span>System Architecture</span><span>Cyber Security</span><span>Data Scraping</span>
+      <span>E-Commerce</span><span>Lead Gen</span><span>System Architecture</span><span>Cyber Security</span><span>Data Scraping</span>
     </div>
-    <div class="grid-layout portfolio-grid">
-      <a href="https://www.moxicleaningco.com.au/" target="_blank" class="work-card reveal">
-        <div class="monitor-mockup interactive-monitor">
-          <div class="monitor-inner"><img src="/images/Web1.png" alt="Moxi Cleaning Co. Website"></div>
-          <div class="monitor-stand"></div><div class="monitor-base"></div>
-        </div>
-        <h3>Moxi Cleaning Co.</h3>
-        <p>Premium local service platform with a high-converting booking flow.</p>
-        <span class="view-project-btn">View Live Project &rarr;</span>
-      </a>
+  </div>
+
+  <section id="portfolio">
+    <h2 class="section-title glitch">Live <span>Deployments</span></h2>
+    <div class="grid-3">
       
-      <a href="https://addz89.github.io/MKD_PUN1SH3R.github.io/#" target="_blank" class="work-card reveal" style="transition-delay: 0.1s;">
-        <div class="monitor-mockup interactive-monitor">
-          <div class="monitor-inner"><img src="/images/Web3.png" alt="MKD_PUN1SH3R Website"></div>
-          <div class="monitor-stand"></div><div class="monitor-base"></div>
+      <a href="https://www.moxicleaningco.com.au/" target="_blank" style="text-decoration: none;">
+        <div class="cyber-card tilt-card reveal-zoom">
+          <div class="hologram-wrapper">
+            <img src="/images/Web1.png" alt="Moxi Cleaning Co." onerror="this.src='https://via.placeholder.com/400x250/050505/39ff14?text=IMAGE_NOT_FOUND'">
+          </div>
+          <h3 style="margin-top: 20px;">MOXI CLEANING CO.</h3>
+          <p>Local service platform engineered for extreme lead capture.</p>
         </div>
-        <h3>Streaming</h3>
-        <p>Dynamic gaming and streaming profile with interactive UI elements.</p>
-        <span class="view-project-btn">View Live Project &rarr;</span>
       </a>
 
-      <a href="https://addz89.github.io/" target="_blank" class="work-card reveal" style="transition-delay: 0.2s;">
-        <div class="monitor-mockup interactive-monitor">
-          <div class="monitor-inner"><img src="/images/Web2.png" alt="Developer Portfolio Website"></div>
-          <div class="monitor-stand"></div><div class="monitor-base"></div>
+      <a href="https://addz89.github.io/MKD_PUN1SH3R.github.io/#" target="_blank" style="text-decoration: none;">
+        <div class="cyber-card tilt-card reveal-zoom" style="transition-delay: 0.1s;">
+          <div class="hologram-wrapper">
+            <img src="/images/Web3.png" alt="Streaming UI" onerror="this.src='https://via.placeholder.com/400x250/050505/39ff14?text=IMAGE_NOT_FOUND'">
+          </div>
+          <h3 style="margin-top: 20px;">STREAMING HUB</h3>
+          <p>Dynamic gaming interface with active user telemetry.</p>
         </div>
-        <h3>Lead Developer Portfolio</h3>
-        <p>Personal showcase of advanced web architecture and code execution.</p>
-        <span class="view-project-btn">View Live Project &rarr;</span>
-      </a>
-    
-
-      <a href="https://addz89.github.io/Moxirealestate_template/" target="_blank" class="work-card reveal" style="transition-delay: 0.2s;">
-        <div class="monitor-mockup interactive-monitor">
-          <div class="monitor-inner"><img src="/images/web5.png" alt="Developer Portfolio Website"></div>
-          <div class="monitor-stand"></div><div class="monitor-base"></div>
-        </div>
-        <h3>Real Estate</h3>
-        <p>Immersive property showcase engineered for seamless browsing and high-converting lead generation.</p>
-        <span class="view-project-btn">View Live Project &rarr;</span>
-      </a>
-    
-
-      <a href="https://addz89.github.io/clothingbrand_template/" target="_blank" class="work-card reveal" style="transition-delay: 0.2s;">
-        <div class="monitor-mockup interactive-monitor">
-          <div class="monitor-inner"><img src="/images/web6.png" alt="Developer Portfolio Website"></div>
-          <div class="monitor-stand"></div><div class="monitor-base"></div>
-        </div>
-        <h3>Clothing Brand</h3>
-        <p>Premium retail environment featuring intuitive navigation and a seamless mobile shopping experience.</p>
-        <span class="view-project-btn">View Live Project &rarr;</span>
       </a>
 
-      <a href="https://addz89.github.io/Photography_template/" target="_blank" class="work-card reveal" style="transition-delay: 0.2s;">
-        <div class="monitor-mockup interactive-monitor">
-          <div class="monitor-inner"><img src="/images/web7.png" alt="Developer Portfolio Website"></div>
-          <div class="monitor-stand"></div><div class="monitor-base"></div>
+      <a href="https://addz89.github.io/clothingbrand_template/" target="_blank" style="text-decoration: none;">
+        <div class="cyber-card tilt-card reveal-zoom" style="transition-delay: 0.2s;">
+          <div class="hologram-wrapper">
+            <img src="/images/web6.png" alt="Retail UI" onerror="this.src='https://via.placeholder.com/400x250/050505/39ff14?text=IMAGE_NOT_FOUND'">
+          </div>
+          <h3 style="margin-top: 20px;">RETAIL_PROTOCOL</h3>
+          <p>E-commerce environment built for frictionless transactions.</p>
         </div>
-        <h3>Photography Profile</h3>
-        <p>Premium retail environment featuring intuitive navigation and a seamless mobile shopping experience.</p>
-        <span class="view-project-btn">View Live Project &rarr;</span>
       </a>
 
     </div>
-
   </section>
 
-  
-
-  <section class="pricing reveal" id="pricing">
-    <div class="services-header reveal-scale">
-      <p class="small-title">Investment Plans</p>
-      <h2 class="platinum-heading">Transparent Value</h2>
-      <p>Premium web assets designed to scale your revenue. No hidden fees. Exceptional quality delivered on time.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <h3>Starter Pack</h3>
-        <div class="price">$599</div>
-        <p class="plan-text">Perfect for emerging businesses establishing a premium, foundational digital footprint that demands respect.</p>
+  <section id="pricing">
+    <h2 class="section-title glitch">System <span>Access</span></h2>
+    <div class="grid-3">
+      <div class="cyber-card tilt-card reveal-slide-up">
+        <h3>STARTER_NODE</h3>
+        <div class="price-amount">$599</div>
+        <p>Base-level architecture for emerging entities needing a lethal digital presence.</p>
         <ul>
-          <li>3 Page Custom Design & Layout</li>
-          <li>Flawless Mobile & Tablet Architecture</li>
-          <li>Core SEO Technical Fundamentals</li>
-          <li>Secure Lead Generation Integration</li>
-          <li>Fast Global CDN Hosting Setup</li>
+          <li>3 Static Pathways (Pages)</li>
+          <li>Responsive Grid Framework</li>
+          <li>Base SEO Protocols</li>
         </ul>
-        <button class="checkout-btn" onclick="openCheckout('Starter Pack', 599)">Start Your Build</button>
-      </div>
-
-      <div class="price-card featured">
-        <div class="popular">Most Popular</div>
-        <h3>Growth Pack</h3>
-        <div class="price">$849</div>
-        <p class="plan-text">Engineered for established brands demanding aggressive online scaling, deeper functionality, and market dominance.</p>
-        <ul>
-          <li>Up to 9 Pages Comprehensive Build</li>
-          <li>Advanced SEO & Keyword Integration</li>
-          <li>Google Analytics & Pixel Ecosystem Sync</li>
-          <li>Sub-second Asset Load Optimization</li>
-          <li>Custom Scroll Animations & 3D Elements</li>
-          <li>Priority 24/7 Developer Support</li>
-        </ul>
-        <button class="checkout-btn" onclick="openCheckout('Growth Pack', 849)">Initialize Project</button>
+        <button class="cyber-btn" style="width: 100%; margin-top: 20px; text-align: center;">EXECUTE</button>
       </div>
       
-      <div class="price-card">
-        <h3>Elite Pack</h3>
-        <div class="price">$1159</div>
-        <p class="plan-text">The ultimate digital powerhouse for market leaders and high-volume operations requiring advanced architecture.</p>
+      <div class="cyber-card tilt-card featured-card reveal-slide-up" style="transition-delay: 0.1s;">
+        <h3>GROWTH_MATRIX</h3>
+        <div class="price-amount">$849</div>
+        <p>High-volume data processing and advanced interface dynamics for aggressive scaling.</p>
         <ul>
-          <li>Unlimited Page Architecture</li>
-          <li>Bespoke Web Application Features</li>
-          <li>Complete CRM & Payment Integration</li>
-          <li>Advanced Security & Compliance</li>
-          <li>Ongoing Platinum Retainer Access</li>
-          <li>Dedicated Account Management</li>
+          <li>9 Dynamic Pathways</li>
+          <li>Advanced Kinetic Animations</li>
+          <li>Analytics Telemetry Sync</li>
+          <li>Sub-second Load Priority</li>
         </ul>
-        <button class="checkout-btn" onclick="openCheckout('Elite Pack', 1159)">Start Your Build</button>
+        <button class="cyber-btn" style="width: 100%; margin-top: 20px; text-align: center;">EXECUTE</button>
       </div>
-    </div>
-    
-    <div class="addons-wrapper reveal-scale">
-      <h3>Optional Enhancements</h3>
-      <div class="addons-grid">
-        <div class="addon-item">
-          <span class="addon-name">Priority Developer Retainer (1st Year)</span>
-          <span class="addon-price">$350</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Ongoing Maintenance & Security Plan</span>
-          <span class="addon-price">$150/yr</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Custom Engineered Page (Per Page)</span>
-          <span class="addon-price">$80</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Asset Optimization & Integration</span>
-          <span class="addon-price">$15</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">AI Copywriting & Asset Generation</span>
-          <span class="addon-price">$80</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">SEO-Optimized Copywriting (Per Page)</span>
-          <span class="addon-price">$120</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Custom CMS Integration</span>
-          <span class="addon-price">$150</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Google Business Profile Setup</span>
-          <span class="addon-price">$150</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Google Analytics Integration</span>
-          <span class="addon-price">$75</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Google Search Console Setup</span>
-          <span class="addon-price">$75</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Dynamic Photo Gallery (20 Assets)</span>
-          <span class="addon-price">$30</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Interactive Hero Slider (5 Assets)</span>
-          <span class="addon-price">$30</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Professional Workspace Email</span>
-          <span class="addon-price">$5/mo</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Floating 'Call Now' CTA</span>
-          <span class="addon-price">$10</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Custom Inquiry Form</span>
-          <span class="addon-price">$20</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Advanced Logic Order Form</span>
-          <span class="addon-price">$60</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Brand Identity / Logo Design</span>
-          <span class="addon-price">$150</span>
-        </div>
-        <div class="addon-item">
-          <span class="addon-name">Custom Digital Banner Design</span>
-          <span class="addon-price">$150</span>
-        </div>
+
+      <div class="cyber-card tilt-card reveal-slide-up" style="transition-delay: 0.2s;">
+        <h3>ELITE_MAINFRAME</h3>
+        <div class="price-amount">$1159</div>
+        <p>Unrestricted system access. Full web application features and unlimited scaling.</p>
+        <ul>
+          <li>Unlimited Pathways</li>
+          <li>Custom CRM Database Sync</li>
+          <li>Payment Gateway Protocols</li>
+          <li>24/7 Priority Support Node</li>
+        </ul>
+        <button class="cyber-btn" style="width: 100%; margin-top: 20px; text-align: center;">EXECUTE</button>
       </div>
     </div>
   </section>
 
-  <section id="process">
-    <div class="services-header reveal-scale">
-      <p class="small-title">Our Methodology</p>
-      <h2 class="platinum-heading">The Blueprint</h2>
-      <p>A proven, four-step systematic approach to bringing your digital vision from concept to a live, revenue-generating reality.</p>
-    </div>
-    <div class="process-grid">
-      <div class="process-step reveal">
-        <div class="step-number">01</div>
-        <h3>Discovery</h3>
-        <p>We start with a deep dive into your brand. We analyze your target market, define your core goals, and map out a comprehensive technical strategy.</p>
-      </div>
-      <div class="process-step reveal" style="transition-delay: 0.1s;">
-        <div class="step-number">02</div>
-        <h3>Architecture</h3>
-        <p>Our designers craft high-end UI/UX wireframes and visual systems, ensuring the user journey is intuitive, engaging, and geared toward conversion.</p>
-      </div>
-      <div class="process-step reveal" style="transition-delay: 0.2s;">
-        <div class="step-number">03</div>
-        <h3>Development</h3>
-        <p>We write clean, bespoke code. Using modern frameworks, we ensure flawless cross-device performance, security, and lightning-fast load times.</p>
-      </div>
-      <div class="process-step reveal" style="transition-delay: 0.3s;">
-        <div class="step-number">04</div>
-        <h3>Launch</h3>
-        <p>After rigorous QA testing and SEO indexing, we push your new digital asset to live production servers. Your new era begins.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonials" id="testimonials">
-    <div class="services-header reveal-scale">
-      <p class="small-title">Client Success</p>
-      <h2 class="platinum-heading">What Our Partners Say</h2>
-      <p>Don't just take our word for it. Here is what leading visionaries have to say about partnering with Moxi Corp Studio.</p>
-    </div>
-    <div class="testimonial-grid">
-      <div class="testimonial-card reveal">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Moxi Corp completely transformed our online presence. The new architecture is incredibly fast, looks absolutely premium, and we've seen a 40% increase in qualified inbound leads within the first month alone."</p>
+  <section id="contact">
+    <h2 class="section-title glitch">Open <span>Comm-Link</span></h2>
+    <div style="max-width: 800px; margin: 0 auto;" class="reveal-zoom">
+      <form action="#" method="POST" onsubmit="event.preventDefault();">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <input type="text" class="cyber-input" placeholder="> DESIGNATION (NAME) _" required>
+          <input type="email" class="cyber-input" placeholder="> COMM_CHANNEL (EMAIL) _" required>
         </div>
-        <div class="client-info">
-          <div class="client-avatar">JD</div>
-          <div class="client-details">
-            <h4>Jonathan Davis</h4>
-            <span>Founder, Vertex Capital</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal" style="transition-delay: 0.1s;">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Working with this studio was a flawless experience. They understood our brand vision immediately and engineered a frictionless e-commerce platform ahead of schedule. Highly recommended for any scaling brand."</p>
-        </div>
-        <div class="client-info">
-          <div class="client-avatar">SJ</div>
-          <div class="client-details">
-            <h4>Sarah Jenkins</h4>
-            <span>Operations Director, Nova E-Com</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal" style="transition-delay: 0.2s;">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The attention to detail and modern design approach is unmatched. Not only does the site look gorgeous on mobile, but their underlying SEO implementation got us ranking on page one faster than we thought possible."</p>
-        </div>
-        <div class="client-info">
-          <div class="client-avatar">MR</div>
-          <div class="client-details">
-            <h4>Marcus Rowe</h4>
-            <span>CEO, Lumina Tech</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="services-header reveal-scale" style="margin-bottom: 30px;">
-      <p class="small-title">Common Inquiries</p>
-      <h2 class="platinum-heading">Frequently Asked Questions</h2>
-    </div>
-    <div class="faq-wrapper">
-      <div class="faq-item reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          How long does a typical website build take?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>For a Startup Identity build, expect a turnaround of 2-3 weeks. Growth Engine projects typically require 4-6 weeks to ensure meticulous engineering, comprehensive SEO implementation, and rigorous Quality Assurance testing across all devices.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal" style="transition-delay: 0.1s;">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Do you use pre-made templates like WordPress or Wix?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Absolutely not. We engineer bespoke digital assets. Relying on bloated site-builders drastically hurts your load times and SEO rankings. We write custom code to guarantee sub-second load speeds and absolute control over the user experience.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal" style="transition-delay: 0.2s;">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Will my new website be optimized for Google Search?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes. Technical SEO is foundational to our architecture, not an afterthought. We ensure blazing-fast server speeds, semantic HTML structuring, optimized core web vitals, and proper meta data integration to give you an immediate edge in search rankings.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal" style="transition-delay: 0.3s;">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Do you offer ongoing support after the site launches?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes. Once your digital asset is successfully deployed, we offer exclusive, dedicated retainer packages for our clients. This includes continuous performance optimization, robust security patching, content updates, and feature scaling as your business grows.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="services-header reveal-scale">
-      <p class="small-title">Let's Collaborate</p>
-      <h2 class="platinum-heading">Start Your Journey</h2>
-      <p>Ready to elevate your brand? Send us your project details and our lead developers will get back to you within 24 hours.</p>
-    </div>
-    <form class="contact-form reveal" action="#" method="POST" onsubmit="event.preventDefault();">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <input type="text" name="name" placeholder="Full Name *" required>
-        <input type="email" name="email" placeholder="Corporate Email *" required>
-      </div>
-      <input type="tel" name="phone" placeholder="Contact Number *" required>
-      <textarea name="message" placeholder="Describe your project goals, current challenges, and requirements..." required></textarea>
-      <button type="submit">SEND INQUIRY</button>
-    </form>
-  </section>
-  <section class="newsletter reveal" id="newsletter">
-    <div class="newsletter-container">
-      <h2 class="platinum-heading">Join the Inner Circle</h2>
-      <p>Get exclusive insights on web architecture, conversion optimization, and digital scaling delivered straight to your inbox.</p>
-      
-      <!-- Notice the Formspree Action URL -->
-      <form class="newsletter-form" action="https://formspree.io/f/xvzjprdv" method="POST">
-        <!-- This hidden input tells Formspree the email is specifically for the Newsletter -->
-        <input type="hidden" name="_subject" value="New Newsletter Subscriber!">
-        <input type="email" name="email" placeholder="Enter your corporate email" required>
-        <button type="submit">SUBSCRIBE</button>
+        <textarea class="cyber-input" placeholder="> TRANSMIT_DIRECTIVES (PROJECT DETAILS) _" required></textarea>
+        <button type="submit" class="cyber-btn" style="width: 100%;">TRANSMIT DATA</button>
       </form>
     </div>
   </section>
 
-<footer>
-    © 2026 Moxi Corp Studio. Based in Donnybrook, VIC. Premium Digital Architecture. <br><br>
-    Email: support@moxicorpstudio.com.au | <a href="privacy-policy.html" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted); padding-bottom: 2px; transition: 0.3s;">Privacy Policy</a>
+  <footer style="text-align: center; padding: 40px; border-top: 1px solid rgba(0,255,255,0.2); background: var(--bg-dark); font-family: var(--font-code); font-size: 0.9rem;">
+    <p>END_OF_LINE // © 2026 MOXI CORP STUDIO. LOC: DONNYBROOK, VIC.</p>
   </footer>
-
-  <!-- PREMIUM STRIPE CHECKOUT OVERLAY -->
-  <div class="purchase-overlay" id="purchaseModal">
-    <div class="purchase-modal">
-      <button class="close-modal" onclick="closeCheckout()">✕</button>
-      <div class="modal-header">
-        <h3 id="checkoutPackageName">Package Name</h3>
-        <p>Total Investment: $<span id="checkoutPrice">0</span> AUD</p>
-      </div>
-      
-      <div style="text-align: center; padding: 20px 0;">
-        <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; font-size: 1.05rem;">You are about to be securely redirected to our encrypted Stripe payment gateway to finalize your investment.</p>
-        
-        <button onclick="redirectToStripe()" class="secure-checkout-btn">Proceed to Secure Checkout &rarr;</button>
-        
-        <div class="secure-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          256-bit SSL Secure Encryption via Stripe
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script>
     // ==========================================
-    // CHECKOUT MODAL & STRIPE REDIRECT LOGIC
+    // KINETIC CURSOR
     // ==========================================
-    const modal = document.getElementById('purchaseModal');
-    let currentPackage = '';
-
-    // IMPORTANT: Replace these URLs with your actual Stripe Payment Links!
-    const stripeLinks = {
-      'Starter Pack': 'https://buy.stripe.com/4gM7sLgm66xC56x7YNfIs00',
-      'Growth Pack': 'https://buy.stripe.com/5kQ28r6Lw2hm56x3IxfIs01',
-      'Elite Pack': 'https://buy.stripe.com/6oUcN58TE9JO1UlfrffIs02'
-    };
-
-    function openCheckout(packageName, price) {
-      currentPackage = packageName;
-      document.getElementById('checkoutPackageName').innerText = packageName;
-      document.getElementById('checkoutPrice').innerText = price;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; 
-    }
-
-    function closeCheckout() {
-      modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
-    function redirectToStripe() {
-      const paymentUrl = stripeLinks[currentPackage];
-      if (paymentUrl && paymentUrl.includes('buy.stripe.com')) {
-        window.location.href = paymentUrl; 
-      } else {
-        alert("Action Required: Please update the JavaScript in this file with your real Stripe Payment Link URLs.");
-      }
-    }
-
-    modal.addEventListener('click', (e) => { if(e.target === modal) closeCheckout(); });
-
-    // ==========================================
-    // FAQ ACCORDION LOGIC
-    // ==========================================
-    function toggleFaq(element) {
-      const item = element.parentElement;
-      const isActive = item.classList.contains('active');
-      
-      // Close all other FAQs
-      document.querySelectorAll('.faq-item').forEach(faq => { 
-        faq.classList.remove('active');
-        faq.querySelector('.faq-icon').innerText = '+';
-      });
-
-      // If it wasn't active, open it
-      if (!isActive) {
-        item.classList.add('active');
-        element.querySelector('.faq-icon').innerText = '×';
-      }
-    }
-
-    // ==========================================
-    // TYPEWRITER EFFECT
-    // ==========================================
-    const words = ["Elevate Brands.", "Drive Revenue.", "Inspire Trust.", "Scale Globally."];
-    let i = 0; let j = 0; let isDeleting = false;
-    
-    function typeWriter() {
-      const currentWord = words[i];
-      if(isDeleting) {
-        document.getElementById('typewriter').textContent = currentWord.substring(0, j-1);
-        j--;
-      } else {
-        document.getElementById('typewriter').textContent = currentWord.substring(0, j+1);
-        j++;
-      }
-
-      if(!isDeleting && j === currentWord.length) {
-        isDeleting = true; setTimeout(typeWriter, 2000);
-      } else if(isDeleting && j === 0) {
-        isDeleting = false; i = (i + 1) % words.length; setTimeout(typeWriter, 500);
-      } else {
-        setTimeout(typeWriter, isDeleting ? 40 : 80);
-      }
-    }
-    document.addEventListener("DOMContentLoaded", typeWriter);
-
-
-    // ==========================================
-    // SMOOTH CUSTOM CURSOR & MAGNETIC BUTTON
-    // ==========================================
-    const cursor = document.querySelector('.custom-cursor');
-    const ring = document.querySelector('.custom-cursor-ring');
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorBox = document.querySelector('.cursor-box');
+    let mouseX = 0, mouseY = 0, boxX = 0, boxY = 0;
 
     document.addEventListener('mousemove', (e) => {
       if(window.innerWidth > 900) {
         mouseX = e.clientX; mouseY = e.clientY;
-        cursor.style.left = mouseX + 'px'; cursor.style.top = mouseY + 'px';
+        cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`;
       }
     });
 
-    function animateCursorRing() {
+    function animateBox() {
       if(window.innerWidth > 900) {
-        ringX += (mouseX - ringX) * 0.15;
-        ringY += (mouseY - ringY) * 0.15;
-        ring.style.left = ringX + 'px';
-        ring.style.top = ringY + 'px';
+        boxX += (mouseX - boxX) * 0.15;
+        boxY += (mouseY - boxY) * 0.15;
+        cursorBox.style.left = `${boxX}px`; cursorBox.style.top = `${boxY}px`;
       }
-      requestAnimationFrame(animateCursorRing);
+      requestAnimationFrame(animateBox);
     }
-    animateCursorRing();
-
-    const magneticBtn = document.getElementById('magneticBtn');
-    magneticBtn.addEventListener('mousemove', (e) => {
-      const rect = magneticBtn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      magneticBtn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-    });
-    magneticBtn.addEventListener('mouseleave', () => {
-      magneticBtn.style.transform = `translate(0px, 0px)`;
-    });
-
+    animateBox();
 
     // ==========================================
-    // 3D INTERACTIVE PHYSICS (IDE ONLY)
+    // VANILLA 3D CARD TILT EFFECT
     // ==========================================
-    const interactiveIde = document.getElementById('interactiveIde');
-
-    document.addEventListener('mousemove', (e) => {
-      if(window.innerWidth > 900) {
-        const xAxis = (window.innerWidth / 2 - e.pageX) / 45;
-        const yAxis = (window.innerHeight / 2 - e.pageY) / 45;
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
         
-        if(interactiveIde) {
-          interactiveIde.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        }
-      }
-    });
-
-
-    // ==========================================
-    // NAV BLUR & MOBILE MENU
-    // ==========================================
-    const navbar = document.getElementById("navbar");
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-    const links = document.querySelectorAll(".nav-links a");
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) { navbar.classList.add('scrolled'); } 
-      else { navbar.classList.remove('scrolled'); }
-    });
-
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-
-    links.forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
+        const rotateX = ((y - centerY) / centerY) * -15; // Max 15 deg tilt
+        const rotateY = ((x - centerX) / centerX) * 15;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       });
     });
 
+    // ==========================================
+    // TERMINAL TYPEWRITER EFFECT
+    // ==========================================
+    const terminalCode = [
+      "> INITIALIZING MOXI PROTOCOL...",
+      "> BYPASSING STANDARD_AESTHETICS",
+      "> COMPILING UI_COMPONENTS: [OK]",
+      "> INJECTING KINETIC_ANIMATIONS: [OK]",
+      "> TARGET REVENUE INCREASE: +300%",
+      "> SYSTEM READY."
+    ];
+    let lineIndex = 0;
+    let charIndex = 0;
+    const typeContainer = document.getElementById('typewriterCode');
+
+    function typeTerminal() {
+      if (lineIndex < terminalCode.length) {
+        if (charIndex === 0) {
+          const p = document.createElement('p');
+          typeContainer.appendChild(p);
+        }
+        const currentLine = typeContainer.lastChild;
+        currentLine.innerHTML += terminalCode[lineIndex].charAt(charIndex);
+        charIndex++;
+
+        if (charIndex < terminalCode[lineIndex].length) {
+          setTimeout(typeTerminal, 40);
+        } else {
+          charIndex = 0;
+          lineIndex++;
+          setTimeout(typeTerminal, 400);
+        }
+      } else {
+        setTimeout(() => {
+          typeContainer.innerHTML = '';
+          lineIndex = 0;
+          typeTerminal();
+        }, 5000); // Loop after 5 seconds
+      }
+    }
+    setTimeout(typeTerminal, 1000);
 
     // ==========================================
-    // RE-TRIGGERING SCROLL ANIMATIONS
+    // INTERSECTION OBSERVER (SCROLL REVEALS)
     // ==========================================
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-        } else {
-          entry.target.classList.remove('is-visible');
         }
       });
-    }, { threshold: 0.1, rootMargin: "0px" });
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .pricing, .addons-wrapper').forEach(el => {
+    document.querySelectorAll('.reveal-slide-up, .reveal-zoom').forEach(el => {
       observer.observe(el);
+    });
+
+    // ==========================================
+    // MOBILE NAV MENU
+    // ==========================================
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => navLinks.classList.toggle("active"));
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
     });
   </script>
 </body>
