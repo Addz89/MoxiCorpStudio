@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Moxi Corp Studio</title>
+  <meta
+    name="description"
+    content="View live website projects built by Moxi Corp Studio, including Ashar Music and Moxi Cleaning Co. Professional websites for small businesses, artists, and service brands."
+  />
+
+  <link rel="icon" type="image/svg+xml" href="logo1.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* =========================================================
+       PORTFOLIO PAGE POLISH — NO PURPLE, PROFESSIONAL TECH
+       Works with your existing styles.css + script.js
+       ========================================================= */
+
+    .portfolio-hero {
+      min-height: auto;
+      padding: 160px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-hero::before {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      right: -180px;
+      top: 70px;
+      background:
+        radial-gradient(circle, rgba(0, 200, 255, 0.22), transparent 62%),
+        radial-gradient(circle, rgba(0, 118, 255, 0.18), transparent 68%);
+      filter: blur(12px);
+      opacity: 0.9;
+      animation: portfolioOrb 12s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes portfolioOrb {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(-60px, 40px, 0) scale(1.08); }
+    }
+
+    .portfolio-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 52px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .portfolio-hero h1 {
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      margin: 18px 0 26px;
+    }
+
+    .portfolio-hero .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+      line-height: 1.8;
+    }
+
+    .portfolio-dashboard {
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
+        rgba(5, 11, 24, 0.72);
+      backdrop-filter: blur(18px);
+      border-radius: 30px;
+      padding: 22px;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+      transform-style: preserve-3d;
+      animation: dashboardFloat 7s ease-in-out infinite;
+    }
+
+    @keyframes dashboardFloat {
+      0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+      50% { transform: translateY(-16px) rotateX(2deg) rotateY(-3deg); }
+    }
+
+    .dashboard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      font-family: "JetBrains Mono", monospace;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #dffaff;
+    }
+
+    .live-dot::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #00d9ff;
+      box-shadow: 0 0 18px rgba(0, 217, 255, 0.95);
+      animation: pulseDot 1.7s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.25); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
+    }
+
+    .dashboard-screen {
+      min-height: 310px;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(0, 200, 255, 0.15), transparent 34%),
+        linear-gradient(225deg, rgba(255, 255, 255, 0.09), transparent 40%),
+        #061021;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .dashboard-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: radial-gradient(circle at center, black, transparent 75%);
+      animation: gridSlide 12s linear infinite;
+    }
+
+    @keyframes gridSlide {
+      from { transform: translate(0, 0); }
+      to { transform: translate(38px, 38px); }
+    }
+
+    .dash-card {
+      position: absolute;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.36);
+      backdrop-filter: blur(12px);
+    }
+
+    .dash-card.one {
+      left: 24px;
+      top: 28px;
+      width: 58%;
+      animation: cardFloatOne 5.5s ease-in-out infinite;
+    }
+
+    .dash-card.two {
+      right: 22px;
+      bottom: 24px;
+      width: 52%;
+      animation: cardFloatTwo 6.4s ease-in-out infinite;
+    }
+
+    @keyframes cardFloatOne {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes cardFloatTwo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(12px); }
+    }
+
+    .dash-card h3 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .dash-line {
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      margin: 9px 0;
+      overflow: hidden;
+    }
+
+    .dash-line::after {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 74%;
+      background: linear-gradient(90deg, #0077ff, #00d9ff);
+      border-radius: inherit;
+      animation: lineLoad 2.8s ease-in-out infinite alternate;
+    }
+
+    .dash-line.short::after { width: 45%; }
+    .dash-line.medium::after { width: 62%; }
+
+    @keyframes lineLoad {
+      from { transform: translateX(-20%); opacity: 0.7; }
+      to { transform: translateX(18%); opacity: 1; }
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .proof-item {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.045);
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 120px;
+    }
+
+    .proof-item b {
+      display: block;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      letter-spacing: -0.06em;
+      margin-bottom: 7px;
+    }
+
+    .proof-item span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .case-study-list {
+      display: grid;
+      gap: 32px;
+    }
+
+    .case-study {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+      gap: 34px;
+      align-items: stretch;
+      padding: 24px;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025)),
+        rgba(5, 12, 26, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 30px 100px rgba(0,0,0,0.28);
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .case-study::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(110deg, transparent, rgba(0, 217, 255, 0.18), transparent);
+      transform: translateX(-120%);
+      transition: transform 0.85s cubic-bezier(.16,1,.3,1);
+      pointer-events: none;
+    }
+
+    .case-study:hover::after { transform: translateX(120%); }
+
+    .case-study:hover .project-browser {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 34px 80px rgba(0, 217, 255, 0.16);
+    }
+
+    .project-browser {
+      min-height: 360px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #061020;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: 0.45s cubic-bezier(.16,1,.3,1);
+      position: relative;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.38);
+    }
+
+    .project-browser-top {
+      height: 46px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.045);
+    }
+
+    .project-browser-top span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.28);
+    }
+
+    .project-shot {
+      min-height: 314px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-shot.music {
+      background:
+        radial-gradient(circle at 22% 24%, rgba(0, 217, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 76% 72%, rgba(0, 110, 255, 0.25), transparent 33%),
+        linear-gradient(145deg, #030712, #071a2d 50%, #020617);
+    }
+
+    .project-shot.cleaning {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(0, 217, 255, 0.18), transparent 30%),
+        radial-gradient(circle at 85% 55%, rgba(255,255,255,0.11), transparent 28%),
+        linear-gradient(145deg, #04111f, #06263c 45%, #020817);
+    }
+
+    .project-shot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+      opacity: 0.75;
+    }
+
+    .project-shot-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-shot h4 {
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+      margin: 0 0 18px;
+    }
+
+    .project-shot p {
+      color: rgba(255,255,255,0.74);
+      line-height: 1.6;
+      max-width: 360px;
+    }
+
+    .fake-ui {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .fake-ui span {
+      min-height: 68px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.075);
+      border: 1px solid rgba(255,255,255,0.1);
+      animation: uiPulse 3s ease-in-out infinite;
+    }
+
+    .fake-ui span:nth-child(2) { animation-delay: 0.2s; }
+    .fake-ui span:nth-child(3) { animation-delay: 0.4s; }
+    .fake-ui span:nth-child(4) { animation-delay: 0.6s; }
+
+    @keyframes uiPulse {
+      0%, 100% { opacity: 0.58; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-5px); }
+    }
+
+    .case-copy {
+      padding: 14px 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-copy .project-type {
+      font-family: "JetBrains Mono", monospace;
+      color: #00d9ff;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .case-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.075em;
+      margin-bottom: 18px;
+    }
+
+    .case-copy p {
+      color: var(--muted);
+      line-height: 1.78;
+      margin-bottom: 18px;
+      font-size: 1.02rem;
+    }
+
+    .work-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+
+    .work-tags span {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.055);
+      color: rgba(255,255,255,0.78);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .result-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .result-list li {
+      list-style: none;
+      color: rgba(255,255,255,0.86);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.55;
+    }
+
+    .result-list li::before {
+      content: "✓";
+      color: #00d9ff;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-weight: 900;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
+
+    .case-study:hover .text-link {
+      color: #00d9ff;
+      transform: translateX(6px);
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .capability {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.045);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .capability h3 {
+      margin-bottom: 10px;
+      font-size: 1.14rem;
+    }
+
+    .capability p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    @media (max-width: 980px) {
+      .portfolio-hero-grid,
+      .case-study {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-strip,
+      .capability-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .portfolio-hero {
+        padding-top: 135px;
+      }
+
+      .proof-strip,
+      .capability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-study {
+        padding: 16px;
+        border-radius: 24px;
+      }
+
+      .project-browser {
+        min-height: 300px;
+      }
+
+      .project-shot {
+        min-height: 254px;
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <nav>
+    <a href="index.html" class="logo" aria-label="Moxi Corp Studio home">Moxi <b>Corp</b> Studio.</a>
+
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
+      ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a class="active" href="portfolio.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="process.html">Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a class="nav-cta" href="pricing.html">View Packs</a>
+  </nav>
+
+  <main class="portfolio-hero">
+    <div class="wrap portfolio-hero-grid">
+      <div class="reveal">
+        <div class="kicker">Featured Work</div>
+        <h1>
+          Real websites.<br />
+          Real proof.<br />
+          No empty talk.
+        </h1>
+        <p class="lead">
+          A portfolio page has one job: prove the studio can actually deliver. These live websites show that Moxi Corp Studio can build different styles for different clients — from an atmospheric music brand to a practical local service business built around trust and enquiries.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#projects">View Live Projects →</a>
+          <a class="btn secondary" href="contact.html">Start Your Project</a>
+        </div>
+      </div>
+
+      <aside class="portfolio-dashboard reveal" aria-label="Portfolio dashboard visual">
+        <div class="dashboard-top">
+          <span>Project Console</span>
+          <span class="live-dot">Live Builds</span>
+        </div>
+        <div class="dashboard-screen">
+          <div class="dash-card one">
+            <h3>Client Websites</h3>
+            <div class="dash-line"></div>
+            <div class="dash-line medium"></div>
+            <div class="dash-line short"></div>
+          </div>
+          <div class="dash-card two">
+            <h3>Built For Trust</h3>
+            <div class="dash-line medium"></div>
+            <div class="dash-line"></div>
+            <div class="dash-line short"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="proof-strip reveal">
+        <div class="proof-item">
+          <b>2</b>
+          <span>Live websites showcased with direct links clients can open and judge.</span>
+        </div>
+        <div class="proof-item">
+          <b>100%</b>
+          <span>Responsive layouts planned for mobile, tablet, and desktop browsing.</span>
+        </div>
+        <div class="proof-item">
+          <b>2x</b>
+          <span>Different industries shown: music branding and local service business.</span>
+        </div>
+        <div class="proof-item">
+          <b>ABN</b>
+          <span>Registered business presence with clear contact details and trust signals.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="projects">
+    <div class="wrap">
+      <div class="section-head left reveal">
+        <div class="kicker">Selected Projects</div>
+        <h2>Websites that show range.</h2>
+        <p>
+          This is stronger than a basic gallery. Each project explains what the website proves, who it is for, and why it matters. That helps potential clients picture what you can build for them.
+        </p>
+      </div>
+
+      <div class="case-study-list">
+        <a class="case-study reveal tilt" href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer">
+          <div class="project-browser">
+            <div class="project-browser-top"><span></span><span></span><span></span></div>
+            <div class="project-shot music">
+              <div class="project-shot-content">
+                <h4>Ashar<br />Music</h4>
+                <p>Atmospheric artist platform built around identity, music, and audience connection.</p>
+              </div>
+              <div class="fake-ui" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-copy">
+            <div class="project-type">Artist / Music Website</div>
+            <h2>Ashar Music</h2>
+            <p>
+              Ashar Music shows that Moxi Corp Studio can build a site with mood, identity, and creative direction. It is not just a generic business layout — it is a brand experience designed for an artist audience.
+            </p>
+            <p>
+              This project helps prove range. A client can see that you can create something more expressive, atmospheric, and memorable when the brand needs a stronger visual personality.
+            </p>
+
+            <div class="work-tags">
+              <span>Artist Website</span>
+              <span>Brand Experience</span>
+              <span>Responsive Design</span>
+              <span>Creative Direction</span>
+            </div>
+
+            <ul class="result-list">
+              <li>Built around a stronger music/artist identity.</li>
+              <li>Designed to feel more premium than a plain profile page.</li>
+              <li>Useful proof for creative brands, artists, and personal brands.</li>
+            </ul>
+
+            <span class="text-link">Open Ashar Music →</span>
+          </div>
+        </a>
+
+        <a class="case-study reveal tilt" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer">
+          <div class="project-browser">
+            <div class="project-browser-top"><span></span><span></span><span></span></div>
+            <div class="project-shot cleaning">
+              <div class="project-shot-content">
+                <h4>Moxi<br />Cleaning Co</h4>
+                <p>Local service website structured around trust, service clarity, and enquiries.</p>
+              </div>
+              <div class="fake-ui" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-copy">
+            <div class="project-type">Local Service Business</div>
+            <h2>Moxi Cleaning Co</h2>
+            <p>
+              Moxi Cleaning Co is the practical side of the portfolio. It shows that Moxi Corp Studio can build a clean, professional website for a real service business where trust, clear information, and easy enquiries matter most.
+            </p>
+            <p>
+              This kind of project is what small businesses actually need: clear services, strong first impression, mobile-friendly layout, and a direct path for people to get in touch.
+            </p>
+
+            <div class="work-tags">
+              <span>Service Business</span>
+              <span>Lead Generation</span>
+              <span>Local SEO</span>
+              <span>Mobile Friendly</span>
+            </div>
+
+            <ul class="result-list">
+              <li>Built to explain services clearly.</li>
+              <li>Designed for local customers browsing on mobile.</li>
+              <li>Useful proof for cleaners, trades, contractors, and service brands.</li>
+            </ul>
+
+            <span class="text-link">Open Moxi Cleaning Co →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">What These Projects Prove</div>
+        <h2>A good portfolio should sell your capability.</h2>
+        <p>
+          Do not just show screenshots. Explain the thinking. Clients do not only buy design — they buy confidence that you understand their business, their customers, and what the website needs to do.
+        </p>
+      </div>
+
+      <div class="capability-grid">
+        <div class="capability reveal tilt">
+          <h3>Different visual styles</h3>
+          <p>You can build an atmospheric artist site and a clean service-business site. That range matters.</p>
+        </div>
+        <div class="capability reveal tilt">
+          <h3>Business-first structure</h3>
+          <p>The layout is not random. Each page has a job: explain, prove, build trust, and guide action.</p>
+        </div>
+        <div class="capability reveal tilt">
+          <h3>Mobile-ready design</h3>
+          <p>Most visitors judge a business from their phone first, so every build needs to feel sharp on mobile.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="panel reveal" style="text-align:center; padding: clamp(34px, 6vw, 70px);">
+        <div class="kicker">Your Project Next</div>
+        <h2 style="font-size: clamp(2.3rem, 6vw, 4.8rem); letter-spacing: -0.08em; line-height: 0.95; margin: 16px 0;">
+          Want your website added to this portfolio?
+        </h2>
+        <p style="max-width: 760px; margin: 0 auto; color: var(--muted); line-height: 1.75;">
+          If your current website looks outdated, slow, empty, or untrustworthy, that is costing you leads. Moxi Corp Studio can build a stronger version that looks professional and gives customers a reason to contact you.
+        </p>
+        <div class="cta-row" style="justify-content:center; margin-top: 28px;">
+          <a class="btn" href="contact.html">Start A Project →</a>
+          <a class="btn secondary" href="pricing.html">View Website Packs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Moxi Corp Studio. Based in Donnybrook, VIC.<br />
+      ABN: 18 936 263 775<br /><br />
+      Email: support@moxicorpstudio.com.au |
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

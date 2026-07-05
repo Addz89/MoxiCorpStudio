@@ -1,48 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="google-site-verification" content="5OFwdqIo8JrHgI5FAMws8IkgL1FDuVRzWc6UdQRYPoc" />
-<title>Moxi Corp Studio | Websites That Move</title>
-<link rel="icon" type="image/svg+xml" href="logo1.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fira+Code:wght@400;600;700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#03040d;--ink:#f8fbff;--muted:#9aa7bd;--cyan:#00e5ff;--blue:#1664ff;--violet:#8d36ff;--pink:#ff2bd6;--gold:#ffb800;--glass:rgba(255,255,255,.075);--line:rgba(255,255,255,.16);--mono:'Fira Code',monospace;--wide:'Anton',sans-serif;--sans:'Inter',sans-serif}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:var(--sans);background:var(--bg);color:var(--ink);overflow-x:hidden;min-height:100vh}body:before{content:"";position:fixed;inset:0;z-index:-5;background:radial-gradient(circle at 15% 15%,rgba(0,229,255,.25),transparent 26%),radial-gradient(circle at 80% 10%,rgba(141,54,255,.32),transparent 27%),radial-gradient(circle at 50% 90%,rgba(255,43,214,.22),transparent 30%),#03040d}body:after{content:"";position:fixed;inset:0;z-index:-4;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);animation:gridMove 14s linear infinite}@keyframes gridMove{to{background-position:55px 110px}}.noise{position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.09;background-image:url('https://www.transparenttextures.com/patterns/asfalt-light.png')}.aurora{position:fixed;inset:-20%;z-index:-3;background:conic-gradient(from 180deg,transparent,rgba(0,229,255,.18),transparent,rgba(255,43,214,.18),transparent,rgba(255,184,0,.1),transparent);filter:blur(60px);animation:spin 18s linear infinite}.scan{position:fixed;inset:0;pointer-events:none;z-index:98;background:linear-gradient(to bottom,transparent 0%,rgba(255,255,255,.035) 50%,transparent 100%);height:12vh;animation:scan 5s linear infinite}@keyframes scan{from{transform:translateY(-20vh)}to{transform:translateY(110vh)}}@keyframes spin{to{transform:rotate(360deg)}}nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1160px,92%);height:72px;display:flex;align-items:center;justify-content:space-between;z-index:90;padding:0 18px;border:1px solid var(--line);border-radius:999px;background:rgba(3,4,13,.58);backdrop-filter:blur(22px);box-shadow:0 20px 70px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.14)}.logo{font-weight:900;letter-spacing:-1px;font-size:1.25rem}.logo b{color:var(--cyan);text-shadow:0 0 22px var(--cyan)}.nav-links{display:flex;gap:20px;align-items:center}.nav-links a{color:#d8e5ff;text-decoration:none;font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;position:relative}.nav-links a:before{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--pink));transform:scaleX(0);transition:.25s}.nav-links a:hover:before{transform:scaleX(1)}.menu-btn{display:none;background:var(--glass);color:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-size:1.2rem}.pill{border:1px solid rgba(0,229,255,.35);padding:10px 14px;border-radius:999px;background:rgba(0,229,255,.08);box-shadow:0 0 30px rgba(0,229,255,.12);font-weight:900;color:#fff}.hero{min-height:100vh;padding:150px 7% 80px;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative}.kicker{font-family:var(--mono);color:var(--cyan);font-weight:800;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px;text-shadow:0 0 20px rgba(0,229,255,.6)}h1{font-family:var(--wide);font-size:clamp(4rem,9vw,9rem);line-height:.85;letter-spacing:.01em;text-transform:uppercase;text-shadow:0 8px 0 rgba(0,0,0,.35)}.split{display:block}.gradient-text{background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet),var(--pink));background-size:250% 100%;-webkit-background-clip:text;color:transparent;animation:shine 3s linear infinite;text-shadow:none}@keyframes shine{to{background-position:250% 0}}.hero p{margin:26px 0 34px;color:#cbd7ee;font-size:1.2rem;line-height:1.75;max-width:690px}.cta-row{display:flex;gap:16px;flex-wrap:wrap}.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;border:none;cursor:pointer;border-radius:18px;padding:18px 28px;color:#fff;font-weight:1000;letter-spacing:.04em;text-transform:uppercase;background:linear-gradient(135deg,var(--blue),var(--violet),var(--pink));box-shadow:0 16px 45px rgba(141,54,255,.35);overflow:hidden;transition:.25s}.btn:before{content:"";position:absolute;inset:-80%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:rotate(25deg) translateX(-80%);transition:.6s}.btn:hover{transform:translateY(-5px) scale(1.02)}.btn:hover:before{transform:rotate(25deg) translateX(80%)}.btn.secondary{background:rgba(255,255,255,.08);border:1px solid var(--line);box-shadow:none}.motion-stack{position:relative;min-height:560px;perspective:1000px}.orb{position:absolute;border-radius:50%;filter:blur(18px);opacity:.85;animation:floaty 5s ease-in-out infinite}.orb.one{width:160px;height:160px;background:var(--cyan);right:8%;top:5%}.orb.two{width:115px;height:115px;background:var(--pink);left:3%;bottom:18%;animation-delay:-1.2s}.orb.three{width:80px;height:80px;background:var(--gold);right:18%;bottom:6%;animation-delay:-2s}@keyframes floaty{50%{transform:translateY(-28px) translateX(18px) scale(1.08)}}.browser{position:absolute;inset:50px 0 auto auto;width:min(560px,100%);border:1px solid var(--line);border-radius:30px;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.05));backdrop-filter:blur(30px);box-shadow:0 35px 100px rgba(0,0,0,.65),0 0 80px rgba(0,229,255,.16);overflow:hidden;transform:rotateY(-10deg) rotateX(8deg);animation:tilt 6s ease-in-out infinite}.browser-top{height:52px;background:rgba(0,0,0,.24);display:flex;align-items:center;gap:9px;padding:0 18px}.dot{width:12px;height:12px;border-radius:50%;background:var(--pink)}.dot:nth-child(2){background:var(--gold)}.dot:nth-child(3){background:var(--cyan)}.screen{padding:28px}.mini-hero{border-radius:24px;padding:34px;background:radial-gradient(circle at right,rgba(0,229,255,.24),transparent 40%),linear-gradient(135deg,#06112b,#070816);min-height:270px}.mini-hero h3{font-size:2.6rem;line-height:1;font-family:var(--wide);text-transform:uppercase}.mini-bars{display:grid;gap:12px;margin-top:25px}.mini-bars span{height:12px;border-radius:99px;background:linear-gradient(90deg,var(--cyan),var(--violet));animation:load 2.8s ease-in-out infinite}.mini-bars span:nth-child(2){width:72%;animation-delay:.3s}.mini-bars span:nth-child(3){width:46%;animation-delay:.6s}@keyframes load{50%{filter:hue-rotate(140deg);transform:scaleX(.78)}}@keyframes tilt{50%{transform:rotateY(8deg) rotateX(-3deg) translateY(-18px)}}.code-card{position:absolute;left:0;bottom:20px;width:380px;border:1px solid rgba(0,229,255,.28);border-radius:24px;background:rgba(2,6,18,.78);backdrop-filter:blur(20px);box-shadow:0 24px 80px rgba(0,0,0,.55);padding:24px;font-family:var(--mono);font-size:.84rem;line-height:1.8;animation:codeFloat 4.8s ease-in-out infinite}.code-card b{color:var(--cyan)}.code-card i{color:var(--pink);font-style:normal}.code-card em{color:var(--gold);font-style:normal}@keyframes codeFloat{50%{transform:translateY(-18px) rotate(-2deg)}}.ticker{padding:25px 0;border-block:1px solid var(--line);background:rgba(255,255,255,.04);overflow:hidden}.ticker-track{display:flex;width:max-content;animation:marquee 24s linear infinite}.ticker span{font-family:var(--wide);font-size:2rem;text-transform:uppercase;margin-right:45px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.55)}.ticker strong{color:var(--cyan);-webkit-text-stroke:0;text-shadow:0 0 20px rgba(0,229,255,.45)}@keyframes marquee{to{transform:translateX(-50%)}}section{padding:110px 7%;position:relative}.section-head{max-width:920px;margin:0 auto 55px;text-align:center}.section-head h2{font-family:var(--wide);font-size:clamp(3rem,6vw,6rem);line-height:.9;text-transform:uppercase}.section-head p{color:var(--muted);font-size:1.1rem;line-height:1.7;margin-top:18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card,.price-card,.step,.project,.addon-shell,.contact-form{border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.045));backdrop-filter:blur(20px);box-shadow:0 20px 70px rgba(0,0,0,.35);position:relative;overflow:hidden}.card:before,.price-card:before,.project:before,.step:before{content:"";position:absolute;inset:-1px;background:linear-gradient(135deg,rgba(0,229,255,.5),transparent 30%,transparent 70%,rgba(255,43,214,.45));opacity:0;transition:.35s;z-index:-1}.card:hover:before,.price-card:hover:before,.project:hover:before,.step:hover:before{opacity:1}.card{border-radius:32px;padding:34px;min-height:260px;transition:.35s}.card:hover{transform:translateY(-14px) rotateX(6deg)}.icon{width:58px;height:58px;border-radius:19px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:grid;place-items:center;font-size:1.6rem;box-shadow:0 0 40px rgba(0,229,255,.25);margin-bottom:22px}.card h3,.project h3,.step h3{font-size:1.55rem;margin-bottom:12px}.card p,.project p,.step p{color:var(--muted);line-height:1.7}.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.project{border-radius:32px;padding:16px;transition:.35s;text-decoration:none;color:#fff}.project:hover{transform:translateY(-12px) scale(1.02)}.project-screen{height:210px;border-radius:24px;background:linear-gradient(135deg,#031334,#13051f);border:1px solid var(--line);position:relative;overflow:hidden;margin-bottom:22px}.project-screen:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.18),transparent);animation:sweep 2.8s linear infinite}.project-screen:after{content:"</>";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:5rem;font-weight:900;color:rgba(0,229,255,.8);text-shadow:0 0 30px var(--cyan)}@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}.price-card{border-radius:36px;padding:36px;transition:.35s}.price-card:hover{transform:translateY(-18px) scale(1.025)}.featured{border-color:rgba(255,43,214,.55);box-shadow:0 0 80px rgba(255,43,214,.18),0 25px 80px rgba(0,0,0,.45)}.popular{display:inline-flex;background:linear-gradient(90deg,var(--pink),var(--violet));border-radius:999px;padding:9px 14px;font-weight:1000;margin-bottom:18px}.price-card h3{font-family:var(--wide);font-size:2.5rem;text-transform:uppercase}.price{font-family:var(--wide);font-size:4.8rem;margin:8px 0;background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;color:transparent}.plan-text{color:#b9c6dc;line-height:1.65;margin-bottom:24px}.price-card ul{list-style:none;margin:22px 0 32px;display:grid;gap:13px}.price-card li{color:#eaf2ff}.price-card li:before{content:"✦";color:var(--cyan);margin-right:10px}.checkout-btn{width:100%;padding:18px 18px;border:none;border-radius:18px;background:linear-gradient(135deg,var(--blue),var(--violet),var(--pink));color:#fff;font-weight:1000;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;box-shadow:0 18px 40px rgba(22,100,255,.28);transition:.25s}.checkout-btn:hover{transform:translateY(-5px);filter:saturate(1.4)}.addons-grid,.process-grid,.testimonial-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.addon-shell{border-radius:34px;padding:30px}.addons-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.addon-item{border:1px solid var(--line);background:rgba(0,0,0,.2);border-radius:18px;padding:16px;display:flex;justify-content:space-between;gap:12px}.addon-price{color:var(--gold);font-family:var(--mono);font-weight:900}.step{border-radius:30px;padding:30px;transition:.35s}.step:hover{transform:translateY(-12px)}.num{font-family:var(--wide);font-size:4rem;color:transparent;-webkit-text-stroke:1px var(--cyan);margin-bottom:10px}.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.quote{border-radius:30px;padding:30px;border:1px solid var(--line);background:rgba(255,255,255,.06)}.stars{color:var(--gold);letter-spacing:.12em;margin-bottom:14px}.quote p{line-height:1.7;color:#dbe7fb}.quote b{display:block;margin-top:18px}.faq-wrapper{max-width:900px;margin:auto}.faq-item{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:22px;margin-bottom:14px;overflow:hidden}.faq-question{padding:22px 26px;font-weight:900;cursor:pointer;display:flex;justify-content:space-between}.faq-answer{max-height:0;overflow:hidden;transition:.35s;color:var(--muted);line-height:1.7;padding:0 26px}.faq-item.active .faq-answer{max-height:240px;padding:0 26px 22px}.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:35px;align-items:start}.contact-form{border-radius:34px;padding:34px}.contact-form input,.contact-form textarea{width:100%;padding:18px 20px;margin-bottom:15px;border-radius:18px;border:1px solid var(--line);background:rgba(0,0,0,.24);color:#fff;outline:none;font:inherit}.contact-form input:focus,.contact-form textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(0,229,255,.09)}.contact-form textarea{height:170px;resize:none}.contact-form button{width:100%;padding:18px;border:0;border-radius:18px;background:#fff;color:#000;font-weight:1000;text-transform:uppercase;cursor:pointer}.newsletter{padding:80px 7%;text-align:center}.newsletter-container{max-width:860px;margin:auto;border:1px solid var(--line);border-radius:36px;padding:45px;background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(255,43,214,.08));backdrop-filter:blur(20px)}.newsletter-container h2{font-family:var(--wide);font-size:3.5rem;text-transform:uppercase}.newsletter-container p{color:var(--muted);margin:14px 0 25px}.newsletter-form{display:flex;gap:12px}.newsletter-form input{flex:1;padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:#fff}.newsletter-form button{padding:18px 24px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--cyan),var(--violet));color:#fff;font-weight:1000}footer{text-align:center;padding:40px;color:var(--muted);border-top:1px solid var(--line)}.purchase-overlay{position:fixed;inset:0;background:rgba(3,4,13,.82);backdrop-filter:blur(18px);z-index:100000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.35s}.purchase-overlay.active{opacity:1;pointer-events:auto}.purchase-modal{width:min(520px,92%);border:1px solid var(--line);border-radius:34px;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06));box-shadow:0 40px 100px rgba(0,0,0,.7);padding:36px;position:relative;transform:scale(.9) translateY(30px);transition:.35s}.purchase-overlay.active .purchase-modal{transform:scale(1) translateY(0)}.close-modal{position:absolute;top:18px;right:20px;border:0;background:transparent;color:#fff;font-size:1.4rem;cursor:pointer}.modal-header{text-align:center;margin-bottom:24px}.modal-header h3{font-family:var(--wide);font-size:2.4rem;text-transform:uppercase}.modal-body{text-align:center}.secure-checkout-btn{width:100%;padding:18px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--blue),var(--violet),var(--pink));color:#fff;font-weight:1000;cursor:pointer}.secure-badge{margin-top:18px;color:var(--muted)}.reveal{opacity:0;transform:translateY(55px);transition:1s cubic-bezier(.16,1,.3,1)}.reveal.is-visible{opacity:1;transform:none}@media(max-width:950px){nav{top:10px}.nav-links{position:absolute;top:82px;left:0;right:0;display:none;flex-direction:column;background:rgba(3,4,13,.94);border:1px solid var(--line);border-radius:24px;padding:20px}.nav-links.active{display:flex}.menu-btn{display:block}.pill{display:none}.hero,.contact{grid-template-columns:1fr}.motion-stack{min-height:480px}.browser{position:relative;inset:auto;width:100%;transform:none}.code-card{position:relative;width:100%;margin-top:18px}.grid,.projects,.pricing-grid,.testimonials{grid-template-columns:1fr}.addons-list{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr 1fr}h1{font-size:4.4rem}.newsletter-form{flex-direction:column}}@media(max-width:560px){section{padding:80px 5%}.hero{padding:125px 5% 60px}h1{font-size:3.6rem}.process-grid{grid-template-columns:1fr}.price{font-size:4rem}.newsletter-container h2{font-size:2.6rem}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="5OFwdqIo8JrHgI5FAMws8IkgL1FDuVRzWc6UdQRYPoc" />
+
+  <title>Moxi Corp Studio | Professional Web Development Australia</title>
+  <meta
+    name="description"
+    content="Moxi Corp Studio builds professional, animated, high-converting websites for small businesses across Australia. Custom-coded websites, SEO-ready structure, Stripe payments, and mobile-first design."
+  />
+  <meta name="theme-color" content="#06111f" />
+
+  <link rel="icon" type="image/svg+xml" href="logo1.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-<div class="aurora"></div><div class="scan"></div><div class="noise"></div>
-<nav id="navbar"><div class="logo">MOXI <b>CORP</b> STUDIO</div><div class="pill">Accepting New Clients</div><button class="menu-btn" id="menuBtn">☰</button><div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#portfolio">Work</a><a href="#pricing">Pricing</a><a href="#process">Process</a><a href="#contact">Contact</a></div></nav>
-<header class="hero" id="home"><div class="hero-copy reveal"><div class="kicker">Custom Code • Real Growth • Max Motion</div><h1><span class="split">Websites</span><span class="split gradient-text">That Hit</span><span class="split">Different</span></h1><p>Forget boring template sites. Moxi Corp Studio builds fast, animated, high-impact websites that make small businesses look serious, modern, and ready to sell.</p><div class="cta-row"><a href="#pricing" class="btn">View Packs</a><a href="#contact" class="btn secondary">Free Quote</a></div></div><div class="motion-stack reveal"><div class="orb one"></div><div class="orb two"></div><div class="orb three"></div><div class="browser"><div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="screen"><div class="mini-hero"><h3>Build fast.<br><span class="gradient-text">Look premium.</span><br>Convert more.</h3><div class="mini-bars"><span></span><span></span><span></span></div></div></div></div><div class="code-card"><b>const</b> website = <i>build</i>({<br> &nbsp; speed: <em>'98+'</em>,<br> &nbsp; mobile: <em>true</em>,<br> &nbsp; seo: <em>'ready'</em>,<br> &nbsp; payments: <em>'stripe'</em><br>});</div></div></header>
-<div class="ticker"><div class="ticker-track"><span><strong>FAST</strong> LOADING</span><span>MOBILE FRIENDLY</span><span><strong>SEO</strong> READY</span><span>STRIPE PAYMENTS</span><span><strong>CUSTOM</strong> CODE</span><span>MAX ANIMATIONS</span><span><strong>FAST</strong> LOADING</span><span>MOBILE FRIENDLY</span><span><strong>SEO</strong> READY</span><span>STRIPE PAYMENTS</span><span><strong>CUSTOM</strong> CODE</span><span>MAX ANIMATIONS</span></div></div>
-<section id="services"><div class="section-head reveal"><div class="kicker">What You Get</div><h2>Built To Make Your Business Look Bigger</h2><p>Most small business websites look cheap. That kills trust. This design direction makes your brand feel established before the customer even reads the offer.</p></div><div class="grid"><div class="card reveal"><div class="icon">⚡</div><h3>Performance First</h3><p>Clean structure, lightweight sections, fast load feel, and no clunky builder mess.</p></div><div class="card reveal"><div class="icon">📱</div><h3>Mobile Obsessed</h3><p>Layouts that look sharp on phones because that is where most ad traffic lands.</p></div><div class="card reveal"><div class="icon">🎯</div><h3>Built To Convert</h3><p>Strong CTAs, clear packages, trust signals, and pricing that guides people to act.</p></div></div></section>
-<section class="portfolio" id="portfolio"><div class="section-head reveal"><div class="kicker">Portfolio</div><h2>Showcase Style</h2><p>Animated project cards that sell the idea that your work is modern, not basic.</p></div><div class="projects"><a href="https://www.moxicleaningco.com.au/" target="_blank" class="project reveal"><div class="project-screen"></div><h3>Moxi Cleaning Co.</h3><p>Local service website with a clean booking-focused experience.</p></a><a href="https://addz89.github.io/MKD_PUN1SH3R.github.io/#" target="_blank" class="project reveal"><div class="project-screen"></div><h3>Streaming Site</h3><p>Creator profile with a strong visual identity and interactive structure.</p></a><a href="https://addz89.github.io/Moxirealestate_template/" target="_blank" class="project reveal"><div class="project-screen"></div><h3>Real Estate Template</h3><p>Premium property layout built for enquiries and trust.</p></a></div></section>
-<section class="pricing reveal" id="pricing"><div class="section-head reveal"><div class="kicker">Website Packs</div><h2>Choose Your Build</h2><p>Simple packages, clear outcomes, and secure checkout through your existing Stripe payment links.</p></div><div class="pricing-grid"><div class="price-card reveal"><h3>Starter Pack</h3><div class="price">$599</div><p class="plan-text">For new businesses that need to look professional fast.</p><ul><li>3 Page Custom Design</li><li>Mobile Responsive</li><li>Basic SEO Setup</li><li>Contact Form</li><li>Fast Hosting Setup</li></ul><button class="checkout-btn" onclick="openCheckout('Starter Pack', 599)">Start Your Build</button></div><div class="price-card featured reveal"><div class="popular">Most Popular</div><h3>Growth Pack</h3><div class="price">$849</div><p class="plan-text">For businesses that want more pages, better SEO, and stronger conversion sections.</p><ul><li>Up to 9 Pages</li><li>Advanced SEO</li><li>Google + Pixel Setup</li><li>Speed Optimisation</li><li>Custom Animations</li><li>Priority Support</li></ul><button class="checkout-btn" onclick="openCheckout('Growth Pack', 849)">Initialize Project</button></div><div class="price-card reveal"><h3>Elite Pack</h3><div class="price">$1159</div><p class="plan-text">For serious brands wanting a premium online presence.</p><ul><li>Unlimited Page Architecture</li><li>Custom Features</li><li>Payment Integration</li><li>Advanced Security</li><li>Ongoing Support</li><li>Dedicated Build Flow</li></ul><button class="checkout-btn" onclick="openCheckout('Elite Pack', 1159)">Start Your Build</button></div></div><div class="addon-shell reveal" style="margin-top:32px"><div class="section-head" style="margin-bottom:28px"><h2 style="font-size:3rem">Add Ons</h2></div><div class="addons-list"><div class="addon-item"><span>Extra Page</span><span class="addon-price">$80</span></div><div class="addon-item"><span>Logo Design</span><span class="addon-price">$150</span></div><div class="addon-item"><span>Google Business Setup</span><span class="addon-price">$150</span></div><div class="addon-item"><span>Analytics Setup</span><span class="addon-price">$75</span></div><div class="addon-item"><span>SEO Copy Page</span><span class="addon-price">$120</span></div><div class="addon-item"><span>Custom Form</span><span class="addon-price">$20</span></div></div></div></section>
-<section id="process"><div class="section-head reveal"><div class="kicker">Process</div><h2>From Idea To Launch</h2></div><div class="process-grid"><div class="step reveal"><div class="num">01</div><h3>Discover</h3><p>We map your offer, business goals, pages, and customer journey.</p></div><div class="step reveal"><div class="num">02</div><h3>Design</h3><p>Your site gets a custom visual direction that matches your brand.</p></div><div class="step reveal"><div class="num">03</div><h3>Build</h3><p>Clean code, responsive layouts, animations, forms, SEO, and speed.</p></div><div class="step reveal"><div class="num">04</div><h3>Launch</h3><p>We connect hosting, domain, analytics, and get it live.</p></div></div></section>
-<section class="testimonials" id="testimonials"><div class="quote reveal"><div class="stars">★★★★★</div><p>“The site instantly made the business look more professional and trustworthy.”</p><b>Local Service Business</b></div><div class="quote reveal"><div class="stars">★★★★★</div><p>“Fast turnaround, clean design, and easy to understand packages.”</p><b>Startup Client</b></div><div class="quote reveal"><div class="stars">★★★★★</div><p>“The mobile version looked better than most desktop sites.”</p><b>Small Business Owner</b></div></section>
-<section id="faq"><div class="section-head reveal"><div class="kicker">Questions</div><h2>Quick Answers</h2></div><div class="faq-wrapper"><div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)">How long does a website take?<span>+</span></div><div class="faq-answer"><p>Most starter builds take 1–3 weeks depending on content, pages, and revisions.</p></div></div><div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)">Do you use Stripe payments?<span>+</span></div><div class="faq-answer"><p>Yes. Your current Stripe checkout payment links are kept in this build.</p></div></div><div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)">Is it mobile friendly?<span>+</span></div><div class="faq-answer"><p>Yes. The layout is responsive for phones, tablets, and desktop screens.</p></div></div></div></section>
-<section class="contact" id="contact"><div class="section-head reveal" style="text-align:left;margin:0"><div class="kicker">Start Now</div><h2>Ready For A Website That Does Not Look Cheap?</h2><p>Your site is either building trust or killing it. There is no middle.</p></div><form class="contact-form reveal" action="#" method="POST" onsubmit="event.preventDefault(); alert('Form placeholder only. Connect this to Formspree or your backend.');"><input type="text" name="name" placeholder="Full Name *" required><input type="email" name="email" placeholder="Email *" required><input type="tel" name="phone" placeholder="Phone *" required><textarea name="message" placeholder="Tell us what website you need..." required></textarea><button type="submit">Send Inquiry</button></form></section>
-<section class="newsletter reveal"><div class="newsletter-container"><h2>Get Website Tips</h2><p>Join the Moxi Corp Studio list for web design, SEO, and business growth tips.</p><form class="newsletter-form" action="https://formspree.io/f/xvzjprdv" method="POST"><input type="hidden" name="_subject" value="New Newsletter Subscriber!"><input type="email" name="email" placeholder="Enter your email" required><button type="submit">Subscribe</button></form></div></section>
-<footer>© 2026 Moxi Corp Studio. Based in Donnybrook, VIC. Email: support@moxicorpstudio.com.au | <a href="privacy-policy.html" style="color:inherit">Privacy Policy</a></footer>
-<div class="purchase-overlay" id="purchaseModal"><div class="purchase-modal"><button class="close-modal" onclick="closeCheckout()">✕</button><div class="modal-header"><h3 id="checkoutPackageName">Package Name</h3><p>Total Investment: $<span id="checkoutPrice">0</span> AUD</p></div><div class="modal-body"><p style="color: var(--muted); margin-bottom: 25px; line-height: 1.6; font-size: 1.05rem;">You are about to be securely redirected to our encrypted Stripe payment gateway to finalize your investment.</p><button onclick="redirectToStripe()" class="secure-checkout-btn">Proceed to Secure Checkout →</button><div class="secure-badge">🔒 256-bit SSL Secure Encryption via Stripe</div></div></div></div>
-<script>
-const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');menuBtn.addEventListener('click',()=>navLinks.classList.toggle('active'));navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('active')));
-const revealEls=document.querySelectorAll('.reveal');const revealObserver=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible')}else{entry.target.classList.remove('is-visible')}})},{threshold:.14});revealEls.forEach(el=>revealObserver.observe(el));
-function toggleFaq(el){el.parentElement.classList.toggle('active')}
-let currentPackage='';
-// IMPORTANT: Replace these URLs with your actual Stripe Payment Links!
-const stripeLinks = {
-  'Starter Pack': 'https://buy.stripe.com/4gM7sLgm66xC56x7YNfIs00',
-  'Growth Pack': 'https://buy.stripe.com/5kQ28r6Lw2hm56x3IxfIs01',
-  'Elite Pack': 'https://buy.stripe.com/6oUcN58TE9JO1UlfrffIs02'
-};
-function openCheckout(packageName, price) {currentPackage = packageName;document.getElementById('checkoutPackageName').innerText = packageName;document.getElementById('checkoutPrice').innerText = price;document.getElementById('purchaseModal').classList.add('active');}
-function closeCheckout() {document.getElementById('purchaseModal').classList.remove('active');}
-function redirectToStripe() {const paymentUrl = stripeLinks[currentPackage];if (paymentUrl && paymentUrl.includes('buy.stripe.com')) {window.location.href = paymentUrl;} else {alert("Action Required: Please update the JavaScript in this file with your real Stripe Payment Link URLs.");}}
-const modal=document.getElementById('purchaseModal');modal.addEventListener('click',(e)=>{if(e.target===modal)closeCheckout();});
-</script>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+  <nav aria-label="Primary navigation">
+    <a href="index.html" class="logo" aria-label="Moxi Corp Studio home">
+      Moxi <b>Corp</b> Studio.
+    </a>
+
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu">
+      ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="process.html">Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a class="nav-cta" href="pricing.html">View Packs</a>
+  </nav>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <header class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="kicker reveal">Premium Web Development • Australia</div>
+
+        <h1 class="split" aria-label="Websites built to convert">
+          <span>Websites</span><br />
+          <span class="gradient-text">Built To</span><br />
+          <span>Convert.</span>
+        </h1>
+
+        <p class="lead reveal">
+          Moxi Corp Studio builds fast, professional, animated websites for small businesses that need to look credible, modern, and ready to sell. Your website should not feel like a cheap template. It should explain your value, show proof, load fast, look sharp on mobile, and push visitors toward an enquiry or payment.
+        </p>
+
+        <div class="cta-row reveal">
+          <a href="pricing.html" class="btn">See Website Packs →</a>
+          <a href="portfolio.html" class="btn secondary">View Live Work</a>
+        </div>
+
+        <div class="stats reveal" aria-label="Business highlights">
+          <div class="stat">
+            <b data-count="98" data-suffix="+">0</b>
+            <span>Performance Focus</span>
+          </div>
+          <div class="stat">
+            <b data-count="100" data-suffix="%">0</b>
+            <span>Mobile Responsive</span>
+          </div>
+          <div class="stat">
+            <b data-count="24" data-suffix="/7">0</b>
+            <span>Website Presence</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="device-stage reveal" aria-label="Animated website showcase preview">
+        <div class="orb one" aria-hidden="true"></div>
+        <div class="orb two" aria-hidden="true"></div>
+        <div class="orb three" aria-hidden="true"></div>
+
+        <div class="laptop tilt">
+          <div class="laptop-top">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="laptop-screen">
+            <div class="mini-site">
+              <div class="mini-panel">
+                <h3>
+                  Premium pages<br />
+                  that sell.
+                </h3>
+                <div class="bars">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="mock-btn"></div>
+              </div>
+
+              <div class="mini-panel">
+                <h3 class="gradient-text">
+                  SEO ready.<br />
+                  Stripe ready.<br />
+                  Mobile ready.
+                </h3>
+                <div class="bars">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="phone-card"></div>
+            <div class="phone-line"></div>
+            <div class="phone-line"></div>
+            <div class="phone-card"></div>
+            <div class="phone-line"></div>
+          </div>
+        </div>
+
+        <div class="code-float" aria-hidden="true">
+          <b>const</b> site = build({<br />
+          &nbsp; speed: <em>'fast'</em>,<br />
+          &nbsp; design: <em>'premium'</em>,<br />
+          &nbsp; stripe: <em>true</em>,<br />
+          &nbsp; leads: <em>'ready'</em><br />
+          });
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       MARQUEE
+  ========================== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span><strong>FAST</strong> LOADING</span>
+      <span>MOBILE FRIENDLY</span>
+      <span><strong>SEO</strong> READY</span>
+      <span>STRIPE PAYMENTS</span>
+      <span><strong>CUSTOM</strong> CODE</span>
+      <span>MAX ANIMATIONS</span>
+      <span><strong>FAST</strong> LOADING</span>
+      <span>MOBILE FRIENDLY</span>
+      <span><strong>SEO</strong> READY</span>
+      <span>STRIPE PAYMENTS</span>
+      <span><strong>CUSTOM</strong> CODE</span>
+      <span>MAX ANIMATIONS</span>
+    </div>
+  </div>
+
+  <!-- =========================
+       VALUE SECTION
+  ========================== -->
+  <section class="section" id="value">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">What You Get</div>
+        <h2>Professional design with serious motion.</h2>
+        <p>
+          Animation only works when it supports the sale. This site is built to feel premium, but the real goal is simple: make visitors trust your business faster and make it easier for them to enquire or buy.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card reveal tilt">
+          <div class="icon">⚡</div>
+          <h3>Performance First</h3>
+          <p>
+            Fast pages, clean structure, optimised sections, and lightweight motion that looks expensive without turning the site into slow garbage.
+          </p>
+        </article>
+
+        <article class="card reveal tilt">
+          <div class="icon">🧠</div>
+          <h3>Clear Selling Copy</h3>
+          <p>
+            More writing where it matters: explaining the offer, proving value, answering objections, and guiding the visitor toward the next step.
+          </p>
+        </article>
+
+        <article class="card reveal tilt">
+          <div class="icon">💳</div>
+          <h3>Stripe Ready</h3>
+          <p>
+            The checkout flow stays simple. Visitors can view pricing, choose a website pack, and move toward payment or enquiry without getting lost.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FEATURED WORK
+  ========================== -->
+  <section class="section alt" id="featured-work">
+    <div class="wrap showcase">
+      <div class="section-head left reveal">
+        <div class="kicker">Featured Work</div>
+        <h2>Real sites you can show clients.</h2>
+        <p>
+          A web development business with no proof is weak. Your homepage needs to push real projects to the front so people can see you have done actual work for different types of brands.
+        </p>
+      </div>
+
+      <a class="work-card reveal tilt" href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer">
+        <div class="work-shot" aria-hidden="true">
+          <div class="mock">
+            <h4>Ashar Music</h4>
+            <div class="mock-line"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line"></div>
+            <div class="mock-btn"></div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Ashar Music</h3>
+          <p>
+            A music artist website designed around mood, identity, releases, and audience connection. This project shows that Moxi Corp Studio can create more than basic service pages — it can build a full digital brand experience.
+          </p>
+          <div class="work-tags">
+            <span>Artist Website</span>
+            <span>Brand Experience</span>
+            <span>Responsive Design</span>
+          </div>
+          <span class="text-link">Open Live Site →</span>
+        </div>
+      </a>
+
+      <a class="work-card reveal tilt" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer">
+        <div class="work-shot" aria-hidden="true">
+          <div class="mock">
+            <h4>Moxi Cleaning Co</h4>
+            <div class="mock-line"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line"></div>
+            <div class="mock-btn"></div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Moxi Cleaning Co</h3>
+          <p>
+            A local service business website built to communicate trust, explain services clearly, and make it easy for customers to enquire. This is the kind of site small businesses actually need: clean, direct, mobile-friendly, and focused on leads.
+          </p>
+          <div class="work-tags">
+            <span>Service Business</span>
+            <span>Lead Generation</span>
+            <span>Local SEO</span>
+          </div>
+          <span class="text-link">Open Live Site →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================
+       SERVICES SNAPSHOT
+  ========================== -->
+  <section class="section" id="services-preview">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Built Properly</div>
+        <h2>Everything a serious business website needs.</h2>
+        <p>
+          Clients do not just buy “a website”. They buy trust, speed, structure, better presentation, clearer offers, and a better chance of turning visitors into enquiries.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card reveal tilt">
+          <div class="icon">🎯</div>
+          <h3>Conversion Layouts</h3>
+          <p>Hero sections, proof blocks, service breakdowns, strong CTAs, pricing sections, FAQs, and contact paths that make sense.</p>
+        </article>
+
+        <article class="card reveal tilt">
+          <div class="icon">📱</div>
+          <h3>Mobile Experience</h3>
+          <p>Responsive pages that look polished on phone, tablet, laptop, and desktop — because most people check businesses on mobile first.</p>
+        </article>
+
+        <article class="card reveal tilt">
+          <div class="icon">🔎</div>
+          <h3>SEO Foundation</h3>
+          <p>Clean page structure, semantic headings, meta descriptions, keyword-friendly sections, fast loading, and Google-ready setup.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       PRICING
+  ========================== -->
+  <section class="section alt" id="pricing-preview">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Popular Packs</div>
+        <h2>Simple pricing. Serious value.</h2>
+        <p>
+          Clear packs make buying easier. Starter for new businesses, Growth for serious service businesses, and Elite for brands that want a stronger online presence.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="price-card reveal">
+          <h3>Starter Pack</h3>
+          <div class="price">$599</div>
+          <p>For new businesses that need to look professional quickly.</p>
+          <ul class="clean">
+            <li>3 page custom website</li>
+            <li>Mobile responsive layout</li>
+            <li>Basic SEO setup</li>
+            <li>Contact form</li>
+            <li>Fast hosting setup guidance</li>
+          </ul>
+          <button class="checkout-btn" type="button" onclick="openCheckout('Starter Pack', 599)">Start Your Build</button>
+        </article>
+
+        <article class="price-card featured reveal">
+          <div class="popular">Most Popular</div>
+          <h3>Growth Pack</h3>
+          <div class="price">$849</div>
+          <p>For businesses that want more pages, stronger structure, and better conversion sections.</p>
+          <ul class="clean">
+            <li>Up to 9 pages</li>
+            <li>Advanced SEO structure</li>
+            <li>Google and Pixel support</li>
+            <li>Speed optimisation</li>
+            <li>Custom animations</li>
+            <li>Priority support</li>
+          </ul>
+          <button class="checkout-btn" type="button" onclick="openCheckout('Growth Pack', 849)">Initialize Project</button>
+        </article>
+
+        <article class="price-card reveal">
+          <h3>Elite Pack</h3>
+          <div class="price">$1159</div>
+          <p>For serious brands that want a bigger, more premium online presence.</p>
+          <ul class="clean">
+            <li>Expanded page architecture</li>
+            <li>Custom feature sections</li>
+            <li>Payment integration support</li>
+            <li>Advanced security focus</li>
+            <li>Ongoing support options</li>
+            <li>Dedicated build flow</li>
+          </ul>
+          <button class="checkout-btn" type="button" onclick="openCheckout('Elite Pack', 1159)">Start Your Build</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       PROCESS
+  ========================== -->
+  <section class="section" id="process-preview">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Process</div>
+        <h2>A proper build process clients can trust.</h2>
+        <p>
+          A professional process makes clients feel safe. They need to know what happens after they pay, how the work is handled, and what the final outcome includes.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="panel reveal">
+          <div class="number">01</div>
+          <h3>Discovery</h3>
+          <p>We learn the business, goals, services, audience, and what the website needs to achieve.</p>
+        </article>
+
+        <article class="panel reveal">
+          <div class="number">02</div>
+          <h3>Design</h3>
+          <p>We create a strong visual direction with modern layout, professional copy, and a clear conversion flow.</p>
+        </article>
+
+        <article class="panel reveal">
+          <div class="number">03</div>
+          <h3>Development</h3>
+          <p>We code the site, optimise mobile, add animations, connect forms, and prepare launch assets.</p>
+        </article>
+
+        <article class="panel reveal">
+          <div class="number">04</div>
+          <h3>Launch</h3>
+          <p>We help get the site live, check pages, test forms, and make sure the final result is sharp.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FINAL CTA
+  ========================== -->
+  <section class="section alt" id="quote">
+    <div class="wrap">
+      <div class="newsletter-container panel reveal" style="text-align:center">
+        <div class="kicker">Ready</div>
+        <h2 style="font-size:clamp(2rem,5vw,4rem);letter-spacing:-.07em">
+          Need a website that makes your business look serious?
+        </h2>
+        <p style="margin-top:14px;color:var(--muted);line-height:1.7">
+          Get a professional website with strong structure, modern animation, responsive design, and clear selling sections.
+        </p>
+        <div class="cta-row" style="justify-content:center">
+          <a href="contact.html" class="btn">Get A Free Quote</a>
+          <a href="portfolio.html" class="btn secondary">View Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       STRIPE CHECKOUT MODAL
+       Keep JS function names the same.
+  ========================== -->
+  <div class="purchase-overlay" id="purchaseModal" aria-hidden="true">
+    <div class="purchase-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutPackageName">
+      <button class="close-modal" type="button" onclick="closeCheckout()" aria-label="Close checkout modal">✕</button>
+
+      <div class="modal-header">
+        <h3 id="checkoutPackageName">Package Name</h3>
+        <p>Total Investment: $<span id="checkoutPrice">0</span> AUD</p>
+      </div>
+
+      <p style="color:var(--muted);line-height:1.7;margin-bottom:22px">
+        You are about to be redirected to secure Stripe checkout. Replace the placeholder Stripe URLs in script.js with your real Stripe payment links.
+      </p>
+
+      <button type="button" onclick="redirectToStripe()" class="secure-checkout-btn">
+        Proceed to Secure Checkout →
+      </button>
+
+      <div class="secure-badge">🔒 Secure checkout via Stripe</div>
+    </div>
+  </div>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    <div class="wrap">
+      © 2026 Moxi Corp Studio. Based in Donnybrook, VIC.<br />
+      ABN: 18 936 263 775<br /><br />
+      Email: <a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a> |
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

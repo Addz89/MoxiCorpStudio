@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Website pricing packs for Moxi Corp Studio. Professional custom websites for small businesses with SEO, mobile optimisation, Stripe checkout support and ongoing upgrades." />
+  <title>Pricing | Moxi Corp Studio</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Page-specific upgrades for pricing.html */
+    .pricing-hero {
+      min-height: auto;
+      padding: 170px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 5% 0 5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 200, 255, .65), transparent);
+      opacity: .9;
+    }
+
+    .pricing-hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .pricing-hero h1 {
+      font-size: clamp(3.4rem, 8vw, 7.4rem);
+      line-height: .88;
+      letter-spacing: -.08em;
+      margin: 18px 0 26px;
+      max-width: 960px;
+    }
+
+    .pricing-hero .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.8vw, 1.25rem);
+      line-height: 1.75;
+    }
+
+    .pricing-trust-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .trust-pill {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.045);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 11px 15px;
+      font-size: .84rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      box-shadow: 0 18px 60px rgba(0,0,0,.2);
+    }
+
+    .price-console {
+      position: relative;
+      min-height: 430px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at 25% 20%, rgba(0, 200, 255, .18), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 35px 100px rgba(0,0,0,.45);
+      transform-style: preserve-3d;
+    }
+
+    .price-console::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: radial-gradient(circle at 50% 40%, black, transparent 78%);
+      animation: gridSlide 15s linear infinite;
+      opacity: .45;
+    }
+
+    .console-window {
+      position: absolute;
+      inset: 32px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(3, 9, 20, .78);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+      animation: floatSoft 6s ease-in-out infinite;
+    }
+
+    .console-top {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 18px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+    }
+
+    .console-top span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: rgba(0, 200, 255, .75);
+      box-shadow: 0 0 20px rgba(0, 200, 255, .5);
+    }
+
+    .console-body {
+      padding: 26px;
+      font-family: var(--mono, 'JetBrains Mono', monospace);
+      color: rgba(238, 248, 255, .92);
+      line-height: 1.75;
+      font-size: .92rem;
+    }
+
+    .console-body em,
+    .console-body strong {
+      color: #39d7ff;
+      font-style: normal;
+    }
+
+    .floating-badge {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      z-index: 2;
+      border-radius: 22px;
+      padding: 18px 20px;
+      border: 1px solid rgba(0, 200, 255, .35);
+      background: rgba(0, 200, 255, .08);
+      box-shadow: 0 20px 60px rgba(0, 200, 255, .12);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      animation: pulseBorder 2.8s ease-in-out infinite;
+    }
+
+    .pricing-intro {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    .pricing-note {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.045);
+      border-radius: 26px;
+      padding: 28px;
+      position: sticky;
+      top: 110px;
+    }
+
+    .pricing-note h3 {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .pricing-note p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .pricing-grid.enhanced {
+      align-items: stretch;
+    }
+
+    .price-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(0, 200, 255, .22), transparent 35%);
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none;
+    }
+
+    .price-card:hover::before {
+      opacity: 1;
+    }
+
+    .pack-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #65dcff;
+      font-family: var(--mono, 'JetBrains Mono', monospace);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .price-card h3 {
+      font-size: 2rem;
+      letter-spacing: -.045em;
+    }
+
+    .price-subtitle {
+      color: var(--muted);
+      line-height: 1.65;
+      min-height: 80px;
+      margin: 14px 0 26px;
+    }
+
+    .price {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .price small {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .clean li {
+      margin-bottom: 12px;
+      color: rgba(238, 248, 255, .86);
+      line-height: 1.55;
+    }
+
+    .pack-best-for {
+      margin: 26px 0;
+      border-top: 1px solid rgba(255,255,255,.09);
+      border-bottom: 1px solid rgba(255,255,255,.09);
+      padding: 18px 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .pack-best-for b {
+      color: var(--text);
+    }
+
+    .compare-table {
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 26px;
+      overflow: hidden;
+      background: rgba(255,255,255,.035);
+      box-shadow: 0 30px 100px rgba(0,0,0,.32);
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1.3fr repeat(3, 1fr);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .compare-row:last-child {
+      border-bottom: 0;
+    }
+
+    .compare-row > div {
+      padding: 18px 20px;
+      color: var(--muted);
+      border-right: 1px solid rgba(255,255,255,.08);
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+    }
+
+    .compare-row > div:last-child {
+      border-right: 0;
+    }
+
+    .compare-head > div {
+      color: var(--text);
+      font-weight: 900;
+      background: rgba(255,255,255,.055);
+    }
+
+    .compare-row .yes {
+      color: #5ee6ff;
+      font-weight: 900;
+    }
+
+    .addons-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .addon-mini {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 145px;
+      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    }
+
+    .addon-mini:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 200, 255, .35);
+      background: rgba(0, 200, 255, .06);
+    }
+
+    .addon-mini h3 {
+      font-size: 1.02rem;
+      margin-bottom: 10px;
+    }
+
+    .addon-mini p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: .94rem;
+    }
+
+    .faq-pricing {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .faq-mini {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .faq-mini h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .faq-mini p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @keyframes gridSlide {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(38px, 38px, 0); }
+    }
+
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0) rotateX(0deg); }
+      50% { transform: translateY(-12px) rotateX(2deg); }
+    }
+
+    @keyframes pulseBorder {
+      0%, 100% { box-shadow: 0 20px 60px rgba(0, 200, 255, .12); }
+      50% { box-shadow: 0 20px 85px rgba(0, 200, 255, .25); }
+    }
+
+    @media (max-width: 980px) {
+      .pricing-hero-grid,
+      .pricing-intro,
+      .faq-pricing {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-note {
+        position: relative;
+        top: auto;
+      }
+
+      .price-console {
+        min-height: 360px;
+      }
+
+      .compare-table {
+        overflow-x: auto;
+      }
+
+      .compare-row {
+        min-width: 760px;
+      }
+
+      .addons-mini-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pricing-hero {
+        padding-top: 140px;
+      }
+
+      .addons-mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .console-body {
+        font-size: .78rem;
+        padding: 22px;
+      }
+
+      .floating-badge {
+        left: 24px;
+        right: 24px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <nav>
+    <a href="index.html" class="logo" aria-label="Moxi Corp Studio home">Moxi <b>Corp</b> Studio.</a>
+
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <div class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a class="active" href="pricing.html">Pricing</a>
+      <a href="process.html">Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a class="nav-cta" href="contact.html">Free Quote</a>
+  </nav>
+
+  <main class="pricing-hero">
+    <div class="wrap pricing-hero-grid">
+      <div class="reveal">
+        <div class="kicker">Pricing</div>
+        <h1>Website packs built for serious small businesses.</h1>
+        <p class="lead">
+          Clear pricing makes the decision easier. Pick the pack that matches where your business is right now, then scale with extra pages, SEO upgrades, Stripe support, maintenance, and future improvements when you need them.
+        </p>
+
+        <div class="pricing-trust-row" aria-label="Pricing benefits">
+          <span class="trust-pill">No template junk</span>
+          <span class="trust-pill">Mobile responsive</span>
+          <span class="trust-pill">SEO foundations</span>
+          <span class="trust-pill">Stripe checkout support</span>
+        </div>
+      </div>
+
+      <aside class="price-console reveal tilt" aria-label="Pricing system visual">
+        <div class="console-window">
+          <div class="console-top"><span></span><span></span><span></span></div>
+          <div class="console-body">
+            <strong>// Moxi pricing engine</strong><br>
+            const pack = select({<br>
+            &nbsp;&nbsp;starter: <em>'launch fast'</em>,<br>
+            &nbsp;&nbsp;growth: <em>'build authority'</em>,<br>
+            &nbsp;&nbsp;elite: <em>'premium presence'</em>,<br>
+            &nbsp;&nbsp;checkout: <em>'stripe ready'</em>,<br>
+            &nbsp;&nbsp;support: <em>'available'</em><br>
+            });<br><br>
+            pack.launch();
+          </div>
+        </div>
+        <div class="floating-badge">From $599 AUD</div>
+      </aside>
+    </div>
+  </main>
+
+  <section class="section">
+    <div class="wrap pricing-intro">
+      <div class="pricing-note reveal">
+        <div class="kicker">How To Choose</div>
+        <h3>Do not buy the biggest pack just because it sounds good.</h3>
+        <p>
+          Pick the pack that matches the job. A simple new business should start clean. A business running ads or chasing leads needs more pages and better conversion structure. A serious brand needs stronger architecture, more proof, more sections, and a more premium experience.
+        </p>
+      </div>
+
+      <div>
+        <div class="section-head left reveal" style="margin-bottom: 30px;">
+          <div class="kicker">Website Packs</div>
+          <h2>Simple offers. Professional execution.</h2>
+          <p>
+            Every pack is designed to make your business look more credible, easier to understand, and easier to contact. The difference is the amount of pages, depth, SEO structure, animation level, and custom functionality.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="pricing-grid enhanced">
+        <article class="price-card reveal tilt">
+          <span class="pack-label">01 / Starter</span>
+          <h3>Starter Pack</h3>
+          <div class="price">$599 <small>AUD</small></div>
+          <p class="price-subtitle">
+            For new businesses that need to look professional quickly without overcomplicating the first launch.
+          </p>
+
+          <ul class="clean">
+            <li>3 page custom website</li>
+            <li>Home, services/about, contact structure</li>
+            <li>Mobile responsive layout</li>
+            <li>Basic SEO foundations</li>
+            <li>Contact form setup</li>
+            <li>Fast hosting setup guidance</li>
+          </ul>
+
+          <div class="pack-best-for"><b>Best for:</b> new businesses, simple service sites, one-person brands, trades, and start-up websites.</div>
+
+          <button class="checkout-btn" type="button" onclick="openCheckout('Starter Pack', 599)">Start Your Build</button>
+        </article>
+
+        <article class="price-card featured reveal tilt">
+          <div class="popular">Most Popular</div>
+          <span class="pack-label">02 / Growth</span>
+          <h3>Growth Pack</h3>
+          <div class="price">$849 <small>AUD</small></div>
+          <p class="price-subtitle">
+            For businesses that want more pages, stronger content, better structure, and a website that feels more complete.
+          </p>
+
+          <ul class="clean">
+            <li>Up to 9 pages</li>
+            <li>Advanced page structure</li>
+            <li>Service sections and selling copy</li>
+            <li>SEO-focused headings and metadata guidance</li>
+            <li>Google / Meta Pixel guidance</li>
+            <li>Speed optimisation</li>
+            <li>Custom animations and motion sections</li>
+          </ul>
+
+          <div class="pack-best-for"><b>Best for:</b> local businesses, service providers, growing brands, and anyone planning to advertise.</div>
+
+          <button class="checkout-btn" type="button" onclick="openCheckout('Growth Pack', 849)">Initialize Project</button>
+        </article>
+
+        <article class="price-card reveal tilt">
+          <span class="pack-label">03 / Elite</span>
+          <h3>Elite Pack</h3>
+          <div class="price">$1159 <small>AUD</small></div>
+          <p class="price-subtitle">
+            For serious brands that need a bigger premium website with stronger proof, better flow, and advanced sections.
+          </p>
+
+          <ul class="clean">
+            <li>Expanded page architecture</li>
+            <li>Premium homepage build</li>
+            <li>Custom feature sections</li>
+            <li>Stripe support and payment flow planning</li>
+            <li>Advanced conversion sections</li>
+            <li>Security and launch checklist</li>
+            <li>Priority build flow</li>
+          </ul>
+
+          <div class="pack-best-for"><b>Best for:</b> established businesses, premium brands, e-commerce starters, and serious client acquisition.</div>
+
+          <button class="checkout-btn" type="button" onclick="openCheckout('Elite Pack', 1159)">Start Your Build</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Compare Packs</div>
+        <h2>What is included?</h2>
+        <p>
+          Do not make people guess. A clear comparison table helps clients understand the difference without needing to message ten questions first.
+        </p>
+      </div>
+
+      <div class="compare-table reveal" role="table" aria-label="Website package comparison">
+        <div class="compare-row compare-head" role="row">
+          <div role="columnheader">Feature</div>
+          <div role="columnheader">Starter</div>
+          <div role="columnheader">Growth</div>
+          <div role="columnheader">Elite</div>
+        </div>
+        <div class="compare-row" role="row">
+          <div role="cell">Custom responsive design</div>
+          <div class="yes" role="cell">Included</div>
+          <div class="yes" role="cell">Included</div>
+          <div class="yes" role="cell">Included</div>
+        </div>
+        <div class="compare-row" role="row">
+          <div role="cell">Page count</div>
+          <div role="cell">3 pages</div>
+          <div role="cell">Up to 9 pages</div>
+          <div role="cell">Expanded architecture</div>
+        </div>
+        <div class="compare-row" role="row">
+          <div role="cell">SEO structure</div>
+          <div role="cell">Basic</div>
+          <div role="cell">Advanced</div>
+          <div role="cell">Advanced + strategy</div>
+        </div>
+        <div class="compare-row" role="row">
+          <div role="cell">Animations and motion</div>
+          <div role="cell">Light</div>
+          <div role="cell">Custom</div>
+          <div role="cell">Premium motion system</div>
+        </div>
+        <div class="compare-row" role="row">
+          <div role="cell">Stripe/payment guidance</div>
+          <div role="cell">Optional</div>
+          <div role="cell">Optional</div>
+          <div class="yes" role="cell">Included planning</div>
+        </div>
+        <div class="compare-row" role="row">
+          <div role="cell">Best use case</div>
+          <div role="cell">New business</div>
+          <div role="cell">Growing business</div>
+          <div role="cell">Premium brand</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Extras</div>
+        <h2>Add what the business actually needs.</h2>
+        <p>
+          The packs cover the main build. Add-ons are there when a client needs extra pages, SEO copy, forms, Google setup, design assets, or long-term maintenance.
+        </p>
+      </div>
+
+      <div class="addons-mini-grid">
+        <div class="addon-mini reveal"><h3>Extra Pages</h3><p>Add more service, location, landing, gallery, or campaign pages when the business grows.</p></div>
+        <div class="addon-mini reveal"><h3>SEO Copy</h3><p>Improve page wording, headings, and keyword targeting so the site is easier for Google and customers to understand.</p></div>
+        <div class="addon-mini reveal"><h3>Google Setup</h3><p>Support for Google Business Profile, Google Analytics, and Search Console foundations.</p></div>
+        <div class="addon-mini reveal"><h3>Maintenance</h3><p>Updates, changes, checks, new sections, content improvements, and future site upgrades.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Payment Flow</div>
+        <h2>Stripe checkout stays clean.</h2>
+        <p>
+          The buttons below keep your existing JavaScript checkout hook. Replace the placeholder Stripe payment links inside <code>script.js</code> with your real Stripe links and the modal will redirect correctly.
+        </p>
+      </div>
+
+      <div class="faq-pricing">
+        <div class="faq-mini reveal">
+          <h3>Can clients pay online?</h3>
+          <p>Yes. Each pack button calls <code>openCheckout()</code>, shows the selected pack, then uses <code>redirectToStripe()</code> to send the client to Stripe checkout.</p>
+        </div>
+        <div class="faq-mini reveal">
+          <h3>Can clients request a quote instead?</h3>
+          <p>Yes. Not every job should be pushed straight to payment. Use the contact page for bigger builds, custom work, or clients who need advice first.</p>
+        </div>
+      </div>
+
+      <div class="cta-row reveal" style="justify-content: center; margin-top: 34px;">
+        <a class="btn" href="contact.html">Ask For A Quote</a>
+        <a class="btn secondary" href="portfolio.html">View Live Work</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="purchase-overlay" id="purchaseModal" aria-hidden="true">
+    <div class="purchase-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutPackageName">
+      <button class="close-modal" type="button" onclick="closeCheckout()" aria-label="Close checkout modal">✕</button>
+
+      <div class="modal-header">
+        <h3 id="checkoutPackageName">Package</h3>
+        <p>Total Investment: $<span id="checkoutPrice">0</span> AUD</p>
+      </div>
+
+      <p style="color: var(--muted); line-height: 1.7; margin-bottom: 22px;">
+        You are about to be redirected to secure Stripe checkout. Replace the placeholder Stripe URLs in script.js with your real Stripe payment links.
+      </p>
+
+      <button type="button" onclick="redirectToStripe()" class="secure-checkout-btn">Proceed to Secure Checkout →</button>
+      <div class="secure-badge">🔒 Secure checkout via Stripe</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Moxi Corp Studio. Based in Donnybrook, VIC.<br>
+      ABN: 18 936 263 775<br><br>
+      Email: support@moxicorpstudio.com.au |
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

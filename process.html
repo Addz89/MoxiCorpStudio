@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Process | Moxi Corp Studio</title>
+  <meta name="description" content="See the Moxi Corp Studio website build process from discovery and design through development, launch, SEO setup, and post-launch support." />
+
+  <link rel="icon" type="image/svg+xml" href="logo1.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root {
+      --process-blue: #00aaff;
+      --process-cyan: #44e5ff;
+      --process-dark: #05070d;
+      --process-panel: rgba(8, 17, 31, 0.78);
+      --process-border: rgba(120, 220, 255, 0.2);
+      --process-muted: #9fb0c7;
+      --process-text: #f7fbff;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0, 170, 255, 0.16), transparent 32%),
+        radial-gradient(circle at 85% 28%, rgba(68, 229, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.04), transparent 40%),
+        var(--process-dark);
+    }
+
+    .process-hero {
+      min-height: auto;
+      padding: 155px 0 70px;
+      overflow: hidden;
+    }
+
+    .process-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .process-hero h1 {
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      margin: 16px 0 24px;
+    }
+
+    .process-hero .lead {
+      max-width: 760px;
+      color: var(--process-muted);
+      font-size: clamp(1.04rem, 1.6vw, 1.25rem);
+      line-height: 1.8;
+    }
+
+    .process-console {
+      position: relative;
+      min-height: 460px;
+      border: 1px solid var(--process-border);
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
+        rgba(2, 8, 18, 0.84);
+      box-shadow:
+        0 35px 100px rgba(0, 0, 0, 0.45),
+        0 0 80px rgba(0, 170, 255, 0.12);
+      transform-style: preserve-3d;
+      isolation: isolate;
+    }
+
+    .process-console::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: conic-gradient(from 90deg, transparent, rgba(0, 170, 255, 0.18), transparent, rgba(68, 229, 255, 0.12), transparent);
+      animation: processSpin 16s linear infinite;
+      z-index: -1;
+    }
+
+    .process-console::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: 33px;
+      background: rgba(3, 8, 18, 0.86);
+      z-index: -1;
+    }
+
+    @keyframes processSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .console-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .console-top span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--process-blue);
+      box-shadow: 0 0 18px rgba(0, 170, 255, 0.75);
+    }
+
+    .console-top span:nth-child(2) { opacity: 0.7; }
+    .console-top span:nth-child(3) { opacity: 0.45; }
+
+    .console-body {
+      padding: 28px;
+      font-family: "JetBrains Mono", monospace;
+      color: #d9f7ff;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .console-body .comment { color: #7f92a8; }
+    .console-body .key { color: var(--process-cyan); }
+    .console-body .string { color: #ffffff; }
+    .console-body .value { color: var(--process-blue); }
+
+    .build-meter {
+      margin-top: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 6px;
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+    }
+
+    .build-meter span {
+      display: block;
+      height: 10px;
+      width: 82%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--process-blue), var(--process-cyan), #fff);
+      box-shadow: 0 0 25px rgba(0, 170, 255, 0.65);
+      animation: meterPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes meterPulse {
+      0%, 100% { filter: brightness(1); transform: scaleX(0.96); transform-origin: left; }
+      50% { filter: brightness(1.25); transform: scaleX(1); transform-origin: left; }
+    }
+
+    .floating-status {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      max-width: 220px;
+      padding: 18px;
+      border: 1px solid var(--process-border);
+      border-radius: 22px;
+      background: rgba(7, 18, 33, 0.84);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.35);
+      animation: floatStatus 4.8s ease-in-out infinite;
+    }
+
+    @keyframes floatStatus {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .floating-status b {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .floating-status p {
+      margin: 0;
+      color: var(--process-muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .process-timeline {
+      position: relative;
+      display: grid;
+      gap: 26px;
+      margin-top: 54px;
+    }
+
+    .process-timeline::before {
+      content: "";
+      position: absolute;
+      left: 33px;
+      top: 22px;
+      bottom: 22px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, var(--process-blue), var(--process-cyan), transparent);
+      box-shadow: 0 0 18px rgba(0, 170, 255, 0.5);
+    }
+
+    .process-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+      padding: 0;
+    }
+
+    .step-badge {
+      position: relative;
+      z-index: 2;
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      border: 1px solid var(--process-border);
+      background: rgba(3, 12, 24, 0.95);
+      color: #fff;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 900;
+      box-shadow: 0 0 28px rgba(0, 170, 255, 0.16);
+      transition: 0.35s ease;
+    }
+
+    .process-step:hover .step-badge {
+      transform: rotate(-8deg) scale(1.06);
+      border-color: rgba(68, 229, 255, 0.65);
+      box-shadow: 0 0 35px rgba(0, 170, 255, 0.35);
+    }
+
+    .step-panel {
+      position: relative;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      background: var(--process-panel);
+      backdrop-filter: blur(22px);
+      overflow: hidden;
+      box-shadow: 0 28px 90px rgba(0,0,0,0.2);
+      transition: 0.35s ease;
+    }
+
+    .step-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(0, 170, 255, 0.16), transparent 34%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .process-step:hover .step-panel {
+      transform: translateY(-6px);
+      border-color: var(--process-border);
+      box-shadow: 0 34px 100px rgba(0, 0, 0, 0.34), 0 0 50px rgba(0, 170, 255, 0.1);
+    }
+
+    .process-step:hover .step-panel::before { opacity: 1; }
+
+    .step-panel h3 {
+      margin: 0 0 12px;
+      color: #fff;
+      font-size: clamp(1.45rem, 2.4vw, 2rem);
+      letter-spacing: -0.04em;
+    }
+
+    .step-panel p {
+      margin: 0;
+      color: var(--process-muted);
+      line-height: 1.75;
+      font-size: 1.02rem;
+    }
+
+    .step-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .step-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #d7f6ff;
+      background: rgba(255,255,255,0.04);
+      font-size: 0.86rem;
+    }
+
+    .handover-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    .handover-card {
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      background: rgba(8, 17, 31, 0.74);
+      backdrop-filter: blur(18px);
+    }
+
+    .handover-card h3 {
+      color: #fff;
+      font-size: 1.6rem;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .handover-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .handover-card li {
+      color: var(--process-muted);
+      line-height: 1.55;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .handover-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--process-cyan);
+      font-weight: 900;
+    }
+
+    .process-cta {
+      text-align: center;
+      padding: 54px;
+      border-radius: 34px;
+      border: 1px solid var(--process-border);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0, 170, 255, 0.2), transparent 42%),
+        rgba(8, 17, 31, 0.78);
+      box-shadow: 0 30px 100px rgba(0,0,0,0.35);
+    }
+
+    .process-cta h2 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      letter-spacing: -0.08em;
+      line-height: 0.98;
+    }
+
+    .process-cta p {
+      max-width: 760px;
+      margin: 18px auto 0;
+      color: var(--process-muted);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 920px) {
+      .process-hero-grid,
+      .handover-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-console { min-height: 420px; }
+      .process-timeline::before { left: 25px; }
+      .process-step { grid-template-columns: 52px minmax(0, 1fr); gap: 16px; }
+      .step-badge { width: 52px; height: 52px; border-radius: 18px; font-size: 0.9rem; }
+      .step-panel { padding: 26px 22px; }
+      .process-cta { padding: 40px 24px; }
+    }
+
+    @media (max-width: 620px) {
+      .process-hero { padding-top: 130px; }
+      .console-body { padding: 22px; font-size: 0.8rem; }
+      .floating-status { position: relative; right: auto; bottom: auto; margin: 20px 22px 22px; max-width: none; }
+      .step-meta span { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+
+  <nav>
+    <a href="index.html" class="logo">Moxi <b>Corp</b> Studio.</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a class="active" href="process.html">Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a class="nav-cta" href="pricing.html">View Packs</a>
+  </nav>
+
+  <main class="hero process-hero">
+    <div class="wrap process-hero-grid">
+      <div class="reveal">
+        <div class="kicker">Build Flow</div>
+        <h1>How your website gets built.</h1>
+        <p class="lead">
+          A professional website process keeps the project clean, avoids confusion, and makes the client feel safe before they spend money. Moxi Corp Studio uses a structured build flow from the first message through design, development, testing, launch, and post-launch improvements.
+        </p>
+        <div class="cta-row">
+          <a href="contact.html" class="btn">Start A Project →</a>
+          <a href="pricing.html" class="btn secondary">View Website Packs</a>
+        </div>
+      </div>
+
+      <div class="process-console reveal tilt" aria-label="Website build console visual">
+        <div class="console-top"><span></span><span></span><span></span></div>
+        <div class="console-body">
+          <span class="comment">// Moxi Corp Studio build system</span><br>
+          <span class="key">project</span>.<span class="value">discover</span>(<span class="string">businessGoals</span>);<br>
+          <span class="key">content</span>.<span class="value">map</span>(<span class="string">pages, services, callsToAction</span>);<br>
+          <span class="key">design</span>.<span class="value">prototype</span>(<span class="string">premiumLayout</span>);<br>
+          <span class="key">code</span>.<span class="value">build</span>(<span class="string">responsiveWebsite</span>);<br>
+          <span class="key">launch</span>.<span class="value">deploy</span>(<span class="string">testedAndReady</span>);<br>
+          <div class="build-meter"><span></span></div>
+        </div>
+        <div class="floating-status">
+          <b>Launch path active</b>
+          <p>Clear steps. Better communication. Cleaner result. Less messy back-and-forth.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Step By Step</div>
+        <h2>A clear process clients can trust.</h2>
+        <p>
+          Weak process makes you look like a hobbyist. Strong process makes you look like a real studio. This page tells clients exactly what happens, what they need to provide, and how the project moves from idea to launch.
+        </p>
+      </div>
+
+      <div class="process-timeline">
+        <article class="process-step reveal">
+          <div class="step-badge">01</div>
+          <div class="step-panel">
+            <h3>Discovery & Direction</h3>
+            <p>
+              We start by understanding the business, target audience, services, competitors, location, goals, and what the website actually needs to achieve. This stops the project from becoming random pages with no strategy.
+            </p>
+            <div class="step-meta">
+              <span>Business goals</span>
+              <span>Target customers</span>
+              <span>Page plan</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step reveal">
+          <div class="step-badge">02</div>
+          <div class="step-panel">
+            <h3>Content & Website Structure</h3>
+            <p>
+              Before design starts, the content structure is mapped properly. We plan the core sections: hero, services, proof, portfolio, pricing, process, FAQ, and contact path. This makes the website easier to read and easier to buy from.
+            </p>
+            <div class="step-meta">
+              <span>Service copy</span>
+              <span>Calls to action</span>
+              <span>Trust sections</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step reveal">
+          <div class="step-badge">03</div>
+          <div class="step-panel">
+            <h3>Design System & Visual Direction</h3>
+            <p>
+              The website gets a professional design direction with typography, spacing, layout hierarchy, colour system, button styles, card styles, and animation behaviour. The goal is premium, not cluttered.
+            </p>
+            <div class="step-meta">
+              <span>Modern UI</span>
+              <span>Mobile first</span>
+              <span>Premium layout</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step reveal">
+          <div class="step-badge">04</div>
+          <div class="step-panel">
+            <h3>Development & Animation Build</h3>
+            <p>
+              We code the website, connect navigation, build responsive pages, add motion effects, polish mobile layouts, prepare Stripe buttons where needed, and make sure the site feels alive without becoming messy or slow.
+            </p>
+            <div class="step-meta">
+              <span>HTML/CSS/JS</span>
+              <span>Animations</span>
+              <span>Stripe hooks</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step reveal">
+          <div class="step-badge">05</div>
+          <div class="step-panel">
+            <h3>Testing, Review & Polish</h3>
+            <p>
+              We check the website across desktop, tablet, and mobile. Forms, links, buttons, page spacing, image sizing, text flow, animation timing, and basic SEO elements are reviewed before launch.
+            </p>
+            <div class="step-meta">
+              <span>Responsive checks</span>
+              <span>Form testing</span>
+              <span>SEO basics</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step reveal">
+          <div class="step-badge">06</div>
+          <div class="step-panel">
+            <h3>Launch & Post-Launch Support</h3>
+            <p>
+              Once approved, the website is prepared for launch. We help with domain, hosting, final checks, and future improvements such as new pages, SEO updates, speed checks, and extra features.
+            </p>
+            <div class="step-meta">
+              <span>Domain support</span>
+              <span>Launch checks</span>
+              <span>Future upgrades</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">What We Need From You</div>
+        <h2>Clear inputs create a stronger build.</h2>
+        <p>
+          Clients do not need to know web development. But they do need to provide enough business information so the final website feels specific, trustworthy, and built for their actual customers.
+        </p>
+      </div>
+
+      <div class="handover-grid">
+        <div class="handover-card reveal tilt">
+          <h3>Client Provides</h3>
+          <ul>
+            <li>Business name, logo, ABN if required, and contact details.</li>
+            <li>Service list, pricing details, locations served, and main selling points.</li>
+            <li>Photos, brand colours, references, and examples of websites they like.</li>
+            <li>Preferred call-to-action such as phone calls, forms, bookings, or Stripe checkout.</li>
+          </ul>
+        </div>
+
+        <div class="handover-card reveal tilt">
+          <h3>Moxi Corp Studio Handles</h3>
+          <ul>
+            <li>Page structure, design direction, responsive layout, and website flow.</li>
+            <li>Professional wording, trust sections, service explanations, and conversion copy.</li>
+            <li>HTML, CSS, JavaScript, animation polish, form setup, and Stripe button hooks.</li>
+            <li>Launch support, basic SEO setup, testing, and future upgrade recommendations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="process-cta reveal">
+        <div class="kicker">Ready To Build</div>
+        <h2>Start with the right pack.</h2>
+        <p>
+          Starter is for businesses that need a clean professional presence. Growth is for businesses that need stronger structure and more pages. Elite is for brands that want a bigger premium website with more depth.
+        </p>
+        <div class="cta-row" style="justify-content:center">
+          <a href="pricing.html" class="btn">Compare Website Packs</a>
+          <a href="contact.html" class="btn secondary">Ask For A Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Moxi Corp Studio. Based in Donnybrook, VIC.<br />
+      ABN: 18 936 263 775<br /><br />
+      Email: support@moxicorpstudio.com.au |
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('.step-panel').forEach((panel) => {
+      panel.addEventListener('pointermove', (event) => {
+        const rect = panel.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        panel.style.setProperty('--mx', `${x}%`);
+        panel.style.setProperty('--my', `${y}%`);
+      });
+    });
+  </script>
+</body>
+</html>

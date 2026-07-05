@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Moxi Corp Studio for custom website design, web development, SEO-ready builds, Stripe payment websites, and small business website packages." />
+  <title>Contact | Moxi Corp Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Contact page upgrade — keep this here or move it into styles.css */
+    .contact-hero {
+      min-height: auto;
+      padding: 165px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(0, 140, 255, 0.24), transparent 28%),
+        radial-gradient(circle at 78% 30%, rgba(50, 209, 255, 0.14), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.035), transparent 55%);
+      pointer-events: none;
+      animation: heroGlow 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroGlow {
+      from { transform: scale(1); opacity: .75; }
+      to { transform: scale(1.08); opacity: 1; }
+    }
+
+    .contact-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 50px;
+      align-items: end;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-hero h1 {
+      font-size: clamp(3.2rem, 7vw, 6.8rem);
+      line-height: .9;
+      letter-spacing: -0.08em;
+      margin: 18px 0 22px;
+      max-width: 900px;
+    }
+
+    .contact-hero p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.75;
+    }
+
+    .contact-points {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      transform: translateZ(0);
+      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    }
+
+    .contact-point:hover {
+      transform: translateY(-6px);
+      border-color: rgba(50,209,255,.42);
+      background: rgba(0,140,255,.075);
+    }
+
+    .contact-point strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .contact-point span {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 42px;
+      color: #fff;
+      background: linear-gradient(135deg, #008cff, #32d1ff);
+      box-shadow: 0 0 28px rgba(0,140,255,.45);
+      font-weight: 900;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact-sidebar,
+    .contact-panel {
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 30px;
+      background: rgba(255,255,255,.045);
+      backdrop-filter: blur(22px);
+      box-shadow: 0 28px 100px rgba(0,0,0,.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-sidebar::before,
+    .contact-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.12), transparent 35%);
+      opacity: .65;
+      pointer-events: none;
+    }
+
+    .contact-sidebar {
+      padding: 30px;
+    }
+
+    .contact-panel {
+      padding: 34px;
+    }
+
+    .contact-card-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mini-contact-card {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(0,0,0,.24);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: transform .35s ease, border-color .35s ease;
+    }
+
+    .mini-contact-card:hover {
+      transform: translateX(8px);
+      border-color: rgba(50,209,255,.35);
+    }
+
+    .mini-contact-card small {
+      display: block;
+      font-family: var(--mono, 'JetBrains Mono', monospace);
+      color: #32d1ff;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .mini-contact-card a,
+    .mini-contact-card p {
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .form-intro {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 26px;
+    }
+
+    .form-intro h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.05em;
+      margin: 0 0 10px;
+    }
+
+    .form-intro p {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .project-form {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      color: rgba(255,255,255,.82);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .project-form input,
+    .project-form select,
+    .project-form textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      background: rgba(0,0,0,.28);
+      color: var(--text);
+      padding: 17px 18px;
+      outline: none;
+      font: inherit;
+      transition: border-color .3s ease, box-shadow .3s ease, background .3s ease, transform .3s ease;
+    }
+
+    .project-form input:focus,
+    .project-form select:focus,
+    .project-form textarea:focus {
+      border-color: rgba(50,209,255,.7);
+      box-shadow: 0 0 0 4px rgba(0,140,255,.14), 0 0 35px rgba(0,140,255,.18);
+      background: rgba(0,140,255,.055);
+      transform: translateY(-2px);
+    }
+
+
+    .project-form select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #32d1ff 50%),
+        linear-gradient(135deg, #32d1ff 50%, transparent 50%);
+      background-position:
+        calc(100% - 23px) 50%,
+        calc(100% - 16px) 50%;
+      background-size: 7px 7px, 7px 7px;
+      background-repeat: no-repeat;
+      padding-right: 48px;
+      cursor: pointer;
+    }
+
+    .project-form select option {
+      background: #07101d;
+      color: #ffffff;
+    }
+
+    .project-form textarea {
+      min-height: 165px;
+      resize: vertical;
+    }
+
+    .form-submit-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.5;
+      max-width: 390px;
+    }
+
+    .contact-strip {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .contact-strip .stat {
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.035);
+      text-align: center;
+    }
+
+    .contact-strip strong {
+      display: block;
+      font-size: 2rem;
+      color: #fff;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .contact-strip span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 920px) {
+      .contact-hero-grid,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-hero {
+        padding-top: 135px;
+      }
+
+      .form-row,
+      .contact-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-panel,
+      .contact-sidebar {
+        padding: 24px;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <nav>
+    <a href="index.html" class="logo" aria-label="Moxi Corp Studio home">Moxi <b>Corp</b> Studio.</a>
+
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="process.html">Process</a>
+      <a href="faq.html">FAQ</a>
+      <a class="active" href="contact.html">Contact</a>
+    </div>
+
+    <a class="nav-cta" href="pricing.html">View Packs</a>
+  </nav>
+
+  <main class="contact-hero">
+    <div class="wrap contact-hero-grid">
+      <div class="reveal">
+        <div class="kicker">Contact Moxi Corp Studio</div>
+        <h1>Start a website that actually looks serious.</h1>
+        <p>
+          Tell us what you are building, what your business needs, and where your current online presence is failing.
+          We will help point you toward the right website pack, add-ons, and launch plan.
+        </p>
+      </div>
+
+      <div class="contact-points reveal" aria-label="Contact benefits">
+        <div class="contact-point">
+          <div class="contact-icon">01</div>
+          <div>
+            <strong>Fast reply</strong>
+            <span>Most enquiries are reviewed within 24 hours during business days.</span>
+          </div>
+        </div>
+
+        <div class="contact-point">
+          <div class="contact-icon">02</div>
+          <div>
+            <strong>Clear direction</strong>
+            <span>No confusing tech talk. You will know what package makes sense and why.</span>
+          </div>
+        </div>
+
+        <div class="contact-point">
+          <div class="contact-icon">03</div>
+          <div>
+            <strong>Built for small business</strong>
+            <span>Websites made to look premium, load fast, and help turn visitors into leads.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="section">
+    <div class="wrap contact-layout">
+      <aside class="contact-sidebar reveal">
+        <div class="kicker">Project Details</div>
+        <h2>Before you send it</h2>
+        <p style="color: var(--muted); line-height: 1.7; margin-top: 10px;">
+          Weak enquiries waste time. The more detail you give here, the faster we can understand the job and recommend the right build.
+        </p>
+
+        <div class="contact-card-list">
+          <div class="mini-contact-card">
+            <small>Email</small>
+            <a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a>
+          </div>
+
+          <div class="mini-contact-card">
+            <small>Location</small>
+            <p>Donnybrook, Victoria<br />Working with businesses across Australia.</p>
+          </div>
+
+          <div class="mini-contact-card">
+            <small>Best for</small>
+            <p>Small business websites, SEO-ready builds, animated landing pages, Stripe payment sites, and premium redesigns.</p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="contact-panel reveal">
+        <div class="form-intro">
+          <div class="kicker">Free Quote Request</div>
+          <h2>Tell us what you need.</h2>
+          <p>
+            Choose the closest options below, then add details in the message box. The clearer the enquiry, the faster we can recommend the right pack and quote the job properly.
+          </p>
+        </div>
+
+        <form class="project-form" action="https://formspree.io/f/xvzjprdv" method="POST">
+          <input type="hidden" name="_subject" value="New Website Enquiry - Moxi Corp Studio" />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" />
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full name *</label>
+              <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email address *</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" placeholder="Your contact number" autocomplete="tel" />
+            </div>
+
+            <div class="field">
+              <label for="business">Business name</label>
+              <input id="business" name="business" type="text" placeholder="Your business name" autocomplete="organization" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="projectType">What do you need? *</label>
+              <select id="projectType" name="project_type" required>
+                <option value="">Select what you need</option>
+                <option value="new_business_website">New business website</option>
+                <option value="website_redesign">Website redesign / upgrade</option>
+                <option value="landing_page">Landing page / sales page</option>
+                <option value="multi_page_website">Multi-page website</option>
+                <option value="ecommerce_stripe">E-commerce / Stripe payments</option>
+                <option value="booking_or_quote_site">Booking / quote enquiry website</option>
+                <option value="seo_upgrade">SEO upgrade</option>
+                <option value="website_maintenance">Website maintenance / updates</option>
+                <option value="logo_branding">Logo / branding add-on</option>
+                <option value="not_sure">Not sure yet — need advice</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="budget">Budget range</label>
+              <select id="budget" name="budget_range">
+                <option value="">Select budget range</option>
+                <option value="starter_599">$599 — Starter Pack</option>
+                <option value="growth_849">$849 — Growth Pack</option>
+                <option value="elite_1159">$1,159 — Elite Pack</option>
+                <option value="custom_1500_2500">$1,500–$2,500 — Custom build</option>
+                <option value="premium_2500_plus">$2,500+ — Premium build</option>
+                <option value="maintenance_only">Maintenance / updates only</option>
+                <option value="not_sure">Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="timeline">Ideal timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select ideal timeline</option>
+                <option value="asap">ASAP / urgent</option>
+                <option value="1_2_weeks">1–2 weeks</option>
+                <option value="2_4_weeks">2–4 weeks</option>
+                <option value="1_2_months">1–2 months</option>
+                <option value="flexible">Flexible</option>
+                <option value="just_researching">Just researching</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="currentWebsite">Current website</label>
+              <input id="currentWebsite" name="current_website" type="url" placeholder="https://yourwebsite.com.au" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Project details *</label>
+            <textarea id="message" name="message" placeholder="What does your business do? What pages do you need? Do you need payments, booking, SEO, copywriting, or animations?" required></textarea>
+          </div>
+
+          <div class="form-submit-row">
+            <button class="btn" type="submit">Send Enquiry →</button>
+            <p class="form-note">By submitting this form, you agree to be contacted about your website project.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="wrap contact-strip reveal">
+      <div class="stat">
+        <strong>24h</strong>
+        <span>Typical response time</span>
+      </div>
+      <div class="stat">
+        <strong>3+</strong>
+        <span>Website package options</span>
+      </div>
+      <div class="stat">
+        <strong>AU</strong>
+        <span>Australian business support</span>
+      </div>
+    </div>
+  </section>
+
+<footer>
+  <div class="wrap">
+    © 2026 Moxi Corp Studio. Based in Donnybrook, VIC.<br>
+    ABN: 18 936 263 775<br><br>
+    Email: support@moxicorpstudio.com.au |
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
