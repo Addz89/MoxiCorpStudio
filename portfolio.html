@@ -333,6 +333,30 @@
       overflow: hidden;
     }
 
+    /* Real website screenshot inside the browser mockup */
+    .project-shot.screenshot-shot {
+      padding: 0;
+      min-height: 314px;
+      background: #020817;
+    }
+
+    .project-screenshot {
+      width: 100%;
+      height: 100%;
+      min-height: 314px;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 5s ease, object-position 5s ease, filter 0.35s ease;
+      filter: saturate(1.08) contrast(1.04);
+    }
+
+    .case-study:hover .project-screenshot {
+      transform: scale(1.035);
+      object-position: bottom;
+      filter: saturate(1.18) contrast(1.08);
+    }
+
     .project-shot.music {
       background:
         radial-gradient(circle at 22% 24%, rgba(0, 217, 255, 0.22), transparent 28%),
@@ -651,14 +675,13 @@
         <a class="case-study reveal tilt" href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer">
           <div class="project-browser">
             <div class="project-browser-top"><span></span><span></span><span></span></div>
-            <div class="project-shot music">
-              <div class="project-shot-content">
-                <h4>Ashar<br />Music</h4>
-                <p>Atmospheric artist platform built around identity, music, and audience connection.</p>
-              </div>
-              <div class="fake-ui" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-              </div>
+            <div class="project-shot screenshot-shot">
+              <img
+                class="project-screenshot"
+                src="images/ashar-music.png"
+                alt="Screenshot of the Ashar Music website"
+                loading="lazy"
+              />
             </div>
           </div>
 
@@ -689,23 +712,23 @@
           </div>
         </a>
 
+              <div class="case-study-list">
         <a class="case-study reveal tilt" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer">
           <div class="project-browser">
             <div class="project-browser-top"><span></span><span></span><span></span></div>
-            <div class="project-shot cleaning">
-              <div class="project-shot-content">
-                <h4>Moxi<br />Cleaning Co</h4>
-                <p>Local service website structured around trust, service clarity, and enquiries.</p>
-              </div>
-              <div class="fake-ui" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-              </div>
+            <div class="project-shot screenshot-shot">
+              <img
+                class="project-screenshot"
+                src="images/Web1.png"
+                alt="Screenshot of the Moxi Cleaning Co website"
+                loading="lazy"
+              />
             </div>
           </div>
 
           <div class="case-copy">
             <div class="project-type">Local Service Business</div>
-            <h2>Moxi Cleaning Co</h2>
+            <h4>Moxi<br />Cleaning Co</h4>
             <p>
               Moxi Cleaning Co is the practical side of the portfolio. It shows that Moxi Corp Studio can build a clean, professional website for a real service business where trust, clear information, and easy enquiries matter most.
             </p>
@@ -729,8 +752,7 @@
             <span class="text-link">Open Moxi Cleaning Co →</span>
           </div>
         </a>
-      </div>
-    </div>
+        </div>
   </section>
 
   <section class="section">

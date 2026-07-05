@@ -20,6 +20,35 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Screenshot preview for homepage work cards */
+    .work-shot.screenshot-work-shot {
+      padding: 0;
+      overflow: hidden;
+      min-height: 280px;
+      background: #020817;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .work-screenshot {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 5s ease, object-position 5s ease, filter 0.35s ease;
+      filter: saturate(1.08) contrast(1.04);
+    }
+
+    .work-card:hover .work-screenshot {
+      transform: scale(1.04);
+      object-position: bottom;
+      filter: saturate(1.18) contrast(1.08);
+    }
+  </style>
+
 </head>
 
 <body>
@@ -230,14 +259,13 @@
       </div>
 
       <a class="work-card reveal tilt" href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer">
-        <div class="work-shot" aria-hidden="true">
-          <div class="mock">
-            <h4>Ashar Music</h4>
-            <div class="mock-line"></div>
-            <div class="mock-line"></div>
-            <div class="mock-line"></div>
-            <div class="mock-btn"></div>
-          </div>
+        <div class="work-shot screenshot-work-shot">
+          <img
+            class="work-screenshot"
+            src="images/ashar-music.png"
+            alt="Screenshot of the Ashar Music website"
+            loading="lazy"
+          />
         </div>
 
         <div>
@@ -255,14 +283,13 @@
       </a>
 
       <a class="work-card reveal tilt" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer">
-        <div class="work-shot" aria-hidden="true">
-          <div class="mock">
-            <h4>Moxi Cleaning Co</h4>
-            <div class="mock-line"></div>
-            <div class="mock-line"></div>
-            <div class="mock-line"></div>
-            <div class="mock-btn"></div>
-          </div>
+        <div class="work-shot screenshot-work-shot">
+          <img
+            class="work-screenshot"
+            src="images/Web1.png"
+            alt="Screenshot of the Moxi Cleaning Co website"
+            loading="lazy"
+          />
         </div>
 
         <div>
