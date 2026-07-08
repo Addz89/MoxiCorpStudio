@@ -7,13 +7,27 @@ $$('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList
 let selectedPackage={name:'',price:0};
 function openCheckout(name,price){selectedPackage={name,price};$('#checkoutPackageName').textContent=name;$('#checkoutPrice').textContent=price;$('#purchaseModal').classList.add('active')}
 function closeCheckout(){$('#purchaseModal').classList.remove('active')}
-function redirectToStripe(){
-  const links={
-    'Starter Pack':'https://buy.stripe.com/14AaEXd9U09edD31ApfIs03',
-    'Growth Pack':'https://buy.stripe.com/5kQ28r6Lw2hm56x3IxfIs01',
-    'Elite Pack':'https://buy.stripe.com/6oUcN58TE9JO1UlfrffIs02'
+function redirectToStripe() {
+  const links = {
+    'Starter Pack': 'https://buy.stripe.com/cNiaEX2E1gg59cRdQ4eAg00',
+    'Starter Pack (1 Week Only Sale)': 'https://buy.stripe.com/cNiaEX2E1gg59cRdQ4eAg00',
+
+    'Growth Pack': 'https://buy.stripe.com/14A3cvfqN8NDagVdQ4eAg01',
+    'Growth Pack (1 Week Only Sale)': 'https://buy.stripe.com/14A3cvfqN8NDagVdQ4eAg01',
+
+    'Elite Pack': 'https://buy.stripe.com/6oUcN58TE9JO1UlfrffIs02',
+    'Elite Pack (1 Week Only Sale)': 'https://buy.stripe.com/fZu5kD6Uh4xn60Fh2geAg02'
   };
-  window.location.href=links[selectedPackage.name]||'https://buy.stripe.com/';
+
+  const checkoutLink = links[selectedPackage.name];
+
+  if (!checkoutLink) {
+    console.error('No Stripe link found for:', selectedPackage.name);
+    alert('Checkout is currently unavailable for this package.');
+    return;
+  }
+
+  window.location.href = checkoutLink;
 }
 window.openCheckout=openCheckout;window.closeCheckout=closeCheckout;window.redirectToStripe=redirectToStripe;
 const counters=$$('[data-count]');const counterIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting||e.target.dataset.done)return;e.target.dataset.done='1';const target=+e.target.dataset.count;let n=0;const step=Math.max(1,Math.ceil(target/70));const t=setInterval(()=>{n+=step;if(n>=target){n=target;clearInterval(t)}e.target.textContent=n+(e.target.dataset.suffix||'')},22)}),{threshold:.5});counters.forEach(c=>counterIO.observe(c));

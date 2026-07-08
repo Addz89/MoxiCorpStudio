@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="5OFwdqIo8JrHgI5FAMws8IkgL1FDuVRzWc6UdQRYPoc" />
 
-  <title>Moxi Corp Studio | Professional Web Development Australia</title>
+  <title>Pricing | Moxi Corp</title>
   <meta
     name="description"
-    content="Moxi Corp Studio builds professional, animated, high-converting websites for small businesses across Australia. Custom-coded websites, SEO-ready structure, Stripe payments, and mobile-first design."
+    content="Moxi Corp builds professional, animated, high-converting websites for small businesses across Australia. Custom-coded websites, SEO-ready structure, Stripe payments, and mobile-first design."
   />
   <meta name="theme-color" content="#06111f" />
 
-  <link rel="icon" type="image/svg+xml" href="logo1.svg" />
+  <link rel="icon" type="image/svg+xml" href="logo2.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -434,14 +434,82 @@
         text-align: center;
       }
     }
-  </style>
+  
+    /* THIS WEEK ONLY SALE */
+    .sale-banner {
+      margin-top: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(219, 11, 217, 0.42);
+      background: linear-gradient(90deg, rgba(4,219,250,.11), rgba(155,50,233,.12), rgba(219,11,217,.12));
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 0 30px rgba(4,219,250,.10), 0 0 42px rgba(219,11,217,.10);
+    }
+
+    .sale-banner strong {
+      background: linear-gradient(90deg, #04dbfa, #5d67f2, #db0bd9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .sale-badge {
+      display: inline-flex;
+      width: fit-content;
+      margin: 0 0 15px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #04dbfa, #5d67f2, #db0bd9);
+      color: #fff;
+      font-family: var(--mono, "JetBrains Mono", monospace);
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .old-price {
+      color: var(--muted);
+      font-size: .95rem;
+      font-weight: 800;
+      margin-top: 12px;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: #db0bd9;
+      opacity: .78;
+    }
+
+    .sale-price {
+      background: linear-gradient(90deg, #04dbfa, #2b9af4, #9b32e9, #db0bd9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .sale-note {
+      margin-top: 14px;
+      color: #d9d7eb;
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+
+    .sale-note strong {
+      color: #04dbfa;
+    }
+
+</style>
+  <link rel="stylesheet" href="brand-theme.css" />
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
 
   <nav>
-    <a href="index.html" class="logo" aria-label="Moxi Corp Studio home">Moxi <b>Corp</b> Studio.</a>
+    <a href="index.html" class="logo" aria-label="Moxi Corp home">Moxi <b>Corp</b></a>
 
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
 
@@ -474,6 +542,10 @@
           <span class="trust-pill">SEO foundations</span>
           <span class="trust-pill">Stripe checkout support</span>
         </div>
+        <div class="sale-banner">
+          <strong>This Week Only</strong>
+          Save across all three website packs.
+        </div>
       </div>
 
       <aside class="price-console reveal tilt" aria-label="Pricing system visual">
@@ -491,7 +563,7 @@
             pack.launch();
           </div>
         </div>
-        <div class="floating-badge">From $599 AUD</div>
+        <div class="floating-badge">This Week Only — From $409 AUD</div>
       </aside>
     </div>
   </main>
@@ -511,7 +583,7 @@
           <div class="kicker">Website Packs</div>
           <h2>Simple offers. Professional execution.</h2>
           <p>
-            Every pack is designed to make your business look more credible, easier to understand, and easier to contact. The difference is the amount of pages, depth, SEO structure, animation level, and custom functionality.
+            Every pack is designed to make your business look more credible, easier to understand, and easier to contact. This week only, Starter is $409, Growth is $650, and Elite is $900.
           </p>
         </div>
       </div>
@@ -521,8 +593,10 @@
       <div class="pricing-grid enhanced">
         <article class="price-card reveal tilt">
           <span class="pack-label">01 / Starter</span>
+          <div class="sale-badge">This Week Only</div>
           <h3>Starter Pack</h3>
-          <div class="price">$599 <small>AUD</small></div>
+          <div class="old-price">Was $599 AUD</div>
+          <div class="price sale-price">$409 <small>AUD</small></div>
           <p class="price-subtitle">
             For new businesses that need to look professional quickly without overcomplicating the first launch.
           </p>
@@ -538,14 +612,17 @@
 
           <div class="pack-best-for"><b>Best for:</b> new businesses, simple service sites, one-person brands, trades, and start-up websites.</div>
 
-          <button class="checkout-btn" type="button" onclick="openCheckout('Starter Pack', 599)">Start Your Build</button>
+          <p class="sale-note"><strong>Save $190.</strong> Sale price available this week only.</p>
+          <button class="checkout-btn" type="button" onclick="openCheckout('Starter Pack (1 Week Only Sale)', 409)">Claim Starter Special</button>
         </article>
 
         <article class="price-card featured reveal tilt">
           <div class="popular">Most Popular</div>
           <span class="pack-label">02 / Growth</span>
+          <div class="sale-badge">This Week Only</div>
           <h3>Growth Pack</h3>
-          <div class="price">$849 <small>AUD</small></div>
+          <div class="old-price">Was $849 AUD</div>
+          <div class="price sale-price">$650 <small>AUD</small></div>
           <p class="price-subtitle">
             For businesses that want more pages, stronger content, better structure, and a website that feels more complete.
           </p>
@@ -562,13 +639,16 @@
 
           <div class="pack-best-for"><b>Best for:</b> local businesses, service providers, growing brands, and anyone planning to advertise.</div>
 
-          <button class="checkout-btn" type="button" onclick="openCheckout('Growth Pack', 849)">Initialize Project</button>
+          <p class="sale-note"><strong>Save $199.</strong> Sale price available this week only.</p>
+          <button class="checkout-btn" type="button" onclick="openCheckout('Growth Pack (1 Week Only Sale)', 650)">Claim Growth Special</button>
         </article>
 
         <article class="price-card reveal tilt">
           <span class="pack-label">03 / Elite</span>
+          <div class="sale-badge">This Week Only</div>
           <h3>Elite Pack</h3>
-          <div class="price">$1159 <small>AUD</small></div>
+          <div class="old-price">Was $1,159 AUD</div>
+          <div class="price sale-price">$900 <small>AUD</small></div>
           <p class="price-subtitle">
             For serious brands that need a bigger premium website with stronger proof, better flow, and advanced sections.
           </p>
@@ -585,7 +665,8 @@
 
           <div class="pack-best-for"><b>Best for:</b> established businesses, premium brands, e-commerce starters, and serious client acquisition.</div>
 
-          <button class="checkout-btn" type="button" onclick="openCheckout('Elite Pack', 1159)">Start Your Build</button>
+          <p class="sale-note"><strong>Save $259.</strong> Sale price available this week only.</p>
+          <button class="checkout-btn" type="button" onclick="openCheckout('Elite Pack (1 Week Only Sale)', 900)">Claim Elite Special</button>
         </article>
       </div>
     </div>
@@ -705,7 +786,7 @@
       </div>
 
       <p style="color: var(--muted); line-height: 1.7; margin-bottom: 22px;">
-        You are about to be redirected to secure Stripe checkout. Replace the placeholder Stripe URLs in script.js with your real Stripe payment links.
+        You are about to be redirected to secure Stripe checkout for the selected one-week sale package.
       </p>
 
       <button type="button" onclick="redirectToStripe()" class="secure-checkout-btn">Proceed to Secure Checkout →</button>
@@ -715,7 +796,7 @@
 
   <footer>
     <div class="wrap">
-      © 2026 Moxi Corp Studio. Based in Donnybrook, VIC.<br>
+      © 2026 Moxi Corp. Based in Donnybrook, VIC.<br>
       ABN: 18 936 263 775<br><br>
       Email: support@moxicorpstudio.com.au |
       <a href="privacy-policy.html">Privacy Policy</a>

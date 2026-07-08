@@ -1,0 +1,495 @@
+/* =========================================================
+   MOXI CORP — CYAN / BLUE / VIOLET / MAGENTA BRAND THEME
+   Palette based on the supplied Moxi Corp logo.
+   Add this stylesheet after styles.css and page-specific CSS.
+   ========================================================= */
+
+:root {
+  --brand-cyan: #04DBFA;
+  --brand-blue: #2B9AF4;
+  --brand-indigo: #5D67F2;
+  --brand-violet: #9B32E9;
+  --brand-magenta: #DB0BD9;
+
+  --accent: #04DBFA !important;
+  --accent-2: #DB0BD9 !important;
+  --accent-3: #9B32E9 !important;
+  --cyan: #04DBFA !important;
+  --blue: #2B9AF4 !important;
+  --purple: #9B32E9 !important;
+
+  --process-blue: #2B9AF4 !important;
+  --process-cyan: #04DBFA !important;
+  --process-dark: #030306 !important;
+  --process-panel: rgba(10, 8, 20, 0.82) !important;
+  --process-border: rgba(155, 50, 233, 0.32) !important;
+
+  --bg: #030306 !important;
+  --bg-soft: #070710 !important;
+  --surface: #090913 !important;
+  --surface-2: #0d0b19 !important;
+  --panel: rgba(11, 9, 23, 0.82) !important;
+  --text: #f8f8ff !important;
+  --muted: #b2b2c8 !important;
+  --border: rgba(170, 118, 255, 0.21) !important;
+
+  --brand-gradient: linear-gradient(
+    100deg,
+    #04DBFA 0%,
+    #2B9AF4 28%,
+    #5D67F2 50%,
+    #9B32E9 72%,
+    #DB0BD9 100%
+  );
+  --brand-gradient-reverse: linear-gradient(
+    100deg,
+    #DB0BD9 0%,
+    #9B32E9 28%,
+    #5D67F2 52%,
+    #2B9AF4 76%,
+    #04DBFA 100%
+  );
+  --brand-glow:
+    0 0 20px rgba(4, 219, 250, 0.24),
+    0 0 45px rgba(155, 50, 233, 0.16),
+    0 0 75px rgba(219, 11, 217, 0.10);
+}
+
+html {
+  background: #030306;
+}
+
+body {
+  color: var(--text) !important;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(4, 219, 250, 0.13), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(219, 11, 217, 0.12), transparent 31%),
+    radial-gradient(circle at 52% 96%, rgba(155, 50, 233, 0.09), transparent 38%),
+    #030306 !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+
+/* Text branding */
+.gradient-text,
+.logo b,
+.kicker,
+.pack-label,
+.project-type,
+.text-link,
+.mini-contact-card small,
+.faq-group-title .number,
+.console-body em,
+.console-body strong {
+  background: var(--brand-gradient) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.logo {
+  color: #fff !important;
+}
+
+.logo b {
+  font-weight: 900;
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+p::selection,
+span::selection,
+a::selection {
+  background: rgba(219, 11, 217, 0.38);
+  color: #fff;
+}
+
+/* Navigation */
+nav {
+  border-color: rgba(155, 50, 233, 0.21) !important;
+  background:
+    linear-gradient(180deg, rgba(3,3,6,0.94), rgba(7,5,13,0.84)) !important;
+  box-shadow:
+    0 18px 70px rgba(0,0,0,0.36),
+    0 1px 0 rgba(4,219,250,0.07) inset !important;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff !important;
+  text-shadow:
+    0 0 16px rgba(4, 219, 250, 0.55),
+    0 0 26px rgba(219, 11, 217, 0.34);
+}
+
+.nav-links a.active::after {
+  background: var(--brand-gradient) !important;
+  box-shadow: var(--brand-glow) !important;
+}
+
+.menu-btn {
+  border-color: rgba(155, 50, 233, 0.32) !important;
+  background: rgba(12, 8, 23, 0.84) !important;
+  color: #fff !important;
+}
+
+/* Buttons */
+.btn,
+.nav-cta,
+.checkout-btn,
+.secure-checkout-btn,
+button.btn {
+  color: #fff !important;
+  background: var(--brand-gradient) !important;
+  border-color: transparent !important;
+  box-shadow:
+    0 14px 35px rgba(43, 154, 244, 0.20),
+    0 18px 48px rgba(219, 11, 217, 0.14) !important;
+}
+
+.btn:hover,
+.nav-cta:hover,
+.checkout-btn:hover,
+.secure-checkout-btn:hover,
+button.btn:hover {
+  transform: translateY(-3px) scale(1.015);
+  filter: brightness(1.12) saturate(1.12);
+  box-shadow:
+    0 18px 48px rgba(4, 219, 250, 0.26),
+    0 24px 62px rgba(219, 11, 217, 0.22) !important;
+}
+
+.btn.secondary,
+a.btn.secondary {
+  color: #fff !important;
+  background:
+    linear-gradient(#090913, #090913) padding-box,
+    var(--brand-gradient) border-box !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.28) !important;
+}
+
+.btn.secondary:hover {
+  background:
+    linear-gradient(rgba(14, 10, 27, 0.92), rgba(14, 10, 27, 0.92)) padding-box,
+    var(--brand-gradient-reverse) border-box !important;
+  box-shadow: var(--brand-glow) !important;
+}
+
+/* Cards, panels and glass surfaces */
+.card,
+.panel,
+.price-card,
+.work-card,
+.case-study,
+.capability,
+.proof-item,
+.addon-mini,
+.faq-mini,
+.faq-item,
+.faq-sidebar-card,
+.contact-point,
+.contact-sidebar,
+.contact-panel,
+.mini-contact-card,
+.process-console,
+.step-panel,
+.handover-card,
+.process-cta,
+.portfolio-dashboard,
+.project-browser,
+.price-console,
+.pricing-note,
+.compare-table,
+.thanks-card {
+  border-color: rgba(155, 50, 233, 0.23) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.018)),
+    rgba(8, 7, 17, 0.80) !important;
+  box-shadow:
+    0 28px 90px rgba(0,0,0,0.30),
+    inset 0 1px 0 rgba(255,255,255,0.055) !important;
+}
+
+.card:hover,
+.panel:hover,
+.price-card:hover,
+.work-card:hover,
+.case-study:hover,
+.capability:hover,
+.addon-mini:hover,
+.faq-item:hover,
+.contact-point:hover,
+.mini-contact-card:hover,
+.step-panel:hover,
+.handover-card:hover {
+  border-color: rgba(4, 219, 250, 0.42) !important;
+  box-shadow:
+    0 28px 90px rgba(0,0,0,0.36),
+    0 0 34px rgba(4, 219, 250, 0.10),
+    0 0 52px rgba(219, 11, 217, 0.08) !important;
+}
+
+/* Featured package */
+.price-card.featured,
+.popular,
+.floating-badge {
+  border-color: rgba(219, 11, 217, 0.48) !important;
+  box-shadow:
+    0 0 34px rgba(4, 219, 250, 0.13),
+    0 0 62px rgba(219, 11, 217, 0.16) !important;
+}
+
+.popular {
+  color: #fff !important;
+  background: var(--brand-gradient) !important;
+}
+
+/* Hero and page glows */
+.hero::before,
+.portfolio-hero::before,
+.contact-hero::before,
+.pricing-hero::before,
+.pricing-hero::after,
+.faq-console::before {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(4, 219, 250, 0.23), transparent 30%),
+    radial-gradient(circle at 82% 26%, rgba(219, 11, 217, 0.20), transparent 32%),
+    radial-gradient(circle at 55% 82%, rgba(155, 50, 233, 0.11), transparent 38%) !important;
+}
+
+.orb.one {
+  background: rgba(4, 219, 250, 0.32) !important;
+}
+.orb.two {
+  background: rgba(219, 11, 217, 0.28) !important;
+}
+.orb.three {
+  background: rgba(155, 50, 233, 0.26) !important;
+}
+
+/* Browser/device mockups */
+.laptop,
+.phone,
+.code-float,
+.dashboard-screen,
+.console-window,
+.project-browser,
+.work-shot,
+.project-shot,
+.phone-screen,
+.laptop-screen {
+  border-color: rgba(155, 50, 233, 0.30) !important;
+  box-shadow:
+    0 30px 100px rgba(0,0,0,0.40),
+    0 0 42px rgba(4, 219, 250, 0.08),
+    0 0 58px rgba(219, 11, 217, 0.07) !important;
+}
+
+.dot,
+.console-dot,
+.console-top span,
+.project-browser-top span {
+  background: var(--brand-gradient) !important;
+  box-shadow: 0 0 15px rgba(4, 219, 250, 0.48) !important;
+}
+
+/* Animated lines, meters and indicators */
+.dash-line::after,
+.build-meter span,
+.live-dot::before,
+.mock-btn,
+.bars span,
+.phone-line,
+.phone-card,
+.ticker-track strong {
+  background: var(--brand-gradient) !important;
+  box-shadow: var(--brand-glow) !important;
+}
+
+.ticker {
+  border-color: rgba(155, 50, 233, 0.23) !important;
+  background: #07070d !important;
+}
+
+.ticker-track span {
+  color: rgba(255,255,255,0.77) !important;
+}
+
+/* Form controls */
+.project-form input,
+.project-form select,
+.project-form textarea,
+input,
+select,
+textarea {
+  color: #fff !important;
+  background: rgba(7, 6, 15, 0.84) !important;
+  border-color: rgba(155, 50, 233, 0.25) !important;
+}
+
+.project-form input:focus,
+.project-form select:focus,
+.project-form textarea:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(4, 219, 250, 0.74) !important;
+  box-shadow:
+    0 0 0 4px rgba(4, 219, 250, 0.11),
+    0 0 28px rgba(43, 154, 244, 0.15),
+    0 0 42px rgba(219, 11, 217, 0.10) !important;
+}
+
+.project-form select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #DB0BD9 50%),
+    linear-gradient(135deg, #04DBFA 50%, transparent 50%) !important;
+}
+
+.project-form select option {
+  background: #080711 !important;
+  color: #fff !important;
+}
+
+/* FAQ */
+.faq-toggle,
+.step-badge,
+.contact-icon,
+.success-orb {
+  color: #fff !important;
+  border-color: rgba(155, 50, 233, 0.34) !important;
+  background: var(--brand-gradient) !important;
+  box-shadow: var(--brand-glow) !important;
+}
+
+.faq-item.active .faq-toggle {
+  background: var(--brand-gradient-reverse) !important;
+  border-color: transparent !important;
+}
+
+.faq-category-list a:hover {
+  border-color: rgba(4, 219, 250, 0.40) !important;
+  box-shadow:
+    0 12px 35px rgba(4, 219, 250, 0.10),
+    0 12px 45px rgba(219, 11, 217, 0.07) !important;
+}
+
+/* Process */
+.process-console::before {
+  background:
+    conic-gradient(
+      from 90deg,
+      transparent,
+      rgba(4, 219, 250, 0.26),
+      transparent,
+      rgba(93, 103, 242, 0.22),
+      transparent,
+      rgba(219, 11, 217, 0.24),
+      transparent
+    ) !important;
+}
+
+.process-timeline::before {
+  background: var(--brand-gradient) !important;
+  box-shadow:
+    0 0 18px rgba(4, 219, 250, 0.50),
+    0 0 34px rgba(219, 11, 217, 0.22) !important;
+}
+
+.step-meta span,
+.work-tags span,
+.trust-pill {
+  border-color: rgba(155, 50, 233, 0.25) !important;
+  background: rgba(155, 50, 233, 0.065) !important;
+}
+
+/* Comparison table */
+.compare-row {
+  border-color: rgba(155, 50, 233, 0.14) !important;
+}
+
+.compare-row > div {
+  border-color: rgba(155, 50, 233, 0.14) !important;
+}
+
+.compare-row .yes {
+  color: #04DBFA !important;
+  text-shadow: 0 0 14px rgba(4, 219, 250, 0.42);
+}
+
+/* Links and footer */
+a {
+  text-decoration-color: rgba(219, 11, 217, 0.48);
+}
+
+footer {
+  border-color: rgba(155, 50, 233, 0.20) !important;
+  background:
+    linear-gradient(180deg, rgba(5,5,10,0.86), rgba(3,3,6,0.98)) !important;
+}
+
+footer a {
+  color: #04DBFA !important;
+}
+
+footer a:hover {
+  color: #DB0BD9 !important;
+}
+
+/* Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #9B32E9 #07070d;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #07070d;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid #07070d;
+  background: var(--brand-gradient);
+}
+
+/* Mobile menu */
+@media (max-width: 900px) {
+  .nav-links {
+    border-color: rgba(155, 50, 233, 0.28) !important;
+    background: rgba(5, 4, 11, 0.97) !important;
+    box-shadow:
+      0 28px 80px rgba(0,0,0,0.48),
+      0 0 34px rgba(219, 11, 217, 0.09) !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
