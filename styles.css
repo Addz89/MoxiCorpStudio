@@ -46,6 +46,59 @@ main,header,section,footer{position:relative;z-index:3}
   height:100%;
   pointer-events:none;
 }
+/* Fix navigation logo size */
+.site-nav .logo {
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.site-nav .logo-mark {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+.site-nav .logo-mark img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  display: block;
+  object-fit: contain !important;
+}
+
+/* Mobile navigation logo */
+@media (max-width: 768px) {
+  .site-nav .logo-mark {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+  }
+
+  .site-nav .logo > span:last-child {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+}
 .logo-mark {
   width: 44px;
   height: 44px;
