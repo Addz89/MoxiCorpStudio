@@ -8,432 +8,669 @@
   <title>Contact | Moxi Corp</title>
   <meta
     name="description"
-    content="Moxi Corp builds professional, animated, high-converting websites for small businesses across Australia. Custom-coded websites, SEO-ready structure, Stripe payments, and mobile-first design."
+    content="Request a free website quote from Moxi Corp. Custom websites for Australian small businesses, built by a real developer."
   />
-  <meta name="theme-color" content="#06111f" />
+  <meta name="theme-color" content="#02050b" />
 
-<link rel="icon" type="image/svg+xml" href="logo2.svg" />
+  <link rel="icon" type="image/svg+xml" href="images/newlogo2.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
+
   <link rel="stylesheet" href="styles.css" />
-</head>
 
   <style>
-    /* Contact page upgrade — keep this here or move it into styles.css */
     .contact-hero {
       min-height: auto;
-      padding: 165px 0 70px;
-      position: relative;
+      padding: 150px 0 72px;
       overflow: hidden;
-    }
-
-    .contact-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(0, 140, 255, 0.24), transparent 28%),
-        radial-gradient(circle at 78% 30%, rgba(50, 209, 255, 0.14), transparent 28%),
-        linear-gradient(180deg, rgba(255,255,255,0.035), transparent 55%);
-      pointer-events: none;
-      animation: heroGlow 10s ease-in-out infinite alternate;
-    }
-
-    @keyframes heroGlow {
-      from { transform: scale(1); opacity: .75; }
-      to { transform: scale(1.08); opacity: 1; }
     }
 
     .contact-hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 50px;
-      align-items: end;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .contact-hero-copy h1 {
+      margin: 10px 0 20px;
+      max-width: 900px;
+      font-size: clamp(3.5rem, 7.5vw, 7rem);
+      line-height: .9;
+      letter-spacing: -.08em;
+    }
+
+    .contact-hero-copy p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
+      line-height: 1.8;
+    }
+
+    .contact-status-board {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      padding: 25px;
+      border: 1px solid var(--line-blue);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(47,231,255,.10), transparent 32%),
+        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.022)),
+        rgba(3, 11, 22, .9);
+      box-shadow:
+        0 34px 105px rgba(0,0,0,.42),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(22px);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .contact-status-board::before {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.11),
+        transparent 34%,
+        rgba(8,124,255,.10),
+        transparent 72%
+      );
+      animation: contactAuraSpin 14s linear infinite;
+    }
+
+    @keyframes contactAuraSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .status-board-top {
       position: relative;
       z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .contact-hero h1 {
-      font-size: clamp(3.2rem, 7vw, 6.8rem);
-      line-height: .9;
-      letter-spacing: -0.08em;
-      margin: 18px 0 22px;
-      max-width: 900px;
+    .status-board-top i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(47,231,255,.55);
     }
 
-    .contact-hero p {
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 1.12rem;
-      line-height: 1.75;
+    .status-board-top i:nth-child(2) { opacity: .7; }
+    .status-board-top i:nth-child(3) { opacity: .42; }
+
+    .status-board-top span {
+      margin-left: auto;
+      color: rgba(255,255,255,.42);
+      font-family: var(--mono);
+      font-size: .7rem;
     }
 
-    .contact-points {
+    .status-board-body {
+      position: relative;
+      z-index: 2;
       display: grid;
       gap: 14px;
+      margin-top: 21px;
     }
 
-    .contact-point {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 20px;
-      background: rgba(255,255,255,.045);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 20px 60px rgba(0,0,0,.25);
-      transform: translateZ(0);
-      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    .status-step {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 13px;
+      align-items: center;
+      padding: 15px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      background: rgba(0,0,0,.22);
+      opacity: 0;
+      transform: translateX(28px);
+      animation:
+        statusStepIn .72s cubic-bezier(.16,1,.3,1) forwards,
+        statusStepFloat 4.7s ease-in-out infinite;
     }
 
-    .contact-point:hover {
-      transform: translateY(-6px);
-      border-color: rgba(50,209,255,.42);
-      background: rgba(0,140,255,.075);
+    .status-step:nth-child(1) { animation-delay: .25s, .25s; }
+    .status-step:nth-child(2) { animation-delay: .52s, .52s; }
+    .status-step:nth-child(3) { animation-delay: .79s, .79s; }
+    .status-step:nth-child(4) { animation-delay: 1.06s, 1.06s; }
+
+    @keyframes statusStepIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
-    .contact-point strong {
-      display: block;
-      color: var(--text);
-      margin-bottom: 3px;
+    @keyframes statusStepFloat {
+      50% {
+        transform: translateY(-5px);
+        border-color: rgba(47,231,255,.20);
+      }
     }
 
-    .contact-point span {
-      color: var(--muted);
-      font-size: .95rem;
-      line-height: 1.5;
-    }
-
-    .contact-icon {
+    .status-number {
       width: 42px;
       height: 42px;
-      border-radius: 14px;
       display: grid;
       place-items: center;
-      flex: 0 0 42px;
-      color: #fff;
-      background: linear-gradient(135deg, #008cff, #32d1ff);
-      box-shadow: 0 0 28px rgba(0,140,255,.45);
+      border-radius: 13px;
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      font-family: var(--mono);
+      font-size: .72rem;
       font-weight: 900;
+      box-shadow: 0 10px 25px rgba(8,124,255,.18);
+    }
+
+    .status-step strong,
+    .status-step small {
+      display: block;
+    }
+
+    .status-step strong {
+      font-size: .86rem;
+    }
+
+    .status-step small {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: .7rem;
+      line-height: 1.4;
+    }
+
+    .status-check {
+      width: 25px;
+      height: 25px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(47,231,255,.28);
+      border-radius: 50%;
+      color: var(--cyan);
+      font-size: .7rem;
+      animation: statusPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes statusPulse {
+      50% {
+        transform: scale(1.15);
+        box-shadow: 0 0 18px rgba(47,231,255,.18);
+      }
     }
 
     .contact-layout {
       display: grid;
-      grid-template-columns: .82fr 1.18fr;
-      gap: 34px;
+      grid-template-columns: 310px minmax(0, 1fr);
+      gap: 30px;
       align-items: start;
     }
 
-    .contact-sidebar,
-    .contact-panel {
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 30px;
-      background: rgba(255,255,255,.045);
-      backdrop-filter: blur(22px);
-      box-shadow: 0 28px 100px rgba(0,0,0,.35);
-      position: relative;
-      overflow: hidden;
+    .contact-sidebar {
+      position: sticky;
+      top: 110px;
+      display: grid;
+      gap: 15px;
     }
 
-    .contact-sidebar::before,
+    .contact-sidebar-card,
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 27px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.022));
+      box-shadow: 0 24px 78px rgba(0,0,0,.28);
+      backdrop-filter: blur(19px);
+    }
+
+    .contact-sidebar-card {
+      padding: 23px;
+    }
+
+    .contact-sidebar-card h2,
+    .contact-sidebar-card h3 {
+      letter-spacing: -.045em;
+    }
+
+    .contact-sidebar-card p {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.68;
+    }
+
+    .contact-info-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      padding: 13px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+      transition: transform .25s, border-color .25s;
+    }
+
+    .contact-info-item:hover {
+      transform: translateX(4px);
+      border-color: rgba(47,231,255,.26);
+    }
+
+    .contact-info-icon {
+      width: 44px;
+      height: 34px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      font-family: var(--mono);
+      margin-top: 23px;
+      font-size: .65rem;
+      font-weight: 900;
+    }
+
+    .contact-info-item strong,
+    .contact-info-item span,
+    .contact-info-item a {
+      display: block;
+    }
+
+    .contact-info-item strong {
+      font-size: .76rem;
+    }
+
+    .contact-info-item span,
+    .contact-info-item a {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: .72rem;
+      line-height: 1.45;
+    }
+
+    .contact-panel {
+      padding: clamp(25px, 4vw, 38px);
+    }
+
     .contact-panel::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,.12), transparent 35%);
-      opacity: .65;
+      inset: -55%;
       pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.07),
+        transparent 38%,
+        rgba(255,255,255,.04),
+        transparent 72%
+      );
+      animation: contactAuraSpin 17s linear infinite;
     }
 
-    .contact-sidebar {
-      padding: 30px;
-    }
-
-    .contact-panel {
-      padding: 34px;
-    }
-
-    .contact-card-list {
-      display: grid;
-      gap: 18px;
-      margin-top: 28px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .mini-contact-card {
-      padding: 20px;
-      border-radius: 22px;
-      background: rgba(0,0,0,.24);
-      border: 1px solid rgba(255,255,255,.08);
-      transition: transform .35s ease, border-color .35s ease;
-    }
-
-    .mini-contact-card:hover {
-      transform: translateX(8px);
-      border-color: rgba(50,209,255,.35);
-    }
-
-    .mini-contact-card small {
-      display: block;
-      font-family: var(--mono, 'JetBrains Mono', monospace);
-      color: #32d1ff;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .mini-contact-card a,
-    .mini-contact-card p {
-      color: var(--text);
-      text-decoration: none;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .form-intro {
-      position: relative;
-      z-index: 2;
-      margin-bottom: 26px;
-    }
-
-    .form-intro h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      letter-spacing: -0.05em;
-      margin: 0 0 10px;
-    }
-
-    .form-intro p {
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 680px;
-    }
-
+    .form-intro,
     .project-form {
       position: relative;
       z-index: 2;
+    }
+
+    .form-intro {
+      margin-bottom: 27px;
+    }
+
+    .form-intro h2 {
+      margin: 7px 0 10px;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      letter-spacing: -.06em;
+    }
+
+    .form-intro p {
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .project-form {
       display: grid;
-      gap: 18px;
+      gap: 17px;
     }
 
     .form-row {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
     .field {
+      position: relative;
       display: grid;
       gap: 8px;
     }
 
     .field label {
-      color: rgba(255,255,255,.82);
-      font-size: .88rem;
-      font-weight: 700;
-      letter-spacing: .02em;
+      color: rgba(255,255,255,.86);
+      font-size: .82rem;
+      font-weight: 800;
     }
 
     .project-form input,
     .project-form select,
     .project-form textarea {
       width: 100%;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
-      background: rgba(0,0,0,.28);
-      color: var(--text);
-      padding: 17px 18px;
+      min-height: 56px;
+      padding: 16px 17px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 16px;
       outline: none;
+      color: #fff;
+      background: rgba(0,0,0,.25);
       font: inherit;
-      transition: border-color .3s ease, box-shadow .3s ease, background .3s ease, transform .3s ease;
+      transition:
+        border-color .25s,
+        box-shadow .25s,
+        background .25s,
+        transform .25s;
     }
 
-    .project-form input:focus,
-    .project-form select:focus,
-    .project-form textarea:focus {
-      border-color: rgba(50,209,255,.7);
-      box-shadow: 0 0 0 4px rgba(0,140,255,.14), 0 0 35px rgba(0,140,255,.18);
-      background: rgba(0,140,255,.055);
-      transform: translateY(-2px);
+    .project-form textarea {
+      min-height: 170px;
+      resize: vertical;
     }
 
+    .project-form input::placeholder,
+    .project-form textarea::placeholder {
+      color: rgba(218,231,243,.42);
+    }
 
     .project-form select {
       appearance: none;
       -webkit-appearance: none;
+      padding-right: 48px;
+      cursor: pointer;
       background-image:
-        linear-gradient(45deg, transparent 50%, #32d1ff 50%),
-        linear-gradient(135deg, #32d1ff 50%, transparent 50%);
+        linear-gradient(45deg, transparent 50%, var(--cyan) 50%),
+        linear-gradient(135deg, var(--cyan) 50%, transparent 50%);
       background-position:
         calc(100% - 23px) 50%,
         calc(100% - 16px) 50%;
       background-size: 7px 7px, 7px 7px;
       background-repeat: no-repeat;
-      padding-right: 48px;
-      cursor: pointer;
     }
 
     .project-form select option {
-      background: #07101d;
-      color: #ffffff;
-    }
-
-    .project-form textarea {
-      min-height: 165px;
-      resize: vertical;
-    }
-
-    .form-submit-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 6px;
-    }
-
-    .form-note {
-      color: var(--muted);
-      font-size: .92rem;
-      line-height: 1.5;
-      max-width: 390px;
-    }
-
-    .contact-strip {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .contact-strip .stat {
-      padding: 22px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,.09);
-      background: rgba(255,255,255,.035);
-      text-align: center;
-    }
-
-    .contact-strip strong {
-      display: block;
-      font-size: 2rem;
       color: #fff;
-      letter-spacing: -0.04em;
-      margin-bottom: 4px;
-    }
-
-    .contact-strip span {
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    @media (max-width: 920px) {
-      .contact-hero-grid,
-      .contact-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-hero {
-        padding-top: 135px;
-      }
-
-      .form-row,
-      .contact-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-panel,
-      .contact-sidebar {
-        padding: 24px;
-        border-radius: 24px;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="brand-theme.css" />
-
-  <style>
-    /* Contact form cleanup */
-    .contact-panel {
-      background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.012)), rgba(8,7,17,.92) !important;
-    }
-
-    .project-form input,
-    .project-form select,
-    .project-form textarea {
-      min-height: 58px;
-      border: 1px solid rgba(155,50,233,.28) !important;
-      border-radius: 16px !important;
-      background-color: #090712 !important;
-      color: #f7f7ff !important;
-      box-shadow: none !important;
-    }
-
-    .project-form input::placeholder,
-    .project-form textarea::placeholder {
-      color: rgba(225,224,238,.48) !important;
-    }
-
-    .project-form select {
-      appearance: none !important;
-      -webkit-appearance: none !important;
-      background-image:
-        linear-gradient(45deg, transparent 50%, #04dbfa 50%),
-        linear-gradient(135deg, #04dbfa 50%, transparent 50%) !important;
-      background-position:
-        calc(100% - 22px) 50%,
-        calc(100% - 15px) 50% !important;
-      background-size: 7px 7px, 7px 7px !important;
-      background-repeat: no-repeat !important;
-      padding-right: 48px !important;
-    }
-
-    .project-form select:invalid {
-      color: rgba(225,224,238,.58) !important;
-    }
-
-    .project-form select option {
-      background: #090712 !important;
-      color: #fff !important;
+      background: #06101d;
     }
 
     .project-form input:focus,
     .project-form select:focus,
     .project-form textarea:focus {
-      border-color: #04dbfa !important;
-      background-color: #0b0917 !important;
-      box-shadow: 0 0 0 3px rgba(4,219,250,.10), 0 0 26px rgba(93,103,242,.12) !important;
-      transform: none !important;
+      border-color: rgba(47,231,255,.64);
+      background: rgba(8,124,255,.045);
+      box-shadow:
+        0 0 0 4px rgba(47,231,255,.07),
+        0 0 28px rgba(8,124,255,.12);
+      transform: translateY(-2px);
     }
 
-    .field label {
-      color: rgba(255,255,255,.88) !important;
+    .field-valid::after {
+      content: "✓";
+      position: absolute;
+      right: 15px;
+      bottom: 18px;
+      color: var(--cyan);
+      font-weight: 900;
+      pointer-events: none;
     }
 
-    @media (max-width: 920px) {
+    .field:has(select).field-valid::after {
+      right: 38px;
+    }
+
+    .form-progress {
+      display: grid;
+      gap: 9px;
+      padding: 14px 15px;
+      border: 1px solid rgba(47,231,255,.14);
+      border-radius: 15px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .form-progress-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: .68rem;
+    }
+
+    .form-progress-copy strong {
+      color: var(--cyan);
+    }
+
+    .form-progress-track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,.065);
+    }
+
+    .form-progress-track span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #fff, var(--cyan), var(--blue));
+      box-shadow: 0 0 16px rgba(47,231,255,.35);
+      transition: width .45s cubic-bezier(.16,1,.3,1);
+    }
+
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 17px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .submit-button {
+      min-width: 210px;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .submit-button.loading {
+      pointer-events: none;
+      opacity: .78;
+    }
+
+    .submit-button.loading span {
+      display: none;
+    }
+
+    .submit-button.loading::after {
+      content: "";
+      width: 19px;
+      height: 19px;
+      border: 2px solid rgba(0,17,31,.25);
+      border-top-color: #00111f;
+      border-radius: 50%;
+      animation: submitSpin .7s linear infinite;
+    }
+
+    @keyframes submitSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .form-note {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.5;
+    }
+
+    .contact-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .contact-stat {
+      position: relative;
+      overflow: hidden;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      text-align: center;
+      background: rgba(255,255,255,.035);
+      transition: transform .28s, border-color .28s;
+    }
+
+    .contact-stat:hover {
+      transform: translateY(-5px);
+      border-color: rgba(47,231,255,.28);
+    }
+
+    .contact-stat strong {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: -.05em;
+    }
+
+    .contact-stat span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .success-message {
+      display: none;
+      padding: 16px;
+      border: 1px solid rgba(47,231,255,.25);
+      border-radius: 15px;
+      color: #dffaff;
+      background: rgba(47,231,255,.07);
+      line-height: 1.55;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: successIn .55s cubic-bezier(.16,1,.3,1);
+    }
+
+    @keyframes successIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .contact-hero-grid,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .contact-hero {
+        padding-top: 125px;
+      }
+
+      .contact-status-board {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .status-step {
+        grid-template-columns: 38px 1fr;
+      }
+
+      .status-check {
+        display: none;
+      }
+
+      .form-row,
+      .contact-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-panel {
+        padding: 23px 16px;
+      }
+
       .project-form input,
       .project-form select,
       .project-form textarea {
         font-size: 16px;
       }
+
+      .form-submit-row {
+        align-items: stretch;
+      }
+
+      .submit-button {
+        width: 100%;
+      }
     }
   </style>
-
 </head>
 
 <body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
   <div class="noise" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <nav>
-    <a href="index.html" class="logo" aria-label="Moxi Corp home">Moxi <b>Corp</b></a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
+      <span class="logo-mark">
+        <img src="images/newlogo2.svg" alt="Moxi Corp logo" />
+      </span>
+      <span>Moxi <b>Corp</b></span>
+    </a>
 
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
 
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
@@ -446,203 +683,356 @@
       <a class="active" href="contact.html">Contact</a>
     </div>
 
-    <a class="nav-cta" href="pricing.html">View Packs</a>
+    <a class="nav-cta magnetic" href="pricing.html">View Packs</a>
   </nav>
 
-  <main class="contact-hero">
+  <header class="hero contact-hero">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
     <div class="wrap contact-hero-grid">
-      <div class="reveal">
-        <div class="kicker">Contact Moxi Corp</div>
-        <h1>Start a website that actually looks serious.</h1>
-        <p>
-          Tell us what you are building, what your business needs, and where your current online presence is failing.
-          We will help point you toward the right website pack, add-ons, and launch plan.
+      <div class="contact-hero-copy">
+        <div class="kicker reveal">
+          <span class="live-dot"></span>
+          Contact Moxi Corp
+        </div>
+
+        <h1>
+          Let’s build something
+          <span class="gradient-text">serious.</span>
+        </h1>
+
+        <p class="reveal">
+          Tell me about your business, what you need built and what your current
+          website is missing. I’ll personally review your enquiry and recommend
+          the most suitable package and next step.
         </p>
+
+        <div class="cta-row reveal">
+          <a href="#quote-form" class="btn magnetic">Request Free Quote →</a>
+          <a href="portfolio.html" class="btn secondary magnetic">View Live Work</a>
+        </div>
       </div>
 
-      <div class="contact-points reveal" aria-label="Contact benefits">
-        <div class="contact-point">
-          <div class="contact-icon">01</div>
-          <div>
-            <strong>Fast reply</strong>
-            <span>Most enquiries are reviewed within 24 hours during business days.</span>
-          </div>
+      <div
+        class="contact-status-board reveal"
+        id="contactStatusBoard"
+        aria-label="Moxi Corp enquiry process"
+      >
+        <div class="status-board-top">
+          <i></i><i></i><i></i>
+          <span>enquiry_process.js</span>
         </div>
 
-        <div class="contact-point">
-          <div class="contact-icon">02</div>
-          <div>
-            <strong>Clear direction</strong>
-            <span>No confusing tech talk. You will know what package makes sense and why.</span>
-          </div>
-        </div>
+        <div class="status-board-body">
+          <article class="status-step">
+            <span class="status-number">01</span>
+            <div>
+              <strong>Send your project details</strong>
+              <small>Tell me about your business, website needs and timeline.</small>
+            </div>
+            <span class="status-check">✓</span>
+          </article>
 
-        <div class="contact-point">
-          <div class="contact-icon">03</div>
-          <div>
-            <strong>Built for small business</strong>
-            <span>Websites made to look premium, load fast, and help turn visitors into leads.</span>
-          </div>
+          <article class="status-step">
+            <span class="status-number">02</span>
+            <div>
+              <strong>Personal review</strong>
+              <small>Your enquiry is read by a real developer — not an automated AI reply.</small>
+            </div>
+            <span class="status-check">✓</span>
+          </article>
+
+          <article class="status-step">
+            <span class="status-number">03</span>
+            <div>
+              <strong>Clear recommendation</strong>
+              <small>I’ll explain which package makes sense and what the build includes.</small>
+            </div>
+            <span class="status-check">✓</span>
+          </article>
+
+          <article class="status-step">
+            <span class="status-number">04</span>
+            <div>
+              <strong>Start the website</strong>
+              <small>Once approved, we move into planning, design and development.</small>
+            </div>
+            <span class="status-check">✓</span>
+          </article>
         </div>
       </div>
     </div>
+  </header>
+
+  <main>
+    <section class="section" id="quote-form" style="padding-top: 55px;">
+      <div class="wrap contact-layout">
+        <aside class="contact-sidebar reveal">
+          <div class="contact-sidebar-card">
+            <div class="kicker">Project Details</div>
+            <h2>Before you send it</h2>
+            <p>
+              More detail helps me understand the job faster and recommend the
+              right package without wasting your time.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <span class="contact-info-icon">@</span>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:support@moxicorpstudio.com.au">
+                    support@moxicorpstudio.com.au
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <span class="contact-info-icon">AU</span>
+                <div>
+                  <strong>Location</strong>
+                  <span>Donnybrook, Victoria — serving businesses Australia-wide.</span>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <span class="contact-info-icon">&lt;/&gt;</span>
+                <div>
+                  <strong>Best for</strong>
+                  <span>Small-business websites, landing pages, redesigns and Stripe-ready sites.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-sidebar-card">
+            <h3>What happens next?</h3>
+            <p>
+              After you submit the form, I’ll review the project information and
+              contact you with a clear recommendation.
+            </p>
+          </div>
+        </aside>
+
+        <div class="contact-panel reveal spotlight-card">
+          <div class="form-intro">
+            <div class="kicker">Free Quote Request</div>
+            <h2>Tell me what you need.</h2>
+            <p>
+              Complete the fields below and include as much useful detail as possible.
+              The progress bar updates as you complete the enquiry.
+            </p>
+          </div>
+
+          <form
+            class="project-form"
+            id="projectForm"
+            action="https://formspree.io/f/xvzjprdv"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New Website Enquiry - Moxi Corp" />
+            <input
+              type="text"
+              name="_gotcha"
+              tabindex="-1"
+              autocomplete="off"
+              style="display:none"
+            />
+
+            <div class="form-progress" aria-live="polite">
+              <div class="form-progress-copy">
+                <span>FORM COMPLETION</span>
+                <strong id="formProgressText">0%</strong>
+              </div>
+              <div class="form-progress-track">
+                <span id="formProgressFill"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full name *</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="email">Email address *</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Your contact number"
+                  autocomplete="tel"
+                />
+              </div>
+
+              <div class="field">
+                <label for="business">Business name</label>
+                <input
+                  id="business"
+                  name="business"
+                  type="text"
+                  placeholder="Your business name"
+                  autocomplete="organization"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="projectType">What do you need? *</label>
+                <select id="projectType" name="project_type" required>
+                  <option value="">Select what you need</option>
+                  <option value="new_business_website">New business website</option>
+                  <option value="website_redesign">Website redesign or upgrade</option>
+                  <option value="landing_page">Landing page or sales page</option>
+                  <option value="multi_page_website">Multi-page website</option>
+                  <option value="ecommerce_stripe">E-commerce or Stripe payments</option>
+                  <option value="booking_or_quote_site">Booking or quote website</option>
+                  <option value="seo_upgrade">SEO upgrade</option>
+                  <option value="website_maintenance">Maintenance or updates</option>
+                  <option value="logo_branding">Logo or branding add-on</option>
+                  <option value="not_sure">Not sure yet — need advice</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="budget">Budget or package</label>
+                <select id="budget" name="budget_range">
+                  <option value="">Select budget or package</option>
+                  <option value="starter_409">$409 — Starter special</option>
+                  <option value="growth_650">$650 — Growth special</option>
+                  <option value="elite_900">$900 — Elite special</option>
+                  <option value="custom_1500_2500">$1,500–$2,500 — Custom build</option>
+                  <option value="premium_2500_plus">$2,500+ — Premium build</option>
+                  <option value="maintenance_only">Maintenance or updates only</option>
+                  <option value="not_sure">Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="timeline">Ideal timeline</label>
+                <select id="timeline" name="timeline">
+                  <option value="">Select ideal timeline</option>
+                  <option value="asap">ASAP or urgent</option>
+                  <option value="1_2_weeks">1–2 weeks</option>
+                  <option value="2_4_weeks">2–4 weeks</option>
+                  <option value="1_2_months">1–2 months</option>
+                  <option value="flexible">Flexible</option>
+                  <option value="just_researching">Just researching</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="currentWebsite">Current website</label>
+                <input
+                  id="currentWebsite"
+                  name="current_website"
+                  type="url"
+                  placeholder="https://yourwebsite.com.au"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Project details *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="What does your business do? Which pages or features do you need? Do you need payments, bookings, SEO, content or animations?"
+                required
+              ></textarea>
+            </div>
+
+            <div class="success-message" id="successMessage">
+              Your enquiry is ready to send. Click the button below and I’ll personally review it.
+            </div>
+
+            <div class="form-submit-row">
+              <button class="btn submit-button magnetic" id="submitButton" type="submit">
+                <span>Send Enquiry →</span>
+              </button>
+
+              <p class="form-note">
+                By submitting this form, you agree to be contacted about your website project.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="wrap contact-stats reveal">
+        <article class="contact-stat spotlight-card">
+          <strong>24h</strong>
+          <span>Typical business-day response</span>
+        </article>
+
+        <article class="contact-stat spotlight-card">
+          <strong>3</strong>
+          <span>Website package options</span>
+        </article>
+
+        <article class="contact-stat spotlight-card">
+          <strong>AU</strong>
+          <span>Australia-wide service</span>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <section class="section">
-    <div class="wrap contact-layout">
-      <aside class="contact-sidebar reveal">
-        <div class="kicker">Project Details</div>
-        <h2>Before you send it</h2>
-        <p style="color: var(--muted); line-height: 1.7; margin-top: 10px;">
-          Weak enquiries waste time. The more detail you give here, the faster we can understand the job and recommend the right build.
-        </p>
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
+        <p>Real websites. Real communication. Built for real businesses.</p>
+      </div>
 
-        <div class="contact-card-list">
-          <div class="mini-contact-card">
-            <small>Email</small>
-            <a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a>
-          </div>
+      <div>
+        <strong>Contact</strong>
+        <a href="mailto:support@moxicorpstudio.com.au">
+          support@moxicorpstudio.com.au
+        </a>
+        <span>Donnybrook, Victoria</span>
+        <span>Australia-wide service</span>
+      </div>
 
-          <div class="mini-contact-card">
-            <small>Location</small>
-            <p>Donnybrook, Victoria<br />Working with businesses across Australia.</p>
-          </div>
-
-          <div class="mini-contact-card">
-            <small>Best for</small>
-            <p>Small business websites, SEO-ready builds, animated landing pages, Stripe payment sites, and premium redesigns.</p>
-          </div>
-        </div>
-      </aside>
-
-      <div class="contact-panel reveal">
-        <div class="form-intro">
-          <div class="kicker">Free Quote Request</div>
-          <h2>Tell us what you need.</h2>
-          <p>
-            Choose the closest options below, then add details in the message box. The clearer the enquiry, the faster we can recommend the right pack and quote the job properly.
-          </p>
-        </div>
-
-        <form class="project-form" action="https://formspree.io/f/xvzjprdv" method="POST">
-          <input type="hidden" name="_subject" value="New Website Enquiry - Moxi Corp" />
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" />
-
-          <div class="form-row">
-            <div class="field">
-              <label for="name">Full name *</label>
-              <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
-            </div>
-
-            <div class="field">
-              <label for="email">Email address *</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="phone">Phone number</label>
-              <input id="phone" name="phone" type="tel" placeholder="Your contact number" autocomplete="tel" />
-            </div>
-
-            <div class="field">
-              <label for="business">Business name</label>
-              <input id="business" name="business" type="text" placeholder="Your business name" autocomplete="organization" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="projectType">What do you need? *</label>
-              <select id="projectType" name="project_type" required>
-                <option value="">Select what you need</option>
-                <option value="new_business_website">New business website</option>
-                <option value="website_redesign">Website redesign / upgrade</option>
-                <option value="landing_page">Landing page / sales page</option>
-                <option value="multi_page_website">Multi-page website</option>
-                <option value="ecommerce_stripe">E-commerce / Stripe payments</option>
-                <option value="booking_or_quote_site">Booking / quote enquiry website</option>
-                <option value="seo_upgrade">SEO upgrade</option>
-                <option value="website_maintenance">Website maintenance / updates</option>
-                <option value="logo_branding">Logo / branding add-on</option>
-                <option value="not_sure">Not sure yet — need advice</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="budget">Budget range</label>
-              <select id="budget" name="budget_range">
-                <option value="">Select budget range</option>
-                <option value="starter_599">$599 — Starter Pack</option>
-                <option value="growth_849">$849 — Growth Pack</option>
-                <option value="elite_1159">$1,159 — Elite Pack</option>
-                <option value="custom_1500_2500">$1,500–$2,500 — Custom build</option>
-                <option value="premium_2500_plus">$2,500+ — Premium build</option>
-                <option value="maintenance_only">Maintenance / updates only</option>
-                <option value="not_sure">Not sure yet</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="timeline">Ideal timeline</label>
-              <select id="timeline" name="timeline">
-                <option value="">Select ideal timeline</option>
-                <option value="asap">ASAP / urgent</option>
-                <option value="1_2_weeks">1–2 weeks</option>
-                <option value="2_4_weeks">2–4 weeks</option>
-                <option value="1_2_months">1–2 months</option>
-                <option value="flexible">Flexible</option>
-                <option value="just_researching">Just researching</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="currentWebsite">Current website</label>
-              <input id="currentWebsite" name="current_website" type="url" placeholder="https://yourwebsite.com.au" />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="message">Project details *</label>
-            <textarea id="message" name="message" placeholder="What does your business do? What pages do you need? Do you need payments, booking, SEO, copywriting, or animations?" required></textarea>
-          </div>
-
-          <div class="form-submit-row">
-            <button class="btn" type="submit">Send Enquiry →</button>
-            <p class="form-note">By submitting this form, you agree to be contacted about your website project.</p>
-          </div>
-        </form>
+      <div>
+        <strong>Business</strong>
+        <span>ABN 18 936 263 775</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
       </div>
     </div>
 
-    <div class="wrap contact-strip reveal">
-      <div class="stat">
-        <strong>24h</strong>
-        <span>Typical response time</span>
-      </div>
-      <div class="stat">
-        <strong>3+</strong>
-        <span>Website package options</span>
-      </div>
-      <div class="stat">
-        <strong>AU</strong>
-        <span>Australian business support</span>
-      </div>
+    <div class="wrap footer-bottom">
+      © 2026 Moxi Corp. All rights reserved.
     </div>
-  </section>
-
-<footer>
-  <div class="wrap">
-    © 2026 Moxi Corp. Based in Donnybrook, VIC.<br>
-    ABN: 18 936 263 775<br><br>
-    Email: support@moxicorpstudio.com.au |
-    <a href="privacy-policy.html">Privacy Policy</a>
-  </div>
-</footer>
+  </footer>
 
   <script src="script.js"></script>
+  <script src="contact.js"></script>
 </body>
 </html>

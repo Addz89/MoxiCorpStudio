@@ -1,0 +1,461 @@
+.code-vortex-stage {
+  position: relative;
+  min-height: 610px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(47, 231, 255, 0.28);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(47, 231, 255, 0.10), transparent 28%),
+    radial-gradient(circle at 20% 12%, rgba(8, 124, 255, 0.14), transparent 35%),
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.018)),
+    #020812;
+  box-shadow:
+    0 42px 130px rgba(0,0,0,.56),
+    0 0 80px rgba(8,124,255,.10),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+.code-vortex-stage::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 0;
+  pointer-events: none;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(47,231,255,.08),
+    transparent 28%,
+    rgba(8,124,255,.10),
+    transparent 62%,
+    rgba(255,255,255,.04),
+    transparent
+  );
+  animation: vortexOuterSpin 18s linear infinite;
+}
+
+.code-vortex-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 70px rgba(0,0,0,.75),
+    inset 0 0 140px rgba(8,124,255,.08);
+}
+
+@keyframes vortexOuterSpin {
+  to { transform: rotate(360deg); }
+}
+
+#codeVortexCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.vortex-grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .22;
+  background-image:
+    linear-gradient(rgba(47,231,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47,231,255,.07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, #000 0 42%, transparent 78%);
+  animation: vortexGridMove 12s linear infinite;
+}
+
+@keyframes vortexGridMove {
+  to { background-position: 42px 42px; }
+}
+
+.vortex-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -20%;
+  z-index: 6;
+  height: 24%;
+  pointer-events: none;
+  opacity: .28;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(47,231,255,.05),
+    rgba(255,255,255,.12),
+    rgba(47,231,255,.05),
+    transparent
+  );
+  animation: vortexScan 5.5s linear infinite;
+}
+
+@keyframes vortexScan {
+  to { transform: translateY(520%); }
+}
+
+.vortex-hud {
+  position: absolute;
+  z-index: 10;
+  left: 18px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+  color: #dff9ff;
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
+
+.vortex-hud-top {
+  top: 17px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 14px;
+  background: rgba(2,9,18,.68);
+  backdrop-filter: blur(14px);
+}
+
+.vortex-window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.vortex-window-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(47,231,255,.55);
+}
+
+.vortex-window-dots span:nth-child(2) { opacity: .66; }
+.vortex-window-dots span:nth-child(3) { opacity: .35; }
+
+.vortex-hud-top small {
+  color: rgba(255,255,255,.43);
+  font-size: .62rem;
+  letter-spacing: .08em;
+}
+
+.vortex-hud-top strong {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .62rem;
+  letter-spacing: .12em;
+}
+
+.vortex-hud-top strong i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5dffba;
+  box-shadow: 0 0 14px rgba(93,255,186,.85);
+  animation: vortexLivePulse 1.4s ease-in-out infinite;
+}
+
+@keyframes vortexLivePulse {
+  50% { transform: scale(1.35); opacity: .55; }
+}
+
+.vortex-hud-bottom {
+  bottom: 17px;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 15px;
+  background: rgba(2,9,18,.72);
+  backdrop-filter: blur(14px);
+}
+
+.vortex-hud-bottom div {
+  min-width: 0;
+}
+
+.vortex-hud-bottom small,
+.vortex-hud-bottom strong {
+  display: block;
+}
+
+.vortex-hud-bottom small {
+  color: rgba(255,255,255,.38);
+  font-size: .54rem;
+  letter-spacing: .1em;
+}
+
+.vortex-hud-bottom strong {
+  margin-top: 4px;
+  color: #e7fbff;
+  font-size: .62rem;
+  letter-spacing: .06em;
+}
+
+.vortex-core {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  width: 210px;
+  height: 210px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: drop-shadow(0 0 30px rgba(47,231,255,.22));
+}
+
+.vortex-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(47,231,255,.38);
+  box-shadow:
+    0 0 24px rgba(47,231,255,.12),
+    inset 0 0 24px rgba(47,231,255,.08);
+}
+
+.ring-one {
+  animation: vortexRingSpin 7s linear infinite;
+  border-style: dashed;
+}
+
+.ring-two {
+  inset: 25px;
+  border-color: rgba(255,255,255,.28);
+  animation: vortexRingSpin 4.8s linear infinite reverse;
+}
+
+.ring-three {
+  inset: 52px;
+  border: 2px solid rgba(47,231,255,.58);
+  box-shadow:
+    0 0 35px rgba(47,231,255,.22),
+    inset 0 0 28px rgba(8,124,255,.14);
+  animation: vortexCorePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes vortexRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vortexCorePulse {
+  50% {
+    transform: scale(1.12);
+    opacity: .72;
+    box-shadow:
+      0 0 55px rgba(47,231,255,.42),
+      inset 0 0 32px rgba(8,124,255,.22);
+  }
+}
+
+.vortex-core-label {
+  position: absolute;
+  inset: 62px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(47,231,255,.15), rgba(2,8,18,.92) 68%);
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow:
+    0 0 32px rgba(47,231,255,.15),
+    inset 0 0 20px rgba(255,255,255,.04);
+}
+
+.vortex-core-label span,
+.vortex-core-label b {
+  display: block;
+  font-family: var(--mono);
+}
+
+.vortex-core-label span {
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+}
+
+.vortex-core-label b {
+  margin-top: 4px;
+  color: var(--cyan);
+  font-size: .53rem;
+  letter-spacing: .09em;
+}
+
+.vortex-boost {
+  position: absolute;
+  z-index: 12;
+  left: 50%;
+  bottom: 86px;
+  transform: translateX(-50%);
+  min-width: 190px;
+  padding: 12px 18px;
+  border: 1px solid rgba(47,231,255,.32);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(1,8,17,.76);
+  box-shadow:
+    0 15px 45px rgba(0,0,0,.38),
+    0 0 30px rgba(47,231,255,.10);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+
+.vortex-boost:hover {
+  transform: translateX(-50%) translateY(-4px) scale(1.03);
+  border-color: rgba(47,231,255,.65);
+  box-shadow:
+    0 22px 55px rgba(0,0,0,.45),
+    0 0 38px rgba(47,231,255,.20);
+}
+
+.vortex-boost span,
+.vortex-boost small {
+  display: block;
+  font-family: var(--mono);
+}
+
+.vortex-boost span {
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.vortex-boost small {
+  margin-top: 3px;
+  color: var(--cyan);
+  font-size: .5rem;
+  letter-spacing: .14em;
+}
+
+.vortex-tag {
+  position: absolute;
+  z-index: 8;
+  padding: 9px 11px;
+  border: 1px solid rgba(47,231,255,.24);
+  border-radius: 999px;
+  color: #dffaff;
+  background: rgba(1,8,17,.7);
+  font-family: var(--mono);
+  font-size: .58rem;
+  font-weight: 900;
+  letter-spacing: .07em;
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+  box-shadow: 0 10px 35px rgba(0,0,0,.35);
+}
+
+.tag-html {
+  left: 20px;
+  top: 105px;
+  animation: vortexTagFloat 4.6s ease-in-out infinite;
+}
+
+.tag-css {
+  right: 18px;
+  top: 122px;
+  animation: vortexTagFloat 5.2s ease-in-out -.8s infinite;
+}
+
+.tag-js {
+  left: 24px;
+  bottom: 132px;
+  animation: vortexTagFloat 5.6s ease-in-out -1.4s infinite;
+}
+
+.tag-seo {
+  right: 22px;
+  bottom: 140px;
+  animation: vortexTagFloat 5s ease-in-out -2s infinite;
+}
+
+@keyframes vortexTagFloat {
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+.code-vortex-stage.warping {
+  animation: vortexWarpShake .55s cubic-bezier(.22,.9,.3,1);
+}
+
+.code-vortex-stage.warping .vortex-core {
+  animation: vortexWarpCore .55s cubic-bezier(.16,1,.3,1);
+}
+
+@keyframes vortexWarpShake {
+  20% { transform: translateX(-4px) scale(1.01); }
+  45% { transform: translateX(5px) scale(1.015); }
+  70% { transform: translateX(-2px) scale(1.01); }
+}
+
+@keyframes vortexWarpCore {
+  50% { transform: translate(-50%, -50%) scale(1.45); filter: brightness(1.45); }
+}
+
+@media (max-width: 1020px) {
+  .code-vortex-stage {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 650px) {
+  .code-vortex-stage {
+    min-height: 510px;
+    border-radius: 26px;
+  }
+
+  .vortex-core {
+    width: 165px;
+    height: 165px;
+  }
+
+  .ring-two { inset: 20px; }
+  .ring-three { inset: 42px; }
+  .vortex-core-label { inset: 50px; }
+
+  .vortex-hud-bottom {
+    gap: 10px;
+  }
+
+  .vortex-hud-bottom div:nth-child(2) {
+    display: none;
+  }
+
+  .vortex-tag {
+    font-size: .5rem;
+  }
+
+  .tag-html { left: 10px; top: 92px; }
+  .tag-css { right: 10px; top: 106px; }
+  .tag-js { left: 10px; bottom: 126px; }
+  .tag-seo { right: 10px; bottom: 132px; }
+
+  .vortex-boost {
+    bottom: 81px;
+    min-width: 172px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-vortex-stage::before,
+  .vortex-grid-overlay,
+  .vortex-scanline,
+  .vortex-ring,
+  .vortex-tag,
+  .vortex-hud-top strong i {
+    animation: none !important;
+  }
+}

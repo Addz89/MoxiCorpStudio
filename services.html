@@ -3,401 +3,678 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore Moxi Corp services including custom web design, SEO foundations, Stripe checkout, forms, responsive design, website copywriting, and ongoing support for Australian small businesses." />
-  <title>Services | Moxi Corp</title>
 
-  <link rel="icon" type="image/svg+xml" href="logo2.svg" />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Services | Moxi Corp</title>
+  <meta
+    name="description"
+    content="Explore Moxi Corp website services including custom development, responsive design, SEO foundations, Stripe checkout, content structure and ongoing support."
+  />
+  <meta name="theme-color" content="#02050b" />
+
+  <link rel="icon" type="image/svg+xml" href="images/newlogo2.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Page-specific polish for Services */
+    .services-hero {
+      min-height: auto;
+      padding: 150px 0 72px;
+      overflow: hidden;
+    }
+
     .services-hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(340px, .9fr);
-      gap: clamp(40px, 7vw, 90px);
+      grid-template-columns: 1.05fr .95fr;
+      gap: 54px;
       align-items: center;
     }
 
-    .service-blueprint {
+    .services-hero-copy h1 {
+      margin: 10px 0 22px;
+      max-width: 940px;
+      font-size: clamp(3.6rem, 7.8vw, 7.2rem);
+      line-height: .88;
+      letter-spacing: -.082em;
+    }
+
+    .services-hero-copy p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
+      line-height: 1.8;
+    }
+
+    .services-console {
       position: relative;
-      min-height: 520px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 34px;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(0, 200, 255, .20), transparent 30%),
-        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      box-shadow: 0 45px 120px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12);
+      min-height: 470px;
       overflow: hidden;
-      isolation: isolate;
-    }
-
-    .service-blueprint::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
+      padding: 25px;
+      border: 1px solid var(--line-blue);
+      border-radius: 30px;
       background:
-        linear-gradient(90deg, rgba(0,200,255,.18) 1px, transparent 1px),
-        linear-gradient(rgba(0,200,255,.12) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.12));
-      animation: blueprintMove 16s linear infinite;
-      z-index: -2;
+        radial-gradient(circle at 14% 10%, rgba(47,231,255,.10), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.022)),
+        rgba(3,11,22,.92);
+      box-shadow:
+        0 36px 110px rgba(0,0,0,.44),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(22px);
+      transform-style: preserve-3d;
+      will-change: transform;
     }
 
-    .service-blueprint::after {
+    .services-console::before {
       content: "";
       position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: rgba(0, 196, 255, .22);
-      filter: blur(70px);
-      right: -80px;
-      top: -70px;
-      animation: softPulse 5s ease-in-out infinite alternate;
-      z-index: -1;
+      inset: -48%;
+      pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.11),
+        transparent 35%,
+        rgba(8,124,255,.10),
+        transparent 72%
+      );
+      animation: servicesAuraSpin 15s linear infinite;
     }
 
-    .blueprint-top {
-      padding: 22px 24px;
+    @keyframes servicesAuraSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .services-console-top {
+      position: relative;
+      z-index: 2;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      font-family: var(--mono, 'JetBrains Mono', monospace);
-      font-size: .78rem;
-      color: var(--muted, #93a4b8);
+      gap: 8px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .services-console-top i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(47,231,255,.55);
+    }
+
+    .services-console-top i:nth-child(2) { opacity: .7; }
+    .services-console-top i:nth-child(3) { opacity: .42; }
+
+    .services-console-top span {
+      margin-left: auto;
+      color: rgba(255,255,255,.42);
+      font-family: var(--mono);
+      font-size: .7rem;
+    }
+
+    .services-console-body {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+      margin-top: 20px;
+    }
+
+    .service-engine-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 112px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      background: rgba(0,0,0,.22);
+      opacity: 0;
+      transform: translateY(18px);
+      animation:
+        serviceEngineIn .7s cubic-bezier(.16,1,.3,1) forwards,
+        serviceEngineFloat 4.8s ease-in-out infinite;
+    }
+
+    .service-engine-card:nth-child(1) { animation-delay: .2s, .2s; }
+    .service-engine-card:nth-child(2) { animation-delay: .4s, .4s; }
+    .service-engine-card:nth-child(3) { animation-delay: .6s, .6s; }
+    .service-engine-card:nth-child(4) { animation-delay: .8s, .8s; }
+
+    .service-engine-card small {
+      display: block;
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .62rem;
+      font-weight: 900;
       letter-spacing: .08em;
       text-transform: uppercase;
     }
 
-    .blueprint-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #bff4ff;
+    .service-engine-card strong {
+      display: block;
+      margin-top: 9px;
+      font-size: .9rem;
     }
 
-    .blueprint-status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #00d5ff;
-      box-shadow: 0 0 20px #00d5ff;
-      animation: blinkDot 1.6s infinite;
+    .service-engine-card span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .68rem;
+      line-height: 1.45;
     }
 
-    .orbit-wrap {
-      position: absolute;
-      inset: 76px 22px 22px;
-      display: grid;
-      place-items: center;
+    @keyframes serviceEngineIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .service-orbit {
+    @keyframes serviceEngineFloat {
+      50% {
+        transform: translateY(-5px);
+        border-color: rgba(47,231,255,.20);
+      }
+    }
+
+    .services-status {
       position: relative;
-      width: min(360px, 78vw);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px solid rgba(0,200,255,.25);
-      animation: spinSlow 24s linear infinite;
-    }
-
-    .service-orbit::before,
-    .service-orbit::after {
-      content: "";
-      position: absolute;
-      inset: 44px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 50%;
-    }
-
-    .service-orbit::after {
-      inset: 92px;
-      border-color: rgba(0,200,255,.32);
-      animation: spinSlow 12s linear infinite reverse;
-    }
-
-    .orbit-core {
-      position: absolute;
-      inset: 50%;
-      transform: translate(-50%, -50%);
-      width: 160px;
-      height: 160px;
-      border-radius: 34px;
+      z-index: 2;
       display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 18px;
-      background: rgba(3, 12, 24, .78);
-      border: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 25px 70px rgba(0,0,0,.5), 0 0 60px rgba(0,200,255,.15);
-      animation: counterSpin 24s linear infinite;
+      gap: 10px;
+      margin-top: 17px;
+      padding: 14px 15px;
+      border: 1px solid rgba(47,231,255,.15);
+      border-radius: 15px;
+      background: rgba(255,255,255,.03);
     }
 
-    .orbit-core b {
+    .services-status-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      font-family: var(--mono);
+      font-size: .67rem;
+    }
+
+    .services-status-copy span {
+      color: var(--muted);
+    }
+
+    .services-status-copy strong {
+      color: var(--cyan);
+    }
+
+    .services-status-track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,.065);
+    }
+
+    .services-status-track span {
       display: block;
-      font-size: 1.05rem;
-      line-height: 1.15;
-      color: white;
-      letter-spacing: -.03em;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #fff, var(--cyan), var(--blue));
+      box-shadow: 0 0 18px rgba(47,231,255,.38);
+      transition: width .7s cubic-bezier(.16,1,.3,1);
     }
 
-    .orbit-core span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted, #93a4b8);
-      font-size: .78rem;
-    }
-
-    .orbit-node {
-      position: absolute;
-      width: 88px;
-      height: 88px;
-      border-radius: 24px;
-      background: rgba(4, 18, 34, .9);
-      border: 1px solid rgba(0,200,255,.25);
+    .service-stats {
       display: grid;
-      place-items: center;
-      text-align: center;
-      color: #dffaff;
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: -.01em;
-      box-shadow: 0 18px 40px rgba(0,0,0,.4);
-      animation: counterSpin 24s linear infinite;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 34px;
     }
 
-    .node-1 { top: -28px; left: 50%; transform: translateX(-50%); }
-    .node-2 { right: -34px; top: 50%; transform: translateY(-50%); }
-    .node-3 { bottom: -28px; left: 50%; transform: translateX(-50%); }
-    .node-4 { left: -34px; top: 50%; transform: translateY(-50%); }
-
-    .service-row {
-      display: grid;
-      grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
-      gap: 28px;
-      align-items: stretch;
-      margin-top: 28px;
-    }
-
-    .deep-service {
+    .service-stat {
       position: relative;
       overflow: hidden;
-      min-height: 100%;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: rgba(255,255,255,.035);
+      text-align: center;
+      transition: transform .28s, border-color .28s;
     }
 
-    .deep-service::before {
+    .service-stat:hover {
+      transform: translateY(-5px);
+      border-color: rgba(47,231,255,.28);
+    }
+
+    .service-stat strong {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: -.05em;
+    }
+
+    .service-stat span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.45;
+    }
+
+    .services-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .services-sidebar {
+      position: sticky;
+      top: 110px;
+      display: grid;
+      gap: 15px;
+    }
+
+    .services-sidebar-card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 23px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.022));
+      box-shadow: 0 20px 62px rgba(0,0,0,.24);
+      backdrop-filter: blur(18px);
+    }
+
+    .services-sidebar-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      letter-spacing: -.04em;
+    }
+
+    .services-sidebar-card p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.65;
+    }
+
+    .services-nav {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .services-nav a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 12px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 13px;
+      color: #d6e6f5;
+      background: rgba(255,255,255,.025);
+      font-size: .74rem;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .services-nav a:hover,
+    .services-nav a.active {
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      border-color: transparent;
+      transform: translateX(4px);
+      box-shadow: 0 12px 28px rgba(47,231,255,.12);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 370px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.067), rgba(255,255,255,.022)),
+        rgba(5,15,29,.76);
+      box-shadow: 0 22px 70px rgba(0,0,0,.24);
+      backdrop-filter: blur(18px);
+      scroll-margin-top: 110px;
+      transition:
+        transform .3s,
+        border-color .3s,
+        box-shadow .3s;
+    }
+
+    .service-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at var(--x, 50%) var(--y, 0%), rgba(0,200,255,.16), transparent 35%);
-      opacity: 0;
-      transition: opacity .3s ease;
       pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(
+        430px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+        rgba(47,231,255,.12),
+        transparent 42%
+      );
+      transition: opacity .3s;
     }
 
-    .deep-service:hover::before { opacity: 1; }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(47,231,255,.28);
+      box-shadow: 0 30px 88px rgba(0,0,0,.32);
+    }
+
+    .service-card:hover::after {
+      opacity: 1;
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-number {
+      color: rgba(47,231,255,.52);
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin-top: 45px;
+      border-radius: 17px;
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      font-family: var(--mono);
+      font-size: .72rem;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(8,124,255,.18);
+      transition: transform .3s;
+    }
+
+    .service-card:hover .service-icon {
+      transform: translateY(-4px) rotate(5deg);
+    }
+
+    .service-card h2 {
+      margin: 17px 0 10px;
+      font-size: 1.42rem;
+      letter-spacing: -.045em;
+    }
+
+    .service-card > p {
+      color: var(--muted);
+      font-size: .91rem;
+      line-height: 1.68;
+    }
 
     .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0 0;
       display: grid;
-      gap: 12px;
+      gap: 9px;
+      margin-top: 18px;
     }
 
     .feature-list li {
-      display: flex;
-      gap: 10px;
-      color: var(--muted, #93a4b8);
-      line-height: 1.65;
+      position: relative;
+      list-style: none;
+      padding-left: 22px;
+      color: #d9e6f4;
+      font-size: .79rem;
+      line-height: 1.5;
     }
 
     .feature-list li::before {
       content: "✓";
-      color: #00c8ff;
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
       font-weight: 900;
-      flex: 0 0 auto;
     }
 
     .service-proof-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 34px;
+    }
+
+    .proof-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 165px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: rgba(255,255,255,.035);
+      transition: transform .28s, border-color .28s;
+    }
+
+    .proof-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(47,231,255,.28);
+    }
+
+    .proof-card strong {
+      display: block;
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .68rem;
+    }
+
+    .proof-card h3 {
+      margin: 38px 0 9px;
+      font-size: 1.02rem;
+    }
+
+    .proof-card p {
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.55;
+    }
+
+    .service-system-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 34px;
     }
 
-    .proof-box {
-      padding: 26px;
-      border: 1px solid rgba(255,255,255,.11);
-      border-radius: 24px;
-      background: rgba(255,255,255,.045);
-      box-shadow: 0 20px 50px rgba(0,0,0,.22);
-    }
-
-    .proof-box b {
-      display: block;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      letter-spacing: -.08em;
-      color: white;
-    }
-
-    .proof-box span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted, #93a4b8);
-      line-height: 1.45;
-    }
-
-    .system-board {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 34px;
-    }
-
-    .system-item {
+    .system-card {
       position: relative;
-      padding: 28px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,.12);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
       overflow: hidden;
-      min-height: 240px;
+      min-height: 260px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      transition: transform .28s, border-color .28s;
     }
 
-    .system-item::after {
+    .system-card::before {
       content: "";
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
       height: 3px;
-      background: linear-gradient(90deg, transparent, #00c8ff, transparent);
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
       transform: translateX(-100%);
-      animation: scanLine 3.5s ease-in-out infinite;
+      animation: serviceScan 3.8s ease-in-out infinite;
     }
 
-    .system-item h3 { margin-top: 18px; }
-    .system-item p { color: var(--muted, #93a4b8); line-height: 1.7; }
-
-    .mono-badge {
-      display: inline-flex;
-      padding: 8px 12px;
-      border: 1px solid rgba(0,200,255,.2);
-      border-radius: 999px;
-      font-family: var(--mono, 'JetBrains Mono', monospace);
-      font-size: .76rem;
-      color: #bff4ff;
-      background: rgba(0,200,255,.06);
-    }
-
-    .service-cta-split {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, .52fr);
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .service-cta-panel {
-      padding: clamp(30px, 5vw, 56px);
-      border-radius: 34px;
-      border: 1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(circle at 12% 0%, rgba(0,200,255,.18), transparent 32%),
-        rgba(255,255,255,.045);
-      box-shadow: 0 35px 90px rgba(0,0,0,.28);
-    }
-
-    .mini-checkout {
-      border-radius: 34px;
-      border: 1px solid rgba(0,200,255,.22);
-      background: #050b14;
-      padding: 28px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 25px 70px rgba(0,0,0,.35);
-    }
-
-    .mini-checkout .line {
-      height: 12px;
-      border-radius: 99px;
-      background: rgba(255,255,255,.09);
-      margin: 14px 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .mini-checkout .line::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      width: 45%;
-      background: linear-gradient(90deg, transparent, rgba(0,200,255,.4), transparent);
-      animation: shimmer 2s infinite;
-    }
-
-    @keyframes blueprintMove {
-      to { transform: translate3d(-42px, -42px, 0); }
-    }
-
-    @keyframes softPulse {
-      to { transform: scale(1.15) translate(-20px, 25px); opacity: .65; }
-    }
-
-    @keyframes spinSlow {
-      to { rotate: 360deg; }
-    }
-
-    @keyframes counterSpin {
-      to { rotate: -360deg; }
-    }
-
-    @keyframes blinkDot {
-      50% { opacity: .35; transform: scale(.75); }
-    }
-
-    @keyframes scanLine {
+    @keyframes serviceScan {
       0%, 10% { transform: translateX(-100%); }
       55%, 100% { transform: translateX(100%); }
     }
 
-    @keyframes shimmer {
-      to { transform: translateX(240%); }
+    .system-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(47,231,255,.28);
     }
 
-    @media (max-width: 980px) {
+    .system-label {
+      display: inline-flex;
+      padding: 7px 10px;
+      border: 1px solid rgba(47,231,255,.20);
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(47,231,255,.06);
+      font-family: var(--mono);
+      font-size: .65rem;
+      font-weight: 900;
+    }
+
+    .system-card h3 {
+      margin: 50px 0 10px;
+      font-size: 1.12rem;
+    }
+
+    .system-card p {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.65;
+    }
+
+    .services-cta {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(36px, 6vw, 64px);
+      border: 1px solid var(--line-blue);
+      border-radius: 30px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(47,231,255,.11), transparent 45%),
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 30px 95px rgba(0,0,0,.31);
+    }
+
+    .services-cta::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.09),
+        transparent 40%,
+        rgba(255,255,255,.05),
+        transparent 72%
+      );
+      animation: servicesAuraSpin 16s linear infinite;
+    }
+
+    .services-cta > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-cta h2 {
+      max-width: 900px;
+      margin: 8px auto 14px;
+      font-size: clamp(2.3rem, 5.2vw, 4.9rem);
+      line-height: .95;
+      letter-spacing: -.075em;
+    }
+
+    .services-cta p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 1020px) {
       .services-hero-grid,
-      .service-row,
-      .service-cta-split { grid-template-columns: 1fr; }
+      .services-layout {
+        grid-template-columns: 1fr;
+      }
 
-      .service-blueprint { min-height: 430px; }
-      .service-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .system-board { grid-template-columns: 1fr; }
+      .services-sidebar {
+        position: static;
+      }
+
+      .services-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
-    @media (max-width: 640px) {
-      .service-orbit { width: 270px; }
-      .orbit-node { width: 74px; height: 74px; font-size: .62rem; border-radius: 20px; }
-      .node-2 { right: -20px; }
-      .node-4 { left: -20px; }
-      .orbit-core { width: 130px; height: 130px; border-radius: 28px; }
-      .service-proof-grid { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .services-grid,
+      .service-proof-grid,
+      .service-system-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .services-hero {
+        padding-top: 125px;
+      }
+
+      .services-console {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .services-console-body,
+      .services-nav,
+      .services-grid,
+      .service-proof-grid,
+      .service-system-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: auto;
+      }
     }
   </style>
-  <link rel="stylesheet" href="brand-theme.css" />
 </head>
-<body>
-  <div class="noise"></div>
-  <div class="grid-bg"></div>
 
-  <nav>
-    <a href="index.html" class="logo">Moxi <b>Corp</b></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+<body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
+      <span class="logo-mark">
+        <img src="images/newlogo2.svg" alt="Moxi Corp logo" />
+      </span>
+      <span>Moxi <b>Corp</b></span>
+    </a>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
 
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
@@ -410,262 +687,398 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <a class="nav-cta" href="pricing.html">View Packs</a>
+    <a class="nav-cta magnetic" href="pricing.html">View Packs</a>
   </nav>
 
-  <main class="hero">
+  <header class="hero services-hero">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
     <div class="wrap services-hero-grid">
-      <div class="reveal">
-        <div class="kicker">What We Build</div>
-        <h1 class="split">
-          <span>Websites,</span><br />
-          <span class="gradient-text">systems,</span><br />
-          <span>and sales flow.</span>
+      <div class="services-hero-copy">
+        <div class="kicker reveal">
+          <span class="live-dot"></span>
+          Custom development • Real business results
+        </div>
+
+        <h1>
+          Website services built around your
+          <span class="gradient-text">business.</span>
         </h1>
-        <p class="lead">
-          Moxi Corp builds custom websites for small businesses that need more than a basic online brochure. We create structured pages, strong service sections, mobile-first layouts, SEO foundations, contact forms, Stripe payment paths, and animated interfaces that make your business look serious from the first click.
+
+        <p class="reveal">
+          Moxi Corp builds complete small-business websites with clear structure,
+          responsive design, custom animation, SEO foundations, enquiry forms,
+          Stripe payment pathways and direct support from the developer doing the work.
         </p>
-        <p class="lead" style="font-size:1.02rem;margin-top:18px">
-          The goal is not to throw random effects on a page. The goal is to build a website that explains what you do, proves why people should trust you, and makes the next step obvious.
-        </p>
+
         <div class="cta-row reveal">
-          <a href="pricing.html" class="btn">View Website Packs →</a>
-          <a href="portfolio.html" class="btn secondary">See Live Work</a>
+          <a href="pricing.html" class="btn magnetic">View Website Packs →</a>
+          <a href="portfolio.html" class="btn secondary magnetic">See Live Work</a>
+        </div>
+
+        <div class="service-stats reveal">
+          <article class="service-stat spotlight-card">
+            <strong>6</strong>
+            <span>Core website services</span>
+          </article>
+
+          <article class="service-stat spotlight-card">
+            <strong>100%</strong>
+            <span>Responsive layouts</span>
+          </article>
+
+          <article class="service-stat spotlight-card">
+            <strong>1:1</strong>
+            <span>Direct communication</span>
+          </article>
+
+          <article class="service-stat spotlight-card">
+            <strong>AU</strong>
+            <span>Australia-wide service</span>
+          </article>
         </div>
       </div>
 
-      <div class="service-blueprint reveal tilt" aria-label="Animated service system graphic">
-        <div class="blueprint-top">
-          <span>Service Engine</span>
-          <span class="blueprint-status">Online</span>
+      <div class="services-console reveal" id="servicesConsole">
+        <div class="services-console-top">
+          <i></i><i></i><i></i>
+          <span>moxi_service_engine.js</span>
         </div>
-        <div class="orbit-wrap">
-          <div class="service-orbit">
-            <div class="orbit-node node-1">Custom<br />Design</div>
-            <div class="orbit-node node-2">SEO<br />Setup</div>
-            <div class="orbit-node node-3">Stripe<br />Flow</div>
-            <div class="orbit-node node-4">Mobile<br />UX</div>
-            <div class="orbit-core">
-              <div>
-                <b>Moxi Build System</b>
-                <span>Design • Code • Launch</span>
-              </div>
-            </div>
+
+        <div class="services-console-body">
+          <article class="service-engine-card">
+            <small>Design</small>
+            <strong>Custom interfaces</strong>
+            <span>Layouts built around your services, audience and goals.</span>
+          </article>
+
+          <article class="service-engine-card">
+            <small>Development</small>
+            <strong>Responsive code</strong>
+            <span>HTML, CSS and JavaScript working across every screen size.</span>
+          </article>
+
+          <article class="service-engine-card">
+            <small>Conversion</small>
+            <strong>Clear next steps</strong>
+            <span>Forms, service sections, calls to action and payment paths.</span>
+          </article>
+
+          <article class="service-engine-card">
+            <small>Launch</small>
+            <strong>Connected and ready</strong>
+            <span>Domain guidance, testing, SEO foundations and future support.</span>
+          </article>
+        </div>
+
+        <div class="services-status">
+          <div class="services-status-copy">
+            <span>SERVICE ENGINE</span>
+            <strong id="servicesStatusText">Loading services...</strong>
+          </div>
+
+          <div class="services-status-track">
+            <span id="servicesStatusFill"></span>
           </div>
         </div>
       </div>
     </div>
+  </header>
+
+  <main>
+    <section class="section alt" style="padding-top:55px;">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Core Services</div>
+          <h2>Everything needed for a serious business website.</h2>
+          <p>
+            Each service works together as part of one complete website system:
+            design, development, content, SEO, enquiries, payments and future improvements.
+          </p>
+        </div>
+
+        <div class="services-layout">
+          <aside class="services-sidebar reveal">
+            <div class="services-sidebar-card">
+              <h3>Browse services</h3>
+              <p>Jump directly to the service you need.</p>
+
+              <div class="services-nav" id="servicesNav">
+                <a href="#custom-design">Custom Design <span>01</span></a>
+                <a href="#mobile">Mobile <span>02</span></a>
+                <a href="#seo">SEO <span>03</span></a>
+                <a href="#stripe">Stripe <span>04</span></a>
+                <a href="#copywriting">Copywriting <span>05</span></a>
+                <a href="#support">Support <span>06</span></a>
+              </div>
+            </div>
+
+            <div class="services-sidebar-card">
+              <h3>Need advice?</h3>
+              <p>
+                Send your project details and I’ll recommend the right package
+                and service combination.
+              </p>
+
+              <div class="cta-row" style="margin-top:16px;">
+                <a href="contact.html" class="btn magnetic" style="width:100%;">
+                  Request Free Quote
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="services-grid">
+            <article class="service-card reveal spotlight-card" id="custom-design">
+              <span class="service-number">01 / DESIGN</span>
+              <div class="service-icon">UI</div>
+
+              <h2>Custom website design</h2>
+
+              <p>
+                A professional visual system built around your business rather than
+                forcing your brand into a generic layout.
+              </p>
+
+              <ul class="feature-list">
+                <li>Custom homepage and internal page layouts</li>
+                <li>Professional spacing, typography and content hierarchy</li>
+                <li>Service, pricing, portfolio, FAQ and contact sections</li>
+                <li>Animation and interaction planning</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal spotlight-card" id="mobile">
+              <span class="service-number">02 / RESPONSIVE</span>
+              <div class="service-icon">MOB</div>
+
+              <h2>Mobile optimisation</h2>
+
+              <p>
+                Responsive layouts designed to look clean and work properly on
+                phones, tablets, laptops and desktop displays.
+              </p>
+
+              <ul class="feature-list">
+                <li>Phone-first spacing and content adjustments</li>
+                <li>Tap-friendly buttons and mobile navigation</li>
+                <li>Responsive cards, forms and image layouts</li>
+                <li>Testing across common screen sizes</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal spotlight-card" id="seo">
+              <span class="service-number">03 / SEO</span>
+              <div class="service-icon">SEO</div>
+
+              <h2>SEO foundations</h2>
+
+              <p>
+                Clean structure that helps search engines and customers understand
+                your services, pages and location.
+              </p>
+
+              <ul class="feature-list">
+                <li>Page titles and metadata guidance</li>
+                <li>Clear heading structure and semantic page sections</li>
+                <li>Image alt-text and content organisation</li>
+                <li>Search Console and Analytics guidance</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal spotlight-card" id="stripe">
+              <span class="service-number">04 / PAYMENTS</span>
+              <div class="service-icon">PAY</div>
+
+              <h2>Stripe checkout support</h2>
+
+              <p>
+                Package buttons and payment pathways connected to secure Stripe
+                checkout so clients can move from interest to payment.
+              </p>
+
+              <ul class="feature-list">
+                <li>Secure Stripe payment links</li>
+                <li>Package selection and checkout modal flow</li>
+                <li>Clear payment messaging and pricing presentation</li>
+                <li>Support for fixed-price service packages</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal spotlight-card" id="copywriting">
+              <span class="service-number">05 / CONTENT</span>
+              <div class="service-icon">TXT</div>
+
+              <h2>Website content and copy</h2>
+
+              <p>
+                Clear wording that explains the offer, builds trust and guides
+                visitors toward a quote, phone call or purchase.
+              </p>
+
+              <ul class="feature-list">
+                <li>Homepage and service-page headlines</li>
+                <li>Service descriptions and benefit-focused sections</li>
+                <li>Calls to action, trust points and FAQs</li>
+                <li>Content flow built around customer questions</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal spotlight-card" id="support">
+              <span class="service-number">06 / SUPPORT</span>
+              <div class="service-icon">UPD</div>
+
+              <h2>Ongoing improvements</h2>
+
+              <p>
+                Future updates and upgrades to keep the website useful as the
+                business changes and grows.
+              </p>
+
+              <ul class="feature-list">
+                <li>Additional pages and service sections</li>
+                <li>Text, image and pricing updates</li>
+                <li>Performance and mobile-layout improvements</li>
+                <li>New features and conversion upgrades</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Why It Matters</div>
+          <h2>Your website is part of the sales process.</h2>
+          <p>
+            The design needs to earn trust, the content needs to explain the offer
+            and the page flow needs to make the next action obvious.
+          </p>
+        </div>
+
+        <div class="service-proof-grid">
+          <article class="proof-card reveal spotlight-card">
+            <strong>01</strong>
+            <h3>Clear structure</h3>
+            <p>Visitors should understand what you offer without searching through a confusing layout.</p>
+          </article>
+
+          <article class="proof-card reveal spotlight-card">
+            <strong>02</strong>
+            <h3>Professional trust</h3>
+            <p>Strong visuals and clean presentation make a small business feel more established.</p>
+          </article>
+
+          <article class="proof-card reveal spotlight-card">
+            <strong>03</strong>
+            <h3>Mobile experience</h3>
+            <p>Many customers will judge your business from their phone before anything else.</p>
+          </article>
+
+          <article class="proof-card reveal spotlight-card">
+            <strong>04</strong>
+            <h3>Conversion paths</h3>
+            <p>Forms, calls to action and payments give visitors a clear way to take the next step.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">The Build System</div>
+          <h2>Design, content and launch working together.</h2>
+          <p>
+            A website performs better when every part is planned as one system
+            rather than a collection of disconnected sections.
+          </p>
+        </div>
+
+        <div class="service-system-grid">
+          <article class="system-card reveal spotlight-card">
+            <span class="system-label">01 / DESIGN</span>
+            <h3>Visual direction and page flow</h3>
+            <p>
+              The layout is planned around how customers scan a page, compare
+              services, look for proof and decide whether to make contact.
+            </p>
+          </article>
+
+          <article class="system-card reveal spotlight-card">
+            <span class="system-label">02 / CONTENT</span>
+            <h3>Offer clarity and conversion sections</h3>
+            <p>
+              Headlines, service descriptions, trust points and calls to action
+              work together to make the business easier to understand.
+            </p>
+          </article>
+
+          <article class="system-card reveal spotlight-card">
+            <span class="system-label">03 / LAUNCH</span>
+            <h3>Forms, payments and technical setup</h3>
+            <p>
+              Enquiry forms, payment links, responsive checks, SEO foundations
+              and launch guidance turn the design into a working business tool.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:50px;">
+      <div class="wrap">
+        <div class="services-cta reveal spotlight-card">
+          <div class="kicker">Ready To Build?</div>
+
+          <h2>Choose the package that matches your business.</h2>
+
+          <p>
+            Starter provides the foundation, Growth adds more pages and stronger
+            structure, and Elite creates a larger premium website with more depth.
+          </p>
+
+          <div class="cta-row center">
+            <a href="pricing.html" class="btn magnetic">Compare Website Packs →</a>
+            <a href="contact.html" class="btn secondary magnetic">Request Free Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Core Services</div>
-        <h2>Everything your business website needs to feel premium and work properly.</h2>
-        <p>
-          This is the stuff clients actually care about: looking trustworthy, being easy to understand, working on mobile, loading fast, getting enquiries, and having a clear path to payment or contact.
-        </p>
-      </div>
-
-      <div class="grid">
-        <article class="card deep-service reveal tilt">
-          <div class="icon">💻</div>
-          <h3>Custom Website Design</h3>
-          <p>
-            Modern websites designed around your brand, services, audience, and business goals. No generic template junk that makes every business look the same.
-          </p>
-          <ul class="feature-list">
-            <li>Homepage, about, services, portfolio, pricing, FAQ, and contact page layouts.</li>
-            <li>Strong visual direction with clean spacing, bold sections, and professional hierarchy.</li>
-            <li>Interactive elements that make the site feel alive without making it messy.</li>
-          </ul>
-        </article>
-
-        <article class="card deep-service reveal tilt">
-          <div class="icon">📱</div>
-          <h3>Mobile Optimisation</h3>
-          <p>
-            Most people will judge your business from their phone first. If your mobile layout is weak, your business looks weak. Harsh, but true.
-          </p>
-          <ul class="feature-list">
-            <li>Responsive layouts for phones, tablets, laptops, and desktops.</li>
-            <li>Clear mobile navigation, readable sections, and tap-friendly buttons.</li>
-            <li>Mobile-first service sections that get to the point quickly.</li>
-          </ul>
-        </article>
-
-        <article class="card deep-service reveal tilt">
-          <div class="icon">📈</div>
-          <h3>SEO Foundations</h3>
-          <p>
-            A website needs structure that Google can understand. SEO is not magic; it starts with clean pages, headings, content, speed, and metadata.
-          </p>
-          <ul class="feature-list">
-            <li>Page titles, descriptions, headings, and clear content hierarchy.</li>
-            <li>Service-focused sections written so visitors and search engines understand the offer.</li>
-            <li>Google Search Console and Analytics guidance where needed.</li>
-          </ul>
-        </article>
-
-        <article class="card deep-service reveal tilt">
-          <div class="icon">💳</div>
-          <h3>Stripe Checkout</h3>
-          <p>
-            Turn your website packs into direct payment options. Clients can choose a package and move into a secure checkout flow.
-          </p>
-          <ul class="feature-list">
-            <li>Starter, Growth, and Elite package buttons connected to your Stripe links.</li>
-            <li>Simple checkout modal flow that keeps the site feeling professional.</li>
-            <li>Clear payment messaging so clients know what they are buying.</li>
-          </ul>
-        </article>
-
-        <article class="card deep-service reveal tilt">
-          <div class="icon">✍️</div>
-          <h3>Website Copywriting</h3>
-          <p>
-            Design gets attention, but words close the gap. Weak copy makes even a good design feel empty. Your site needs proper selling sections.
-          </p>
-          <ul class="feature-list">
-            <li>Headlines, service descriptions, trust sections, FAQs, and calls to action.</li>
-            <li>Simple, direct wording that explains value without sounding robotic.</li>
-            <li>Content that helps visitors understand what to do next.</li>
-          </ul>
-        </article>
-
-        <article class="card deep-service reveal tilt">
-          <div class="icon">🛠️</div>
-          <h3>Ongoing Improvements</h3>
-          <p>
-            A website should keep improving after launch. New pages, content updates, speed checks, extra sections, and better conversion flow all matter.
-          </p>
-          <ul class="feature-list">
-            <li>Maintenance, extra pages, content updates, and new feature sections.</li>
-            <li>Performance checks and mobile layout improvements.</li>
-            <li>Support for businesses that want to keep growing online.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Why It Matters</div>
-        <h2>A website is not decoration. It is your online sales floor.</h2>
-        <p>
-          Business owners do not need another pretty page that says nothing. They need a website that earns trust fast, explains the offer clearly, and gives customers a reason to enquire.
-        </p>
-      </div>
-
-      <div class="service-proof-grid">
-        <div class="proof-box reveal">
-          <b>01</b>
-          <span>Clear structure so visitors instantly understand what you offer.</span>
-        </div>
-        <div class="proof-box reveal">
-          <b>02</b>
-          <span>Professional visuals that make your business feel established.</span>
-        </div>
-        <div class="proof-box reveal">
-          <b>03</b>
-          <span>Mobile-first layouts because most traffic comes from phones.</span>
-        </div>
-        <div class="proof-box reveal">
-          <b>04</b>
-          <span>Conversion sections that push visitors toward contact or payment.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Build System</div>
-        <h2>What gets built into the website.</h2>
-        <p>
-          Your services are not just page blocks. They connect together as a proper digital system: design, content, SEO, forms, payment paths, and launch support.
-        </p>
-      </div>
-
-      <div class="system-board">
-        <article class="system-item reveal tilt">
-          <span class="mono-badge">01 / DESIGN</span>
-          <h3>Visual Identity + Page Flow</h3>
-          <p>
-            The design is built around how people actually scan a website: headline, proof, services, pricing, work, FAQs, then action. This makes the site easier to trust and easier to use.
-          </p>
-        </article>
-
-        <article class="system-item reveal tilt">
-          <span class="mono-badge">02 / CONTENT</span>
-          <h3>Offer Clarity + Selling Sections</h3>
-          <p>
-            Visitors should not need to guess what you do. The site uses stronger writing, detailed service blocks, trust points, and simple calls to action so the message lands properly.
-          </p>
-        </article>
-
-        <article class="system-item reveal tilt">
-          <span class="mono-badge">03 / LAUNCH</span>
-          <h3>Forms + Stripe + Tracking Support</h3>
-          <p>
-            Contact forms, checkout buttons, payment paths, basic analytics guidance, and launch checks help turn the website from a design file into a working business tool.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="wrap service-cta-split">
-      <div class="service-cta-panel reveal">
-        <div class="kicker">Ready To Build</div>
-        <h2 style="font-size:clamp(2.3rem,5vw,4.8rem);letter-spacing:-.08em;margin-top:12px">
-          Choose the pack that matches how serious you are.
-        </h2>
-        <p style="margin-top:18px;color:var(--muted);line-height:1.75;max-width:760px">
-          Starter gives you the foundation. Growth gives you more pages, better structure, and stronger SEO. Elite gives you a larger premium build with a more complete online presence. Do not pick the cheapest option if your business needs more than a basic site — that is how people end up with weak results.
-        </p>
-        <div class="cta-row">
-          <a href="pricing.html" class="btn">Compare Packs →</a>
-          <a href="contact.html" class="btn secondary">Ask For Advice</a>
-        </div>
-      </div>
-
-      <aside class="mini-checkout reveal tilt">
-        <span class="mono-badge">STRIPE READY</span>
-        <h3 style="margin-top:22px;font-size:1.7rem">Simple payment flow</h3>
-        <p style="color:var(--muted);line-height:1.7">
-          Pricing pages can connect directly to Stripe so clients can move from interest to action without friction.
-        </p>
-        <div class="line"></div>
-        <div class="line" style="width:82%"></div>
-        <div class="line" style="width:64%"></div>
-        <a href="pricing.html" class="btn" style="width:100%;justify-content:center;margin-top:18px">View Pricing</a>
-      </aside>
-    </div>
-  </section>
-
   <footer>
-    <div class="wrap">
-      © 2026 Moxi Corp. Based in Donnybrook, VIC.<br />
-      ABN: 18 936 263 775<br /><br />
-      Email: support@moxicorpstudio.com.au |
-      <a href="privacy-policy.html">Privacy Policy</a>
+    <div class="wrap footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
+        <p>Real websites. Real communication. Built for real businesses.</p>
+      </div>
+
+      <div>
+        <strong>Contact</strong>
+        <a href="mailto:support@moxicorpstudio.com.au">
+          support@moxicorpstudio.com.au
+        </a>
+        <span>Donnybrook, Victoria</span>
+        <span>Australia-wide service</span>
+      </div>
+
+      <div>
+        <strong>Business</strong>
+        <span>ABN 18 936 263 775</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      © 2026 Moxi Corp. All rights reserved.
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    document.querySelectorAll('.deep-service').forEach((card) => {
-      card.addEventListener('pointermove', (event) => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty('--x', `${event.clientX - rect.left}px`);
-        card.style.setProperty('--y', `${event.clientY - rect.top}px`);
-      });
-    });
-  </script>
+  <script src="services.js"></script>
 </body>
 </html>

@@ -1,64 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Privacy Policy | Moxi Corp</title>
-        <link rel="stylesheet" href="styles.css">
-          <link rel="icon" type="image/svg+xml" href="logo2.svg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="brand-theme.css" />
-    </head>
-    <body>
-        <div class="noise"></div>
-        <div class="grid-bg"></div>
-        <nav>
-            <a href="index.html" class="logo">Moxi <b>Corp</b></a>
-            <button class="menu-btn" id="menuBtn">☰</button>
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="portfolio.html">Work</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="process.html">Process</a>
-                <a href="faq.html">FAQ</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <a class="nav-cta" href="pricing.html">View Packs</a>
-        </nav>
-        <main class="hero" style="min-height:auto;padding-bottom:40px">
-            <div class="wrap">
-                <div class="section-head left reveal">
-                    <div class="kicker">Legal</div>
-                    <h1 style="font-size:clamp(3rem,7vw,6rem)">Privacy Policy</h1>
-                    <p>This privacy policy explains how Moxi Corp may collect and use enquiry information submitted through this website.</p>
-                </div>
-            </div>
-        </main>
-        <section class="section">
-            <div class="wrap">
-                <div class="panel reveal">
-                    <h3>Information we collect</h3>
-                    <p>When you submit a form, we may collect your name, email, phone number, business name, and project details so we can respond to your enquiry.</p>
-                    <br>
-                    <h3>How we use it</h3>
-                    <p>We use submitted information to reply to you, prepare quotes, discuss website projects, and provide services. We do not sell your personal information.</p>
-                    <br>
-                    <h3>Contact</h3>
-                    <p>Email: support@moxicorpstudio.com.au</p>
-                </div>
-            </div>
-        </section>
-        <footer>
-            <div class="wrap">
-                © 2026 Moxi Corp. Based in Donnybrook, VIC.
-               <br><br>Email: support@moxicorpstudio.com.au | 
-                <a href="privacy-policy.html">Privacy Policy</a>
-            </div>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Privacy Policy | Moxi Corp</title>
+  <meta
+    name="description"
+    content="Read the Moxi Corp privacy policy and learn how enquiry and project information is collected, used and protected."
+  />
+  <meta name="theme-color" content="#02050b" />
+
+  <link rel="icon" type="image/svg+xml" href="images/newlogo2.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .privacy-hero {
+      min-height: auto;
+      padding: 155px 0 58px;
+    }
+
+    .privacy-hero .section-head {
+      max-width: 900px;
+      margin: 0;
+      text-align: left;
+    }
+
+    .privacy-shell {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .privacy-nav {
+      position: sticky;
+      top: 110px;
+      display: grid;
+      gap: 8px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.025)
+      );
+      backdrop-filter: blur(18px);
+    }
+
+    .privacy-nav strong {
+      margin-bottom: 6px;
+      color: #fff;
+      font-size: .86rem;
+    }
+
+    .privacy-nav a {
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .privacy-nav a:hover {
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      transform: translateX(4px);
+    }
+
+    .privacy-content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .privacy-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.025)
+      );
+      box-shadow: 0 22px 70px rgba(0,0,0,.24);
+      backdrop-filter: blur(18px);
+    }
+
+    .privacy-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(
+        340px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(47,231,255,.11),
+        transparent 42%
+      );
+      transition: opacity .3s;
+    }
+
+    .privacy-card:hover::after {
+      opacity: 1;
+    }
+
+    .privacy-card h2 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 12px;
+      font-size: 1.45rem;
+      letter-spacing: -.035em;
+    }
+
+    .privacy-card p,
+    .privacy-card li {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .privacy-card ul {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding-left: 0;
+    }
+
+    .privacy-card li {
+      list-style: none;
+    }
+
+    .privacy-card li::before {
+      content: "✓";
+      margin-right: 10px;
+      color: var(--cyan);
+      font-weight: 900;
+    }
+
+    .privacy-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .privacy-meta span {
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #d9e8f5;
+      background: rgba(255,255,255,.035);
+      font-family: var(--mono);
+      font-size: .7rem;
+      font-weight: 800;
+    }
+
+    .privacy-contact {
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    @media (max-width: 880px) {
+      .privacy-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .privacy-nav {
+        position: static;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .privacy-nav strong {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .privacy-hero {
+        padding-top: 125px;
+      }
+
+      .privacy-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .privacy-card {
+        padding: 23px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
+      <span class="logo-mark">
+        <img src="images/newlogo2.svg" alt="Moxi Corp logo" />
+      </span>
+      <span>Moxi <b>Corp</b></span>
+    </a>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="process.html">Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a class="nav-cta magnetic" href="pricing.html">View Packs</a>
+  </nav>
+
+  <header class="hero privacy-hero">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Legal • Privacy</div>
+
+        <h1>
+          Privacy
+          <span class="gradient-text">Policy.</span>
+        </h1>
+
+        <p>
+          This policy explains how Moxi Corp may collect, use and protect
+          information submitted through this website.
+        </p>
+
+        <div class="privacy-meta">
+          <span>Last updated: July 2026</span>
+          <span>Moxi Corp</span>
+          <span>ABN 18 936 263 775</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: 40px;">
+      <div class="wrap privacy-shell">
+        <aside class="privacy-nav reveal" aria-label="Privacy policy sections">
+          <strong>On this page</strong>
+          <a href="#information">Information collected</a>
+          <a href="#use">How information is used</a>
+          <a href="#services">Third-party services</a>
+          <a href="#security">Data security</a>
+          <a href="#rights">Your choices</a>
+          <a href="#contact">Contact</a>
+        </aside>
+
+        <div class="privacy-content">
+          <article class="privacy-card reveal spotlight-card" id="information">
+            <h2>Information we may collect</h2>
+            <p>
+              When you submit a contact form, quote request or project enquiry,
+              Moxi Corp may collect information you choose to provide.
+            </p>
+
+            <ul>
+              <li>Your name and email address</li>
+              <li>Your phone number, when supplied</li>
+              <li>Your business name and website details</li>
+              <li>Your selected package or service</li>
+              <li>Project requirements and messages</li>
+            </ul>
+          </article>
+
+          <article class="privacy-card reveal spotlight-card" id="use">
+            <h2>How your information is used</h2>
+            <p>
+              Submitted information is used to respond to enquiries, prepare
+              quotes, discuss website projects, provide requested services and
+              communicate about your project.
+            </p>
+
+            <p style="margin-top: 12px;">
+              Moxi Corp does not sell your personal information to third parties.
+            </p>
+          </article>
+
+          <article class="privacy-card reveal spotlight-card" id="services">
+            <h2>Third-party services</h2>
+            <p>
+              This website may use third-party services to process forms,
+              payments, website hosting and analytics. These providers may
+              process information according to their own privacy policies.
+            </p>
+
+            <ul>
+              <li>Formspree may process website form submissions</li>
+              <li>Stripe may process secure payments</li>
+              <li>GitHub Pages or another hosting provider may deliver website files</li>
+              <li>Analytics services may collect basic website usage information when enabled</li>
+            </ul>
+          </article>
+
+          <article class="privacy-card reveal spotlight-card" id="security">
+            <h2>Data security</h2>
+            <p>
+              Reasonable steps are taken to protect information submitted through
+              this website. However, no internet transmission or electronic
+              storage method can be guaranteed to be completely secure.
+            </p>
+          </article>
+
+          <article class="privacy-card reveal spotlight-card" id="rights">
+            <h2>Your choices</h2>
+            <p>
+              You may contact Moxi Corp to ask about personal information you have
+              submitted, request a correction or ask for it to be deleted where
+              appropriate.
+            </p>
+          </article>
+
+          <article class="privacy-card reveal spotlight-card" id="contact">
+            <h2>Contact Moxi Corp</h2>
+            <p>
+              Questions about this privacy policy or your submitted information
+              can be sent to:
+            </p>
+
+            <p style="margin-top: 12px;">
+              Email:
+              <a
+                class="privacy-contact"
+                href="mailto:support@moxicorpstudio.com.au"
+              >
+                support@moxicorpstudio.com.au
+              </a>
+            </p>
+
+            <p style="margin-top: 8px;">
+              Moxi Corp<br />
+              Donnybrook, Victoria, Australia<br />
+              ABN 18 936 263 775
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
+        <p>Real websites. Real communication. Built for real businesses.</p>
+      </div>
+
+      <div>
+        <strong>Contact</strong>
+        <a href="mailto:support@moxicorpstudio.com.au">
+          support@moxicorpstudio.com.au
+        </a>
+        <span>Donnybrook, Victoria</span>
+        <span>Australia-wide service</span>
+      </div>
+
+      <div>
+        <strong>Business</strong>
+        <span>ABN 18 936 263 775</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      © 2026 Moxi Corp. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>

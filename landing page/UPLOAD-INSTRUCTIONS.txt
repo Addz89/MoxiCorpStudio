@@ -1,0 +1,29 @@
+MOXI CORP THANK-YOU PAGE
+
+Upload these files to the root of your website:
+- thanks.html
+- thanks.css
+- thanks.js
+
+The only clickable link on the page is:
+- Back to Moxi Corp -> index.html
+
+To redirect Formspree submissions to this page:
+1. Publish thanks.html first.
+2. Open your Formspree form.
+3. Open the form Settings.
+4. Set the custom Thank You redirect to the full public URL, for example:
+   https://moxicorpstudio.com.au/thanks.html
+
+The custom redirect option depends on the Formspree plan/settings available on your account.
+
+The page includes:
+- Animated success checkmark
+- Typewriter THANK YOU heading
+- Floating blue/purple particles
+- Moving grid and background glows
+- Rotating card aura
+- Animated response status
+- One animated button back to the website
+- Mobile responsive design
+- Reduced-motion accessibility

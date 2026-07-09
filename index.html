@@ -8,173 +8,39 @@
   <title>Moxi Corp | Professional Web Development Australia</title>
   <meta
     name="description"
-    content="Moxi Corp builds professional, animated, high-converting websites for small businesses across Australia. Custom-coded websites, SEO-ready structure, Stripe payments, and mobile-first design."
+    content="Moxi Corp builds professional, animated, high-converting websites for Australian small businesses. Custom code, mobile-first design, SEO-ready structure and Stripe payment support."
   />
-  <meta name="theme-color" content="#06111f" />
+  <meta name="theme-color" content="#02050b" />
 
-  <link rel="icon" type="image/svg+xml" href="logo2.svg" />
+  <link rel="icon" type="image/svg+xml" href="/images/newlogo2.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
+
   <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    /* Screenshot preview for homepage work cardss */
-    .work-shot.screenshot-work-shot {
-      padding: 0;
-      overflow: hidden;
-      min-height: 280px;
-      background: #020817;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .work-screenshot {
-      width: 100%;
-      height: 100%;
-      min-height: 280px;
-      display: block;
-      object-fit: cover;
-      object-position: top;
-      transition: transform 5s ease, object-position 5s ease, filter 0.35s ease;
-      filter: saturate(1.08) contrast(1.04);
-    }
-
-    .work-card:hover .work-screenshot {
-      transform: scale(1.04);
-      object-position: bottom;
-      filter: saturate(1.18) contrast(1.08);
-    }
-  </style>
-
-  <link rel="stylesheet" href="brand-theme.css" />
-
-  <style>
-    /* Homepage one-week sale pricing */
-    .home-sale-banner {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 20px;
-      padding: 11px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(219, 11, 217, 0.36);
-      background: linear-gradient(90deg, rgba(4,219,250,.10), rgba(93,103,242,.11), rgba(219,11,217,.10));
-      color: #fff;
-      font-weight: 900;
-      box-shadow: 0 0 28px rgba(4,219,250,.08), 0 0 38px rgba(219,11,217,.08);
-    }
-
-    .home-sale-banner strong {
-      background: linear-gradient(90deg, #04dbfa, #5d67f2, #db0bd9);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .price-card .sale-badge {
-      display: inline-flex;
-      width: fit-content;
-      margin-bottom: 12px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #04dbfa, #5d67f2, #db0bd9);
-      color: #fff;
-      font-family: var(--mono, "JetBrains Mono", monospace);
-      font-size: .72rem;
-      font-weight: 900;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .price-card .old-price {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: .92rem;
-      font-weight: 800;
-      text-decoration: line-through;
-      text-decoration-thickness: 2px;
-      text-decoration-color: #db0bd9;
-      opacity: .78;
-    }
-
-    .price-card .sale-price {
-      background: linear-gradient(90deg, #04dbfa, #2b9af4, #9b32e9, #db0bd9);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .price-card .sale-note {
-      margin-top: 14px;
-      color: #d9d7eb;
-      font-size: .9rem;
-      line-height: 1.5;
-    }
-
-    .price-card .sale-note strong {
-      color: #04dbfa;
-    }
-  </style>
-
-
-  <style>
-    /* ANIMATED PROGRAMMING ADVERTISEMENT */
-    .code-ad{position:relative;overflow:hidden;padding:110px 0;isolation:isolate}
-    .code-ad::before,.code-ad::after{content:"";position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:-2}
-    .code-ad::before{width:420px;height:420px;left:-120px;top:40px;background:rgba(4,219,250,.14);animation:codeGlowOne 8s ease-in-out infinite alternate}
-    .code-ad::after{width:460px;height:460px;right:-140px;bottom:-40px;background:rgba(219,11,217,.15);animation:codeGlowTwo 9s ease-in-out infinite alternate}
-    @keyframes codeGlowOne{to{transform:translate(80px,50px) scale(1.18)}}
-    @keyframes codeGlowTwo{to{transform:translate(-70px,-40px) scale(1.14)}}
-    .code-ad-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(420px,1.1fr);gap:56px;align-items:center}
-    .code-ad-copy h2{font-size:clamp(2.8rem,6vw,5.6rem);line-height:.95;letter-spacing:-.075em;margin:16px 0 24px}
-    .code-ad-copy p{color:var(--muted);font-size:1.08rem;line-height:1.8;max-width:680px}
-    .code-tech-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-    .code-tech-row span{padding:11px 15px;border-radius:999px;border:1px solid rgba(155,50,233,.28);background:rgba(255,255,255,.04);color:#fff;font-family:var(--mono,"JetBrains Mono",monospace);font-size:.82rem;font-weight:800}
-    .code-stage{position:relative;min-height:560px;perspective:1200px}
-    .code-window{position:absolute;inset:24px 0 0 36px;border-radius:28px;overflow:hidden;border:1px solid rgba(155,50,233,.32);background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015)),rgba(5,5,12,.96);box-shadow:0 40px 120px rgba(0,0,0,.52),0 0 50px rgba(4,219,250,.08),0 0 60px rgba(219,11,217,.08);transform:rotateY(-7deg) rotateX(3deg);animation:codeWindowFloat 6s ease-in-out infinite}
-    @keyframes codeWindowFloat{0%,100%{transform:rotateY(-7deg) rotateX(3deg) translateY(0)}50%{transform:rotateY(-3deg) rotateX(1deg) translateY(-14px)}}
-    .code-window-top{height:52px;display:flex;align-items:center;gap:9px;padding:0 18px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025)}
-    .code-window-top i{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,#04dbfa,#db0bd9);box-shadow:0 0 14px rgba(4,219,250,.45)}
-    .code-window-title{margin-left:auto;color:rgba(255,255,255,.48);font-family:var(--mono,"JetBrains Mono",monospace);font-size:.76rem}
-    .code-editor{display:grid;grid-template-columns:52px 1fr;min-height:460px;font-family:var(--mono,"JetBrains Mono",monospace);font-size:clamp(.76rem,1.15vw,.96rem);line-height:1.8}
-    .line-numbers{padding:24px 12px;color:rgba(255,255,255,.24);text-align:right;border-right:1px solid rgba(255,255,255,.06);user-select:none}
-    .code-lines{padding:24px 22px;white-space:pre-wrap;color:#dbe7ff;position:relative;overflow:hidden}
-    .tok-tag{color:#db0bd9}.tok-attr{color:#04dbfa}.tok-string{color:#9be86d}.tok-prop{color:#6ea8ff}.tok-value{color:#c98cff}.tok-fn{color:#ffd166}.tok-comment{color:#68728a}.tok-key{color:#ff75c8}
-    .floating-code-card{position:absolute;padding:18px 20px;border-radius:18px;border:1px solid rgba(155,50,233,.28);background:rgba(8,7,17,.92);backdrop-filter:blur(18px);box-shadow:0 22px 70px rgba(0,0,0,.34);font-family:var(--mono,"JetBrains Mono",monospace);font-size:.8rem;color:#fff;z-index:3}
-    .floating-code-card.html{left:0;top:72px;animation:floatHTML 5s ease-in-out infinite}
-    .floating-code-card.css{right:-14px;top:120px;animation:floatCSS 5.8s ease-in-out infinite}
-    .floating-code-card.js{right:24px;bottom:8px;animation:floatJS 6.4s ease-in-out infinite}
-    @keyframes floatHTML{50%{transform:translate(-10px,-16px) rotate(-3deg)}}
-    @keyframes floatCSS{50%{transform:translate(12px,14px) rotate(3deg)}}
-    @keyframes floatJS{50%{transform:translate(-12px,-12px) rotate(-2deg)}}
-    .floating-code-card b{display:block;margin-bottom:5px;background:linear-gradient(90deg,#04dbfa,#9b32e9,#db0bd9);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:.92rem}
-    .code-progress{position:absolute;left:70px;right:54px;bottom:24px;height:7px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.07);z-index:4}
-    .code-progress span{display:block;width:35%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#04dbfa,#5d67f2,#db0bd9);box-shadow:0 0 18px rgba(4,219,250,.45);animation:codeLoad 3.2s ease-in-out infinite}
-    @keyframes codeLoad{0%{width:12%;transform:translateX(0)}50%{width:72%}100%{width:18%;transform:translateX(360%)}}
-    .code-ad-cta{margin-top:30px}
-    @media(max-width:980px){.code-ad-grid{grid-template-columns:1fr}.code-stage{min-height:520px}.code-window{inset:20px 18px 0;transform:none;animation:codeWindowFloatMobile 6s ease-in-out infinite}@keyframes codeWindowFloatMobile{50%{transform:translateY(-10px)}}}
-    @media(max-width:620px){.code-ad{padding:80px 0}.code-stage{min-height:470px}.code-window{inset:10px 0 0}.code-editor{grid-template-columns:38px 1fr;min-height:400px;font-size:.7rem}.line-numbers{padding:18px 8px}.code-lines{padding:18px 14px}.floating-code-card{padding:12px 14px;font-size:.7rem}.floating-code-card.html{top:48px}.floating-code-card.css{right:2px;top:94px}.floating-code-card.js{right:12px;bottom:6px}.code-progress{left:46px;right:24px}}
-  </style>
-
+  <link rel="stylesheet" href="hero-vortex.css" />
 </head>
 
 <body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
   <div class="noise" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
-  <nav aria-label="Primary navigation">
-    <a href="index.html" class="logo" aria-label="Moxi Corp home">
-      Moxi <b>Corp</b>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
+      <span class="logo-mark">
+  <img src="/images/newlogo2.svg" alt="Moxi Corp logo">
+</span>
+      <span>Moxi <b>Corp</b></span>
     </a>
 
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu">
-      ☰
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
 
     <div class="nav-links" id="navLinks">
@@ -188,499 +54,481 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <a class="nav-cta" href="pricing.html">View Packs</a>
+    <a class="nav-cta magnetic" href="pricing.html">View Packs</a>
   </nav>
 
-  <!-- =========================
-       HERO
-  ========================== -->
   <header class="hero" id="home">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <div class="kicker reveal">Premium Web Development • Australia</div>
+        <div class="kicker reveal">
+          <span class="live-dot"></span>
+          Real developer • Custom websites • Australia
+        </div>
 
-        <h1 class="split" aria-label="Websites built to convert">
-          <span>Websites</span><br />
-          <span class="gradient-text">Built To</span><br />
-          <span>Convert.</span>
+        <h1 class="hero-title">
+          <span class="title-line">Real Websites </span>
+          <span class="title-line ">Real</span>
+          <span class="title-line">Results</span>
         </h1>
 
         <p class="lead reveal">
-          Moxi Corp builds fast, professional, animated websites for small businesses that need to look credible, modern, and ready to sell. Your website should not feel like a cheap template. It should explain your value, show proof, load fast, look sharp on mobile, and push visitors toward an enquiry or payment.
+          Moxi Corp creates fast, professional websites for Australian small businesses.
+          Every site is personally designed and coded around your services, customers and goals —
+          not generated from a one-size-fits-all AI template.
         </p>
 
         <div class="cta-row reveal">
-          <a href="pricing.html" class="btn">See Website Packs →</a>
-          <a href="portfolio.html" class="btn secondary">View Live Work</a>
+          <a href="pricing.html" class="btn magnetic">See Website Packs <span>→</span></a>
+          <a href="#featured-work" class="btn secondary magnetic">View Live Work</a>
         </div>
 
-        <div class="stats reveal" aria-label="Business highlights">
-          <div class="stat">
-            <b data-count="98" data-suffix="+">0</b>
-            <span>Performance Focus</span>
+        <div class="hero-proof reveal">
+          <div class="proof-badge">
+            <span class="proof-icon">&lt;/&gt;</span>
+            <div>
+              <strong>Built by a real developer</strong>
+              <small>Direct communication from start to finish</small>
+            </div>
           </div>
-          <div class="stat">
-            <b data-count="100" data-suffix="%">0</b>
-            <span>Mobile Responsive</span>
-          </div>
-          <div class="stat">
-            <b data-count="24" data-suffix="/7">0</b>
-            <span>Website Presence</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="device-stage reveal" aria-label="Animated website showcase preview">
-        <div class="orb one" aria-hidden="true"></div>
-        <div class="orb two" aria-hidden="true"></div>
-        <div class="orb three" aria-hidden="true"></div>
-
-        <div class="laptop tilt">
-          <div class="laptop-top">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-          <div class="laptop-screen">
-            <div class="mini-site">
-              <div class="mini-panel">
-                <h3>
-                  Premium pages<br />
-                  that sell.
-                </h3>
-                <div class="bars">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="mock-btn"></div>
-              </div>
-
-              <div class="mini-panel">
-                <h3 class="gradient-text">
-                  SEO ready.<br />
-                  Stripe ready.<br />
-                  Mobile ready.
-                </h3>
-                <div class="bars">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
+          <div class="proof-badge">
+            <span class="proof-icon">⚡</span>
+            <div>
+              <strong>Fast turnaround</strong>
+              <small>Clear process and practical delivery times</small>
             </div>
           </div>
         </div>
 
-        <div class="phone" aria-hidden="true">
-          <div class="phone-screen">
-            <div class="phone-card"></div>
-            <div class="phone-line"></div>
-            <div class="phone-line"></div>
-            <div class="phone-card"></div>
-            <div class="phone-line"></div>
+        <div class="stats reveal" aria-label="Business highlights">
+          <div class="stat">
+            <b data-count="100" data-suffix="%">0%</b>
+            <span>Custom Builds</span>
+          </div>
+          <div class="stat">
+            <b data-count="10" data-prefix="5–" data-suffix=" Days">0</b>
+            <span>Typical Turnaround</span>
+          </div>
+          <div class="stat">
+            <b data-count="100" data-suffix="%">0%</b>
+            <span>Mobile Responsive</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="code-vortex-stage reveal"
+        id="codeVortexStage"
+        aria-label="Interactive 3D code vortex tunnel"
+      >
+        <canvas id="codeVortexCanvas" aria-hidden="true"></canvas>
+
+        <div class="vortex-grid-overlay" aria-hidden="true"></div>
+        <div class="vortex-scanline" aria-hidden="true"></div>
+
+        <div class="vortex-hud vortex-hud-top">
+          <div class="vortex-window-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <small>moxi_code_vortex.engine</small>
+          <strong><i></i> LIVE</strong>
+        </div>
+
+        <div class="vortex-core" aria-hidden="true">
+          <div class="vortex-ring ring-one"></div>
+          <div class="vortex-ring ring-two"></div>
+          <div class="vortex-ring ring-three"></div>
+          <div class="vortex-core-label">
+            <span>MOXI</span>
+            <b>CODE CORE</b>
           </div>
         </div>
 
-        <div class="code-float" aria-hidden="true">
-          <b>const</b> site = build({<br />
-          &nbsp; speed: <em>'fast'</em>,<br />
-          &nbsp; design: <em>'premium'</em>,<br />
-          &nbsp; stripe: <em>true</em>,<br />
-          &nbsp; leads: <em>'ready'</em><br />
-          });
+        <div class="vortex-hud vortex-hud-bottom">
+          <div>
+            <small>RENDER MODE</small>
+            <strong>3D CODE TUNNEL</strong>
+          </div>
+          <div>
+            <small>STACK</small>
+            <strong>HTML • CSS • JS</strong>
+          </div>
+          <div>
+            <small>STATUS</small>
+            <strong id="vortexStatus">BUILDING</strong>
+          </div>
         </div>
+
+        <button
+          class="vortex-boost"
+          id="vortexBoost"
+          type="button"
+          aria-label="Activate code vortex boost"
+        >
+          <span>ENTER THE BUILD</span>
+          <small>CLICK TO WARP</small>
+        </button>
+
+        <div class="vortex-tag tag-html">&lt;HTML/&gt;</div>
+        <div class="vortex-tag tag-css">CSS::MOTION</div>
+        <div class="vortex-tag tag-js">JS()</div>
+        <div class="vortex-tag tag-seo">SEO_READY</div>
       </div>
     </div>
   </header>
 
-  <!-- =========================
-       MARQUEE
-  ========================== -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span><strong>FAST</strong> LOADING</span>
+      <span>REAL DEVELOPER</span>
+      <span>CUSTOM CODE</span>
       <span>MOBILE FRIENDLY</span>
-      <span><strong>SEO</strong> READY</span>
-      <span>STRIPE PAYMENTS</span>
-      <span><strong>CUSTOM</strong> CODE</span>
-      <span>MAX ANIMATIONS</span>
-      <span><strong>FAST</strong> LOADING</span>
+      <span>SEO READY</span>
+      <span>FAST TURNAROUND</span>
+      <span>STRIPE SUPPORT</span>
+      <span>REAL DEVELOPER</span>
+      <span>CUSTOM CODE</span>
       <span>MOBILE FRIENDLY</span>
-      <span><strong>SEO</strong> READY</span>
-      <span>STRIPE PAYMENTS</span>
-      <span><strong>CUSTOM</strong> CODE</span>
-      <span>MAX ANIMATIONS</span>
+      <span>SEO READY</span>
+      <span>FAST TURNAROUND</span>
+      <span>STRIPE SUPPORT</span>
     </div>
   </div>
 
-  <!-- =========================
-       VALUE SECTION
-  ========================== -->
-  <section class="section" id="value">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">What You Get</div>
-        <h2>Professional design with serious motion.</h2>
-        <p>
-          Animation only works when it supports the sale. This site is built to feel premium, but the real goal is simple: make visitors trust your business faster and make it easier for them to enquire or buy.
-        </p>
-      </div>
-
-      <div class="grid">
-        <article class="card reveal tilt">
-          <div class="icon">⚡</div>
-          <h3>Performance First</h3>
+  <main>
+    <section class="section" id="value">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Why Moxi Corp</div>
+          <h2>A website that feels like your business — not everyone else’s.</h2>
           <p>
-            Fast pages, clean structure, optimised sections, and lightweight motion that looks expensive without turning the site into slow garbage.
+            Your website should build trust quickly, explain what you offer clearly and make it easy
+            for visitors to enquire or buy. Every section is planned around your real business.
           </p>
-        </article>
+        </div>
 
-        <article class="card reveal tilt">
-          <div class="icon">🧠</div>
-          <h3>Clear Selling Copy</h3>
-          <p>
-            More writing where it matters: explaining the offer, proving value, answering objections, and guiding the visitor toward the next step.
-          </p>
-        </article>
+        <div class="feature-grid">
+          <article class="feature-card reveal tilt-card spotlight-card">
+            <div class="feature-number">01</div>
+            <div class="feature-icon">&lt;/&gt;</div>
+            <h3>Real custom development</h3>
+            <p>
+              Clean HTML, CSS and JavaScript built around your goals instead of forcing your business
+              into a generic template.
+            </p>
+          </article>
 
-        <article class="card reveal tilt">
-          <div class="icon">💳</div>
-          <h3>Stripe Ready</h3>
-          <p>
-            The checkout flow stays simple. Visitors can view pricing, choose a website pack, and move toward payment or enquiry without getting lost.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
+          <article class="feature-card reveal tilt-card spotlight-card">
+            <div class="feature-number">02</div>
+            <div class="feature-icon">◎</div>
+            <h3>Designed to convert</h3>
+            <p>
+              Strong headlines, service sections, proof, pricing and calls to action that guide visitors
+              toward the next step.
+            </p>
+          </article>
 
-
-  <!-- ANIMATED PROGRAMMING AD -->
-  <section class="section code-ad" id="custom-code">
-    <div class="wrap code-ad-grid">
-      <div class="code-ad-copy reveal">
-        <div class="kicker">Custom Code • Built Properly</div>
-        <h2>HTML. CSS.<br><span class="gradient-text">JavaScript.</span><br>Built to perform.</h2>
-        <p>Your website is not just dragged together from a cheap template. Moxi Corp builds custom sections, responsive layouts, polished animations, contact flows, and conversion-focused interactions using real front-end code.</p>
-        <div class="code-tech-row"><span>HTML5 Structure</span><span>CSS3 Motion</span><span>JavaScript Logic</span></div>
-        <div class="cta-row code-ad-cta">
-          <a href="contact.html" class="btn">Build My Website →</a>
-          <a href="portfolio.html" class="btn secondary">See Live Projects</a>
+          <article class="feature-card reveal tilt-card spotlight-card">
+            <div class="feature-number">03</div>
+            <div class="feature-icon">⚡</div>
+            <h3>Fast and mobile-first</h3>
+            <p>
+              Responsive layouts, clean structure and lightweight motion that feels premium without
+              slowing the website down.
+            </p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="code-stage reveal" aria-label="Animated HTML CSS and JavaScript programming demonstration">
-        <div class="floating-code-card html"><b>HTML</b>semantic structure</div>
-        <div class="floating-code-card css"><b>CSS</b>responsive motion</div>
-        <div class="floating-code-card js"><b>JavaScript</b>smart interactions</div>
+    <section class="section code-section" id="custom-code">
+      <div class="wrap code-grid">
+        <div class="code-copy reveal">
+          <div class="kicker">Custom Code • Built Properly</div>
+          <h2>HTML. CSS.<br><span class="gradient-text">JavaScript.</span><br>Working together.</h2>
+          <p>
+            Moxi Corp builds responsive layouts, interactive sections, animated content,
+            contact flows and conversion-focused experiences using real front-end code.
+          </p>
 
-        <div class="code-window">
-          <div class="code-window-top"><i></i><i></i><i></i><span class="code-window-title">moxi-build.js</span></div>
-          <div class="code-editor">
-            <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14</div>
-            <div class="code-lines"><span class="tok-comment">// Building a website that converts</span>
-<span class="tok-tag">&lt;section</span> <span class="tok-attr">class</span>=<span class="tok-string">"premium-site"</span><span class="tok-tag">&gt;</span>
-  <span class="tok-tag">&lt;h1&gt;</span>Grow your business<span class="tok-tag">&lt;/h1&gt;</span>
-  <span class="tok-tag">&lt;button&gt;</span>Get a quote<span class="tok-tag">&lt;/button&gt;</span>
-<span class="tok-tag">&lt;/section&gt;</span>
-
-<span class="tok-prop">.premium-site</span> {
-  <span class="tok-prop">display</span>: <span class="tok-value">grid</span>;
-  <span class="tok-prop">animation</span>: <span class="tok-value">reveal .8s ease</span>;
-}
-
-<span class="tok-key">const</span> site = <span class="tok-fn">buildWebsite</span>({
-  speed: <span class="tok-string">"fast"</span>,
-  mobile: <span class="tok-key">true</span>,
-  leads: <span class="tok-string">"ready"</span>
-});</div>
+          <div class="tech-row">
+            <span>HTML5 Structure</span>
+            <span>CSS3 Motion</span>
+            <span>JavaScript Logic</span>
           </div>
-          <div class="code-progress"><span></span></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-  <!-- =========================
-       FEATURED WORK
-  ========================== -->
-  <section class="section alt" id="featured-work">
-    <div class="wrap showcase">
-      <div class="section-head left reveal">
-        <div class="kicker">Featured Work</div>
-        <h2>Real sites you can show clients.</h2>
-        <p>
-          A web development business with no proof is weak. Your homepage needs to push real projects to the front so people can see you have done actual work for different types of brands.
-        </p>
-      </div>
-
-      <a class="work-card reveal tilt" href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer">
-        <div class="work-shot screenshot-work-shot">
-          <img
-            class="work-screenshot"
-            src="images/ashar-music.png"
-            alt="Screenshot of the Ashar Music website"
-            loading="lazy"
-          />
-        </div>
-
-        <div>
-          <h3>Ashar Music</h3>
-          <p>
-            A music artist website designed around mood, identity, releases, and audience connection. This project shows that Moxi Corp can create more than basic service pages — it can build a full digital brand experience.
-          </p>
-          <div class="work-tags">
-            <span>Artist Website</span>
-            <span>Brand Experience</span>
-            <span>Responsive Design</span>
+          <div class="cta-row">
+            <a href="contact.html" class="btn magnetic">Build My Website →</a>
+            <a href="#featured-work" class="btn secondary magnetic">See Live Projects</a>
           </div>
-          <span class="text-link">Open Live Site →</span>
-        </div>
-      </a>
-
-      <a class="work-card reveal tilt" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer">
-        <div class="work-shot screenshot-work-shot">
-          <img
-            class="work-screenshot"
-            src="images/Web1.png"
-            alt="Screenshot of the Moxi Cleaning Co website"
-            loading="lazy"
-          />
         </div>
 
-        <div>
-          <h3>Moxi Cleaning Co</h3>
-          <p>
-            A local service business website built to communicate trust, explain services clearly, and make it easy for customers to enquire. This is the kind of site small businesses actually need: clean, direct, mobile-friendly, and focused on leads.
-          </p>
-          <div class="work-tags">
-            <span>Service Business</span>
-            <span>Lead Generation</span>
-            <span>Local SEO</span>
+        <div class="editor-stage reveal" id="editorStage">
+          <div class="editor-window glass-panel">
+            <div class="editor-top">
+              <span></span><span></span><span></span>
+              <small>moxi-build.js</small>
+            </div>
+
+            <div class="editor-body">
+              <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13</div>
+              <pre id="animatedCode" aria-label="Animated code example"></pre>
+            </div>
+
+            <div class="editor-progress">
+              <span></span>
+            </div>
           </div>
-          <span class="text-link">Open Live Site →</span>
-        </div>
-      </a>
 
-      <a class="work-card reveal tilt" href="https://addz89.github.io/clothingbrand_template/" target="_blank" rel="noopener noreferrer">
-        <div class="work-shot screenshot-work-shot">
-          <img
-            class="work-screenshot"
-            src="images/clothing-brand.png"
-            alt="Screenshot of the Clothing Brand website template"
-            loading="lazy"
-          />
+          <div class="code-chip html-chip">HTML</div>
+          <div class="code-chip css-chip">CSS</div>
+          <div class="code-chip js-chip">JavaScript</div>
         </div>
+      </div>
+    </section>
 
-        <div>
-          <h3>Clothing Brand</h3>
+    <section class="section alt" id="featured-work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Featured Work</div>
+          <h2>Real websites you can open and explore.</h2>
           <p>
-            A premium fashion and retail website template built for product-focused brands that need strong visuals, clean shopping-style sections, and a modern mobile experience.
+            A professional web development business needs proof. These projects show different industries,
+            layouts and visual styles.
           </p>
-          <div class="work-tags">
-            <span>Fashion Website</span>
-            <span>Retail Template</span>
-            <span>Mobile Friendly</span>
+        </div>
+
+        <div class="work-grid">
+          <a class="work-card reveal tilt-card spotlight-card" href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer">
+            <div class="work-shot">
+              <img src="images/ashar-music.png" alt="Ashar Music website" loading="lazy" />
+              <div class="work-overlay"><span>Open Live Site →</span></div>
+            </div>
+            <div class="work-content">
+              <small>ARTIST WEBSITE</small>
+              <h3>Ashar Music</h3>
+              <p>A full digital brand experience built around mood, music releases and audience connection.</p>
+              <div class="work-tags"><span>Branding</span><span>Responsive</span><span>Animation</span></div>
+            </div>
+          </a>
+
+          <a class="work-card reveal tilt-card spotlight-card" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer">
+            <div class="work-shot">
+              <img src="images/Web1.png" alt="Moxi Cleaning Co website" loading="lazy" />
+              <div class="work-overlay"><span>Open Live Site →</span></div>
+            </div>
+            <div class="work-content">
+              <small>SERVICE BUSINESS</small>
+              <h3>Moxi Cleaning Co</h3>
+              <p>A local service website focused on trust, clear services and simple lead generation.</p>
+              <div class="work-tags"><span>Local SEO</span><span>Lead Generation</span><span>Mobile</span></div>
+            </div>
+          </a>
+
+          <a class="work-card reveal tilt-card spotlight-card" href="https://addz89.github.io/clothingbrand_template/" target="_blank" rel="noopener noreferrer">
+            <div class="work-shot">
+              <img src="images/clothing-brand.png" alt="Clothing brand website template" loading="lazy" />
+              <div class="work-overlay"><span>Open Live Site →</span></div>
+            </div>
+            <div class="work-content">
+              <small>FASHION WEBSITE</small>
+              <h3>Clothing Brand</h3>
+              <p>A premium product-focused website with strong visuals and a clean retail experience.</p>
+              <div class="work-tags"><span>Fashion</span><span>Retail</span><span>Responsive</span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services-preview">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Built Properly</div>
+          <h2>Everything a serious business website needs.</h2>
+          <p>
+            Clients do not just buy a website. They buy better presentation, stronger trust,
+            clearer offers and an easier path to enquiry or payment.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal spotlight-card">
+            <span>01</span>
+            <h3>Conversion Layouts</h3>
+            <p>Hero sections, proof, services, pricing, FAQs and contact paths that guide visitors properly.</p>
+          </article>
+
+          <article class="service-card reveal spotlight-card">
+            <span>02</span>
+            <h3>Mobile Experience</h3>
+            <p>Responsive pages designed to feel polished on phone, tablet, laptop and desktop.</p>
+          </article>
+
+          <article class="service-card reveal spotlight-card">
+            <span>03</span>
+            <h3>SEO Foundation</h3>
+            <p>Semantic headings, clean page structure, metadata and performance-focused development.</p>
+          </article>
+
+          <article class="service-card reveal spotlight-card">
+            <span>04</span>
+            <h3>Payment Support</h3>
+            <p>Stripe-ready flows, product links and clear package checkout planning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sale-section" id="pricing-preview">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">This Week Only</div>
+          <h2>Simple pricing. Serious value.</h2>
+          <p>
+            Choose the level of website your business needs. All packages are one-off payments.
+          </p>
+
+          <div class="sale-banner">
+            <span>⚡</span>
+            <strong>Starter $409</strong>
+            <i>Growth $650</i>
+            <b>Elite $900</b>
           </div>
-          <span class="text-link">Open Live Site →</span>
         </div>
-      </a>
 
-    </div>
-  </section>
+        <div class="pricing-grid">
+          <article class="price-card reveal tilt-card spotlight-card">
+            <div class="sale-badge">This Week Only</div>
+            <h3>Starter Pack</h3>
+            <div class="old-price">Was $599 AUD</div>
+            <div class="price">$409</div>
+            <p>For new businesses that need to look professional quickly.</p>
 
-  <!-- =========================
-       SERVICES SNAPSHOT
-  ========================== -->
-  <section class="section" id="services-preview">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Built Properly</div>
-        <h2>Everything a serious business website needs.</h2>
-        <p>
-          Clients do not just buy “a website”. They buy trust, speed, structure, better presentation, clearer offers, and a better chance of turning visitors into enquiries.
-        </p>
-      </div>
+            <ul>
+              <li>Up to 3 pages</li>
+              <li>Mobile responsive layout</li>
+              <li>Basic SEO foundation</li>
+              <li>Contact form setup</li>
+              <li>Fast launch guidance</li>
+            </ul>
 
-      <div class="grid">
-        <article class="card reveal tilt">
-          <div class="icon">🎯</div>
-          <h3>Conversion Layouts</h3>
-          <p>Hero sections, proof blocks, service breakdowns, strong CTAs, pricing sections, FAQs, and contact paths that make sense.</p>
-        </article>
+            <div class="save-note">Save $190</div>
+            <button type="button" class="checkout-btn magnetic" onclick="openCheckout('Starter Pack', 409)">Choose Starter</button>
+          </article>
 
-        <article class="card reveal tilt">
-          <div class="icon">📱</div>
-          <h3>Mobile Experience</h3>
-          <p>Responsive pages that look polished on phone, tablet, laptop, and desktop — because most people check businesses on mobile first.</p>
-        </article>
+          <article class="price-card featured reveal tilt-card spotlight-card">
+            <div class="popular">Most Popular</div>
+            <div class="sale-badge">This Week Only</div>
+            <h3>Growth Pack</h3>
+            <div class="old-price">Was $849 AUD</div>
+            <div class="price">$650</div>
+            <p>For businesses that need more pages, better structure and stronger conversion sections.</p>
 
-        <article class="card reveal tilt">
-          <div class="icon">🔎</div>
-          <h3>SEO Foundation</h3>
-          <p>Clean page structure, semantic headings, meta descriptions, keyword-friendly sections, fast loading, and Google-ready setup.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+            <ul>
+              <li>Up to 9 pages</li>
+              <li>Advanced SEO structure</li>
+              <li>Custom animations</li>
+              <li>Google and Meta guidance</li>
+              <li>Speed optimisation</li>
+            </ul>
 
-  <!-- =========================
-       PRICING
-  ========================== -->
-  <section class="section alt" id="pricing-preview">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Popular Packs</div>
-        <h2>Simple pricing. Serious value.</h2>
-        <p>
-          Clear packs make buying easier. Starter for new businesses, Growth for serious service businesses, and Elite for brands that want a stronger online presence.
-        </p>
-        <div class="home-sale-banner">
-          <strong>This Week Only</strong>
-          Starter $409 • Growth $650 • Elite $900
-        </div>
-      </div>
+            <div class="save-note">Save $199</div>
+            <button type="button" class="checkout-btn magnetic" onclick="openCheckout('Growth Pack', 650)">Choose Growth</button>
+          </article>
 
-      <div class="pricing-grid">
-        <article class="price-card reveal">
-          <div class="sale-badge">This Week Only</div>
-          <h3>Starter Pack</h3>
-          <div class="old-price">Was $599 AUD</div>
-          <div class="price sale-price">$409</div>
-          <p>For new businesses that need to look professional quickly.</p>
-          <ul class="clean">
-            <li>3 page custom website</li>
-            <li>Mobile responsive layout</li>
-            <li>Basic SEO setup</li>
-            <li>Contact form</li>
-            <li>Fast hosting setup guidance</li>
-          </ul>
-          <p class="sale-note"><strong>Save $190.</strong> Sale price available this week only.</p>
-          <button class="checkout-btn" type="button" onclick="openCheckout('Starter Pack (1 Week Only Sale)', 409)">Claim Starter Special</button>
-        </article>
+          <article class="price-card reveal tilt-card spotlight-card">
+            <div class="sale-badge">This Week Only</div>
+            <h3>Elite Pack</h3>
+            <div class="old-price">Was $1,159 AUD</div>
+            <div class="price">$900</div>
+            <p>For serious brands that want a larger and more premium online presence.</p>
 
-        <article class="price-card featured reveal">
-          <div class="popular">Most Popular</div>
-          <div class="sale-badge">This Week Only</div>
-          <h3>Growth Pack</h3>
-          <div class="old-price">Was $849 AUD</div>
-          <div class="price sale-price">$650</div>
-          <p>For businesses that want more pages, stronger structure, and better conversion sections.</p>
-          <ul class="clean">
-            <li>Up to 9 pages</li>
-            <li>Advanced SEO structure</li>
-            <li>Google and Pixel support</li>
-            <li>Speed optimisation</li>
-            <li>Custom animations</li>
-            <li>Priority support</li>
-          </ul>
-          <p class="sale-note"><strong>Save $199.</strong> Sale price available this week only.</p>
-          <button class="checkout-btn" type="button" onclick="openCheckout('Growth Pack (1 Week Only Sale)', 650)">Claim Growth Special</button>
-        </article>
+            <ul>
+              <li>Expanded page architecture</li>
+              <li>Premium homepage build</li>
+              <li>Custom feature sections</li>
+              <li>Stripe payment-flow support</li>
+              <li>Priority build flow</li>
+            </ul>
 
-        <article class="price-card reveal">
-          <div class="sale-badge">This Week Only</div>
-          <h3>Elite Pack</h3>
-          <div class="old-price">Was $1,159 AUD</div>
-          <div class="price sale-price">$900</div>
-          <p>For serious brands that want a bigger, more premium online presence.</p>
-          <ul class="clean">
-            <li>Expanded page architecture</li>
-            <li>Custom feature sections</li>
-            <li>Payment integration support</li>
-            <li>Advanced security focus</li>
-            <li>Ongoing support options</li>
-            <li>Dedicated build flow</li>
-          </ul>
-          <p class="sale-note"><strong>Save $259.</strong> Sale price available this week only.</p>
-          <button class="checkout-btn" type="button" onclick="openCheckout('Elite Pack (1 Week Only Sale)', 900)">Claim Elite Special</button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================
-       PROCESS
-  ========================== -->
-  <section class="section" id="process-preview">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Process</div>
-        <h2>A proper build process clients can trust.</h2>
-        <p>
-          A professional process makes clients feel safe. They need to know what happens after they pay, how the work is handled, and what the final outcome includes.
-        </p>
-      </div>
-
-      <div class="timeline">
-        <article class="panel reveal">
-          <div class="number">01</div>
-          <h3>Discovery</h3>
-          <p>We learn the business, goals, services, audience, and what the website needs to achieve.</p>
-        </article>
-
-        <article class="panel reveal">
-          <div class="number">02</div>
-          <h3>Design</h3>
-          <p>We create a strong visual direction with modern layout, professional copy, and a clear conversion flow.</p>
-        </article>
-
-        <article class="panel reveal">
-          <div class="number">03</div>
-          <h3>Development</h3>
-          <p>We code the site, optimise mobile, add animations, connect forms, and prepare launch assets.</p>
-        </article>
-
-        <article class="panel reveal">
-          <div class="number">04</div>
-          <h3>Launch</h3>
-          <p>We help get the site live, check pages, test forms, and make sure the final result is sharp.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================
-       FINAL CTA
-  ========================== -->
-  <section class="section alt" id="quote">
-    <div class="wrap">
-      <div class="newsletter-container panel reveal" style="text-align:center">
-        <div class="kicker">Ready</div>
-        <h2 style="font-size:clamp(2rem,5vw,4rem);letter-spacing:-.07em">
-          Need a website that makes your business look serious?
-        </h2>
-        <p style="margin-top:14px;color:var(--muted);line-height:1.7">
-          Get a professional website with strong structure, modern animation, responsive design, and clear selling sections.
-        </p>
-        <div class="cta-row" style="justify-content:center">
-          <a href="contact.html" class="btn">Get A Free Quote</a>
-          <a href="portfolio.html" class="btn secondary">View Work</a>
+            <div class="save-note">Save $259</div>
+            <button type="button" class="checkout-btn magnetic" onclick="openCheckout('Elite Pack', 900)">Choose Elite</button>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================
-       STRIPE CHECKOUT MODAL
-       Keep JS function names the same.
-  ========================== -->
+    <section class="section" id="process-preview">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">The Process</div>
+          <h2>Clear from first message to launch.</h2>
+          <p>
+            You always know what is happening, what is needed and what comes next.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="process-card reveal spotlight-card">
+            <span>01</span>
+            <h3>Discovery</h3>
+            <p>We discuss your business, goals, audience, services and what the website needs to achieve.</p>
+          </article>
+
+          <article class="process-card reveal spotlight-card">
+            <span>02</span>
+            <h3>Design</h3>
+            <p>I create the visual direction, page structure, content flow and calls to action.</p>
+          </article>
+
+          <article class="process-card reveal spotlight-card">
+            <span>03</span>
+            <h3>Development</h3>
+            <p>I code the website, optimise mobile, add motion and connect forms or payments.</p>
+          </article>
+
+          <article class="process-card reveal spotlight-card">
+            <span>04</span>
+            <h3>Launch</h3>
+            <p>I test the site, connect the domain and help get everything live correctly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="quote">
+      <div class="wrap">
+        <div class="final-cta reveal spotlight-card">
+          <div class="cta-orb" aria-hidden="true"></div>
+          <div class="kicker">Ready To Start?</div>
+          <h2>Need a website that makes your business look serious?</h2>
+          <p>
+            Get a professionally built website with clear structure, responsive design,
+            strong animations and direct communication with the person doing the work.
+          </p>
+
+          <div class="cta-row center">
+            <a href="contact.html" class="btn magnetic">Get A Free Quote →</a>
+            <a href="#featured-work" class="btn secondary magnetic">View Work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <div class="purchase-overlay" id="purchaseModal" aria-hidden="true">
     <div class="purchase-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutPackageName">
-      <button class="close-modal" type="button" onclick="closeCheckout()" aria-label="Close checkout modal">✕</button>
+      <button class="close-modal" type="button" id="closeCheckoutButton" aria-label="Close checkout modal">✕</button>
 
-      <div class="modal-header">
-        <h3 id="checkoutPackageName">Package Name</h3>
-        <p>Total Investment: $<span id="checkoutPrice">0</span> AUD</p>
-      </div>
+      <div class="modal-icon">S</div>
+      <h3 id="checkoutPackageName">Package Name</h3>
+      <p>Total investment: <strong>$<span id="checkoutPrice">0</span> AUD</strong></p>
+      <small>You will be redirected to secure Stripe checkout.</small>
 
-      <p style="color:var(--muted);line-height:1.7;margin-bottom:22px">
-        You are about to be redirected to secure Stripe checkout for the selected one-week sale package.
-      </p>
-
-      <button type="button" onclick="redirectToStripe()" class="secure-checkout-btn">
+      <button type="button" id="secureCheckoutButton" class="secure-checkout-btn">
         Proceed to Secure Checkout →
       </button>
 
@@ -688,18 +536,31 @@
     </div>
   </div>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
   <footer>
-    <div class="wrap">
-      © 2026 Moxi Corp. Based in Donnybrook, VIC.<br />
-      ABN: 18 936 263 775<br /><br />
-      Email: <a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a> |
-      <a href="privacy-policy.html">Privacy Policy</a>
+    <div class="wrap footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
+        <p>Real websites. Real communication. Built for real businesses.</p>
+      </div>
+
+      <div>
+        <strong>Contact</strong>
+        <a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a>
+        <span>Donnybrook, Victoria</span>
+        <span>Australia-wide service</span>
+      </div>
+
+      <div>
+        <strong>Business</strong>
+        <span>ABN 18 936 263 775</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
     </div>
+
+    <div class="wrap footer-bottom">© 2026 Moxi Corp. All rights reserved.</div>
   </footer>
 
+  <script src="hero-vortex.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

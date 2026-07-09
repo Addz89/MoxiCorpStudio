@@ -3,511 +3,539 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Portfolio | Moxi Corp</title>
   <meta
     name="description"
-    content="View live website projects built by Moxi Corp, including Ashar Music and Moxi Cleaning Co. Professional websites for small businesses, artists, and service brands."
+    content="View live website projects built by Moxi Corp for artists, service businesses, fashion brands, real estate and creative professionals."
   />
+  <meta name="theme-color" content="#02050b" />
 
-  <link rel="icon" type="image/svg+xml" href="logo2.svg" />
+  <link rel="icon" type="image/svg+xml" href="images/newlogo2.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
+
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* =========================================================
-       PORTFOLIO PAGE POLISH — NO PURPLE, PROFESSIONAL TECH
-       Works with your existing styles.css + script.js
-       ========================================================= */
-
     .portfolio-hero {
       min-height: auto;
-      padding: 160px 0 70px;
-      position: relative;
+      padding: 150px 0 72px;
       overflow: hidden;
-    }
-
-    .portfolio-hero::before {
-      content: "";
-      position: absolute;
-      width: 620px;
-      height: 620px;
-      right: -180px;
-      top: 70px;
-      background:
-        radial-gradient(circle, rgba(0, 200, 255, 0.22), transparent 62%),
-        radial-gradient(circle, rgba(0, 118, 255, 0.18), transparent 68%);
-      filter: blur(12px);
-      opacity: 0.9;
-      animation: portfolioOrb 12s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    @keyframes portfolioOrb {
-      from { transform: translate3d(0, 0, 0) scale(1); }
-      to { transform: translate3d(-60px, 40px, 0) scale(1.08); }
     }
 
     .portfolio-hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-      gap: 52px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 54px;
       align-items: center;
-      position: relative;
-      z-index: 2;
     }
 
-    .portfolio-hero h1 {
-      font-size: clamp(3.4rem, 8vw, 7rem);
-      line-height: 0.92;
-      letter-spacing: -0.08em;
-      margin: 18px 0 26px;
+    .portfolio-hero-copy h1 {
+      margin: 10px 0 22px;
+      max-width: 930px;
+      font-size: clamp(3.6rem, 7.8vw, 7.2rem);
+      line-height: .88;
+      letter-spacing: -.082em;
     }
 
-    .portfolio-hero .lead {
+    .portfolio-hero-copy p {
       max-width: 760px;
       color: var(--muted);
-      font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
       line-height: 1.8;
     }
 
-    .portfolio-dashboard {
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
-        rgba(5, 11, 24, 0.72);
-      backdrop-filter: blur(18px);
+    .portfolio-console {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      padding: 25px;
+      border: 1px solid var(--line-blue);
       border-radius: 30px;
-      padding: 22px;
-      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+      background:
+        radial-gradient(circle at 14% 10%, rgba(47,231,255,.10), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.022)),
+        rgba(3,11,22,.92);
+      box-shadow:
+        0 36px 110px rgba(0,0,0,.44),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(22px);
       transform-style: preserve-3d;
-      animation: dashboardFloat 7s ease-in-out infinite;
+      will-change: transform;
     }
 
-    @keyframes dashboardFloat {
-      0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
-      50% { transform: translateY(-16px) rotateX(2deg) rotateY(-3deg); }
+    .portfolio-console::before {
+      content: "";
+      position: absolute;
+      inset: -48%;
+      pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.11),
+        transparent 35%,
+        rgba(8,124,255,.10),
+        transparent 72%
+      );
+      animation: portfolioAuraSpin 15s linear infinite;
     }
 
-    .dashboard-top {
+    @keyframes portfolioAuraSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .portfolio-console-top {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding-bottom: 16px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.09);
-      font-family: "JetBrains Mono", monospace;
-      color: var(--muted);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .live-dot {
-      display: inline-flex;
-      align-items: center;
       gap: 8px;
-      color: #dffaff;
+      padding-bottom: 17px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .live-dot::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #00d9ff;
-      box-shadow: 0 0 18px rgba(0, 217, 255, 0.95);
-      animation: pulseDot 1.7s infinite;
+    .portfolio-console-top i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(47,231,255,.55);
     }
 
-    @keyframes pulseDot {
-      0% { transform: scale(0.9); opacity: 0.6; }
-      50% { transform: scale(1.25); opacity: 1; }
-      100% { transform: scale(0.9); opacity: 0.6; }
+    .portfolio-console-top i:nth-child(2) { opacity: .7; }
+    .portfolio-console-top i:nth-child(3) { opacity: .42; }
+
+    .portfolio-console-top span {
+      margin-left: auto;
+      color: rgba(255,255,255,.42);
+      font-family: var(--mono);
+      font-size: .7rem;
     }
 
-    .dashboard-screen {
-      min-height: 310px;
-      border-radius: 22px;
-      overflow: hidden;
+    .portfolio-console-body {
       position: relative;
-      background:
-        linear-gradient(135deg, rgba(0, 200, 255, 0.15), transparent 34%),
-        linear-gradient(225deg, rgba(255, 255, 255, 0.09), transparent 40%),
-        #061021;
-      border: 1px solid rgba(255,255,255,0.1);
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+      margin-top: 20px;
     }
 
-    .dashboard-screen::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
-      background-size: 38px 38px;
-      mask-image: radial-gradient(circle at center, black, transparent 75%);
-      animation: gridSlide 12s linear infinite;
-    }
-
-    @keyframes gridSlide {
-      from { transform: translate(0, 0); }
-      to { transform: translate(38px, 38px); }
-    }
-
-    .dash-card {
-      position: absolute;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.36);
-      backdrop-filter: blur(12px);
-    }
-
-    .dash-card.one {
-      left: 24px;
-      top: 28px;
-      width: 58%;
-      animation: cardFloatOne 5.5s ease-in-out infinite;
-    }
-
-    .dash-card.two {
-      right: 22px;
-      bottom: 24px;
-      width: 52%;
-      animation: cardFloatTwo 6.4s ease-in-out infinite;
-    }
-
-    @keyframes cardFloatOne {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes cardFloatTwo {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(12px); }
-    }
-
-    .dash-card h3 {
-      margin: 0 0 12px;
-      font-size: 1rem;
-      color: #fff;
-    }
-
-    .dash-line {
-      height: 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      margin: 9px 0;
+    .console-project-card {
+      position: relative;
       overflow: hidden;
+      min-height: 115px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      background: rgba(0,0,0,.22);
+      opacity: 0;
+      transform: translateY(18px);
+      animation:
+        projectCardIn .7s cubic-bezier(.16,1,.3,1) forwards,
+        projectCardFloat 4.8s ease-in-out infinite;
     }
 
-    .dash-line::after {
-      content: "";
+    .console-project-card:nth-child(1) { animation-delay: .2s, .2s; }
+    .console-project-card:nth-child(2) { animation-delay: .4s, .4s; }
+    .console-project-card:nth-child(3) { animation-delay: .6s, .6s; }
+    .console-project-card:nth-child(4) { animation-delay: .8s, .8s; }
+
+    .console-project-card small {
       display: block;
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .console-project-card strong {
+      display: block;
+      margin-top: 9px;
+      font-size: .9rem;
+    }
+
+    .console-project-card span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .68rem;
+      line-height: 1.45;
+    }
+
+    @keyframes projectCardIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes projectCardFloat {
+      50% {
+        transform: translateY(-5px);
+        border-color: rgba(47,231,255,.20);
+      }
+    }
+
+    .portfolio-status {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 10px;
+      margin-top: 17px;
+      padding: 14px 15px;
+      border: 1px solid rgba(47,231,255,.15);
+      border-radius: 15px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .portfolio-status-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      font-family: var(--mono);
+      font-size: .67rem;
+    }
+
+    .portfolio-status-copy span {
+      color: var(--muted);
+    }
+
+    .portfolio-status-copy strong {
+      color: var(--cyan);
+    }
+
+    .portfolio-status-track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,.065);
+    }
+
+    .portfolio-status-track span {
+      display: block;
+      width: 0;
       height: 100%;
-      width: 74%;
-      background: linear-gradient(90deg, #0077ff, #00d9ff);
       border-radius: inherit;
-      animation: lineLoad 2.8s ease-in-out infinite alternate;
+      background: linear-gradient(90deg, #fff, var(--cyan), var(--blue));
+      box-shadow: 0 0 18px rgba(47,231,255,.38);
+      transition: width .7s cubic-bezier(.16,1,.3,1);
     }
 
-    .dash-line.short::after { width: 45%; }
-    .dash-line.medium::after { width: 62%; }
-
-    @keyframes lineLoad {
-      from { transform: translateX(-20%); opacity: 0.7; }
-      to { transform: translateX(18%); opacity: 1; }
-    }
-
-    .proof-strip {
+    .portfolio-stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 17px;
       margin-top: 34px;
     }
 
-    .proof-item {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.045);
-      border-radius: 20px;
+    .portfolio-stat {
+      position: relative;
+      overflow: hidden;
       padding: 22px;
-      min-height: 120px;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: rgba(255,255,255,.035);
+      text-align: center;
+      transition: transform .28s, border-color .28s;
     }
 
-    .proof-item b {
-      display: block;
-      font-size: clamp(1.7rem, 3vw, 2.6rem);
-      letter-spacing: -0.06em;
-      margin-bottom: 7px;
+    .portfolio-stat:hover {
+      transform: translateY(-5px);
+      border-color: rgba(47,231,255,.28);
     }
 
-    .proof-item span {
+    .portfolio-stat strong {
       display: block;
+      font-size: 2rem;
+      letter-spacing: -.05em;
+    }
+
+    .portfolio-stat span {
+      display: block;
+      margin-top: 5px;
       color: var(--muted);
-      line-height: 1.5;
-      font-size: 0.95rem;
+      font-size: .8rem;
+      line-height: 1.45;
+    }
+
+    .portfolio-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .portfolio-sidebar {
+      position: sticky;
+      top: 110px;
+      display: grid;
+      gap: 15px;
+    }
+
+    .portfolio-sidebar-card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 23px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.022));
+      box-shadow: 0 20px 62px rgba(0,0,0,.24);
+      backdrop-filter: blur(18px);
+    }
+
+    .portfolio-sidebar-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      letter-spacing: -.04em;
+    }
+
+    .portfolio-sidebar-card p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.65;
+    }
+
+    .portfolio-nav {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .portfolio-nav a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 12px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 13px;
+      color: #d6e6f5;
+      background: rgba(255,255,255,.025);
+      font-size: .75rem;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .portfolio-nav a:hover,
+    .portfolio-nav a.active {
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      border-color: transparent;
+      transform: translateX(4px);
+      box-shadow: 0 12px 28px rgba(47,231,255,.12);
     }
 
     .case-study-list {
       display: grid;
-      gap: 32px;
+      gap: 24px;
     }
 
     .case-study {
-      display: grid;
-      grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
-      gap: 34px;
-      align-items: stretch;
-      padding: 24px;
-      border-radius: 34px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025)),
-        rgba(5, 12, 26, 0.72);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 30px 100px rgba(0,0,0,0.28);
-      text-decoration: none;
-      color: inherit;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(300px, .95fr) minmax(0, 1.05fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      color: inherit;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.067), rgba(255,255,255,.022)),
+        rgba(5,15,29,.76);
+      box-shadow: 0 24px 78px rgba(0,0,0,.26);
+      backdrop-filter: blur(18px);
+      scroll-margin-top: 110px;
+      transition:
+        transform .35s,
+        border-color .35s,
+        box-shadow .35s;
     }
 
     .case-study::after {
       content: "";
       position: absolute;
-      inset: -1px;
-      background: linear-gradient(110deg, transparent, rgba(0, 217, 255, 0.18), transparent);
-      transform: translateX(-120%);
-      transition: transform 0.85s cubic-bezier(.16,1,.3,1);
+      inset: 0;
       pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(
+        520px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+        rgba(47,231,255,.12),
+        transparent 42%
+      );
+      transition: opacity .3s;
     }
 
-    .case-study:hover::after { transform: translateX(120%); }
+    .case-study:hover {
+      transform: translateY(-7px);
+      border-color: rgba(47,231,255,.27);
+      box-shadow: 0 32px 92px rgba(0,0,0,.34);
+    }
 
-    .case-study:hover .project-browser {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 34px 80px rgba(0, 217, 255, 0.16);
+    .case-study:hover::after {
+      opacity: 1;
+    }
+
+    .case-study > * {
+      position: relative;
+      z-index: 2;
     }
 
     .project-browser {
-      min-height: 360px;
-      border-radius: 24px;
       overflow: hidden;
-      background: #061020;
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: 0.45s cubic-bezier(.16,1,.3,1);
-      position: relative;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.38);
+      min-height: 350px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 21px;
+      background: #020817;
+      box-shadow: 0 24px 65px rgba(0,0,0,.36);
+      transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+    }
+
+    .case-study:hover .project-browser {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow:
+        0 30px 78px rgba(0,0,0,.42),
+        0 0 32px rgba(47,231,255,.08);
     }
 
     .project-browser-top {
-      height: 46px;
+      height: 43px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 0 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.09);
-      background: rgba(255,255,255,0.045);
+      gap: 7px;
+      padding: 0 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.035);
     }
 
     .project-browser-top span {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.28);
+      background: var(--cyan);
+      box-shadow: 0 0 10px rgba(47,231,255,.42);
     }
+
+    .project-browser-top span:nth-child(2) { opacity: .65; }
+    .project-browser-top span:nth-child(3) { opacity: .38; }
 
     .project-shot {
-      min-height: 314px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
+      min-height: 307px;
       overflow: hidden;
-    }
-
-    /* Real website screenshot inside the browser mockup */
-    .project-shot.screenshot-shot {
-      padding: 0;
-      min-height: 314px;
       background: #020817;
     }
 
     .project-screenshot {
       width: 100%;
-      height: 100%;
-      min-height: 314px;
+      height: 307px;
       display: block;
       object-fit: cover;
       object-position: top;
-      transition: transform 5s ease, object-position 5s ease, filter 0.35s ease;
-      filter: saturate(1.08) contrast(1.04);
+      filter: saturate(1.05) contrast(1.03);
+      transition:
+        transform 5s ease,
+        object-position 5s ease,
+        filter .35s ease;
     }
 
     .case-study:hover .project-screenshot {
       transform: scale(1.035);
       object-position: bottom;
-      filter: saturate(1.18) contrast(1.08);
-    }
-
-    .project-shot.music {
-      background:
-        radial-gradient(circle at 22% 24%, rgba(0, 217, 255, 0.22), transparent 28%),
-        radial-gradient(circle at 76% 72%, rgba(0, 110, 255, 0.25), transparent 33%),
-        linear-gradient(145deg, #030712, #071a2d 50%, #020617);
-    }
-
-    .project-shot.cleaning {
-      background:
-        radial-gradient(circle at 30% 20%, rgba(0, 217, 255, 0.18), transparent 30%),
-        radial-gradient(circle at 85% 55%, rgba(255,255,255,0.11), transparent 28%),
-        linear-gradient(145deg, #04111f, #06263c 45%, #020817);
-    }
-
-    .project-shot::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 82%);
-      opacity: 0.75;
-    }
-
-    .project-shot-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .project-shot h4 {
-      font-size: clamp(1.8rem, 4vw, 3.1rem);
-      line-height: 0.95;
-      letter-spacing: -0.08em;
-      margin: 0 0 18px;
-    }
-
-    .project-shot p {
-      color: rgba(255,255,255,0.74);
-      line-height: 1.6;
-      max-width: 360px;
-    }
-
-    .fake-ui {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .fake-ui span {
-      min-height: 68px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.075);
-      border: 1px solid rgba(255,255,255,0.1);
-      animation: uiPulse 3s ease-in-out infinite;
-    }
-
-    .fake-ui span:nth-child(2) { animation-delay: 0.2s; }
-    .fake-ui span:nth-child(3) { animation-delay: 0.4s; }
-    .fake-ui span:nth-child(4) { animation-delay: 0.6s; }
-
-    @keyframes uiPulse {
-      0%, 100% { opacity: 0.58; transform: translateY(0); }
-      50% { opacity: 1; transform: translateY(-5px); }
+      filter: saturate(1.15) contrast(1.07);
     }
 
     .case-copy {
-      padding: 14px 8px;
-      position: relative;
-      z-index: 2;
+      padding: 10px 7px 8px;
     }
 
-    .case-copy .project-type {
-      font-family: "JetBrains Mono", monospace;
-      color: #00d9ff;
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
+    .project-type {
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .1em;
       text-transform: uppercase;
-      margin-bottom: 18px;
     }
 
     .case-copy h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin: 9px 0 14px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
       line-height: 1;
-      letter-spacing: -0.075em;
-      margin-bottom: 18px;
+      letter-spacing: -.07em;
     }
 
     .case-copy p {
       color: var(--muted);
-      line-height: 1.78;
-      margin-bottom: 18px;
-      font-size: 1.02rem;
+      font-size: .93rem;
+      line-height: 1.7;
+    }
+
+    .case-copy p + p {
+      margin-top: 10px;
     }
 
     .work-tags {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      margin: 24px 0;
+      gap: 8px;
+      margin: 18px 0;
     }
 
     .work-tags span {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.055);
-      color: rgba(255,255,255,0.78);
+      padding: 7px 10px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 0.82rem;
-      font-weight: 700;
+      color: #d9e8f5;
+      background: rgba(255,255,255,.03);
+      font-size: .68rem;
+      font-weight: 800;
     }
 
     .result-list {
       display: grid;
-      gap: 12px;
-      margin-top: 24px;
+      gap: 9px;
+      margin-top: 17px;
     }
 
     .result-list li {
+      position: relative;
       list-style: none;
-      color: rgba(255,255,255,0.86);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.55;
+      padding-left: 23px;
+      color: #d9e6f4;
+      font-size: .82rem;
+      line-height: 1.5;
     }
 
     .result-list li::before {
       content: "✓";
-      color: #00d9ff;
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
       font-weight: 900;
-      flex: 0 0 auto;
     }
 
     .text-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
+      margin-top: 19px;
       color: #fff;
       font-weight: 900;
-      margin-top: 10px;
-      transition: 0.3s ease;
+      transition: color .25s, transform .25s;
     }
 
     .case-study:hover .text-link {
-      color: #00d9ff;
-      transform: translateX(6px);
+      color: var(--cyan);
+      transform: translateX(5px);
     }
 
     .capability-grid {
@@ -516,49 +544,137 @@
       gap: 18px;
     }
 
-    .capability {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.045);
-      border-radius: 22px;
+    .capability-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
       padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.035);
+      transition: transform .28s, border-color .28s;
     }
 
-    .capability h3 {
-      margin-bottom: 10px;
-      font-size: 1.14rem;
+    .capability-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(47,231,255,.28);
     }
 
-    .capability p {
+    .capability-card span {
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .67rem;
+      font-weight: 900;
+    }
+
+    .capability-card h3 {
+      margin: 55px 0 9px;
+      font-size: 1.08rem;
+    }
+
+    .capability-card p {
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.96rem;
+      font-size: .85rem;
+      line-height: 1.6;
     }
 
-    @media (max-width: 980px) {
+    .portfolio-cta {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(36px, 6vw, 64px);
+      border: 1px solid var(--line-blue);
+      border-radius: 30px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(47,231,255,.11), transparent 45%),
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 30px 95px rgba(0,0,0,.31);
+    }
+
+    .portfolio-cta::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.09),
+        transparent 40%,
+        rgba(255,255,255,.05),
+        transparent 72%
+      );
+      animation: portfolioAuraSpin 16s linear infinite;
+    }
+
+    .portfolio-cta > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .portfolio-cta h2 {
+      max-width: 900px;
+      margin: 8px auto 14px;
+      font-size: clamp(2.3rem, 5.2vw, 4.9rem);
+      line-height: .95;
+      letter-spacing: -.075em;
+    }
+
+    .portfolio-cta p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 1020px) {
       .portfolio-hero-grid,
+      .portfolio-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-sidebar {
+        position: static;
+      }
+
+      .portfolio-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
       .case-study {
         grid-template-columns: 1fr;
       }
 
-      .proof-strip,
+      .portfolio-stats,
       .capability-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 650px) {
       .portfolio-hero {
-        padding-top: 135px;
+        padding-top: 125px;
       }
 
-      .proof-strip,
+      .portfolio-console {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .portfolio-console-body {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-nav,
+      .portfolio-stats,
       .capability-grid {
         grid-template-columns: 1fr;
       }
 
       .case-study {
-        padding: 16px;
-        border-radius: 24px;
+        padding: 14px;
+        border-radius: 22px;
       }
 
       .project-browser {
@@ -566,22 +682,39 @@
       }
 
       .project-shot {
-        min-height: 254px;
-        padding: 22px;
+        min-height: 257px;
+      }
+
+      .project-screenshot {
+        height: 257px;
       }
     }
   </style>
-  <link rel="stylesheet" href="brand-theme.css" />
 </head>
+
 <body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
   <div class="noise" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <nav>
-    <a href="index.html" class="logo" aria-label="Moxi Corp home">Moxi <b>Corp</b></a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
+      <span class="logo-mark">
+        <img src="images/newlogo2.svg" alt="Moxi Corp logo" />
+      </span>
+      <span>Moxi <b>Corp</b></span>
+    </a>
 
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
-      ☰
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
     </button>
 
     <div class="nav-links" id="navLinks">
@@ -595,353 +728,538 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <a class="nav-cta" href="pricing.html">View Packs</a>
+    <a class="nav-cta magnetic" href="pricing.html">View Packs</a>
   </nav>
 
-  <main class="portfolio-hero">
+  <header class="hero portfolio-hero">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
     <div class="wrap portfolio-hero-grid">
-      <div class="reveal">
-        <div class="kicker">Featured Work</div>
+      <div class="portfolio-hero-copy">
+        <div class="kicker reveal">
+          <span class="live-dot"></span>
+          Real websites • Live proof
+        </div>
+
         <h1>
-          Real websites.<br />
-          Real proof.<br />
-          No empty talk.
+          Work that proves what Moxi Corp can
+          <span class="gradient-text">build.</span>
         </h1>
-        <p class="lead">
-          A portfolio page has one job: prove the studio can actually deliver. These live websites show that Moxi Corp can build different styles for different clients — from an atmospheric music brand to local services, fashion retail, real estate, and a premium photography portfolio.
+
+        <p class="reveal">
+          Explore live projects across music, local services, fashion, real estate
+          and photography. Each website demonstrates a different visual direction,
+          content structure and customer experience.
         </p>
-        <div class="cta-row">
-          <a class="btn" href="#projects">View Live Projects →</a>
-          <a class="btn secondary" href="contact.html">Start Your Project</a>
+
+        <div class="cta-row reveal">
+          <a href="#projects" class="btn magnetic">View Live Projects →</a>
+          <a href="contact.html" class="btn secondary magnetic">Start Your Project</a>
+        </div>
+
+        <div class="portfolio-stats reveal">
+          <article class="portfolio-stat spotlight-card">
+            <strong>5</strong>
+            <span>Live projects and templates</span>
+          </article>
+
+          <article class="portfolio-stat spotlight-card">
+            <strong>5</strong>
+            <span>Different business categories</span>
+          </article>
+
+          <article class="portfolio-stat spotlight-card">
+            <strong>100%</strong>
+            <span>Responsive website layouts</span>
+          </article>
+
+          <article class="portfolio-stat spotlight-card">
+            <strong>AU</strong>
+            <span>Built for Australian businesses</span>
+          </article>
         </div>
       </div>
 
-      <aside class="portfolio-dashboard reveal" aria-label="Portfolio dashboard visual">
-        <div class="dashboard-top">
-          <span>Project Console</span>
-          <span class="live-dot">Live Builds</span>
+      <div class="portfolio-console reveal" id="portfolioConsole">
+        <div class="portfolio-console-top">
+          <i></i><i></i><i></i>
+          <span>moxi_project_dashboard.js</span>
         </div>
-        <div class="dashboard-screen">
-          <div class="dash-card one">
-            <h3>Client Websites</h3>
-            <div class="dash-line"></div>
-            <div class="dash-line medium"></div>
-            <div class="dash-line short"></div>
+
+        <div class="portfolio-console-body">
+          <article class="console-project-card">
+            <small>Artist website</small>
+            <strong>Ashar Music</strong>
+            <span>Atmospheric branding and audience-focused presentation.</span>
+          </article>
+
+          <article class="console-project-card">
+            <small>Service business</small>
+            <strong>Moxi Cleaning Co</strong>
+            <span>Clear services, local trust and enquiry pathways.</span>
+          </article>
+
+          <article class="console-project-card">
+            <small>Retail</small>
+            <strong>Clothing Brand</strong>
+            <span>Product-focused visual experience for a fashion brand.</span>
+          </article>
+
+          <article class="console-project-card">
+            <small>Property and creative</small>
+            <strong>Real Estate + Photography</strong>
+            <span>Premium layouts for high-trust visual industries.</span>
+          </article>
+        </div>
+
+        <div class="portfolio-status">
+          <div class="portfolio-status-copy">
+            <span>PORTFOLIO STATUS</span>
+            <strong id="portfolioStatusText">Loading projects...</strong>
           </div>
-          <div class="dash-card two">
-            <h3>Built For Trust</h3>
-            <div class="dash-line medium"></div>
-            <div class="dash-line"></div>
-            <div class="dash-line short"></div>
+
+          <div class="portfolio-status-track">
+            <span id="portfolioStatusFill"></span>
           </div>
         </div>
-      </aside>
+      </div>
     </div>
+  </header>
+
+  <main>
+    <section class="section alt" id="projects" style="padding-top:55px;">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Selected Projects</div>
+          <h2>Different industries. Different solutions.</h2>
+          <p>
+            Each project is presented as a short case study so potential clients
+            can understand the purpose, style and business use behind the build.
+          </p>
+        </div>
+
+        <div class="portfolio-layout">
+          <aside class="portfolio-sidebar reveal">
+            <div class="portfolio-sidebar-card">
+              <h3>Browse projects</h3>
+              <p>Jump directly to a live website or template.</p>
+
+              <div class="portfolio-nav" id="portfolioNav">
+                <a href="#ashar">Ashar Music <span>01</span></a>
+                <a href="#cleaning">Cleaning Co <span>02</span></a>
+                <a href="#clothing">Clothing Brand <span>03</span></a>
+                <a href="#real-estate">Real Estate <span>04</span></a>
+                <a href="#photography">Photography <span>05</span></a>
+              </div>
+            </div>
+
+            <div class="portfolio-sidebar-card">
+              <h3>Your website next?</h3>
+              <p>
+                Send through your business details and I’ll recommend the right
+                package, structure and design direction.
+              </p>
+
+              <div class="cta-row" style="margin-top:16px;">
+                <a href="contact.html" class="btn magnetic" style="width:100%;">
+                  Request Free Quote
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="case-study-list">
+            <a
+              class="case-study reveal spotlight-card"
+              id="ashar"
+              href="https://asharmusic.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-browser">
+                <div class="project-browser-top">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <div class="project-shot">
+                  <img
+                    class="project-screenshot"
+                    src="images/ashar-music.png"
+                    alt="Ashar Music website screenshot"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="case-copy">
+                <div class="project-type">Artist and music website</div>
+                <h2>Ashar Music</h2>
+
+                <p>
+                  A creative website built around mood, artist identity, music
+                  releases and audience connection.
+                </p>
+
+                <p>
+                  This project demonstrates that Moxi Corp can create expressive
+                  brand experiences rather than forcing every client into the same
+                  service-business layout.
+                </p>
+
+                <div class="work-tags">
+                  <span>Artist Website</span>
+                  <span>Brand Experience</span>
+                  <span>Responsive Design</span>
+                  <span>Creative Direction</span>
+                </div>
+
+                <ul class="result-list">
+                  <li>Designed around a stronger music identity.</li>
+                  <li>Built to feel more premium than a basic profile page.</li>
+                  <li>Suitable for artists and personal brands.</li>
+                </ul>
+
+                <span class="text-link">Open Ashar Music →</span>
+              </div>
+            </a>
+
+            <a
+              class="case-study reveal spotlight-card"
+              id="cleaning"
+              href="https://www.moxicleaningco.com.au/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-browser">
+                <div class="project-browser-top">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <div class="project-shot">
+                  <img
+                    class="project-screenshot"
+                    src="images/Web1.png"
+                    alt="Moxi Cleaning Co website screenshot"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="case-copy">
+                <div class="project-type">Local service business</div>
+                <h2>Moxi Cleaning Co</h2>
+
+                <p>
+                  A practical service-business website focused on trust, clear
+                  services and an easy enquiry path.
+                </p>
+
+                <p>
+                  This project demonstrates the type of professional online presence
+                  local cleaners, trades and contractors need to appear credible.
+                </p>
+
+                <div class="work-tags">
+                  <span>Service Business</span>
+                  <span>Lead Generation</span>
+                  <span>Local SEO</span>
+                  <span>Mobile Friendly</span>
+                </div>
+
+                <ul class="result-list">
+                  <li>Clear presentation of services and contact options.</li>
+                  <li>Designed for local customers browsing on mobile.</li>
+                  <li>Suitable proof for service-based businesses.</li>
+                </ul>
+
+                <span class="text-link">Open Moxi Cleaning Co →</span>
+              </div>
+            </a>
+
+            <a
+              class="case-study reveal spotlight-card"
+              id="clothing"
+              href="https://addz89.github.io/clothingbrand_template/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-browser">
+                <div class="project-browser-top">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <div class="project-shot">
+                  <img
+                    class="project-screenshot"
+                    src="images/clothing-brand.png"
+                    alt="Clothing brand website template screenshot"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="case-copy">
+                <div class="project-type">Fashion and retail template</div>
+                <h2>Clothing Brand</h2>
+
+                <p>
+                  A product-focused retail website designed around strong imagery,
+                  clear product presentation and a premium brand feel.
+                </p>
+
+                <p>
+                  This project demonstrates how a clothing label or product brand
+                  can use visual hierarchy and polished mobile design.
+                </p>
+
+                <div class="work-tags">
+                  <span>Fashion Website</span>
+                  <span>Retail Template</span>
+                  <span>Product Showcase</span>
+                  <span>Mobile Friendly</span>
+                </div>
+
+                <ul class="result-list">
+                  <li>Strong product and campaign presentation.</li>
+                  <li>Modern retail-style sections and layouts.</li>
+                  <li>Suitable for clothing and lifestyle brands.</li>
+                </ul>
+
+                <span class="text-link">Open Clothing Brand →</span>
+              </div>
+            </a>
+
+            <a
+              class="case-study reveal spotlight-card"
+              id="real-estate"
+              href="https://addz89.github.io/Moxirealestate_template/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-browser">
+                <div class="project-browser-top">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <div class="project-shot">
+                  <img
+                    class="project-screenshot"
+                    src="images/moxi-real-estate.png"
+                    alt="Moxi Real Estate website template screenshot"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="case-copy">
+                <div class="project-type">Real estate website template</div>
+                <h2>Moxi Real Estate</h2>
+
+                <p>
+                  A polished property website using premium imagery, clear calls
+                  to action and layouts suited to agents, agencies and developments.
+                </p>
+
+                <p>
+                  This project demonstrates a high-trust design approach for an
+                  industry where presentation and enquiries matter immediately.
+                </p>
+
+                <div class="work-tags">
+                  <span>Real Estate</span>
+                  <span>Property Listings</span>
+                  <span>Lead Generation</span>
+                  <span>Responsive Design</span>
+                </div>
+
+                <ul class="result-list">
+                  <li>Designed for agents and property brands.</li>
+                  <li>Focused on listings, trust and enquiry generation.</li>
+                  <li>Suitable for premium professional services.</li>
+                </ul>
+
+                <span class="text-link">Open Moxi Real Estate →</span>
+              </div>
+            </a>
+
+            <a
+              class="case-study reveal spotlight-card"
+              id="photography"
+              href="https://addz89.github.io/Photography_template/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-browser">
+                <div class="project-browser-top">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <div class="project-shot">
+                  <img
+                    class="project-screenshot"
+                    src="images/photography-template.png"
+                    alt="Photography website template screenshot"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="case-copy">
+                <div class="project-type">Photography and creative portfolio</div>
+                <h2>Photography Studio</h2>
+
+                <p>
+                  A visual-first portfolio website where photography, layout and
+                  brand presentation do most of the selling.
+                </p>
+
+                <p>
+                  This project demonstrates a clean premium approach for
+                  photographers, videographers and creative professionals.
+                </p>
+
+                <div class="work-tags">
+                  <span>Photography</span>
+                  <span>Creative Portfolio</span>
+                  <span>Visual Storytelling</span>
+                  <span>Responsive Design</span>
+                </div>
+
+                <ul class="result-list">
+                  <li>Built to showcase large high-impact imagery.</li>
+                  <li>Designed for creatives and personal brands.</li>
+                  <li>Clear paths for enquiries and bookings.</li>
+                </ul>
+
+                <span class="text-link">Open Photography Template →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">What The Work Proves</div>
+          <h2>Capability across different business types.</h2>
+          <p>
+            A strong portfolio should show range while still proving that every
+            website is built around the business, its customers and its goals.
+          </p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card reveal spotlight-card">
+            <span>01</span>
+            <h3>Different visual styles</h3>
+            <p>
+              Moxi Corp can create expressive artist websites, clean service
+              pages, premium portfolios and retail experiences.
+            </p>
+          </article>
+
+          <article class="capability-card reveal spotlight-card">
+            <span>02</span>
+            <h3>Business-first structure</h3>
+            <p>
+              Each layout is planned to explain the offer, build trust and guide
+              visitors toward an enquiry or purchase.
+            </p>
+          </article>
+
+          <article class="capability-card reveal spotlight-card">
+            <span>03</span>
+            <h3>Responsive development</h3>
+            <p>
+              Every project is designed to work properly across phones, tablets,
+              laptops and desktop displays.
+            </p>
+          </article>
+
+          <article class="capability-card reveal spotlight-card">
+            <span>04</span>
+            <h3>Product presentation</h3>
+            <p>
+              Retail-style layouts can highlight products, campaigns and visual
+              brand identity without making the website feel cluttered.
+            </p>
+          </article>
+
+          <article class="capability-card reveal spotlight-card">
+            <span>05</span>
+            <h3>Lead-generation pathways</h3>
+            <p>
+              Service websites use clear contact points, calls to action and page
+              structure designed to support enquiries.
+            </p>
+          </article>
+
+          <article class="capability-card reveal spotlight-card">
+            <span>06</span>
+            <h3>Premium presentation</h3>
+            <p>
+              High-trust industries can use polished design, stronger imagery and
+              cleaner content hierarchy to improve credibility.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" style="padding-top:50px;">
+      <div class="wrap">
+        <div class="portfolio-cta reveal spotlight-card">
+          <div class="kicker">Your Project Next</div>
+
+          <h2>Build a website worth adding to the portfolio.</h2>
+
+          <p>
+            Tell me about your business, services and goals. Moxi Corp can create
+            a website that looks professional, works properly on mobile and gives
+            customers a clear reason to contact you.
+          </p>
+
+          <div class="cta-row center">
+            <a href="contact.html" class="btn magnetic">Start A Project →</a>
+            <a href="pricing.html" class="btn secondary magnetic">View Website Packs</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="proof-strip reveal">
-        <div class="proof-item">
-          <b>5</b>
-          <span>Live websites showcased with direct links clients can open and judge.</span>
-        </div>
-        <div class="proof-item">
-          <b>100%</b>
-          <span>Responsive layouts planned for mobile, tablet, and desktop browsing.</span>
-        </div>
-        <div class="proof-item">
-          <b>5x</b>
-          <span>Different industries shown: music, local services, fashion retail, real estate, and photography.</span>
-        </div>
-        <div class="proof-item">
-          <b>ABN</b>
-          <span>Registered business presence with clear contact details and trust signals.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt" id="projects">
-    <div class="wrap">
-      <div class="section-head left reveal">
-        <div class="kicker">Selected Projects</div>
-        <h2>Websites that show range.</h2>
-        <p>
-          This is stronger than a basic gallery. Each project explains what the website proves, who it is for, and why it matters. That helps potential clients picture what you can build for them.
-        </p>
-      </div>
-
-      <div class="case-study-list">
-        <a class="case-study reveal tilt" href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer">
-          <div class="project-browser">
-            <div class="project-browser-top"><span></span><span></span><span></span></div>
-            <div class="project-shot screenshot-shot">
-              <img
-                class="project-screenshot"
-                src="images/ashar-music.png"
-                alt="Screenshot of the Ashar Music website"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          <div class="case-copy">
-            <div class="project-type">Artist / Music Website</div>
-            <h2>Ashar Music</h2>
-            <p>
-              Ashar Music shows that Moxi Corp can build a site with mood, identity, and creative direction. It is not just a generic business layout — it is a brand experience designed for an artist audience.
-            </p>
-            <p>
-              This project helps prove range. A client can see that you can create something more expressive, atmospheric, and memorable when the brand needs a stronger visual personality.
-            </p>
-
-            <div class="work-tags">
-              <span>Artist Website</span>
-              <span>Brand Experience</span>
-              <span>Responsive Design</span>
-              <span>Creative Direction</span>
-            </div>
-
-            <ul class="result-list">
-              <li>Built around a stronger music/artist identity.</li>
-              <li>Designed to feel more premium than a plain profile page.</li>
-              <li>Useful proof for creative brands, artists, and personal brands.</li>
-            </ul>
-
-            <span class="text-link">Open Ashar Music →</span>
-          </div>
-        </a>
-
-              <div class="case-study-list">
-        <a class="case-study reveal tilt" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer">
-          <div class="project-browser">
-            <div class="project-browser-top"><span></span><span></span><span></span></div>
-            <div class="project-shot screenshot-shot">
-              <img
-                class="project-screenshot"
-                src="images/Web1.png"
-                alt="Screenshot of the Moxi Cleaning Co website"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          <div class="case-copy">
-            <div class="project-type">Local Service Business</div>
-            <h4>Moxi<br />Cleaning Co</h4>
-            <p>
-              Moxi Cleaning Co is the practical side of the portfolio. It shows that Moxi Corp can build a clean, professional website for a real service business where trust, clear information, and easy enquiries matter most.
-            </p>
-            <p>
-              This kind of project is what small businesses actually need: clear services, strong first impression, mobile-friendly layout, and a direct path for people to get in touch.
-            </p>
-
-            <div class="work-tags">
-              <span>Service Business</span>
-              <span>Lead Generation</span>
-              <span>Local SEO</span>
-              <span>Mobile Friendly</span>
-            </div>
-
-            <ul class="result-list">
-              <li>Built to explain services clearly.</li>
-              <li>Designed for local customers browsing on mobile.</li>
-              <li>Useful proof for cleaners, trades, contractors, and service brands.</li>
-            </ul>
-
-            <span class="text-link">Open Moxi Cleaning Co →</span>
-          </div>
-        </a>
-
-
-        <a class="case-study reveal tilt" href="https://addz89.github.io/clothingbrand_template/" target="_blank" rel="noopener noreferrer">
-          <div class="project-browser">
-            <div class="project-browser-top"><span></span><span></span><span></span></div>
-            <div class="project-shot screenshot-shot">
-              <img
-                class="project-screenshot"
-                src="images/clothing-brand.png"
-                alt="Screenshot of the Clothing Brand website template"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          <div class="case-copy">
-            <div class="project-type">Fashion / Retail Website Template</div>
-            <h2>Clothing Brand Template</h2>
-            <p>
-              The Clothing Brand template shows that Moxi Corp can build a premium retail-style website with strong visuals, clean product sections, and a layout designed to make a brand feel polished from the first click.
-            </p>
-            <p>
-              This project is useful proof for fashion brands, streetwear labels, online shops, product launches, and businesses that need their website to feel more like a brand experience than a basic information page.
-            </p>
-
-            <div class="work-tags">
-              <span>Fashion Website</span>
-              <span>Retail Template</span>
-              <span>Product Showcase</span>
-              <span>Mobile Friendly</span>
-            </div>
-
-            <ul class="result-list">
-              <li>Built around strong product presentation and brand style.</li>
-              <li>Designed to feel modern, clean, and premium on mobile.</li>
-              <li>Useful proof for clothing labels, product brands, and online shops.</li>
-            </ul>
-
-            <span class="text-link">Open Clothing Brand →</span>
-          </div>
-        </a>
-
-
-        <a class="case-study reveal tilt" href="https://addz89.github.io/Moxirealestate_template/" target="_blank" rel="noopener noreferrer">
-          <div class="project-browser">
-            <div class="project-browser-top"><span></span><span></span><span></span></div>
-            <div class="project-shot screenshot-shot">
-              <img
-                class="project-screenshot"
-                src="images/moxi-real-estate.png"
-                alt="Screenshot of the Moxi Real Estate website template"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          <div class="case-copy">
-            <div class="project-type">Real Estate Website Template</div>
-            <h2>Moxi Real Estate Template</h2>
-            <p>
-              The Moxi Real Estate template shows that Moxi Corp can build a polished property website with premium presentation, strong visual hierarchy, clear calls to action, and layouts suited to agents, agencies, developments, and property listings.
-            </p>
-            <p>
-              This project proves the studio can create a high-trust experience for industries where presentation, credibility, and enquiry flow matter from the first screen.
-            </p>
-
-            <div class="work-tags">
-              <span>Real Estate</span>
-              <span>Property Listings</span>
-              <span>Lead Generation</span>
-              <span>Responsive Design</span>
-            </div>
-
-            <ul class="result-list">
-              <li>Designed for agents, agencies, developers, and property brands.</li>
-              <li>Built around premium visuals, property discovery, and enquiries.</li>
-              <li>Useful proof for professional industries that need stronger credibility.</li>
-            </ul>
-
-            <span class="text-link">Open Moxi Real Estate →</span>
-          </div>
-        </a>
-
-
-        <a class="case-study reveal tilt" href="https://addz89.github.io/Photography_template/" target="_blank" rel="noopener noreferrer">
-          <div class="project-browser">
-            <div class="project-browser-top"><span></span><span></span><span></span></div>
-            <div class="project-shot screenshot-shot">
-              <img
-                class="project-screenshot"
-                src="images/photography-template.png"
-                alt="Screenshot of the Photography website template"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          <div class="case-copy">
-            <div class="project-type">Photography / Creative Portfolio Template</div>
-            <h2>Photography Studio Template</h2>
-            <p>
-              The Photography template shows that Moxi Corp can build a visual-first portfolio website where imagery, layout, and brand style do the heavy lifting. It is designed to feel premium, clean, and focused on the work.
-            </p>
-            <p>
-              This project is strong proof for photographers, videographers, creative studios, event professionals, and personal brands that need a polished portfolio with clear enquiry paths.
-            </p>
-
-            <div class="work-tags">
-              <span>Photography</span>
-              <span>Creative Portfolio</span>
-              <span>Visual Storytelling</span>
-              <span>Responsive Design</span>
-            </div>
-
-            <ul class="result-list">
-              <li>Built to showcase high-impact images without clutter.</li>
-              <li>Designed for photographers, creatives, and visual brands.</li>
-              <li>Includes clear paths for enquiries, bookings, and portfolio browsing.</li>
-            </ul>
-
-            <span class="text-link">Open Photography Template →</span>
-          </div>
-        </a>
-
-        </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">What These Projects Prove</div>
-        <h2>A good portfolio should sell your capability.</h2>
-        <p>
-          Do not just show screenshots. Explain the thinking. Clients do not only buy design — they buy confidence that you understand their business, their customers, and what the website needs to do.
-        </p>
-      </div>
-
-      <div class="capability-grid">
-        <div class="capability reveal tilt">
-          <h3>Different visual styles</h3>
-          <p>You can build an atmospheric artist site and a clean service-business site. That range matters.</p>
-        </div>
-        <div class="capability reveal tilt">
-          <h3>Business-first structure</h3>
-          <p>The layout is not random. Each page has a job: explain, prove, build trust, and guide action.</p>
-        </div>
-        <div class="capability reveal tilt">
-          <h3>Mobile-ready design</h3>
-          <p>Most visitors judge a business from their phone first, so every build needs to feel sharp on mobile.</p>
-        </div>
-        <div class="capability reveal tilt">
-          <h3>Retail-ready presentation</h3>
-          <p>The clothing brand template proves you can build layouts that showcase products, visuals, and brand personality.</p>
-        </div>
-        <div class="capability reveal tilt">
-          <h3>Visual-first portfolio design</h3>
-          <p>The photography template proves you can build image-led websites for creatives, studios, and personal brands.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="wrap">
-      <div class="panel reveal" style="text-align:center; padding: clamp(34px, 6vw, 70px);">
-        <div class="kicker">Your Project Next</div>
-        <h2 style="font-size: clamp(2.3rem, 6vw, 4.8rem); letter-spacing: -0.08em; line-height: 0.95; margin: 16px 0;">
-          Want your website added to this portfolio?
-        </h2>
-        <p style="max-width: 760px; margin: 0 auto; color: var(--muted); line-height: 1.75;">
-          If your current website looks outdated, slow, empty, or untrustworthy, that is costing you leads. Moxi Corp can build a stronger version that looks professional and gives customers a reason to contact you.
-        </p>
-        <div class="cta-row" style="justify-content:center; margin-top: 28px;">
-          <a class="btn" href="contact.html">Start A Project →</a>
-          <a class="btn secondary" href="pricing.html">View Website Packs</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer>
-    <div class="wrap">
-      © 2026 Moxi Corp. Based in Donnybrook, VIC.<br />
-      ABN: 18 936 263 775<br /><br />
-      Email: support@moxicorpstudio.com.au |
-      <a href="privacy-policy.html">Privacy Policy</a>
+    <div class="wrap footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
+        <p>Real websites. Real communication. Built for real businesses.</p>
+      </div>
+
+      <div>
+        <strong>Contact</strong>
+        <a href="mailto:support@moxicorpstudio.com.au">
+          support@moxicorpstudio.com.au
+        </a>
+        <span>Donnybrook, Victoria</span>
+        <span>Australia-wide service</span>
+      </div>
+
+      <div>
+        <strong>Business</strong>
+        <span>ABN 18 936 263 775</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      © 2026 Moxi Corp. All rights reserved.
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script src="portfolio.js"></script>
 </body>
 </html>

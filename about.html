@@ -3,475 +3,682 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>About | Moxi Corp</title>
   <meta
     name="description"
-    content="Learn about Moxi Corp, an Australian web development business building premium, animated, conversion-focused websites for small businesses."
+    content="Learn about Moxi Corp, an Australian web development business creating custom, responsive and conversion-focused websites for small businesses."
   />
+  <meta name="theme-color" content="#02050b" />
 
-  <link rel="icon" type="image/svg+xml" href="logo2.svg" />
+  <link rel="icon" type="image/svg+xml" href="images/newlogo2.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
+
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Page-specific polish for the About page. No purple. */
-    :root {
-      --about-cyan: #19d7ff;
-      --about-blue: #0077ff;
-      --about-ice: #ecfeff;
-      --about-card: rgba(8, 18, 38, 0.72);
-      --about-line: rgba(25, 215, 255, 0.22);
-      --about-muted: #9fb3c8;
-    }
-
     .about-hero {
       min-height: auto;
-      padding: 170px 0 80px;
-      position: relative;
+      padding: 150px 0 72px;
       overflow: hidden;
-    }
-
-    .about-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(25, 215, 255, 0.18), transparent 28%),
-        radial-gradient(circle at 85% 10%, rgba(0, 119, 255, 0.18), transparent 32%),
-        linear-gradient(180deg, rgba(255,255,255,0.035), transparent 55%);
-      pointer-events: none;
     }
 
     .about-hero-grid {
-      position: relative;
-      z-index: 2;
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-      gap: 46px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 54px;
       align-items: center;
     }
 
-    .about-title {
-      font-size: clamp(3rem, 7vw, 6.8rem);
-      line-height: 0.92;
-      letter-spacing: -0.08em;
-      margin: 16px 0 24px;
+    .about-hero-copy h1 {
+      margin: 10px 0 22px;
+      max-width: 940px;
+      font-size: clamp(3.6rem, 7.8vw, 7.2rem);
+      line-height: .88;
+      letter-spacing: -.082em;
     }
 
-    .about-lead {
-      max-width: 780px;
-      font-size: clamp(1.05rem, 1.6vw, 1.28rem);
-      color: var(--about-muted);
+    .about-hero-copy p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
       line-height: 1.8;
     }
 
-    .about-proof-panel {
+    .about-console {
       position: relative;
-      border: 1px solid var(--about-line);
-      border-radius: 34px;
-      padding: 28px;
-      background: linear-gradient(145deg, rgba(8,18,38,0.92), rgba(3,9,20,0.86));
-      box-shadow:
-        0 40px 110px rgba(0, 0, 0, 0.48),
-        inset 0 1px 0 rgba(255,255,255,0.08);
+      min-height: 470px;
       overflow: hidden;
+      padding: 25px;
+      border: 1px solid var(--line-blue);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(47,231,255,.10), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.022)),
+        rgba(3,11,22,.92);
+      box-shadow:
+        0 36px 110px rgba(0,0,0,.44),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(22px);
       transform-style: preserve-3d;
-      animation: aboutFloat 7s ease-in-out infinite;
+      will-change: transform;
     }
 
-    .about-proof-panel::before {
+    .about-console::before {
       content: "";
       position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 999px;
-      background: rgba(25, 215, 255, 0.16);
-      filter: blur(55px);
-      right: -70px;
-      top: -70px;
+      inset: -48%;
       pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.11),
+        transparent 35%,
+        rgba(8,124,255,.10),
+        transparent 72%
+      );
+      animation: aboutAuraSpin 15s linear infinite;
     }
 
-    @keyframes aboutFloat {
-      0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
-      50% { transform: translateY(-14px) rotateX(2deg) rotateY(-2deg); }
+    @keyframes aboutAuraSpin {
+      to { transform: rotate(360deg); }
     }
 
-    .about-proof-top {
+    .about-console-top {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 28px;
+      gap: 8px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .status-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 10px 14px;
-      border: 1px solid rgba(25,215,255,0.28);
-      border-radius: 999px;
-      background: rgba(25,215,255,0.07);
-      color: var(--about-ice);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .about-console-top i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(47,231,255,.55);
     }
 
-    .status-chip::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: #19ff8f;
-      box-shadow: 0 0 18px rgba(25,255,143,0.9);
-      animation: pulseDot 1.8s infinite;
+    .about-console-top i:nth-child(2) { opacity: .7; }
+    .about-console-top i:nth-child(3) { opacity: .42; }
+
+    .about-console-top span {
+      margin-left: auto;
+      color: rgba(255,255,255,.42);
+      font-family: var(--mono);
+      font-size: .7rem;
     }
 
-    @keyframes pulseDot {
-      0%, 100% { opacity: .55; transform: scale(.85); }
-      50% { opacity: 1; transform: scale(1.15); }
-    }
-
-    .mini-code-window {
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      overflow: hidden;
-      background: rgba(0,0,0,0.28);
-    }
-
-    .mini-code-header {
-      display: flex;
-      gap: 7px;
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.035);
-    }
-
-    .mini-code-header span {
-      width: 11px;
-      height: 11px;
-      border-radius: 999px;
-      background: var(--about-cyan);
-      opacity: .8;
-    }
-
-    .mini-code-body {
-      padding: 20px;
-      font-family: "JetBrains Mono", monospace;
-      color: #b9f4ff;
-      font-size: 0.9rem;
-      line-height: 1.85;
-    }
-
-    .mini-code-body b { color: #ffffff; }
-    .mini-code-body em { color: #19ff8f; font-style: normal; }
-
-    .metric-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    .about-console-code {
+      position: relative;
+      z-index: 2;
+      min-height: 255px;
       margin-top: 20px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 17px;
+      background: rgba(0,0,0,.22);
+      color: #dff8ff;
+      font-family: var(--mono);
+      font-size: .8rem;
+      line-height: 1.75;
+      white-space: pre-wrap;
+      overflow: hidden;
     }
 
-    .metric-tile {
-      padding: 18px 14px;
-      border: 1px solid rgba(25,215,255,0.18);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.035);
+    .about-code-comment { color: #65778d; }
+    .about-code-key { color: #fff; }
+    .about-code-function { color: var(--cyan); }
+    .about-code-string { color: #bcefff; }
+    .about-code-value { color: #6fb7ff; }
+
+    .about-console-cursor {
+      display: inline-block;
+      width: 7px;
+      height: 1em;
+      margin-left: 3px;
+      vertical-align: -.15em;
+      background: #fff;
+      box-shadow: 0 0 12px rgba(47,231,255,.75);
+      animation: aboutCursorBlink .72s steps(1) infinite;
     }
 
-    .metric-tile strong {
-      display: block;
-      color: #fff;
-      font-size: 1.45rem;
-      letter-spacing: -0.04em;
-      margin-bottom: 5px;
+    @keyframes aboutCursorBlink {
+      0%, 46% { opacity: 1; }
+      47%, 100% { opacity: 0; }
     }
 
-    .metric-tile span {
-      color: var(--about-muted);
-      font-size: 0.82rem;
-      line-height: 1.4;
-    }
-
-    .story-grid {
+    .about-status {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 34px;
+      gap: 10px;
+      margin-top: 17px;
+      padding: 14px 15px;
+      border: 1px solid rgba(47,231,255,.15);
+      border-radius: 15px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .about-status-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      font-family: var(--mono);
+      font-size: .67rem;
+    }
+
+    .about-status-copy span {
+      color: var(--muted);
+    }
+
+    .about-status-copy strong {
+      color: var(--cyan);
+    }
+
+    .about-status-track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,.065);
+    }
+
+    .about-status-track span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #fff, var(--cyan), var(--blue));
+      box-shadow: 0 0 18px rgba(47,231,255,.38);
+      transition: width .7s cubic-bezier(.16,1,.3,1);
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-top: 34px;
+    }
+
+    .about-stat {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: rgba(255,255,255,.035);
+      text-align: center;
+      transition: transform .28s, border-color .28s;
+    }
+
+    .about-stat:hover {
+      transform: translateY(-5px);
+      border-color: rgba(47,231,255,.28);
+    }
+
+    .about-stat strong {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: -.05em;
+    }
+
+    .about-stat span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.45;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 30px;
       align-items: start;
     }
 
-    .sticky-title {
+    .about-sidebar {
       position: sticky;
       top: 110px;
+      display: grid;
+      gap: 15px;
     }
 
-    .copy-panel {
-      border: 1px solid var(--about-line);
-      border-radius: 28px;
-      padding: clamp(24px, 4vw, 42px);
-      background: var(--about-card);
-      box-shadow: 0 30px 90px rgba(0,0,0,.34);
+    .about-sidebar-card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 23px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.022));
+      box-shadow: 0 20px 62px rgba(0,0,0,.24);
+      backdrop-filter: blur(18px);
     }
 
-    .copy-panel p {
-      color: var(--about-muted);
-      line-height: 1.85;
-      font-size: 1.05rem;
-      margin-bottom: 20px;
+    .about-sidebar-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      letter-spacing: -.04em;
     }
 
-    .copy-panel p:last-child { margin-bottom: 0; }
+    .about-sidebar-card p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.65;
+    }
+
+    .about-nav {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .about-nav a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 12px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 13px;
+      color: #d6e6f5;
+      background: rgba(255,255,255,.025);
+      font-size: .75rem;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .about-nav a:hover,
+    .about-nav a.active {
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      border-color: transparent;
+      transform: translateX(4px);
+      box-shadow: 0 12px 28px rgba(47,231,255,.12);
+    }
+
+    .about-content {
+      display: grid;
+      gap: 22px;
+    }
+
+    .about-story-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.067), rgba(255,255,255,.022)),
+        rgba(5,15,29,.76);
+      box-shadow: 0 24px 78px rgba(0,0,0,.26);
+      backdrop-filter: blur(18px);
+      scroll-margin-top: 110px;
+    }
+
+    .about-story-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(
+        520px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+        rgba(47,231,255,.12),
+        transparent 42%
+      );
+      transition: opacity .3s;
+    }
+
+    .about-story-card:hover::after {
+      opacity: 1;
+    }
+
+    .about-story-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-story-card h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.9rem, 4vw, 3.1rem);
+      line-height: 1;
+      letter-spacing: -.065em;
+    }
+
+    .about-story-card p {
+      color: var(--muted);
+      font-size: .96rem;
+      line-height: 1.8;
+    }
+
+    .about-story-card p + p {
+      margin-top: 14px;
+    }
 
     .value-list {
       display: grid;
-      gap: 18px;
-      margin-top: 28px;
+      gap: 14px;
+      margin-top: 24px;
     }
 
     .value-row {
       display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 18px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 24px;
-      background: rgba(255,255,255,0.035);
-      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 17px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 17px;
+      background: rgba(255,255,255,.025);
+      transition: transform .25s, border-color .25s;
     }
 
     .value-row:hover {
-      transform: translateX(8px);
-      border-color: rgba(25,215,255,.45);
-      background: rgba(25,215,255,.055);
+      transform: translateX(5px);
+      border-color: rgba(47,231,255,.25);
     }
 
     .value-number {
-      width: 54px;
-      height: 54px;
-      border-radius: 18px;
+      width: 48px;
+      height: 48px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(25,215,255,.2), rgba(0,119,255,.12));
-      border: 1px solid rgba(25,215,255,.3);
-      color: #fff;
-      font-family: "JetBrains Mono", monospace;
-      font-weight: 700;
+      border-radius: 15px;
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      font-family: var(--mono);
+      font-size: .7rem;
+      font-weight: 900;
     }
 
     .value-row h3 {
-      margin-bottom: 8px;
-      color: #fff;
+      margin-bottom: 6px;
+      font-size: 1rem;
     }
 
     .value-row p {
-      color: var(--about-muted);
-      line-height: 1.7;
-      margin: 0;
+      font-size: .84rem;
+      line-height: 1.6;
     }
 
     .capability-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: 17px;
     }
 
     .capability-card {
-      min-height: 210px;
-      padding: 26px;
-      border-radius: 26px;
-      border: 1px solid rgba(25,215,255,.16);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(25,215,255,.1), transparent 40%),
-        rgba(255,255,255,.035);
-      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.035);
+      transition: transform .28s, border-color .28s;
     }
 
     .capability-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(25,215,255,.42);
-      box-shadow: 0 24px 70px rgba(0,119,255,.16);
+      transform: translateY(-6px);
+      border-color: rgba(47,231,255,.28);
     }
 
-    .capability-card .icon {
-      margin-bottom: 20px;
+    .capability-card span {
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .67rem;
+      font-weight: 900;
     }
 
     .capability-card h3 {
-      color: #fff;
-      margin-bottom: 12px;
+      margin: 55px 0 9px;
+      font-size: 1.08rem;
     }
 
     .capability-card p {
-      color: var(--about-muted);
-      line-height: 1.65;
-      font-size: .98rem;
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.6;
     }
 
-    .about-showcase {
+    .about-work-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
 
-    .mini-work {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      border: 1px solid rgba(25,215,255,.18);
-      border-radius: 30px;
-      padding: 24px;
-      background: rgba(255,255,255,.035);
-      overflow: hidden;
-      transition: transform .35s ease, border-color .35s ease, background .35s ease;
-    }
-
-    .mini-work:hover {
-      transform: translateY(-10px);
-      border-color: rgba(25,215,255,.48);
-      background: rgba(25,215,255,.05);
-    }
-
-    .mini-work-screen {
-      height: 220px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.1);
-      background:
-        linear-gradient(135deg, rgba(25,215,255,.2), rgba(0,119,255,.07)),
-        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      padding: 20px;
-      margin-bottom: 22px;
+    .about-work-card {
       position: relative;
       overflow: hidden;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      color: inherit;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
     }
 
-    .mini-work-screen::after {
+    .about-work-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(47,231,255,.28);
+      box-shadow: 0 28px 78px rgba(0,0,0,.32);
+    }
+
+    .about-work-screen {
+      position: relative;
+      overflow: hidden;
+      height: 220px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(47,231,255,.14), transparent 35%),
+        #04101e;
+    }
+
+    .about-work-screen::before {
       content: "";
       position: absolute;
-      inset: -80px;
-      background: conic-gradient(from 180deg, transparent, rgba(25,215,255,.25), transparent 35%);
-      animation: spinGlow 8s linear infinite;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 36px 36px;
+      animation: aboutGridMove 12s linear infinite;
     }
 
-    @keyframes spinGlow {
-      to { transform: rotate(360deg); }
+    @keyframes aboutGridMove {
+      to { background-position: 36px 36px; }
     }
 
     .screen-lines {
       position: relative;
       z-index: 2;
       display: grid;
-      gap: 14px;
+      gap: 11px;
+      width: 78%;
+      padding: 35px;
     }
 
     .screen-lines span {
       display: block;
-      height: 14px;
+      height: 11px;
       border-radius: 999px;
-      background: rgba(255,255,255,.72);
+      background: rgba(255,255,255,.18);
     }
 
-    .screen-lines span:nth-child(1) { width: 72%; height: 28px; }
+    .screen-lines span:first-child {
+      width: 70%;
+      height: 31px;
+      background: linear-gradient(90deg, #fff, var(--cyan));
+    }
+
     .screen-lines span:nth-child(2) { width: 90%; }
     .screen-lines span:nth-child(3) { width: 62%; }
-    .screen-lines span:nth-child(4) { width: 34%; height: 42px; margin-top: 12px; background: var(--about-cyan); }
 
-    .mini-work h3 {
-      color: #fff;
-      margin-bottom: 10px;
+    .screen-lines span:last-child {
+      width: 115px;
+      height: 36px;
+      margin-top: 10px;
+      background: linear-gradient(90deg, #fff, var(--cyan));
     }
 
-    .mini-work p {
-      color: var(--about-muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
+    .about-work-card h3 {
+      margin: 18px 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .about-work-card p {
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+
+    .about-work-card .text-link {
+      display: inline-flex;
+      margin-top: 15px;
+      color: #fff;
+      font-weight: 900;
+      transition: color .25s, transform .25s;
+    }
+
+    .about-work-card:hover .text-link {
+      color: var(--cyan);
+      transform: translateX(5px);
     }
 
     .about-cta {
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(25,215,255,.25);
-      border-radius: 36px;
-      padding: clamp(32px, 6vw, 70px);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(25,215,255,.16), transparent 32%),
-        linear-gradient(135deg, rgba(8,18,38,.9), rgba(3,9,20,.92));
+      padding: clamp(36px, 6vw, 64px);
+      border: 1px solid var(--line-blue);
+      border-radius: 30px;
       text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(47,231,255,.11), transparent 45%),
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 30px 95px rgba(0,0,0,.31);
     }
 
     .about-cta::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(25,215,255,.1), transparent);
-      transform: translateX(-100%);
-      animation: shimmerAbout 4s infinite;
-    }
-
-    @keyframes shimmerAbout {
-      0% { transform: translateX(-100%); }
-      45%, 100% { transform: translateX(100%); }
+      inset: -50%;
+      pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.09),
+        transparent 40%,
+        rgba(255,255,255,.05),
+        transparent 72%
+      );
+      animation: aboutAuraSpin 16s linear infinite;
     }
 
     .about-cta > * {
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
-    @media (max-width: 980px) {
+    .about-cta h2 {
+      max-width: 900px;
+      margin: 8px auto 14px;
+      font-size: clamp(2.3rem, 5.2vw, 4.9rem);
+      line-height: .95;
+      letter-spacing: -.075em;
+    }
+
+    .about-cta p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 1020px) {
       .about-hero-grid,
-      .story-grid,
-      .about-showcase {
+      .about-layout {
         grid-template-columns: 1fr;
       }
 
-      .sticky-title {
-        position: relative;
-        top: 0;
+      .about-sidebar {
+        position: static;
       }
 
+      .about-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .about-stats,
       .capability-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 650px) {
       .about-hero {
-        padding-top: 135px;
+        padding-top: 125px;
       }
 
-      .metric-strip,
-      .capability-grid {
+      .about-console {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .about-console-code {
+        min-height: 230px;
+        padding: 14px;
+        font-size: .68rem;
+      }
+
+      .about-nav,
+      .about-stats,
+      .capability-grid,
+      .about-work-grid {
         grid-template-columns: 1fr;
       }
 
-      .about-proof-panel {
-        animation: none;
+      .about-story-card {
+        padding: 24px 18px;
       }
     }
   </style>
-  <link rel="stylesheet" href="brand-theme.css" />
 </head>
 
 <body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
   <div class="noise" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <nav>
-    <a href="index.html" class="logo" aria-label="Moxi Corp home">
-      Moxi <b>Corp</b>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
+      <span class="logo-mark">
+        <img src="images/newlogo2.svg" alt="Moxi Corp logo" />
+      </span>
+      <span>Moxi <b>Corp</b></span>
     </a>
 
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
-      ☰
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
     </button>
 
     <div class="nav-links" id="navLinks">
@@ -485,204 +692,313 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <a class="nav-cta" href="pricing.html">View Packs</a>
+    <a class="nav-cta magnetic" href="pricing.html">View Packs</a>
   </nav>
 
+  <header class="hero about-hero">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
+    <div class="wrap about-hero-grid">
+      <div class="about-hero-copy">
+        <div class="kicker reveal">
+          <span class="live-dot"></span>
+          About Moxi Corp
+        </div>
+
+        <h1>
+          Websites built with
+          <span class="gradient-text">purpose.</span>
+        </h1>
+
+        <p class="reveal">
+          Moxi Corp is an Australian web development business focused on helping
+          small businesses look professional, explain their services clearly and
+          turn more website visitors into real enquiries.
+        </p>
+
+        <div class="cta-row reveal">
+          <a href="portfolio.html" class="btn magnetic">View Live Work →</a>
+          <a href="contact.html" class="btn secondary magnetic">Start A Project</a>
+        </div>
+
+        <div class="about-stats reveal">
+          <article class="about-stat spotlight-card">
+            <strong>100%</strong>
+            <span>Custom website builds</span>
+          </article>
+
+          <article class="about-stat spotlight-card">
+            <strong>1:1</strong>
+            <span>Direct communication</span>
+          </article>
+
+          <article class="about-stat spotlight-card">
+            <strong>AU</strong>
+            <span>Australian business support</span>
+          </article>
+
+          <article class="about-stat spotlight-card">
+            <strong>ABN</strong>
+            <span>Registered business</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="about-console reveal" id="aboutConsole">
+        <div class="about-console-top">
+          <i></i><i></i><i></i>
+          <span>moxi_business_profile.js</span>
+        </div>
+
+        <pre class="about-console-code" id="aboutCode" aria-label="Animated Moxi Corp profile code"></pre>
+
+        <div class="about-status">
+          <div class="about-status-copy">
+            <span>BUSINESS PROFILE</span>
+            <strong id="aboutStatusText">Loading profile...</strong>
+          </div>
+
+          <div class="about-status-track">
+            <span id="aboutStatusFill"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <header class="about-hero">
-      <div class="wrap about-hero-grid">
-        <div class="reveal">
-          <div class="kicker">Who We Are</div>
-          <h1 class="about-title">
-            Small business websites with
-            <span class="gradient-text">agency-level energy.</span>
-          </h1>
-          <p class="about-lead">
-            Moxi Corp builds modern, high-impact websites for Australian businesses that need to look professional, trusted, and ready to grow. The goal is not just to make a website look nice. The goal is to make visitors understand your business, trust your offer, and take action.
-          </p>
-
-          <div class="cta-row reveal">
-            <a href="portfolio.html" class="btn">View Our Work →</a>
-            <a href="contact.html" class="btn secondary">Start A Project</a>
-          </div>
-        </div>
-
-        <aside class="about-proof-panel reveal tilt" aria-label="Moxi Corp capability panel">
-          <div class="about-proof-top">
-            <span class="status-chip">Accepting Projects</span>
-            <span class="status-chip">ABN Verified</span>
-          </div>
-
-          <div class="mini-code-window">
-            <div class="mini-code-header" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="mini-code-body">
-              <b>const</b> moxi = build({<br />
-              &nbsp;&nbsp;design: <em>'premium'</em>,<br />
-              &nbsp;&nbsp;motion: <em>'high-impact'</em>,<br />
-              &nbsp;&nbsp;mobile: <em>true</em>,<br />
-              &nbsp;&nbsp;seo: <em>'structured'</em>,<br />
-              &nbsp;&nbsp;payments: <em>'stripe-ready'</em><br />
-              });
-            </div>
-          </div>
-
-          <div class="metric-strip">
-            <div class="metric-tile">
-              <strong>100%</strong>
-              <span>Responsive design focus</span>
-            </div>
-            <div class="metric-tile">
-              <strong>Fast</strong>
-              <span>Custom code structure</span>
-            </div>
-            <div class="metric-tile">
-              <strong>Clear</strong>
-              <span>Conversion path</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </header>
-
-    <section class="section">
-      <div class="wrap story-grid">
-        <div class="section-head left sticky-title reveal">
-          <div class="kicker">The Standard</div>
-          <h2>Pretty alone is not enough.</h2>
-          <p>
-            A website has to do a job. It has to build confidence fast, explain the offer clearly, and give people a simple next step.
-          </p>
-        </div>
-
-        <div class="copy-panel reveal">
-          <p>
-            Most small business websites fail because they are treated like online brochures. They have a logo, a few photos, a contact form, and nothing else. That is weak. It does not explain why the business is better, it does not build enough trust, and it does not guide the visitor toward becoming a customer.
-          </p>
-          <p>
-            Moxi Corp is built around the opposite approach. Every section should have a purpose. The headline should grab attention. The copy should explain the value. The layout should make the business look established. The animations should create energy without making the site feel messy or slow.
-          </p>
-          <p>
-            The result is a website that feels modern, polished, and useful. It gives small businesses a stronger first impression and helps turn casual visitors into real enquiries.
-          </p>
-
-          <div class="value-list">
-            <div class="value-row reveal">
-              <div class="value-number">01</div>
-              <div>
-                <h3>Trust first</h3>
-                <p>Visitors decide quickly whether a business looks serious. The site needs strong design, clean structure, clear messaging, and proof that the business is real.</p>
-              </div>
-            </div>
-
-            <div class="value-row reveal">
-              <div class="value-number">02</div>
-              <div>
-                <h3>Clear offer</h3>
-                <p>People should not have to guess what you do, who it is for, what they get, or how to take the next step.</p>
-              </div>
-            </div>
-
-            <div class="value-row reveal">
-              <div class="value-number">03</div>
-              <div>
-                <h3>Motion with purpose</h3>
-                <p>Animations should make the website feel premium and alive, not distract people from buying, booking, or enquiring.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
+    <section class="section alt" style="padding-top:55px;">
       <div class="wrap">
         <div class="section-head reveal">
-          <div class="kicker">What We Build Into Every Site</div>
-          <h2>Professional pages with real business value.</h2>
+          <div class="kicker">The Moxi Standard</div>
+          <h2>More than a good-looking homepage.</h2>
           <p>
-            The work is not just design. It is structure, copy, responsiveness, technical setup, and a better buying journey.
+            A website should build confidence, explain the offer and make the next
+            step easy for the customer.
           </p>
         </div>
 
-        <div class="capability-grid">
-          <article class="capability-card reveal tilt">
-            <div class="icon">🧱</div>
-            <h3>Custom Structure</h3>
-            <p>Page sections are planned around the visitor journey: what they need to know, what proof they need, and what action they should take.</p>
-          </article>
+        <div class="about-layout">
+          <aside class="about-sidebar reveal">
+            <div class="about-sidebar-card">
+              <h3>About this business</h3>
+              <p>Jump directly to the part you want to read.</p>
 
-          <article class="capability-card reveal tilt">
-            <div class="icon">🎯</div>
-            <h3>Conversion Focus</h3>
-            <p>Strong calls to action, service explanations, trust sections, pricing pathways, and contact options keep the website moving toward enquiries.</p>
-          </article>
+              <div class="about-nav" id="aboutNav">
+                <a href="#story">Our Approach <span>01</span></a>
+                <a href="#values">Our Values <span>02</span></a>
+                <a href="#capabilities">Capabilities <span>03</span></a>
+                <a href="#work">Proof Of Work <span>04</span></a>
+              </div>
+            </div>
 
-          <article class="capability-card reveal tilt">
-            <div class="icon">⚡</div>
-            <h3>Modern Execution</h3>
-            <p>Responsive layouts, clean code, animation systems, form setup, Stripe checkout flow, and launch-ready page structure.</p>
-          </article>
+            <div class="about-sidebar-card">
+              <h3>Ready to talk?</h3>
+              <p>
+                Send through your business details and I’ll recommend the right
+                website package and next step.
+              </p>
 
-          <article class="capability-card reveal tilt">
-            <div class="icon">📈</div>
-            <h3>Growth Ready</h3>
-            <p>SEO foundations, scalable page layouts, analytics support, and a design system that can grow as the business grows.</p>
-          </article>
+              <div class="cta-row" style="margin-top:16px;">
+                <a href="contact.html" class="btn magnetic" style="width:100%;">
+                  Request Free Quote
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="about-content">
+            <article class="about-story-card reveal spotlight-card" id="story">
+              <div class="kicker">Our Approach</div>
+              <h2>Pretty alone is not enough.</h2>
+
+              <p>
+                Many small-business websites are treated like online brochures:
+                a logo, a few photos, a short paragraph and a contact form.
+                That may put a business online, but it does not necessarily explain
+                why the business is worth choosing.
+              </p>
+
+              <p>
+                Moxi Corp takes a more structured approach. Each section is planned
+                around what the customer needs to understand, what proof they need
+                to see and what action they should take next.
+              </p>
+
+              <p>
+                The goal is a modern website that feels credible, works properly on
+                mobile and supports real enquiries rather than existing as decoration.
+              </p>
+            </article>
+
+            <article class="about-story-card reveal spotlight-card" id="values">
+              <div class="kicker">Our Values</div>
+              <h2>Clear communication and purposeful design.</h2>
+
+              <div class="value-list">
+                <div class="value-row">
+                  <span class="value-number">01</span>
+                  <div>
+                    <h3>Trust first</h3>
+                    <p>
+                      Visitors make quick decisions. Clean structure, strong design
+                      and clear proof help a business feel more established.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="value-row">
+                  <span class="value-number">02</span>
+                  <div>
+                    <h3>Clear offers</h3>
+                    <p>
+                      People should understand what the business provides, who it is
+                      for and how to take the next step without confusion.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="value-row">
+                  <span class="value-number">03</span>
+                  <div>
+                    <h3>Motion with purpose</h3>
+                    <p>
+                      Animation should add energy and polish without distracting
+                      customers from enquiring, booking or purchasing.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="value-row">
+                  <span class="value-number">04</span>
+                  <div>
+                    <h3>Real communication</h3>
+                    <p>
+                      Clients communicate directly with the person planning,
+                      designing and developing the website.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="about-story-card reveal spotlight-card" id="capabilities">
+              <div class="kicker">Capabilities</div>
+              <h2>Professional pages with real business value.</h2>
+
+              <div class="capability-grid">
+                <article class="capability-card spotlight-card">
+                  <span>01</span>
+                  <h3>Custom structure</h3>
+                  <p>
+                    Pages and sections planned around the visitor journey and the
+                    information customers need before making contact.
+                  </p>
+                </article>
+
+                <article class="capability-card spotlight-card">
+                  <span>02</span>
+                  <h3>Conversion focus</h3>
+                  <p>
+                    Calls to action, service explanations, trust sections, pricing
+                    pathways and contact options designed to support enquiries.
+                  </p>
+                </article>
+
+                <article class="capability-card spotlight-card">
+                  <span>03</span>
+                  <h3>Modern development</h3>
+                  <p>
+                    Responsive layouts, clean HTML, CSS and JavaScript, animation
+                    systems, forms and Stripe payment pathways.
+                  </p>
+                </article>
+
+                <article class="capability-card spotlight-card">
+                  <span>04</span>
+                  <h3>Growth-ready builds</h3>
+                  <p>
+                    SEO foundations, scalable page layouts and a visual system that
+                    can continue growing with the business.
+                  </p>
+                </article>
+              </div>
+            </article>
+
+            <article class="about-story-card reveal spotlight-card" id="work">
+              <div class="kicker">Proof Of Work</div>
+              <h2>Different websites for different brands.</h2>
+
+              <p>
+                Moxi Corp builds more than one visual style. Artist websites and
+                local service-business websites require different content, energy
+                and customer pathways.
+              </p>
+
+              <div class="about-work-grid" style="margin-top:24px;">
+                <a
+                  class="about-work-card spotlight-card"
+                  href="https://asharmusic.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="about-work-screen">
+                    <div class="screen-lines">
+                      <span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+
+                  <h3>Ashar Music</h3>
+                  <p>
+                    A music website designed around atmosphere, identity and
+                    audience connection.
+                  </p>
+                  <span class="text-link">Open live site →</span>
+                </a>
+
+                <a
+                  class="about-work-card spotlight-card"
+                  href="https://www.moxicleaningco.com.au/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="about-work-screen">
+                    <div class="screen-lines">
+                      <span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+
+                  <h3>Moxi Cleaning Co</h3>
+                  <p>
+                    A local service-business website focused on trust, clear
+                    services and enquiry generation.
+                  </p>
+                  <span class="text-link">Open live site →</span>
+                </a>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap story-grid">
-        <div class="section-head left reveal">
-          <div class="kicker">Proof Of Work</div>
-          <h2>Different websites for different brands.</h2>
-          <p>
-            Your clients need to see that Moxi Corp can build more than one style. Artist websites, service business websites, landing pages, and full business sites all need different energy.
-          </p>
-        </div>
-
-        <div class="about-showcase">
-          <a class="mini-work reveal tilt" href="https://asharmusic.com/" target="_blank" rel="noopener">
-            <div class="mini-work-screen">
-              <div class="screen-lines">
-                <span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-            <h3>Ashar Music</h3>
-            <p>A music artist website built around atmosphere, identity, and audience connection.</p>
-            <span class="text-link">Open live site →</span>
-          </a>
-
-          <a class="mini-work reveal tilt" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener">
-            <div class="mini-work-screen">
-              <div class="screen-lines">
-                <span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-            <h3>Moxi Cleaning Co.</h3>
-            <p>A local service business website focused on trust, service clarity, and enquiries.</p>
-            <span class="text-link">Open live site →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
+    <section class="section" style="padding-top:50px;">
       <div class="wrap">
-        <div class="about-cta reveal">
-          <div class="kicker">Ready To Build</div>
-          <h2 style="font-size: clamp(2.2rem, 5vw, 4.8rem); letter-spacing: -0.08em; margin: 12px 0 18px;">
-            Give your business a website that looks serious.
-          </h2>
-          <p style="max-width: 760px; margin: 0 auto 28px; color: var(--about-muted); line-height: 1.8;">
-            Whether you are starting fresh or replacing an outdated site, Moxi Corp can build a clean, animated, professional website that makes your business easier to trust and easier to contact.
+        <div class="about-cta reveal spotlight-card">
+          <div class="kicker">Ready To Build?</div>
+
+          <h2>Give your business a website that looks serious.</h2>
+
+          <p>
+            Whether you are starting fresh or replacing an outdated website,
+            Moxi Corp can build a professional online presence that is easier
+            to trust and easier to contact.
           </p>
-          <div class="cta-row" style="justify-content:center;">
-            <a href="pricing.html" class="btn">View Website Packs</a>
-            <a href="contact.html" class="btn secondary">Get A Free Quote</a>
+
+          <div class="cta-row center">
+            <a href="pricing.html" class="btn magnetic">View Website Packs →</a>
+            <a href="contact.html" class="btn secondary magnetic">Request Free Quote</a>
           </div>
         </div>
       </div>
@@ -690,14 +1006,34 @@
   </main>
 
   <footer>
-    <div class="wrap">
-      © 2026 Moxi Corp. Based in Donnybrook, VIC.<br />
-      ABN: 18 936 263 775<br /><br />
-      Email: support@moxicorpstudio.com.au |
-      <a href="privacy-policy.html">Privacy Policy</a>
+    <div class="wrap footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
+        <p>Real websites. Real communication. Built for real businesses.</p>
+      </div>
+
+      <div>
+        <strong>Contact</strong>
+        <a href="mailto:support@moxicorpstudio.com.au">
+          support@moxicorpstudio.com.au
+        </a>
+        <span>Donnybrook, Victoria</span>
+        <span>Australia-wide service</span>
+      </div>
+
+      <div>
+        <strong>Business</strong>
+        <span>ABN 18 936 263 775</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      © 2026 Moxi Corp. All rights reserved.
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script src="about.js"></script>
 </body>
 </html>

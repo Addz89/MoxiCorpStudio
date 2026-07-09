@@ -8,135 +8,215 @@
   <title>FAQ | Moxi Corp</title>
   <meta
     name="description"
-    content="Moxi Corp builds professional, animated, high-converting websites for small businesses across Australia. Custom-coded websites, SEO-ready structure, Stripe payments, and mobile-first design."
+    content="Answers to common questions about Moxi Corp website packages, timelines, payments, mobile responsiveness, SEO, hosting and ongoing support."
   />
-  <meta name="theme-color" content="#06111f" />
+  <meta name="theme-color" content="#02050b" />
 
-<link rel="icon" type="image/svg+xml" href="logo2.svg" />
+  <link rel="icon" type="image/svg+xml" href="images/newlogo2.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
+
   <link rel="stylesheet" href="styles.css" />
-</head>
 
   <style>
-    /* Page-specific polish for the FAQ page.
-       This works alongside your main styles.css file. */
-
     .faq-hero {
       min-height: auto;
-      padding-bottom: 48px;
+      padding: 150px 0 70px;
+      overflow: hidden;
     }
 
     .faq-hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 46px;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 50px;
       align-items: center;
     }
 
     .faq-hero-copy h1 {
-      font-size: clamp(3rem, 7vw, 6.25rem);
-      line-height: 0.94;
-      letter-spacing: -0.08em;
-      margin: 16px 0 22px;
+      margin: 10px 0 20px;
+      font-size: clamp(3.4rem, 7.3vw, 6.8rem);
+      line-height: .9;
+      letter-spacing: -.08em;
     }
 
     .faq-hero-copy p {
-      max-width: 780px;
+      max-width: 760px;
       color: var(--muted);
-      font-size: clamp(1rem, 1.45vw, 1.18rem);
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
       line-height: 1.8;
     }
 
     .faq-console {
       position: relative;
+      min-height: 410px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
+      padding: 24px;
+      border: 1px solid var(--line-blue);
       border-radius: 28px;
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025)),
-        rgba(7, 13, 22, 0.88);
+        radial-gradient(circle at 15% 10%, rgba(47,231,255,.10), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
+        rgba(3, 11, 22, .9);
       box-shadow:
-        0 24px 90px rgba(0,0,0,0.38),
-        inset 0 1px 0 rgba(255,255,255,0.13);
-      padding: 24px;
-      min-height: 390px;
+        0 34px 100px rgba(0,0,0,.42),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(20px);
+      transform-style: preserve-3d;
+      will-change: transform;
     }
 
     .faq-console::before {
       content: "";
       position: absolute;
-      inset: -2px;
-      background:
-        radial-gradient(circle at 18% 10%, rgba(0, 200, 255, 0.26), transparent 34%),
-        radial-gradient(circle at 86% 78%, rgba(0, 140, 255, 0.18), transparent 38%);
-      opacity: 0.8;
+      inset: -50%;
       pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.10),
+        transparent 35%,
+        rgba(8,124,255,.09),
+        transparent 72%
+      );
+      animation: faqAuraSpin 14s linear infinite;
+    }
+
+    @keyframes faqAuraSpin {
+      to { transform: rotate(360deg); }
     }
 
     .console-top {
       position: relative;
       z-index: 2;
       display: flex;
-      gap: 8px;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 18px;
-      margin-bottom: 22px;
+      gap: 8px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid var(--line);
     }
 
     .console-dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.45);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(47,231,255,.55);
     }
+
+    .console-dot:nth-child(2) { opacity: .72; }
+    .console-dot:nth-child(3) { opacity: .45; }
 
     .console-title {
       margin-left: auto;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.78rem;
-      color: var(--muted);
+      color: rgba(255,255,255,.42);
+      font-family: var(--mono);
+      font-size: .72rem;
     }
 
     .console-lines {
       position: relative;
       z-index: 2;
       display: grid;
-      gap: 14px;
-      font-family: "JetBrains Mono", monospace;
-      color: rgba(255,255,255,0.82);
-      font-size: 0.92rem;
-      line-height: 1.7;
+      gap: 13px;
+      margin-top: 21px;
+      font-family: var(--mono);
+      font-size: .82rem;
+      line-height: 1.65;
     }
 
-    .console-lines span {
-      display: block;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.22);
-      border: 1px solid rgba(255,255,255,0.08);
-      transform: translateX(0);
-      animation: faqConsoleFloat 5s ease-in-out infinite;
+    .console-line {
+      position: relative;
+      overflow: hidden;
+      padding: 14px 15px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 15px;
+      background: rgba(0,0,0,.22);
+      opacity: 0;
+      transform: translateX(28px);
+      animation:
+        consoleLineIn .72s cubic-bezier(.16,1,.3,1) forwards,
+        consoleLineFloat 4.8s ease-in-out infinite;
     }
 
-    .console-lines span:nth-child(2) { animation-delay: 0.4s; }
-    .console-lines span:nth-child(3) { animation-delay: 0.8s; }
-    .console-lines span:nth-child(4) { animation-delay: 1.2s; }
+    .console-line:nth-child(1) { animation-delay: .35s, .35s; }
+    .console-line:nth-child(2) { animation-delay: .65s, .65s; }
+    .console-line:nth-child(3) { animation-delay: .95s, .95s; }
+    .console-line:nth-child(4) { animation-delay: 1.25s, 1.25s; }
 
-    @keyframes faqConsoleFloat {
-      0%, 100% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(8px) translateY(-6px); }
+    .console-line b {
+      color: var(--cyan);
+    }
+
+    .console-cursor {
+      display: inline-block;
+      width: 7px;
+      height: 1em;
+      margin-left: 5px;
+      vertical-align: -.15em;
+      background: #fff;
+      box-shadow: 0 0 12px rgba(47,231,255,.75);
+      animation: faqCursorBlink .72s steps(1) infinite;
+    }
+
+    @keyframes consoleLineIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes consoleLineFloat {
+      50% {
+        transform: translateY(-5px);
+        border-color: rgba(47,231,255,.20);
+      }
+    }
+
+    @keyframes faqCursorBlink {
+      0%, 46% { opacity: 1; }
+      47%, 100% { opacity: 0; }
+    }
+
+    .faq-search-wrap {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+    }
+
+    .faq-search {
+      width: 100%;
+      min-height: 50px;
+      padding: 0 48px 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      outline: none;
+      color: #fff;
+      background: rgba(255,255,255,.045);
+      transition: border-color .25s, box-shadow .25s;
+    }
+
+    .faq-search:focus {
+      border-color: rgba(47,231,255,.42);
+      box-shadow: 0 0 0 4px rgba(47,231,255,.07);
+    }
+
+    .faq-search-wrap span {
+      position: absolute;
+      right: 17px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--cyan);
+      font-size: 1.05rem;
     }
 
     .faq-layout {
       display: grid;
-      grid-template-columns: 0.34fr 0.66fr;
-      gap: 36px;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 32px;
       align-items: start;
     }
 
@@ -144,150 +224,182 @@
       position: sticky;
       top: 110px;
       display: grid;
-      gap: 14px;
+      gap: 15px;
     }
 
     .faq-sidebar-card {
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px;
-      padding: 24px;
-      background: rgba(255,255,255,0.045);
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 23px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+      box-shadow: 0 18px 55px rgba(0,0,0,.22);
       backdrop-filter: blur(18px);
-      box-shadow: 0 18px 55px rgba(0,0,0,0.22);
     }
 
     .faq-sidebar-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+      letter-spacing: -.04em;
     }
 
     .faq-sidebar-card p {
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.96rem;
+      font-size: .9rem;
+      line-height: 1.65;
     }
 
     .faq-category-list {
       display: grid;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 9px;
+      margin-top: 16px;
     }
 
     .faq-category-list a {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      color: rgba(255,255,255,0.78);
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.16);
-      border-radius: 16px;
-      padding: 13px 14px;
-      transition: 0.28s ease;
+      gap: 12px;
+      padding: 12px 13px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 13px;
+      color: #d4e4f3;
+      background: rgba(255,255,255,.025);
+      font-size: .8rem;
+      font-weight: 800;
+      transition: .25s;
     }
 
-    .faq-category-list a:hover {
-      color: #fff;
-      border-color: rgba(0, 200, 255, 0.34);
-      box-shadow: 0 12px 35px rgba(0, 200, 255, 0.08);
-      transform: translateX(5px);
+    .faq-category-list a:hover,
+    .faq-category-list a.active {
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      border-color: transparent;
+      transform: translateX(4px);
+      box-shadow: 0 12px 30px rgba(47,231,255,.12);
     }
 
     .faq-stack {
       display: grid;
-      gap: 18px;
+      gap: 30px;
     }
 
     .faq-group {
       display: grid;
-      gap: 14px;
-      margin-bottom: 28px;
+      gap: 13px;
+      scroll-margin-top: 110px;
     }
 
     .faq-group-title {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .faq-group-title .number {
-      font-family: "JetBrains Mono", monospace;
-      color: var(--accent, #00c8ff);
-      border: 1px solid rgba(0, 200, 255, 0.24);
-      background: rgba(0, 200, 255, 0.07);
-      border-radius: 999px;
-      padding: 7px 10px;
-      font-size: 0.78rem;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid rgba(47,231,255,.26);
+      border-radius: 12px;
+      color: var(--cyan);
+      background: rgba(47,231,255,.07);
+      font-family: var(--mono);
+      font-size: .72rem;
+      font-weight: 900;
+      box-shadow: 0 0 18px rgba(47,231,255,.08);
     }
 
     .faq-group-title h2 {
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
-      letter-spacing: -0.06em;
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      letter-spacing: -.055em;
     }
 
     .faq-item {
+      position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025)),
-        rgba(8, 14, 24, 0.78);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 18px 65px rgba(0,0,0,0.2);
+        linear-gradient(145deg, rgba(255,255,255,.067), rgba(255,255,255,.022)),
+        rgba(5, 15, 29, .76);
+      box-shadow: 0 17px 55px rgba(0,0,0,.20);
+      backdrop-filter: blur(17px);
       transition:
-        border-color 0.28s ease,
-        transform 0.28s ease,
-        box-shadow 0.28s ease;
+        border-color .28s,
+        transform .28s,
+        box-shadow .28s;
+    }
+
+    .faq-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(
+        380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(47,231,255,.10),
+        transparent 42%
+      );
+      transition: opacity .3s;
     }
 
     .faq-item:hover {
       transform: translateY(-3px);
-      border-color: rgba(0, 200, 255, 0.28);
-      box-shadow: 0 24px 80px rgba(0, 200, 255, 0.08);
+      border-color: rgba(47,231,255,.27);
+      box-shadow: 0 24px 72px rgba(0,0,0,.28);
+    }
+
+    .faq-item:hover::after {
+      opacity: 1;
     }
 
     .faq-question {
+      position: relative;
+      z-index: 2;
       width: 100%;
-      border: 0;
-      background: transparent;
-      color: #fff;
+      min-height: 72px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      padding: 22px 24px;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 20px;
+      border: 0;
+      color: #fff;
+      background: transparent;
       text-align: left;
       cursor: pointer;
-      font: inherit;
-      font-weight: 800;
-      font-size: 1.05rem;
-      letter-spacing: -0.03em;
-    }
-
-    .faq-question span {
-      flex: 1;
+      font-weight: 850;
+      font-size: 1rem;
+      letter-spacing: -.025em;
     }
 
     .faq-toggle {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
+      width: 36px;
+      height: 36px;
       display: grid;
       place-items: center;
       flex: 0 0 auto;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.045);
-      color: var(--accent, #00c8ff);
-      transition: 0.25s ease;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--cyan);
+      background: rgba(255,255,255,.04);
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      transition: transform .28s, background .28s, color .28s;
     }
 
     .faq-answer {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-rows: 0fr;
-      transition: grid-template-rows 0.32s ease;
+      transition: grid-template-rows .38s cubic-bezier(.16,1,.3,1);
     }
 
     .faq-answer > div {
@@ -295,10 +407,17 @@
     }
 
     .faq-answer p {
+      padding: 0 20px 20px;
       color: var(--muted);
-      line-height: 1.8;
-      padding: 0 24px 24px;
-      font-size: 1rem;
+      font-size: .95rem;
+      line-height: 1.75;
+    }
+
+    .faq-item.active {
+      border-color: rgba(47,231,255,.32);
+      box-shadow:
+        0 24px 78px rgba(0,0,0,.3),
+        0 0 0 1px rgba(47,231,255,.04);
     }
 
     .faq-item.active .faq-answer {
@@ -306,32 +425,72 @@
     }
 
     .faq-item.active .faq-toggle {
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
       transform: rotate(45deg);
-      background: rgba(0, 200, 255, 0.12);
-      border-color: rgba(0, 200, 255, 0.34);
+    }
+
+    .faq-item[hidden] {
+      display: none !important;
+    }
+
+    .no-results {
+      display: none;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      color: var(--muted);
+      background: rgba(255,255,255,.035);
+      text-align: center;
+    }
+
+    .no-results.show {
+      display: block;
     }
 
     .faq-cta {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(34px, 6vw, 62px);
+      border: 1px solid var(--line-blue);
+      border-radius: 30px;
       text-align: center;
-      padding: clamp(32px, 5vw, 58px);
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.12);
       background:
-        radial-gradient(circle at 50% 0%, rgba(0, 200, 255, 0.15), transparent 44%),
-        rgba(255,255,255,0.045);
-      box-shadow: 0 26px 90px rgba(0,0,0,0.28);
+        radial-gradient(circle at 50% 0%, rgba(47,231,255,.11), transparent 45%),
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 28px 90px rgba(0,0,0,.3);
+    }
+
+    .faq-cta::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.09),
+        transparent 40%,
+        rgba(255,255,255,.06),
+        transparent 72%
+      );
+      animation: faqAuraSpin 15s linear infinite;
+    }
+
+    .faq-cta > * {
+      position: relative;
+      z-index: 1;
     }
 
     .faq-cta h2 {
-      font-size: clamp(2.1rem, 5vw, 4.4rem);
-      line-height: 1;
-      letter-spacing: -0.08em;
-      margin-bottom: 16px;
+      margin: 8px 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.7rem);
+      line-height: .96;
+      letter-spacing: -.075em;
     }
 
     .faq-cta p {
-      max-width: 720px;
-      margin: 0 auto 24px;
+      max-width: 690px;
+      margin: 0 auto;
       color: var(--muted);
       line-height: 1.75;
     }
@@ -345,35 +504,64 @@
       .faq-sidebar {
         position: static;
       }
+
+      .faq-category-list {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 620px) {
+      .faq-hero {
+        padding-top: 125px;
+      }
+
       .faq-console {
         min-height: auto;
         padding: 18px;
       }
 
+      .faq-category-list {
+        grid-template-columns: 1fr;
+      }
+
       .faq-question {
-        padding: 19px 18px;
-        font-size: 1rem;
+        min-height: 66px;
+        padding: 16px;
+        font-size: .95rem;
       }
 
       .faq-answer p {
-        padding: 0 18px 20px;
+        padding: 0 16px 18px;
+        font-size: .9rem;
       }
     }
   </style>
-  <link rel="stylesheet" href="brand-theme.css" />
 </head>
 
 <body>
-  <div class="noise"></div>
-  <div class="grid-bg"></div>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <nav>
-    <a href="index.html" class="logo">Moxi <b>Corp</b></a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
+      <span class="logo-mark">
+        <img src="images/newlogo2.svg" alt="Moxi Corp logo" />
+      </span>
+      <span>Moxi <b>Corp</b></span>
+    </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu">☰</button>
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
 
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
@@ -386,29 +574,38 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <a class="nav-cta" href="pricing.html">View Packs</a>
+    <a class="nav-cta magnetic" href="pricing.html">View Packs</a>
   </nav>
 
-  <main class="hero faq-hero">
+  <header class="hero faq-hero">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
     <div class="wrap faq-hero-grid">
-      <div class="faq-hero-copy reveal">
-        <div class="kicker">Questions Before You Start</div>
+      <div class="faq-hero-copy">
+        <div class="kicker reveal">
+          <span class="live-dot"></span>
+          Questions before you start
+        </div>
+
         <h1>
-          Clear answers before you invest in a website.
+          Clear answers before you
+          <span class="gradient-text">invest.</span>
         </h1>
-        <p>
-          A good website project should not feel confusing. This page explains how Moxi Corp handles
-          pricing, timelines, Stripe payments, SEO foundations, mobile responsiveness, support, hosting, and
-          what clients need to provide before a build begins.
+
+        <p class="reveal">
+          Learn how Moxi Corp handles website packages, project timelines,
+          payments, SEO foundations, mobile responsiveness, hosting, support
+          and what is needed before your build begins.
         </p>
 
-        <div class="cta-row">
-          <a href="pricing.html" class="btn">Compare Website Packs →</a>
-          <a href="contact.html" class="btn secondary">Ask A Question</a>
+        <div class="cta-row reveal">
+          <a href="pricing.html" class="btn magnetic">Compare Website Packs →</a>
+          <a href="contact.html" class="btn secondary magnetic">Ask A Question</a>
         </div>
       </div>
 
-      <div class="faq-console reveal tilt" aria-hidden="true">
+      <div class="faq-console reveal" id="faqConsole" aria-label="Animated FAQ console">
         <div class="console-top">
           <span class="console-dot"></span>
           <span class="console-dot"></span>
@@ -417,331 +614,331 @@
         </div>
 
         <div class="console-lines">
-          <span><b>question:</b> "How long does it take?"</span>
-          <span><b>answer:</b> "Depends on the pack, content, and scope."</span>
-          <span><b>question:</b> "Can I pay online?"</span>
-          <span><b>answer:</b> "Yes — secure Stripe checkout can be connected."</span>
+          <span class="console-line"><b>question:</b> "How long does it take?"</span>
+          <span class="console-line"><b>answer:</b> "Usually 5–10 business days, depending on scope."</span>
+          <span class="console-line"><b>question:</b> "Can I pay online?"</span>
+          <span class="console-line"><b>answer:</b> "Yes — secure Stripe checkout is available."<i class="console-cursor"></i></span>
+        </div>
+
+        <div class="faq-search-wrap">
+          <input
+            class="faq-search"
+            id="faqSearch"
+            type="search"
+            placeholder="Search questions..."
+            aria-label="Search frequently asked questions"
+          />
+          <span>⌕</span>
         </div>
       </div>
     </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: 55px;">
+      <div class="wrap faq-layout">
+        <aside class="faq-sidebar reveal">
+          <div class="faq-sidebar-card">
+            <h3>Quick navigation</h3>
+            <p>Jump directly to the topic you need.</p>
+
+            <div class="faq-category-list" id="faqCategoryList">
+              <a href="#project-basics">Project Basics <span>01</span></a>
+              <a href="#payments">Payments <span>02</span></a>
+              <a href="#website-features">Website Features <span>03</span></a>
+              <a href="#after-launch">After Launch <span>04</span></a>
+            </div>
+          </div>
+
+          <div class="faq-sidebar-card">
+            <h3>Still unsure?</h3>
+            <p>
+              Send through your project details and I’ll recommend the most suitable package.
+            </p>
+
+            <div class="cta-row" style="margin-top: 17px;">
+              <a href="contact.html" class="btn magnetic" style="width:100%;">
+                Contact Moxi Corp
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <div class="faq-stack">
+          <section class="faq-group reveal" id="project-basics" data-category="Project Basics">
+            <div class="faq-group-title">
+              <span class="number">01</span>
+              <h2>Project basics</h2>
+            </div>
+
+            <article class="faq-item active">
+              <button class="faq-question" type="button" aria-expanded="true">
+                <span>How long does a website usually take?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Most smaller websites can be completed within approximately 5–10 business days
+                    once the required content has been supplied. Larger Growth and Elite builds may
+                    take longer because they include more pages, content, custom sections, testing
+                    and revision work.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>What do I need to provide before the build starts?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Your business name, services, preferred colours, contact details, social links,
+                    logo and photos are helpful. Examples of websites you like can also make the
+                    design direction clearer. The project can still be planned if you do not have
+                    everything ready.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Do you only build one-page websites?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    No. Moxi Corp builds both one-page websites and full multi-page websites.
+                    Common pages include Home, About, Services, Pricing, FAQ, Portfolio and Contact.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="faq-group reveal" id="payments" data-category="Payments">
+            <div class="faq-group-title">
+              <span class="number">02</span>
+              <h2>Payments and Stripe</h2>
+            </div>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Can clients pay online?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Yes. Secure Stripe checkout can be connected to package buttons or payment
+                    links so clients can pay online without complicated back-and-forth arrangements.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Do I need to pay everything upfront?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Payment terms depend on the project. Smaller fixed-price packages may be paid
+                    upfront, while larger custom projects may use a deposit and final-payment
+                    arrangement. The agreed terms are confirmed before work begins.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Are there hidden fees?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    The package covers the agreed website build. Extra pages, additional design
+                    work, logo creation, maintenance, paid services, domains and hosting are quoted
+                    separately when required.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="faq-group reveal" id="website-features" data-category="Website Features">
+            <div class="faq-group-title">
+              <span class="number">03</span>
+              <h2>Website features</h2>
+            </div>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Will the website work on mobile?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Yes. Every Moxi Corp website is built to work across phones, tablets, laptops
+                    and desktops. Mobile responsiveness is included because many customers will
+                    visit your business website from their phone first.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Is SEO included?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    SEO foundations include clear heading structure, page titles, metadata,
+                    semantic layout, image alt text guidance and performance-focused development.
+                    Larger packages allow for more pages and stronger keyword-focused content.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Can the website have animations?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Yes. Professional animation can include reveals, hover effects, interactive
+                    cards, device mockups, transitions and micro-interactions. The goal is to make
+                    the website feel premium without damaging speed or usability.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="faq-group reveal" id="after-launch" data-category="After Launch">
+            <div class="faq-group-title">
+              <span class="number">04</span>
+              <h2>After launch</h2>
+            </div>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Do you help with domain and hosting?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Yes. Moxi Corp can help connect the completed website to your domain and hosting
+                    setup. The domain and hosting accounts should remain under the business owner’s
+                    control.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Can I request updates later?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Yes. New pages, text changes, image updates, landing pages, SEO improvements,
+                    maintenance and extra sections can be quoted separately after launch.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>What if I am not sure which package I need?</span>
+                <strong class="faq-toggle">+</strong>
+              </button>
+              <div class="faq-answer">
+                <div>
+                  <p>
+                    Send through your business type, approximate number of pages, payment needs and
+                    examples of websites you like. Moxi Corp can recommend the most suitable option
+                    without pushing unnecessary features.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <div class="no-results" id="noResults">
+            No matching questions were found. Try a different search term.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 40px;">
+      <div class="wrap">
+        <div class="faq-cta reveal spotlight-card">
+          <div class="kicker">Still Have Questions?</div>
+          <h2>Ask before you buy.</h2>
+          <p>
+            Send through your project details and Moxi Corp will help you choose
+            the right website package for your business.
+          </p>
+
+          <div class="cta-row center">
+            <a href="contact.html" class="btn magnetic">Send Enquiry →</a>
+            <a href="pricing.html" class="btn secondary magnetic">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <section class="section">
-    <div class="wrap faq-layout">
-      <aside class="faq-sidebar reveal">
-        <div class="faq-sidebar-card">
-          <h3>Quick navigation</h3>
-          <p>
-            These are the questions most business owners ask before paying for a website build.
-          </p>
-
-          <div class="faq-category-list">
-            <a href="#project-basics">Project Basics <span>01</span></a>
-            <a href="#payments">Payments <span>02</span></a>
-            <a href="#website-features">Website Features <span>03</span></a>
-            <a href="#after-launch">After Launch <span>04</span></a>
-          </div>
-        </div>
-
-        <div class="faq-sidebar-card">
-          <h3>Still unsure?</h3>
-          <p>
-            Don’t sit there guessing. Send the project details and ask what pack fits best.
-          </p>
-          <div class="cta-row" style="margin-top: 18px;">
-            <a href="contact.html" class="btn" style="width: 100%; justify-content: center;">Contact Us</a>
-          </div>
-        </div>
-      </aside>
-
-      <div class="faq-stack">
-        <div class="faq-group reveal" id="project-basics">
-          <div class="faq-group-title">
-            <span class="number">01</span>
-            <h2>Project basics</h2>
-          </div>
-
-          <article class="faq-item active">
-            <button class="faq-question" type="button" aria-expanded="true">
-              <span>How long does a website usually take?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  A smaller Starter Pack can often move faster because there are fewer pages and fewer decisions.
-                  Larger Growth and Elite builds take more time because they include more content, stronger page
-                  structure, deeper polish, animations, SEO foundations, testing, and revisions.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>What do I need to provide before the build starts?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  You should provide your business name, logo if you have one, services, preferred colours,
-                  photos, contact details, social links, examples of websites you like, and any existing website
-                  or domain information. If you do not have all of that, the site can still be planned properly.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Do you only build one-page websites?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  No. One-page websites can work for simple offers, but most real businesses need multiple pages:
-                  home, about, services, pricing, FAQ, contact, portfolio, and sometimes landing pages. A proper
-                  structure gives visitors more trust and gives search engines more content to understand.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="faq-group reveal" id="payments">
-          <div class="faq-group-title">
-            <span class="number">02</span>
-            <h2>Payments and Stripe</h2>
-          </div>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Can clients pay online?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  Yes. Stripe checkout buttons can be connected to your Starter, Growth, and Elite packages so
-                  clients can pay securely online. This makes your business look more professional and removes
-                  messy back-and-forth payment handling.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Do I need to pay everything upfront?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  Payment terms can depend on the project size. For smaller fixed-price packs, upfront payment
-                  can keep the build simple. For larger projects, a deposit and final payment structure may make
-                  more sense. Clear payment terms should always be confirmed before work starts.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Are there hidden fees?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  The pack price should cover the agreed website build. Extra pages, extra design work, logo
-                  creation, advanced copywriting, maintenance, paid plugins, domain registration, hosting, and
-                  third-party platform costs should be quoted separately so there are no surprises.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="faq-group reveal" id="website-features">
-          <div class="faq-group-title">
-            <span class="number">03</span>
-            <h2>Website features</h2>
-          </div>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Will the website work on mobile?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  Yes. Mobile responsiveness is not optional. Most people will judge a business from their phone
-                  first, so the layout, spacing, buttons, text, sections, and forms must work cleanly across
-                  phone, tablet, laptop, and desktop screens.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Is SEO included?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  Basic SEO foundations are included in the structure: page titles, headings, content layout,
-                  metadata guidance, image alt text, speed-focused design, and clean navigation. Bigger packs can
-                  include stronger page depth and better content sections for search visibility.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Can the website have animations?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  Yes — but animations need discipline. Flashy movement that slows the site down is trash. The
-                  goal is professional motion: reveal effects, hover states, device mockups, animated cards,
-                  smooth transitions, and micro-interactions that make the website feel premium without hurting
-                  performance.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="faq-group reveal" id="after-launch">
-          <div class="faq-group-title">
-            <span class="number">04</span>
-            <h2>After launch</h2>
-          </div>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Do you help with domain and hosting?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  Yes. The site can be prepared for launch and connected to the chosen domain and hosting setup.
-                  Domain and hosting accounts usually remain under the business owner's control, which is the
-                  correct setup because the business should own its own digital assets.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>Can I request updates later?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  Yes. New pages, text changes, image swaps, extra sections, landing pages, SEO improvements,
-                  speed checks, and ongoing maintenance can be quoted as add-ons or handled through a support
-                  arrangement.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
-              <span>What if I am not sure which pack I need?</span>
-              <strong class="faq-toggle">+</strong>
-            </button>
-            <div class="faq-answer">
-              <div>
-                <p>
-                  Send through the business type, the number of pages you think you need, whether you need online
-                  payments, and any websites you like. From there, the right pack can be recommended without
-                  over-selling you something you do not need.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="faq-cta reveal">
-        <div class="kicker">Still Have Questions?</div>
-        <h2>Ask before you buy.</h2>
-        <p>
-          Serious clients ask questions. Send the project details, explain what you need built, and Moxi Corp
-          will help you choose the right website pack.
-        </p>
-
-        <div class="cta-row" style="justify-content: center;">
-          <a href="contact.html" class="btn">Send Enquiry →</a>
-          <a href="pricing.html" class="btn secondary">View Pricing</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer>
-    <div class="wrap">
-      © 2026 Moxi Corp. Based in Donnybrook, VIC.<br>
-      ABN: 18 936 263 775<br><br>
-      Email: support@moxicorpstudio.com.au |
-      <a href="privacy-policy.html">Privacy Policy</a>
+    <div class="wrap footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
+        <p>Real websites. Real communication. Built for real businesses.</p>
+      </div>
+
+      <div>
+        <strong>Contact</strong>
+        <a href="mailto:support@moxicorpstudio.com.au">
+          support@moxicorpstudio.com.au
+        </a>
+        <span>Donnybrook, Victoria</span>
+        <span>Australia-wide service</span>
+      </div>
+
+      <div>
+        <strong>Business</strong>
+        <span>ABN 18 936 263 775</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      © 2026 Moxi Corp. All rights reserved.
     </div>
   </footer>
 
   <script src="script.js"></script>
-
-  <script>
-    // Mobile menu fallback. If your main script.js already handles it, this will still be safe.
-    const menuButton = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-
-    if (menuButton && navLinks) {
-      menuButton.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-    }
-
-    // FAQ accordion.
-    const faqItems = document.querySelectorAll(".faq-item");
-
-    faqItems.forEach((item) => {
-      const button = item.querySelector(".faq-question");
-
-      button.addEventListener("click", () => {
-        const isOpen = item.classList.contains("active");
-
-        faqItems.forEach((otherItem) => {
-          otherItem.classList.remove("active");
-          const otherButton = otherItem.querySelector(".faq-question");
-          if (otherButton) {
-            otherButton.setAttribute("aria-expanded", "false");
-          }
-        });
-
-        if (!isOpen) {
-          item.classList.add("active");
-          button.setAttribute("aria-expanded", "true");
-        }
-      });
-    });
-  </script>
+  <script src="faq.js"></script>
 </body>
 </html>

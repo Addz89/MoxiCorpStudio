@@ -8,282 +8,497 @@
   <title>Pricing | Moxi Corp</title>
   <meta
     name="description"
-    content="Moxi Corp builds professional, animated, high-converting websites for small businesses across Australia. Custom-coded websites, SEO-ready structure, Stripe payments, and mobile-first design."
+    content="Compare Moxi Corp website packages for Australian small businesses. Starter, Growth and Elite websites with custom development, responsive design and SEO foundations."
   />
-  <meta name="theme-color" content="#06111f" />
+  <meta name="theme-color" content="#02050b" />
 
-  <link rel="icon" type="image/svg+xml" href="logo2.svg" />
+  <link rel="icon" type="image/svg+xml" href="images/newlogo2.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
+
   <link rel="stylesheet" href="styles.css" />
-</head>
+
   <style>
-    /* Page-specific upgrades for pricing.html */
     .pricing-hero {
       min-height: auto;
-      padding: 170px 0 60px;
-      position: relative;
+      padding: 150px 0 72px;
       overflow: hidden;
-    }
-
-    .pricing-hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 5% 0 5%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 200, 255, .65), transparent);
-      opacity: .9;
     }
 
     .pricing-hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 60px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 54px;
       align-items: center;
     }
 
-    .pricing-hero h1 {
-      font-size: clamp(3.4rem, 8vw, 7.4rem);
+    .pricing-hero-copy h1 {
+      margin: 10px 0 22px;
+      max-width: 930px;
+      font-size: clamp(3.6rem, 7.8vw, 7.2rem);
       line-height: .88;
-      letter-spacing: -.08em;
-      margin: 18px 0 26px;
-      max-width: 960px;
+      letter-spacing: -.082em;
     }
 
-    .pricing-hero .lead {
+    .pricing-hero-copy p {
       max-width: 760px;
       color: var(--muted);
-      font-size: clamp(1.02rem, 1.8vw, 1.25rem);
-      line-height: 1.75;
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
+      line-height: 1.8;
     }
 
     .pricing-trust-row {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      gap: 10px;
+      margin-top: 26px;
     }
 
     .trust-pill {
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.045);
-      color: var(--text);
+      padding: 9px 12px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 11px 15px;
-      font-size: .84rem;
+      color: #dcebf8;
+      background: rgba(255,255,255,.035);
+      font-family: var(--mono);
+      font-size: .66rem;
       font-weight: 800;
-      letter-spacing: .04em;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      box-shadow: 0 18px 60px rgba(0,0,0,.2);
     }
 
     .price-console {
       position: relative;
-      min-height: 430px;
-      border: 1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(circle at 25% 20%, rgba(0, 200, 255, .18), transparent 34%),
-        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
-      border-radius: 34px;
+      min-height: 455px;
       overflow: hidden;
-      box-shadow: 0 35px 100px rgba(0,0,0,.45);
+      padding: 25px;
+      border: 1px solid var(--line-blue);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(47,231,255,.10), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.022)),
+        rgba(3,11,22,.92);
+      box-shadow:
+        0 36px 110px rgba(0,0,0,.44),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(22px);
       transform-style: preserve-3d;
+      will-change: transform;
     }
 
     .price-console::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 38px 38px;
-      mask-image: radial-gradient(circle at 50% 40%, black, transparent 78%);
-      animation: gridSlide 15s linear infinite;
-      opacity: .45;
+      inset: -48%;
+      pointer-events: none;
+      background: conic-gradient(
+        transparent,
+        rgba(47,231,255,.11),
+        transparent 35%,
+        rgba(8,124,255,.10),
+        transparent 72%
+      );
+      animation: pricingAuraSpin 15s linear infinite;
     }
 
-    .console-window {
-      position: absolute;
-      inset: 32px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,.13);
-      background: rgba(3, 9, 20, .78);
-      backdrop-filter: blur(20px);
-      overflow: hidden;
-      animation: floatSoft 6s ease-in-out infinite;
+    @keyframes pricingAuraSpin {
+      to { transform: rotate(360deg); }
     }
 
-    .console-top {
-      height: 48px;
+    .price-console-top {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
-      gap: 9px;
-      padding: 0 18px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.04);
+      gap: 8px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .console-top span {
-      width: 11px;
-      height: 11px;
+    .price-console-top i {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: rgba(0, 200, 255, .75);
-      box-shadow: 0 0 20px rgba(0, 200, 255, .5);
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(47,231,255,.55);
     }
 
-    .console-body {
-      padding: 26px;
-      font-family: var(--mono, 'JetBrains Mono', monospace);
-      color: rgba(238, 248, 255, .92);
-      line-height: 1.75;
-      font-size: .92rem;
+    .price-console-top i:nth-child(2) { opacity: .7; }
+    .price-console-top i:nth-child(3) { opacity: .42; }
+
+    .price-console-top span {
+      margin-left: auto;
+      color: rgba(255,255,255,.42);
+      font-family: var(--mono);
+      font-size: .7rem;
     }
 
-    .console-body em,
-    .console-body strong {
-      color: #39d7ff;
-      font-style: normal;
-    }
-
-    .floating-badge {
-      position: absolute;
-      right: 28px;
-      bottom: 28px;
+    .price-console-code {
+      position: relative;
       z-index: 2;
-      border-radius: 22px;
-      padding: 18px 20px;
-      border: 1px solid rgba(0, 200, 255, .35);
-      background: rgba(0, 200, 255, .08);
-      box-shadow: 0 20px 60px rgba(0, 200, 255, .12);
-      font-weight: 900;
-      letter-spacing: -.03em;
-      animation: pulseBorder 2.8s ease-in-out infinite;
+      min-height: 245px;
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 17px;
+      background: rgba(0,0,0,.22);
+      color: #dff8ff;
+      font-family: var(--mono);
+      font-size: .8rem;
+      line-height: 1.75;
+      white-space: pre-wrap;
+      overflow: hidden;
     }
 
-    .pricing-intro {
+    .pricing-code-comment { color: #65778d; }
+    .pricing-code-key { color: #fff; }
+    .pricing-code-function { color: var(--cyan); }
+    .pricing-code-string { color: #bcefff; }
+    .pricing-code-value { color: #6fb7ff; }
+
+    .pricing-console-cursor {
+      display: inline-block;
+      width: 7px;
+      height: 1em;
+      margin-left: 3px;
+      vertical-align: -.15em;
+      background: #fff;
+      box-shadow: 0 0 12px rgba(47,231,255,.75);
+      animation: pricingCursorBlink .72s steps(1) infinite;
+    }
+
+    @keyframes pricingCursorBlink {
+      0%, 46% { opacity: 1; }
+      47%, 100% { opacity: 0; }
+    }
+
+    .price-status {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 40px;
-      align-items: start;
-      margin-bottom: 48px;
+      gap: 10px;
+      margin-top: 17px;
+      padding: 14px 15px;
+      border: 1px solid rgba(47,231,255,.15);
+      border-radius: 15px;
+      background: rgba(255,255,255,.03);
     }
 
-    .pricing-note {
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.045);
-      border-radius: 26px;
-      padding: 28px;
+    .price-status-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      font-family: var(--mono);
+      font-size: .67rem;
+    }
+
+    .price-status-copy span {
+      color: var(--muted);
+    }
+
+    .price-status-copy strong {
+      color: var(--cyan);
+    }
+
+    .price-status-track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,.065);
+    }
+
+    .price-status-track span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #fff, var(--cyan), var(--blue));
+      box-shadow: 0 0 18px rgba(47,231,255,.38);
+      transition: width .7s cubic-bezier(.16,1,.3,1);
+    }
+
+    .sale-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 24px;
+      padding: 11px 15px;
+      border: 1px solid rgba(47,231,255,.25);
+      border-radius: 999px;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.045), rgba(47,231,255,.06));
+      box-shadow:
+        0 0 30px rgba(47,231,255,.08),
+        inset 0 1px 0 rgba(255,255,255,.05);
+      font-weight: 900;
+    }
+
+    .sale-banner b {
+      color: var(--cyan);
+    }
+
+    .sale-banner span {
+      animation: saleBolt 1.7s ease-in-out infinite;
+    }
+
+    @keyframes saleBolt {
+      50% { transform: translateY(-4px) rotate(-7deg); }
+    }
+
+    .pricing-guide {
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .pricing-sidebar {
       position: sticky;
       top: 110px;
+      display: grid;
+      gap: 15px;
     }
 
-    .pricing-note h3 {
-      font-size: 1.45rem;
-      margin-bottom: 12px;
+    .pricing-sidebar-card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 23px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.022));
+      box-shadow: 0 20px 62px rgba(0,0,0,.24);
+      backdrop-filter: blur(18px);
     }
 
-    .pricing-note p {
+    .pricing-sidebar-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      letter-spacing: -.04em;
+    }
+
+    .pricing-sidebar-card p {
       color: var(--muted);
-      line-height: 1.75;
+      font-size: .88rem;
+      line-height: 1.65;
     }
 
-    .pricing-grid.enhanced {
+    .pricing-nav {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pricing-nav a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 12px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 13px;
+      color: #d6e6f5;
+      background: rgba(255,255,255,.025);
+      font-size: .77rem;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .pricing-nav a:hover,
+    .pricing-nav a.active {
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      border-color: transparent;
+      transform: translateX(4px);
+      box-shadow: 0 12px 28px rgba(47,231,255,.12);
+    }
+
+    .pricing-content {
+      min-width: 0;
+    }
+
+    .pricing-grid.pricing-page-grid {
       align-items: stretch;
     }
 
-    .price-card {
+    .pricing-page-grid .price-card {
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 700px;
     }
 
-    .price-card::before {
+    .pricing-page-grid .price-card::after {
       content: "";
       position: absolute;
-      inset: -1px;
-      background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(0, 200, 255, .22), transparent 35%);
-      opacity: 0;
-      transition: opacity .35s ease;
+      inset: 0;
       pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(
+        430px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+        rgba(47,231,255,.12),
+        transparent 42%
+      );
+      transition: opacity .3s;
     }
 
-    .price-card:hover::before {
+    .pricing-page-grid .price-card:hover::after {
       opacity: 1;
+    }
+
+    .pricing-page-grid .price-card > * {
+      position: relative;
+      z-index: 2;
     }
 
     .pack-label {
       display: inline-flex;
+      width: fit-content;
       align-items: center;
       gap: 8px;
-      color: #65dcff;
-      font-family: var(--mono, 'JetBrains Mono', monospace);
-      font-size: .78rem;
-      letter-spacing: .12em;
+      margin-bottom: 14px;
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .10em;
       text-transform: uppercase;
-      margin-bottom: 16px;
     }
 
-    .price-card h3 {
-      font-size: 2rem;
+    .sale-badge {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      font-family: var(--mono);
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .pricing-page-grid .price-card h3 {
+      font-size: 1.75rem;
       letter-spacing: -.045em;
     }
 
-    .price-subtitle {
-      color: var(--muted);
-      line-height: 1.65;
-      min-height: 80px;
-      margin: 14px 0 26px;
+    .popular{
+      position: absolute;
+      top: -18px;
+      right: -58px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #00111f;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      font-family: var(--mono);
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
-    .price {
+    .old-price {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 800;
+      text-decoration: line-through;
+      text-decoration-color: var(--cyan);
+      text-decoration-thickness: 2px;
+    }
+
+    .pricing-page-grid .price {
       display: flex;
       align-items: flex-end;
       gap: 8px;
-      margin-bottom: 20px;
+      margin: 2px 0 17px;
+      color: #fff;
+      font-size: 4rem;
+      text-shadow: 0 0 18px rgba(47,231,255,.15);
     }
 
-    .price small {
-      color: var(--muted);
-      font-size: .92rem;
+    .pricing-page-grid .price small {
       margin-bottom: 10px;
-      font-weight: 700;
+      color: var(--muted);
+      font-size: .82rem;
+      letter-spacing: 0;
     }
 
-    .clean li {
-      margin-bottom: 12px;
-      color: rgba(238, 248, 255, .86);
-      line-height: 1.55;
+    .price-subtitle {
+      min-height: 82px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .pricing-page-grid ul {
+      display: grid;
+      gap: 11px;
+      margin: 22px 0;
+    }
+
+    .pricing-page-grid li {
+      list-style: none;
+      color: #d9e6f4;
+      font-size: .84rem;
+      line-height: 1.5;
+    }
+
+    .pricing-page-grid li::before {
+      content: "✓";
+      margin-right: 9px;
+      color: var(--cyan);
+      font-weight: 900;
     }
 
     .pack-best-for {
-      margin: 26px 0;
-      border-top: 1px solid rgba(255,255,255,.09);
-      border-bottom: 1px solid rgba(255,255,255,.09);
-      padding: 18px 0;
+      margin: 4px 0 18px;
+      padding: 16px 0;
+      border-block: 1px solid var(--line);
       color: var(--muted);
-      line-height: 1.6;
+      font-size: .82rem;
+      line-height: 1.55;
     }
 
     .pack-best-for b {
-      color: var(--text);
+      color: #fff;
+    }
+
+    .sale-note {
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+
+    .sale-note strong {
+      color: var(--cyan);
+    }
+
+    .pricing-page-grid .checkout-btn {
+      margin-top: auto;
     }
 
     .compare-table {
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 26px;
       overflow: hidden;
-      background: rgba(255,255,255,.035);
-      box-shadow: 0 30px 100px rgba(0,0,0,.32);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 26px 85px rgba(0,0,0,.29);
     }
 
     .compare-row {
       display: grid;
       grid-template-columns: 1.3fr repeat(3, 1fr);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid var(--line);
     }
 
     .compare-row:last-child {
@@ -291,12 +506,13 @@
     }
 
     .compare-row > div {
-      padding: 18px 20px;
-      color: var(--muted);
-      border-right: 1px solid rgba(255,255,255,.08);
-      min-height: 64px;
+      min-height: 62px;
       display: flex;
       align-items: center;
+      padding: 16px 18px;
+      border-right: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
     }
 
     .compare-row > div:last-child {
@@ -304,101 +520,110 @@
     }
 
     .compare-head > div {
-      color: var(--text);
+      color: #fff;
+      background: rgba(255,255,255,.045);
       font-weight: 900;
-      background: rgba(255,255,255,.055);
     }
 
     .compare-row .yes {
-      color: #5ee6ff;
+      color: var(--cyan);
       font-weight: 900;
     }
 
-    .addons-mini-grid {
+    .addons-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 36px;
+      gap: 17px;
+      margin-top: 34px;
     }
 
-    .addon-mini {
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.04);
-      border-radius: 22px;
+    .addon-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 170px;
       padding: 22px;
-      min-height: 145px;
-      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: rgba(255,255,255,.035);
+      transition: transform .28s, border-color .28s;
     }
 
-    .addon-mini:hover {
-      transform: translateY(-8px);
-      border-color: rgba(0, 200, 255, .35);
-      background: rgba(0, 200, 255, .06);
+    .addon-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(47,231,255,.28);
     }
 
-    .addon-mini h3 {
-      font-size: 1.02rem;
-      margin-bottom: 10px;
+    .addon-card span {
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .67rem;
+      font-weight: 900;
     }
 
-    .addon-mini p {
+    .addon-card h3 {
+      margin: 40px 0 9px;
+      font-size: 1.05rem;
+    }
+
+    .addon-card p {
       color: var(--muted);
+      font-size: .83rem;
       line-height: 1.55;
-      font-size: .94rem;
     }
 
-    .faq-pricing {
+    .pricing-faq-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
-    .faq-mini {
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.04);
-      border-radius: 24px;
-      padding: 26px;
+    .pricing-faq-card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.035);
     }
 
-    .faq-mini h3 {
-      margin-bottom: 10px;
-      font-size: 1.15rem;
+    .pricing-faq-card h3 {
+      margin-bottom: 9px;
+      font-size: 1.1rem;
     }
 
-    .faq-mini p {
+    .pricing-faq-card p {
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
-    @keyframes gridSlide {
-      from { transform: translate3d(0, 0, 0); }
-      to { transform: translate3d(38px, 38px, 0); }
-    }
-
-    @keyframes floatSoft {
-      0%, 100% { transform: translateY(0) rotateX(0deg); }
-      50% { transform: translateY(-12px) rotateX(2deg); }
-    }
-
-    @keyframes pulseBorder {
-      0%, 100% { box-shadow: 0 20px 60px rgba(0, 200, 255, .12); }
-      50% { box-shadow: 0 20px 85px rgba(0, 200, 255, .25); }
-    }
-
-    @media (max-width: 980px) {
+    @media (max-width: 1050px) {
       .pricing-hero-grid,
-      .pricing-intro,
-      .faq-pricing {
+      .pricing-guide {
         grid-template-columns: 1fr;
       }
 
-      .pricing-note {
-        position: relative;
-        top: auto;
+      .pricing-sidebar {
+        position: static;
       }
 
-      .price-console {
-        min-height: 360px;
+      .pricing-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .pricing-page-grid.pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pricing-page-grid .price-card {
+        min-height: auto;
+      }
+
+      .pricing-page-grid .price-card.featured {
+        transform: none;
+      }
+
+      .addons-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .compare-table {
@@ -408,112 +633,70 @@
       .compare-row {
         min-width: 760px;
       }
-
-      .addons-mini-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 650px) {
       .pricing-hero {
-        padding-top: 140px;
+        padding-top: 125px;
       }
 
-      .addons-mini-grid {
+      .price-console {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .price-console-code {
+        min-height: 225px;
+        padding: 14px;
+        font-size: .68rem;
+      }
+
+      .pricing-nav,
+      .pricing-page-grid.pricing-grid,
+      .addons-grid,
+      .pricing-faq-grid {
         grid-template-columns: 1fr;
       }
 
-      .console-body {
-        font-size: .78rem;
-        padding: 22px;
+      .pricing-page-grid .price {
+        font-size: 3.4rem;
       }
 
-      .floating-badge {
-        left: 24px;
-        right: 24px;
-        text-align: center;
+      .sale-banner {
+        width: 100%;
+        align-items: flex-start;
+        border-radius: 18px;
       }
     }
-  
-    /* THIS WEEK ONLY SALE */
-    .sale-banner {
-      margin-top: 30px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(219, 11, 217, 0.42);
-      background: linear-gradient(90deg, rgba(4,219,250,.11), rgba(155,50,233,.12), rgba(219,11,217,.12));
-      color: #fff;
-      font-weight: 900;
-      box-shadow: 0 0 30px rgba(4,219,250,.10), 0 0 42px rgba(219,11,217,.10);
-    }
-
-    .sale-banner strong {
-      background: linear-gradient(90deg, #04dbfa, #5d67f2, #db0bd9);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .sale-badge {
-      display: inline-flex;
-      width: fit-content;
-      margin: 0 0 15px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #04dbfa, #5d67f2, #db0bd9);
-      color: #fff;
-      font-family: var(--mono, "JetBrains Mono", monospace);
-      font-size: .74rem;
-      font-weight: 900;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .old-price {
-      color: var(--muted);
-      font-size: .95rem;
-      font-weight: 800;
-      margin-top: 12px;
-      text-decoration: line-through;
-      text-decoration-thickness: 2px;
-      text-decoration-color: #db0bd9;
-      opacity: .78;
-    }
-
-    .sale-price {
-      background: linear-gradient(90deg, #04dbfa, #2b9af4, #9b32e9, #db0bd9);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .sale-note {
-      margin-top: 14px;
-      color: #d9d7eb;
-      font-size: .9rem;
-      line-height: 1.55;
-    }
-
-    .sale-note strong {
-      color: #04dbfa;
-    }
-
-</style>
-  <link rel="stylesheet" href="brand-theme.css" />
+  </style>
 </head>
+
 <body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
   <div class="noise" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <nav>
-    <a href="index.html" class="logo" aria-label="Moxi Corp home">Moxi <b>Corp</b></a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
+      <span class="logo-mark">
+        <img src="images/newlogo2.svg" alt="Moxi Corp logo" />
+      </span>
+      <span>Moxi <b>Corp</b></span>
+    </a>
 
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
 
-    <div class="nav-links" id="navLinks" aria-label="Main navigation">
+    <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
@@ -524,285 +707,442 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <a class="nav-cta" href="contact.html">Free Quote</a>
+    <a class="nav-cta magnetic" href="contact.html">Free Quote</a>
   </nav>
 
-  <main class="pricing-hero">
+  <header class="hero pricing-hero">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
     <div class="wrap pricing-hero-grid">
-      <div class="reveal">
-        <div class="kicker">Pricing</div>
-        <h1>Website packs built for serious small businesses.</h1>
-        <p class="lead">
-          Clear pricing makes the decision easier. Pick the pack that matches where your business is right now, then scale with extra pages, SEO upgrades, Stripe support, maintenance, and future improvements when you need them.
+      <div class="pricing-hero-copy">
+        <div class="kicker reveal">
+          <span class="live-dot"></span>
+          Clear pricing • One-off website builds
+        </div>
+
+        <h1>
+          Choose the pack that fits your
+          <span class="gradient-text">business.</span>
+        </h1>
+
+        <p class="reveal">
+          Start with the website your business needs now. Each package includes
+          professional design, responsive development and a clear build process,
+          with room to add extra pages and features later.
         </p>
 
-        <div class="pricing-trust-row" aria-label="Pricing benefits">
-          <span class="trust-pill">No template junk</span>
+        <div class="pricing-trust-row reveal">
+          <span class="trust-pill">Custom development</span>
           <span class="trust-pill">Mobile responsive</span>
           <span class="trust-pill">SEO foundations</span>
-          <span class="trust-pill">Stripe checkout support</span>
+          <span class="trust-pill">Direct communication</span>
         </div>
-        <div class="sale-banner">
-          <strong>This Week Only</strong>
-          Save across all three website packs.
+
+        <div class="sale-banner reveal">
+          <span>⚡</span>
+          <div><b>This week only:</b> Starter $409 • Growth $650 • Elite $900</div>
         </div>
       </div>
 
-      <aside class="price-console reveal tilt" aria-label="Pricing system visual">
-        <div class="console-window">
-          <div class="console-top"><span></span><span></span><span></span></div>
-          <div class="console-body">
-            <strong>// Moxi pricing engine</strong><br>
-            const pack = select({<br>
-            &nbsp;&nbsp;starter: <em>'launch fast'</em>,<br>
-            &nbsp;&nbsp;growth: <em>'build authority'</em>,<br>
-            &nbsp;&nbsp;elite: <em>'premium presence'</em>,<br>
-            &nbsp;&nbsp;checkout: <em>'stripe ready'</em>,<br>
-            &nbsp;&nbsp;support: <em>'available'</em><br>
-            });<br><br>
-            pack.launch();
+      <div class="price-console reveal" id="priceConsole">
+        <div class="price-console-top">
+          <i></i><i></i><i></i>
+          <span>moxi_pricing_engine.js</span>
+        </div>
+
+        <pre class="price-console-code" id="pricingCode" aria-label="Animated website pricing code"></pre>
+
+        <div class="price-status">
+          <div class="price-status-copy">
+            <span>PACKAGE MATCH</span>
+            <strong id="pricingStatusText">Analysing...</strong>
+          </div>
+
+          <div class="price-status-track">
+            <span id="pricingStatusFill"></span>
           </div>
         </div>
-        <div class="floating-badge">This Week Only — From $409 AUD</div>
-      </aside>
-    </div>
-  </main>
-
-  <section class="section">
-    <div class="wrap pricing-intro">
-      <div class="pricing-note reveal">
-        <div class="kicker">How To Choose</div>
-        <h3>Do not buy the biggest pack just because it sounds good.</h3>
-        <p>
-          Pick the pack that matches the job. A simple new business should start clean. A business running ads or chasing leads needs more pages and better conversion structure. A serious brand needs stronger architecture, more proof, more sections, and a more premium experience.
-        </p>
       </div>
+    </div>
+  </header>
 
-      <div>
-        <div class="section-head left reveal" style="margin-bottom: 30px;">
-          <div class="kicker">Website Packs</div>
-          <h2>Simple offers. Professional execution.</h2>
+  <main>
+    <section class="section" style="padding-top:55px;">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Website Packages</div>
+          <h2>Simple options. Professional execution.</h2>
           <p>
-            Every pack is designed to make your business look more credible, easier to understand, and easier to contact. This week only, Starter is $409, Growth is $650, and Elite is $900.
+            Choose Starter for a clean first website, Growth for a larger
+            service-business site, or Elite for a more advanced premium build.
           </p>
         </div>
-      </div>
-    </div>
 
-    <div class="wrap">
-      <div class="pricing-grid enhanced">
-        <article class="price-card reveal tilt">
-          <span class="pack-label">01 / Starter</span>
-          <div class="sale-badge">This Week Only</div>
-          <h3>Starter Pack</h3>
-          <div class="old-price">Was $599 AUD</div>
-          <div class="price sale-price">$409 <small>AUD</small></div>
-          <p class="price-subtitle">
-            For new businesses that need to look professional quickly without overcomplicating the first launch.
+        <div class="pricing-guide">
+          <aside class="pricing-sidebar reveal">
+            <div class="pricing-sidebar-card">
+              <h3>Choose your package</h3>
+              <p>Jump directly to the option you want to review.</p>
+
+              <div class="pricing-nav" id="pricingNav">
+                <a href="#starter">Starter <span>$409</span></a>
+                <a href="#growth">Growth <span>$650</span></a>
+                <a href="#elite">Elite <span>$900</span></a>
+              </div>
+            </div>
+
+            <div class="pricing-sidebar-card">
+              <h3>Not sure which one?</h3>
+              <p>
+                Send your project details and I’ll recommend the package that
+                best matches the number of pages, features and goals.
+              </p>
+
+              <div class="cta-row" style="margin-top:16px;">
+                <a href="contact.html" class="btn magnetic" style="width:100%;">
+                  Request Free Quote
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="pricing-content">
+            <div class="pricing-grid pricing-page-grid">
+              <article class="price-card reveal tilt-card spotlight-card" id="starter">
+                <!-- <span class="pack-label">01 / Starter</span> -->
+                <span class="sale-badge">This Week Only</span>
+
+                <h3>Starter Pack</h3>
+
+                <div class="old-price">Was $599 AUD</div>
+                <div class="price">$409 <small>AUD</small></div>
+
+                <p class="price-subtitle">
+                  For new businesses that need a clean, professional online
+                  presence without unnecessary complexity.
+                </p>
+
+                <ul>
+                  <li>Up to 3 custom pages</li>
+                  <li>Responsive phone, tablet and desktop layout</li>
+                  <li>Basic SEO foundations</li>
+                  <li>Contact form setup</li>
+                  <li>Social media links</li>
+                  <li>Domain and launch guidance</li>
+                </ul>
+
+                <div class="pack-best-for">
+                  <b>Best for:</b> new businesses, trades, solo operators and
+                  simple service websites.
+                </div>
+
+                <p class="sale-note">
+                  <strong>Save $190.</strong> This promotional price is available this week.
+                </p>
+
+                <button
+                  class="checkout-btn magnetic"
+                  type="button"
+                  onclick="openCheckout('Starter Pack', 409)"
+                >
+                  Choose Starter
+                </button>
+              </article>
+
+              <article class="price-card featured reveal tilt-card spotlight-card" id="growth">
+                <div class="popular">Most Popular</div>
+                <!-- <span class="pack-label">02 / Growth</span> -->
+                <span class="sale-badge">This Week Only</span>
+
+                <h3>Growth Pack</h3>
+
+                <div class="old-price">Was $849 AUD</div>
+                <div class="price">$650 <small>AUD</small></div>
+
+                <p class="price-subtitle">
+                  For businesses that need more pages, stronger content,
+                  better structure and more conversion-focused sections.
+                </p>
+
+                <ul>
+                  <li>Up to 9 custom pages</li>
+                  <li>Advanced page structure</li>
+                  <li>Service and conversion sections</li>
+                  <li>SEO-focused headings and metadata guidance</li>
+                  <li>Custom animations and interactions</li>
+                  <li>Google and Meta setup guidance</li>
+                  <li>Speed optimisation</li>
+                </ul>
+
+                <div class="pack-best-for">
+                  <b>Best for:</b> local service businesses, growing brands and
+                  businesses planning to advertise.
+                </div>
+
+                <p class="sale-note">
+                  <strong>Save $199.</strong> This promotional price is available this week.
+                </p>
+
+                <button
+                  class="checkout-btn magnetic"
+                  type="button"
+                  onclick="openCheckout('Growth Pack', 650)"
+                >
+                  Choose Growth
+                </button>
+              </article>
+
+              <article class="price-card reveal tilt-card spotlight-card" id="elite">
+                <!-- <span class="pack-label">03 / Elite</span> -->
+                <span class="sale-badge">This Week Only</span>
+
+                <h3>Elite Pack</h3>
+
+                <div class="old-price">Was $1,159 AUD</div>
+                <div class="price">$900 <small>AUD</small></div>
+
+                <p class="price-subtitle">
+                  For established businesses that need a larger premium website
+                  with stronger proof, features and conversion pathways.
+                </p>
+
+                <ul>
+                  <li>Expanded page architecture</li>
+                  <li>Premium homepage design</li>
+                  <li>Custom feature sections</li>
+                  <li>Stripe payment-flow planning</li>
+                  <li>Advanced conversion sections</li>
+                  <li>Launch and security checklist</li>
+                  <li>Priority build flow</li>
+                </ul>
+
+                <div class="pack-best-for">
+                  <b>Best for:</b> established businesses, premium brands and
+                  larger client-acquisition websites.
+                </div>
+
+                <p class="sale-note">
+                  <strong>Save $259.</strong> This promotional price is available this week.
+                </p>
+
+                <button
+                  class="checkout-btn magnetic"
+                  type="button"
+                  onclick="openCheckout('Elite Pack', 900)"
+                >
+                  Choose Elite
+                </button>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Compare Packages</div>
+          <h2>See the difference clearly.</h2>
+          <p>
+            Compare the main inclusions before selecting the website package
+            that best fits your current business.
           </p>
+        </div>
 
-          <ul class="clean">
-            <li>3 page custom website</li>
-            <li>Home, services/about, contact structure</li>
-            <li>Mobile responsive layout</li>
-            <li>Basic SEO foundations</li>
-            <li>Contact form setup</li>
-            <li>Fast hosting setup guidance</li>
-          </ul>
+        <div class="compare-table reveal" role="table" aria-label="Website package comparison">
+          <div class="compare-row compare-head" role="row">
+            <div role="columnheader">Feature</div>
+            <div role="columnheader">Starter</div>
+            <div role="columnheader">Growth</div>
+            <div role="columnheader">Elite</div>
+          </div>
 
-          <div class="pack-best-for"><b>Best for:</b> new businesses, simple service sites, one-person brands, trades, and start-up websites.</div>
+          <div class="compare-row" role="row">
+            <div role="cell">Custom responsive design</div>
+            <div class="yes" role="cell">Included</div>
+            <div class="yes" role="cell">Included</div>
+            <div class="yes" role="cell">Included</div>
+          </div>
 
-          <p class="sale-note"><strong>Save $190.</strong> Sale price available this week only.</p>
-          <button class="checkout-btn" type="button" onclick="openCheckout('Starter Pack (1 Week Only Sale)', 409)">Claim Starter Special</button>
-        </article>
+          <div class="compare-row" role="row">
+            <div role="cell">Page structure</div>
+            <div role="cell">Up to 3 pages</div>
+            <div role="cell">Up to 9 pages</div>
+            <div role="cell">Expanded architecture</div>
+          </div>
 
-        <article class="price-card featured reveal tilt">
-          <div class="popular">Most Popular</div>
-          <span class="pack-label">02 / Growth</span>
-          <div class="sale-badge">This Week Only</div>
-          <h3>Growth Pack</h3>
-          <div class="old-price">Was $849 AUD</div>
-          <div class="price sale-price">$650 <small>AUD</small></div>
-          <p class="price-subtitle">
-            For businesses that want more pages, stronger content, better structure, and a website that feels more complete.
+          <div class="compare-row" role="row">
+            <div role="cell">SEO foundations</div>
+            <div role="cell">Basic</div>
+            <div role="cell">Advanced structure</div>
+            <div role="cell">Advanced planning</div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div role="cell">Animations</div>
+            <div role="cell">Light motion</div>
+            <div role="cell">Custom motion</div>
+            <div role="cell">Premium motion system</div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div role="cell">Stripe payment planning</div>
+            <div role="cell">Optional</div>
+            <div role="cell">Optional</div>
+            <div class="yes" role="cell">Included</div>
+          </div>
+
+          <div class="compare-row" role="row">
+            <div role="cell">Best suited to</div>
+            <div role="cell">New businesses</div>
+            <div role="cell">Growing businesses</div>
+            <div role="cell">Premium brands</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Optional Extras</div>
+          <h2>Add what your business actually needs.</h2>
+          <p>
+            Extra pages, content, analytics and maintenance can be added when
+            they are relevant to your project.
           </p>
+        </div>
 
-          <ul class="clean">
-            <li>Up to 9 pages</li>
-            <li>Advanced page structure</li>
-            <li>Service sections and selling copy</li>
-            <li>SEO-focused headings and metadata guidance</li>
-            <li>Google / Meta Pixel guidance</li>
-            <li>Speed optimisation</li>
-            <li>Custom animations and motion sections</li>
-          </ul>
+        <div class="addons-grid">
+          <article class="addon-card reveal spotlight-card">
+            <span>01</span>
+            <h3>Additional pages</h3>
+            <p>Add service, location, gallery, campaign or landing pages as your business grows.</p>
+          </article>
 
-          <div class="pack-best-for"><b>Best for:</b> local businesses, service providers, growing brands, and anyone planning to advertise.</div>
+          <article class="addon-card reveal spotlight-card">
+            <span>02</span>
+            <h3>SEO content</h3>
+            <p>Improve headings, service descriptions and keyword-focused page content.</p>
+          </article>
 
-          <p class="sale-note"><strong>Save $199.</strong> Sale price available this week only.</p>
-          <button class="checkout-btn" type="button" onclick="openCheckout('Growth Pack (1 Week Only Sale)', 650)">Claim Growth Special</button>
-        </article>
+          <article class="addon-card reveal spotlight-card">
+            <span>03</span>
+            <h3>Google setup</h3>
+            <p>Support for Analytics, Search Console and Google Business Profile foundations.</p>
+          </article>
 
-        <article class="price-card reveal tilt">
-          <span class="pack-label">03 / Elite</span>
-          <div class="sale-badge">This Week Only</div>
-          <h3>Elite Pack</h3>
-          <div class="old-price">Was $1,159 AUD</div>
-          <div class="price sale-price">$900 <small>AUD</small></div>
-          <p class="price-subtitle">
-            For serious brands that need a bigger premium website with stronger proof, better flow, and advanced sections.
+          <article class="addon-card reveal spotlight-card">
+            <span>04</span>
+            <h3>Maintenance</h3>
+            <p>Future updates, new sections, content changes and continued website improvements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Payments and Quotes</div>
+          <h2>Choose checkout or request advice.</h2>
+          <p>
+            Fixed packages can be purchased through Stripe. Custom projects and
+            larger requirements can begin with a free quote request.
           </p>
+        </div>
 
-          <ul class="clean">
-            <li>Expanded page architecture</li>
-            <li>Premium homepage build</li>
-            <li>Custom feature sections</li>
-            <li>Stripe support and payment flow planning</li>
-            <li>Advanced conversion sections</li>
-            <li>Security and launch checklist</li>
-            <li>Priority build flow</li>
-          </ul>
+        <div class="pricing-faq-grid">
+          <article class="pricing-faq-card reveal spotlight-card">
+            <h3>Can I pay securely online?</h3>
+            <p>
+              Yes. Selecting a package opens the Moxi Corp checkout modal and
+              redirects you to the correct secure Stripe payment link.
+            </p>
+          </article>
 
-          <div class="pack-best-for"><b>Best for:</b> established businesses, premium brands, e-commerce starters, and serious client acquisition.</div>
+          <article class="pricing-faq-card reveal spotlight-card">
+            <h3>What if my project is different?</h3>
+            <p>
+              Use the contact page for custom features, larger builds, unusual
+              requirements or help selecting the most suitable package.
+            </p>
+          </article>
+        </div>
 
-          <p class="sale-note"><strong>Save $259.</strong> Sale price available this week only.</p>
-          <button class="checkout-btn" type="button" onclick="openCheckout('Elite Pack (1 Week Only Sale)', 900)">Claim Elite Special</button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Compare Packs</div>
-        <h2>What is included?</h2>
-        <p>
-          Do not make people guess. A clear comparison table helps clients understand the difference without needing to message ten questions first.
-        </p>
-      </div>
-
-      <div class="compare-table reveal" role="table" aria-label="Website package comparison">
-        <div class="compare-row compare-head" role="row">
-          <div role="columnheader">Feature</div>
-          <div role="columnheader">Starter</div>
-          <div role="columnheader">Growth</div>
-          <div role="columnheader">Elite</div>
-        </div>
-        <div class="compare-row" role="row">
-          <div role="cell">Custom responsive design</div>
-          <div class="yes" role="cell">Included</div>
-          <div class="yes" role="cell">Included</div>
-          <div class="yes" role="cell">Included</div>
-        </div>
-        <div class="compare-row" role="row">
-          <div role="cell">Page count</div>
-          <div role="cell">3 pages</div>
-          <div role="cell">Up to 9 pages</div>
-          <div role="cell">Expanded architecture</div>
-        </div>
-        <div class="compare-row" role="row">
-          <div role="cell">SEO structure</div>
-          <div role="cell">Basic</div>
-          <div role="cell">Advanced</div>
-          <div role="cell">Advanced + strategy</div>
-        </div>
-        <div class="compare-row" role="row">
-          <div role="cell">Animations and motion</div>
-          <div role="cell">Light</div>
-          <div role="cell">Custom</div>
-          <div role="cell">Premium motion system</div>
-        </div>
-        <div class="compare-row" role="row">
-          <div role="cell">Stripe/payment guidance</div>
-          <div role="cell">Optional</div>
-          <div role="cell">Optional</div>
-          <div class="yes" role="cell">Included planning</div>
-        </div>
-        <div class="compare-row" role="row">
-          <div role="cell">Best use case</div>
-          <div role="cell">New business</div>
-          <div role="cell">Growing business</div>
-          <div role="cell">Premium brand</div>
+        <div class="cta-row reveal center" style="margin-top:32px;">
+          <a href="contact.html" class="btn magnetic">Request Free Quote →</a>
+          <a href="portfolio.html" class="btn secondary magnetic">View Live Work</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Extras</div>
-        <h2>Add what the business actually needs.</h2>
-        <p>
-          The packs cover the main build. Add-ons are there when a client needs extra pages, SEO copy, forms, Google setup, design assets, or long-term maintenance.
-        </p>
-      </div>
-
-      <div class="addons-mini-grid">
-        <div class="addon-mini reveal"><h3>Extra Pages</h3><p>Add more service, location, landing, gallery, or campaign pages when the business grows.</p></div>
-        <div class="addon-mini reveal"><h3>SEO Copy</h3><p>Improve page wording, headings, and keyword targeting so the site is easier for Google and customers to understand.</p></div>
-        <div class="addon-mini reveal"><h3>Google Setup</h3><p>Support for Google Business Profile, Google Analytics, and Search Console foundations.</p></div>
-        <div class="addon-mini reveal"><h3>Maintenance</h3><p>Updates, changes, checks, new sections, content improvements, and future site upgrades.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Payment Flow</div>
-        <h2>Stripe checkout stays clean.</h2>
-        <p>
-          The buttons below keep your existing JavaScript checkout hook. Replace the placeholder Stripe payment links inside <code>script.js</code> with your real Stripe links and the modal will redirect correctly.
-        </p>
-      </div>
-
-      <div class="faq-pricing">
-        <div class="faq-mini reveal">
-          <h3>Can clients pay online?</h3>
-          <p>Yes. Each pack button calls <code>openCheckout()</code>, shows the selected pack, then uses <code>redirectToStripe()</code> to send the client to Stripe checkout.</p>
-        </div>
-        <div class="faq-mini reveal">
-          <h3>Can clients request a quote instead?</h3>
-          <p>Yes. Not every job should be pushed straight to payment. Use the contact page for bigger builds, custom work, or clients who need advice first.</p>
-        </div>
-      </div>
-
-      <div class="cta-row reveal" style="justify-content: center; margin-top: 34px;">
-        <a class="btn" href="contact.html">Ask For A Quote</a>
-        <a class="btn secondary" href="portfolio.html">View Live Work</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <div class="purchase-overlay" id="purchaseModal" aria-hidden="true">
     <div class="purchase-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutPackageName">
-      <button class="close-modal" type="button" onclick="closeCheckout()" aria-label="Close checkout modal">✕</button>
+      <button
+        class="close-modal"
+        type="button"
+        id="closeCheckoutButton"
+        aria-label="Close checkout modal"
+      >
+        ✕
+      </button>
 
-      <div class="modal-header">
-        <h3 id="checkoutPackageName">Package</h3>
-        <p>Total Investment: $<span id="checkoutPrice">0</span> AUD</p>
-      </div>
+      <div class="modal-icon">S</div>
 
-      <p style="color: var(--muted); line-height: 1.7; margin-bottom: 22px;">
-        You are about to be redirected to secure Stripe checkout for the selected one-week sale package.
+      <h3 id="checkoutPackageName">Package Name</h3>
+
+      <p>
+        Total investment:
+        <strong>$<span id="checkoutPrice">0</span> AUD</strong>
       </p>
 
-      <button type="button" onclick="redirectToStripe()" class="secure-checkout-btn">Proceed to Secure Checkout →</button>
+      <small>You will be redirected to secure Stripe checkout.</small>
+
+      <button
+        type="button"
+        id="secureCheckoutButton"
+        class="secure-checkout-btn"
+      >
+        Proceed to Secure Checkout →
+      </button>
+
       <div class="secure-badge">🔒 Secure checkout via Stripe</div>
     </div>
   </div>
 
   <footer>
-    <div class="wrap">
-      © 2026 Moxi Corp. Based in Donnybrook, VIC.<br>
-      ABN: 18 936 263 775<br><br>
-      Email: support@moxicorpstudio.com.au |
-      <a href="privacy-policy.html">Privacy Policy</a>
+    <div class="wrap footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
+        <p>Real websites. Real communication. Built for real businesses.</p>
+      </div>
+
+      <div>
+        <strong>Contact</strong>
+        <a href="mailto:support@moxicorpstudio.com.au">
+          support@moxicorpstudio.com.au
+        </a>
+        <span>Donnybrook, Victoria</span>
+        <span>Australia-wide service</span>
+      </div>
+
+      <div>
+        <strong>Business</strong>
+        <span>ABN 18 936 263 775</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      © 2026 Moxi Corp. All rights reserved.
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script src="pricing.js"></script>
 </body>
 </html>
