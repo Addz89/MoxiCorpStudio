@@ -1,9 +1,22 @@
-MOXI CORP THANK-YOU PAGE
+MOXI CORP WEBSITE UPLOAD INSTRUCTIONS
 
-Upload these files to the root of your website:
+Rename and upload these files to the root of your website:
+- landing(1).html -> index.html
+- styles(25).css -> styles.css
+- script(17).js -> script.js
+- animations(3).js -> animations.js (optional)
 - thanks.html
 - thanks.css
 - thanks.js
+
+Also upload your existing images folder. The landing page expects:
+- images/program-hero.jpg
+- images/vcard-qr.png
+- images/newlogo2.svg
+- images/ashar-music.png
+- images/Web1.png
+- images/web5.png
+- images/web7.png
 
 The only clickable link on the page is:
 - Back to Moxi Corp -> index.html
@@ -17,13 +30,5 @@ To redirect Formspree submissions to this page:
 
 The custom redirect option depends on the Formspree plan/settings available on your account.
 
-The page includes:
-- Animated success checkmark
-- Typewriter THANK YOU heading
-- Floating blue/purple particles
-- Moving grid and background glows
-- Rotating card aura
-- Animated response status
-- One animated button back to the website
-- Mobile responsive design
-- Reduced-motion accessibility
+After upload, check the home page on a phone and desktop, test every portfolio
+link, scan the QR code, and send one test Formspree enquiry.

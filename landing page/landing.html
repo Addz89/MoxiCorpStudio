@@ -1,321 +1,471 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-AU">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moxi Corp | Custom Websites Built by a Real Developer</title>
-  <link rel="icon" type="image/svg+xml" href="/images/newlogo2.svg" />
-  <meta
-    name="description"
-    content="Custom websites for Australian small businesses, built by a real developer. Current website specials available this week."
-  />
-  <meta name="theme-color" content="#05070d" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moxi Corp | Custom Websites for Australian Businesses</title>
+  <meta name="description" content="Custom websites for Australian small businesses, designed and built by a real developer with clear scope, responsive layouts and direct support." />
+  <meta name="theme-color" content="#07142b" />
+  <meta name="color-scheme" content="light" />
 
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Moxi Corp | Real websites, built by a real developer" />
+  <meta property="og:description" content="Custom, responsive websites for Australian businesses—with clear scope and direct support." />
+  <meta name="twitter:card" content="summary" />
+
+  <script>document.documentElement.classList.add("js");</script>
+
+  <link rel="icon" type="image/svg+xml" href="/images/newlogo2.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Moxi Corp",
+    "description": "Custom website design and development for Australian businesses.",
+    "email": "support@moxicorpstudio.com.au",
+    "areaServed": "Australia",
+    "priceRange": "$$"
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header class="hero" id="home">
-    <nav class="site-nav">
+    <div class="ambient-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="grid-glow"></span>
+    </div>
+
+    <nav class="site-nav reveal fade-down" aria-label="Primary navigation">
       <a href="#home" class="brand" aria-label="Moxi Corp home">
-        <!-- <span class="brand-mark">M</span> -->
         <span>Moxi <b>Corp</b></span>
       </a>
-<!-- ddd -->
-      <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation menu">☰</button>
+
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">☰</button>
 
       <div class="nav-links" id="navLinks">
         <a href="#packages">Packages</a>
-        <a href="#work">Our Work</a>
+        <a href="#work">Our work</a>
         <a href="#process">Process</a>
-        <a href="#about">Why Moxi</a>
-        <a href="#quote">Free Quote</a>
+        <a href="#faq">FAQ</a>
+        <a href="#quote">Free quote</a>
       </div>
 
-      <a class="nav-cta" href="#quote">Request Free Quote</a>
+      <a class="nav-cta" href="#quote">Request a free quote</a>
     </nav>
-
-    <div class="hero-overlay"></div>
 
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow">⚡ REAL WEBSITES. REAL RESULTS.</div>
+        <div class="eyebrow reveal fade-right stagger-1"><span></span> Australian website design &amp; development</div>
 
-<h1
-  class="typewriter-title"
-  aria-label="Real custom websites built by a person."
-  data-typewriter-loop="true"
->
-  <span class="type-line" data-text="REAL CUSTOM"></span>
-  <span class="type-line" data-text="WEBSITES"></span>
-  <span class="type-line gradient-line" data-text="BUILT BY A PERSON."></span>
-</h1>
+        <h1 class="typewriter-title reveal fade-up stagger-2" aria-label="Real custom websites built by a person" data-typewriter-loop="false">
+          <span class="type-line" data-text="REAL CUSTOM" aria-hidden="true">REAL CUSTOM</span>
+          <span class="type-line" data-text="WEBSITES" aria-hidden="true">WEBSITES</span>
+          <span class="type-line gradient-line" data-text="BUILT BY A PERSON." aria-hidden="true">BUILT BY A PERSON.</span>
+        </h1>
 
-        <div class="not-ai">Not AI.</div>
+        <div class="not-ai reveal fade-up stagger-3">Direct, human service. No confusing handovers.</div>
 
-        <p>
-          No AI shortcuts. No confusing handovers.
-          I design and build fast, modern websites tailored to your business,
-          your goals and your customers.
+        <p class="hero-lead reveal fade-up stagger-4">
+          I plan, design and build modern websites around your business, your customers and the action you want them to take.
         </p>
 
-        <div class="hero-actions">
-          <a class="button primary" href="#quote">Request Free Quote →</a>
-          <a class="button secondary" href="#work">See Our Work</a>
+        <div class="hero-actions reveal fade-up stagger-5">
+          <a class="button primary" href="#quote">Request a free quote <span aria-hidden="true">→</span></a>
+          <a class="button secondary" href="#work">See real work</a>
         </div>
 
-        <div class="mini-proof">
-          <span class="avatar-stack">A</span>
-          <span class="avatar-stack">M</span>
-          <span class="avatar-stack">S</span>
-          <div>
-            <strong>★★★★★</strong>
-            <small>Personal service from start to finish</small>
-          </div>
+        <div class="mini-proof reveal fade-up stagger-6" aria-label="Moxi Corp service highlights">
+          <span><b>01</b> Clear scope</span>
+          <span><b>02</b> Responsive build</span>
+          <span><b>03</b> Direct support</span>
         </div>
       </div>
 
-      <div class="hero-media">
-        <img src="images/social.gif" alt="Web developer working on a custom business website" />
-        <div class="media-shade"></div>
+      <div class="hero-media reveal scale-in stagger-4">
+        <img src="/images/social.gif" alt="Developer workspace showing a custom website project" width="1200" height="800" fetchpriority="high" decoding="async" />
+        <div class="media-shade" aria-hidden="true"></div>
+        <div class="media-label" aria-hidden="true"><span></span> Designed for your business</div>
 
         <div class="feature-stack">
-          <article>
-            <span>✓</span>
-            <div><strong>Fast turnaround</strong><small>Most sites ready within 5–10 business days</small></div>
+          <article class="glass-card">
+            <span aria-hidden="true">01</span>
+            <div><strong>Clear delivery plan</strong><small>Scope and timeframe agreed before the build.</small></div>
           </article>
-          <article>
-            <span>&lt;/&gt;</span>
-            <div><strong>Custom coded</strong><small>Built for speed, control and clean structure</small></div>
+          <article class="glass-card">
+            <span aria-hidden="true">02</span>
+            <div><strong>Responsive by design</strong><small>Built to work across modern screen sizes.</small></div>
           </article>
-          <article>
-            <span>♥</span>
-            <div><strong>Built with care</strong><small>A real person who cares about the result</small></div>
+          <article class="glass-card">
+            <span aria-hidden="true">03</span>
+            <div><strong>A real point of contact</strong><small>Talk directly with the person building your site.</small></div>
           </article>
         </div>
-
-        <!-- <div class="hand-note">Every website is designed and built by me.</div> -->
       </div>
     </div>
   </header>
 
-  <div class="urgent-strip">
-    <span>⚡ THIS WEEK ONLY SPECIALS ⚡</span>
+  <div class="urgent-strip" aria-label="Service highlights">
+    <div class="marquee">
+      <span>AUSTRALIA-WIDE SERVICE</span><i>◆</i>
+      <span>CLEAR QUOTES</span><i>◆</i>
+      <span>CUSTOM RESPONSIVE BUILDS</span><i>◆</i>
+      <span>DIRECT DEVELOPER SUPPORT</span><i>◆</i>
+    </div>
   </div>
 
-  <main>
-    <section class="promo-bar">
-      <div class="wrap promo-bar-inner">
-        <div class="promo-icon">🎁</div>
+  <main id="main-content">
+    <section class="promo-bar" aria-label="Package introduction">
+      <div class="wrap promo-bar-inner reveal fade-up">
+        <div class="promo-kicker">START HERE</div>
         <div>
-          <strong>Get a premium custom website at a special price.</strong>
-          <span>Limited spots available this week.</span>
+          <strong>Choose the website starting point that fits your next stage.</strong>
+          <span>Every project is confirmed with a clear written scope before work begins.</span>
         </div>
-        <a href="#packages">Claim My Discount →</a>
+        <a href="#packages">Compare packages <span aria-hidden="true">↓</span></a>
       </div>
     </section>
 
     <section class="packages-section" id="packages">
       <div class="wrap">
-        <div class="section-title dark-title">
-          <span>CHOOSE YOUR SOLUTION</span>
-          <h2>Select a package</h2>
-          <p>Professional websites built for your business and designed to convert.</p>
+        <div class="section-title dark-title reveal fade-up">
+          <span>SELECT A PACKAGE</span>
+          <h2>Five ways to get your next website moving.</h2>
+          <p>Choose a starting point, then request a quote so the final scope can be matched to your business.</p>
         </div>
 
         <div class="package-grid">
-          <article class="package-card starter">
-            <div class="package-icon">🚀</div>
-            <span class="package-name">Starter Pack</span>
-            <small>Perfect for getting started</small>
-
-            <div class="was-price">Was $599 AUD</div>
-            <div class="package-price">$409 <em>AUD</em></div>
-            <div class="save-chip">Save $190</div>
-
+          <article class="package-card package-blue reveal fade-up stagger-1">
+            <div class="package-number">01</div>
+            <div class="package-icon" aria-hidden="true">↗</div>
+            <span class="package-name">Landing Page</span>
+            <small>Focused launch for a service, offer or campaign.</small>
+            <div class="was-price">Starting from</div>
+            <div class="package-price">$1,499 <em>AUD</em></div>
+            <div class="save-chip">Focused launch</div>
             <ul>
-              <li>Up to 3 pages</li>
-              <li>Mobile responsive design</li>
-              <li>Basic SEO foundations</li>
-              <li>Contact form setup</li>
-              <li>Social media links</li>
-              <li>Fast launch guidance</li>
+              <li>1 conversion-focused page</li>
+              <li>Custom responsive design</li>
+              <li>SEO-ready page structure</li>
+              <li>Lead form and calls to action</li>
+              <li>Performance-minded build</li>
             </ul>
-
-            <a href="https://buy.stripe.com/cNiaEX2E1gg59cRdQ4eAg00">Choose Starter</a>
+            <a href="#quote" class="package-button" data-package="Landing Page — from $1,499">Choose landing page</a>
           </article>
 
-          <article class="package-card growth">
-            <div class="popular">Most Popular</div>
-            <div class="package-icon">📈</div>
-            <span class="package-name">Growth Pack</span>
-            <small>Built to grow your business</small>
-
-            <div class="was-price">Was $849 AUD</div>
-            <div class="package-price">$650 <em>AUD</em></div>
-            <div class="save-chip">Save $199</div>
-
+          <article class="package-card package-bronze reveal fade-up stagger-2">
+            <div class="popular">Popular</div>
+            <div class="package-number">02</div>
+            <div class="package-icon" aria-hidden="true">⌂</div>
+            <span class="package-name">Small Business</span>
+            <small>For tradies, local teams and service businesses.</small>
+            <div class="was-price">Starting from</div>
+            <div class="package-price">$2,490 <em>AUD</em></div>
+            <div class="save-chip">Business-ready</div>
             <ul>
-              <li>Up to 9 pages</li>
+              <li>Up to 5 custom pages</li>
+              <li>Custom website design</li>
+              <li>Mobile responsive development</li>
+              <li>Content management system</li>
+              <li>Contact and enquiry setup</li>
+              <li>SEO-ready structure</li>
+            </ul>
+            <a href="#quote" class="package-button" data-package="Small Business — from $2,490">Choose small business</a>
+          </article>
+
+          <article class="package-card package-silver reveal fade-up stagger-3">
+            <div class="package-number">03</div>
+            <div class="package-icon" aria-hidden="true">⌁</div>
+            <span class="package-name">Medium Business</span>
+            <small>For growing businesses ready to convert more.</small>
+            <div class="was-price">Starting from</div>
+            <div class="package-price">$3,490 <em>AUD</em></div>
+            <div class="save-chip">Growth build</div>
+            <ul>
+              <li>Up to 10 custom pages</li>
+              <li>Custom website design</li>
               <li>Advanced page structure</li>
-              <li>SEO-focused headings</li>
-              <li>Custom animations</li>
-              <li>Google and Meta guidance</li>
-              <li>Speed optimisation</li>
+              <li>Conversion-focused layouts</li>
+              <li>Performance optimisation</li>
+              <li>Built to support more enquiries</li>
             </ul>
-
-            <a href="https://buy.stripe.com/14A3cvfqN8NDagVdQ4eAg01">Choose Growth</a>
+            <a href="#quote" class="package-button" data-package="Medium Business — from $3,490">Choose medium business</a>
           </article>
 
-          <article class="package-card elite">
-            <div class="package-icon">👑</div>
-            <span class="package-name">Elite Pack</span>
-            <small>For established businesses</small>
-
-            <div class="was-price">Was $1,159 AUD</div>
-            <div class="package-price">$900 <em>AUD</em></div>
-            <div class="save-chip">Save $259</div>
-
+          <article class="package-card package-gold reveal fade-up stagger-4">
+            <div class="package-number">04</div>
+            <div class="package-icon" aria-hidden="true">✦</div>
+            <span class="package-name">Business Pro</span>
+            <small>A premium platform for established brands.</small>
+            <div class="was-price">Starting from</div>
+            <div class="package-price">$4,490+ <em>AUD</em></div>
+            <div class="save-chip">Premium platform</div>
             <ul>
-              <li>Expanded page architecture</li>
-              <li>Premium homepage build</li>
-              <li>Custom feature sections</li>
-              <li>Stripe payment-flow planning</li>
-              <li>Advanced conversion sections</li>
-              <li>Priority build flow</li>
+              <li>15+ custom pages</li>
+              <li>Custom design system</li>
+              <li>Advanced functionality</li>
+              <li>Custom integrations</li>
+              <li>SEO and performance foundations</li>
+              <li>Growth-ready architecture</li>
             </ul>
+            <a href="#quote" class="package-button" data-package="Business Pro — from $4,490">Choose business pro</a>
+          </article>
 
-            <a href="https://buy.stripe.com/fZu5kD6Uh4xn60Fh2geAg02">Choose Elite</a>
+          <article class="package-card package-purple reveal fade-up stagger-5">
+            <div class="package-number">05</div>
+            <div class="package-icon" aria-hidden="true">◇</div>
+            <span class="package-name">eCommerce Store</span>
+            <small>For product businesses ready to sell online.</small>
+            <div class="was-price">Starting from</div>
+            <div class="package-price">$4,990+ <em>AUD</em></div>
+            <div class="save-chip">Sell online</div>
+            <ul>
+              <li>Shopify or WooCommerce</li>
+              <li>Product and category setup</li>
+              <li>Secure payment integration</li>
+              <li>Mobile shopping experience</li>
+              <li>SEO-friendly store structure</li>
+              <li>Conversion-focused checkout path</li>
+            </ul>
+            <a href="#quote" class="package-button" data-package="eCommerce Store — from $4,990">Choose eCommerce</a>
           </article>
         </div>
 
-        <div class="benefits-strip">
-          <div><span>&lt;/&gt;</span><strong>Custom coded</strong><small>Clean, fast and secure</small></div>
-          <div><span>⚡</span><strong>Fast turnaround</strong><small>Clear delivery timeframes</small></div>
-          <div><span>▣</span><strong>Mobile friendly</strong><small>Looks great everywhere</small></div>
-          <div><span>S</span><strong>Stripe ready</strong><small>Simple payment flow</small></div>
-          <div><span>◎</span><strong>Tailored builds</strong><small>No copy-and-paste design</small></div>
+        <div class="package-note reveal fade-up">
+          <span>Not sure which package fits?</span>
+          <p>Tell me what you need and I’ll recommend the best starting point—without locking you into the wrong option.</p>
+          <a href="#quote">Ask for a recommendation →</a>
+        </div>
+
+        <div class="benefits-strip reveal fade-up" aria-label="Build inclusions">
+          <div><span aria-hidden="true">&lt;/&gt;</span><strong>Purpose-built</strong><small>Planned around your goals</small></div>
+          <div><span aria-hidden="true">⚡</span><strong>Performance-minded</strong><small>Lean, modern foundations</small></div>
+          <div><span aria-hidden="true">▣</span><strong>Responsive</strong><small>Designed across screen sizes</small></div>
+          <div><span aria-hidden="true">◎</span><strong>Clear scope</strong><small>Know what is included</small></div>
+          <div><span aria-hidden="true">↗</span><strong>Launch support</strong><small>Help getting the site live</small></div>
         </div>
       </div>
     </section>
 
+    <section class="standards-section" id="standards">
+      <div class="wrap standards-layout">
+        <div class="standards-intro reveal fade-up">
+          <span>MODERN WEB FOUNDATIONS</span>
+          <h2>Built around the things a business website actually needs.</h2>
+          <p>Good design should look sharp, make the next action obvious and rest on solid technical foundations.</p>
+          <a href="#quote">Plan my website <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="standards-grid">
+          <a class="standard-card reveal fade-up stagger-1" href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">
+            <b>01</b><span>Performance</span>
+            <strong>Core Web Vitals-minded</strong>
+            <p>Layouts, media and interactions planned with real-world loading and responsiveness in mind.</p>
+            <small>Read Google’s guidance ↗</small>
+          </a>
+          <a class="standard-card reveal fade-up stagger-2" href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">
+            <b>02</b><span>Accessibility</span>
+            <strong>Inclusive foundations</strong>
+            <p>Semantic structure, keyboard focus, readable contrast and reduced-motion support from the start.</p>
+            <small>Read W3C guidance ↗</small>
+          </a>
+          <a class="standard-card reveal fade-up stagger-3" href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design" target="_blank" rel="noopener noreferrer">
+            <b>03</b><span>Responsive design</span>
+            <strong>Made for modern screens</strong>
+            <p>Flexible layouts that adapt across phones, tablets, laptops and larger displays.</p>
+            <small>Read MDN guidance ↗</small>
+          </a>
+          <a class="standard-card reveal fade-up stagger-4" href="https://business.gov.au/online-and-digital/business-website/set-up-a-business-website" target="_blank" rel="noopener noreferrer">
+            <b>04</b><span>Business basics</span>
+            <strong>A goal before a layout</strong>
+            <p>Clear website goals, domain and hosting decisions, useful content and a sensible launch plan.</p>
+            <small>Read business.gov.au ↗</small>
+          </a>
+        </div>
+      </div>
+      <p class="standards-note wrap">These are build principles, not automatic score or compliance guarantees. Final results depend on project scope, content, hosting and third-party services.</p>
+    </section>
+
     <section class="work-section" id="work">
       <div class="wrap">
-        <div class="section-title dark-title">
-          <span>OUR WORK</span>
-          <h2>Websites we’ve built</h2>
-          <p>Real projects for real businesses.</p>
+        <div class="section-title dark-title reveal fade-up">
+          <span>SELECTED WORK</span>
+          <h2>Real projects. Different industries. One clear goal.</h2>
+          <p>Each site is shaped around its audience, content and next action.</p>
         </div>
 
         <div class="work-grid">
-          <a href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer" class="work-card music">
-            <div class="work-thumb"><span>Artist Website</span></div>
-            <div><strong>Ashar Music</strong><small>View site →</small></div>
+          <a href="https://asharmusic.com/" target="_blank" rel="noopener noreferrer" class="work-card reveal fade-up stagger-1 music">
+            <div class="work-thumb"><span>Artist website</span></div>
+            <div><strong>Ashar Music</strong><small>View live site ↗</small></div>
           </a>
-
-          <a href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer" class="work-card cleaning">
-            <div class="work-thumb"><span>Service Business</span></div>
-            <div><strong>Moxi Cleaning Co</strong><small>View site →</small></div>
+          <a href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener noreferrer" class="work-card reveal fade-up stagger-2 cleaning">
+            <div class="work-thumb"><span>Service business</span></div>
+            <div><strong>Moxi Cleaning Co</strong><small>View live site ↗</small></div>
           </a>
-
-          <a href="https://addz89.github.io/Moxirealestate_template/" target="_blank" rel="noopener noreferrer" class="work-card property">
-            <div class="work-thumb"><span>Real Estate</span></div>
-            <div><strong>Real Estate Template</strong><small>View site →</small></div>
+          <a href="https://addz89.github.io/Moxirealestate_template/" target="_blank" rel="noopener noreferrer" class="work-card reveal fade-up stagger-3 property">
+            <div class="work-thumb"><span>Real estate concept</span></div>
+            <div><strong>Real Estate Template</strong><small>View project ↗</small></div>
           </a>
-
-          <a href="https://addz89.github.io/Photography_template/" target="_blank" rel="noopener noreferrer" class="work-card photography">
-            <div class="work-thumb"><span>Photography</span></div>
-            <div><strong>Photography Template</strong><small>View site →</small></div>
+          <a href="https://addz89.github.io/Photography_template/" target="_blank" rel="noopener noreferrer" class="work-card reveal fade-up stagger-4 photography">
+            <div class="work-thumb"><span>Photography concept</span></div>
+            <div><strong>Photography Template</strong><small>View project ↗</small></div>
           </a>
         </div>
       </div>
     </section>
 
     <section class="human-section" id="about">
-      <div class="wrap human-card">
-        <div class="human-avatar">MC</div>
+      <div class="wrap human-card reveal scale-in">
+        <div class="human-avatar" aria-hidden="true">MC</div>
         <div class="human-copy">
           <span>REAL HUMAN SERVICE</span>
-          <h2>Built by a real person. Not AI</h2>
-          <p>
-            I personally design, code and launch every website. You get direct communication,
-            honest advice and a website tailored to your business and goals.
-          </p>
+          <h2>You talk to the person building your website.</h2>
+          <p>I personally plan, design, code and launch each project. That means fewer handovers, clearer answers and a site tailored to your business.</p>
         </div>
-
         <div class="human-points">
-          <div><span>💬</span><strong>Direct communication</strong><small>You work with me from start to finish.</small></div>
-          <div><span>♡</span><strong>Your success matters</strong><small>I care about your business as much as the build.</small></div>
-          <div><span>&lt;/&gt;</span><strong>100% custom builds</strong><small>Every site is built from scratch for you.</small></div>
-          <div><span>🎧</span><strong>Ongoing support</strong><small>I’m available when your site goes live.</small></div>
+          <div><span aria-hidden="true">💬</span><strong>Direct communication</strong><small>One point of contact from start to finish.</small></div>
+          <div><span aria-hidden="true">◎</span><strong>Clear decisions</strong><small>Know what is included before the build.</small></div>
+          <div><span aria-hidden="true">&lt;/&gt;</span><strong>Tailored structure</strong><small>Pages and sections shaped around your goals.</small></div>
+          <div><span aria-hidden="true">↗</span><strong>Launch support</strong><small>Help connecting, checking and publishing the site.</small></div>
         </div>
       </div>
     </section>
 
     <section class="process-section" id="process">
       <div class="wrap">
-        <div class="section-title dark-title">
+        <div class="section-title dark-title reveal fade-up">
           <span>HOW IT WORKS</span>
-          <h2>Simple from start to launch</h2>
+          <h2>A clear path from idea to launch.</h2>
+        </div>
+        <div class="process-grid">
+          <article class="reveal fade-up stagger-1"><span>01</span><strong>Tell me about the business</strong><p>Share your services, audience, goals and what you want customers to do.</p></article>
+          <article class="reveal fade-up stagger-2"><span>02</span><strong>Agree on scope</strong><p>You receive a clear recommendation, inclusions and delivery plan before work starts.</p></article>
+          <article class="reveal fade-up stagger-3"><span>03</span><strong>Design, build and review</strong><p>The site is built around your brand, then refined with your feedback.</p></article>
+          <article class="reveal fade-up stagger-4"><span>04</span><strong>Test and launch</strong><p>We check the key pages, forms and responsive layout before publishing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="wrap faq-layout">
+        <div class="faq-intro reveal fade-up">
+          <span>COMMON QUESTIONS</span>
+          <h2>Useful answers before you request a quote.</h2>
+          <p>Still unsure? Send the enquiry anyway. I can help work out the right starting point.</p>
+          <a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a>
         </div>
 
-        <div class="process-grid">
-          <article><span>01</span><strong>Tell me about your business</strong><p>Share your services, goals and what you want customers to do.</p></article>
-          <article><span>02</span><strong>I design and build it</strong><p>Your website is planned around your business and brand.</p></article>
-          <article><span>03</span><strong>You review the site</strong><p>You provide feedback before the final launch.</p></article>
-          <article><span>04</span><strong>We launch</strong><p>I help connect the domain, test the site and get it live.</p></article>
+        <div class="faq-list reveal fade-up stagger-2">
+          <details>
+            <summary>Which package should I choose?<span aria-hidden="true">+</span></summary>
+            <p>The package cards are starting points. Tell me your page count, features and goals, and I’ll recommend the closest fit before anything is agreed.</p>
+          </details>
+          <details>
+            <summary>What do you need from me?<span aria-hidden="true">+</span></summary>
+            <p>Usually your business details, services, branding, preferred examples, contact information and any photos or copy you already have. Missing pieces can be identified during scoping.</p>
+          </details>
+          <details>
+            <summary>How long will the website take?<span aria-hidden="true">+</span></summary>
+            <p>The timeframe depends on the size, features and how quickly content and feedback are supplied. Your expected delivery window will be confirmed in the written scope.</p>
+          </details>
+          <details>
+            <summary>Can you help with domains and hosting?<span aria-hidden="true">+</span></summary>
+            <p>Yes, setup guidance can be discussed as part of the project. The exact hosting, domain and ongoing-cost responsibilities will be written into your quote.</p>
+          </details>
+          <details>
+            <summary>Will I be able to update the website?<span aria-hidden="true">+</span></summary>
+            <p>That depends on the chosen platform and package. If self-editing is important, mention it in your enquiry so the right setup can be recommended.</p>
+          </details>
+          <details>
+            <summary>What happens before I pay?<span aria-hidden="true">+</span></summary>
+            <p>We first confirm what you need. You should receive a clear scope and quote covering inclusions, responsibilities and the payment arrangement before the project begins.</p>
+          </details>
         </div>
       </div>
     </section>
 
     <section class="quote-section" id="quote">
-      <div class="wrap quote-panel">
-        <div class="quote-icon">▣</div>
+      <div class="wrap quote-wrap">
+        <div class="quote-panel reveal fade-up">
+          <div class="quote-icon quote-qr">
+            <span class="qr-fallback" aria-hidden="true">ADD<br />QR</span>
+            <img src="/images/vcard-qr.png" alt="Scan this QR code to save Moxi Corp contact details" width="108" height="108" loading="lazy" decoding="async" data-qr-image />
+          </div>
 
-        <div class="quote-copy">
-          <span>LET’S BUILD YOUR NEW WEBSITE</span>
-          <h2>Request your free quote.</h2>
-          <p>Tell me what your business needs and I’ll recommend the right package.</p>
+          <div class="quote-copy">
+            <span>LET’S BUILD YOUR NEW WEBSITE</span>
+            <h2>Request your free quote.</h2>
+            <p>Tell me what you need and I’ll recommend a practical starting point.</p>
+          </div>
+
+          <form action="https://formspree.io/f/xvzjprdv" method="POST" class="quote-form">
+            <input type="hidden" name="_subject" value="New Landing Page Enquiry - Moxi Corp" />
+            <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <label class="sr-only" for="quote-name">Your name</label>
+            <input id="quote-name" type="text" name="name" placeholder="Your name" autocomplete="name" required />
+
+            <label class="sr-only" for="quote-email">Email address</label>
+            <input id="quote-email" type="email" name="email" placeholder="Email address" autocomplete="email" required />
+
+            <label class="sr-only" for="package">Select a package</label>
+            <select id="package" name="package" required>
+              <option value="">Select a package</option>
+              <option>Landing Page — from $1,499</option>
+              <option>Small Business — from $2,490</option>
+              <option>Medium Business — from $3,490</option>
+              <option>Business Pro — from $4,490</option>
+              <option>eCommerce Store — from $4,990</option>
+              <option>Not sure yet</option>
+            </select>
+
+            <label class="sr-only" for="quote-message">Business and website needs</label>
+            <textarea id="quote-message" name="message" placeholder="Tell me about your business, pages, features and goals" required></textarea>
+
+            <button type="submit">Request free quote <span aria-hidden="true">→</span></button>
+            <small class="form-note">Your details are used only to respond to this enquiry.</small>
+          </form>
         </div>
 
-        <form action="https://formspree.io/f/xvzjprdv" method="POST" class="quote-form">
-          <input type="hidden" name="_subject" value="New Landing Page Enquiry - Moxi Corp" />
-          <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" />
-
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Email address" required />
-          <select name="package">
-            <option value="">Select a package</option>
-            <option>Starter — $409</option>
-            <option>Growth — $650</option>
-            <option>Elite — $900</option>
-            <option>Not sure yet</option>
-          </select>
-          <textarea name="message" placeholder="Tell me about your business and website needs" required></textarea>
-          <button type="submit">Request Free Quote →</button>
-        </form>
+        <div class="quote-steps reveal fade-up" aria-label="What happens next">
+          <div><b>01</b><span><strong>Send the enquiry</strong><small>No commitment—just tell me what you need.</small></span></div>
+          <div><b>02</b><span><strong>Get a recommendation</strong><small>I’ll clarify the scope and best package.</small></span></div>
+          <div><b>03</b><span><strong>Review the quote</strong><small>Check inclusions and next steps before deciding.</small></span></div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-inner">
-      <div>
+    <div class="wrap footer-grid reveal fade-up">
+      <div class="footer-brand">
         <strong>Moxi Corp</strong>
-        <span>Real websites. Real people. Real results.</span>
+        <span>Real websites. Direct support. Clear scope.</span>
       </div>
-      <a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a>
-      <span>ABN 18 936 263 775</span>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#packages">Packages</a>
+        <a href="#work">Our work</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="footer-contact">
+        <a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a>
+        <span>ABN 18 936 263 775</span>
+      </div>
     </div>
+    <div class="wrap footer-bottom"><span>© <span id="currentYear">2026</span> Moxi Corp</span><a href="#home">Back to top ↑</a></div>
   </footer>
 
+  <script src="animations.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

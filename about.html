@@ -1,1039 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>About | Moxi Corp</title>
-  <meta
-    name="description"
-    content="Learn about Moxi Corp, an Australian web development business creating custom, responsive and conversion-focused websites for small businesses."
-  />
-  <meta name="theme-color" content="#02050b" />
-
-  <link rel="icon" type="image/svg+xml" href="images/newlogo2.svg" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    .about-hero {
-      min-height: auto;
-      padding: 150px 0 72px;
-      overflow: hidden;
-    }
-
-    .about-hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 54px;
-      align-items: center;
-    }
-
-    .about-hero-copy h1 {
-      margin: 10px 0 22px;
-      max-width: 940px;
-      font-size: clamp(3.6rem, 7.8vw, 7.2rem);
-      line-height: .88;
-      letter-spacing: -.082em;
-    }
-
-    .about-hero-copy p {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.5vw, 1.16rem);
-      line-height: 1.8;
-    }
-
-    .about-console {
-      position: relative;
-      min-height: 470px;
-      overflow: hidden;
-      padding: 25px;
-      border: 1px solid var(--line-blue);
-      border-radius: 30px;
-      background:
-        radial-gradient(circle at 14% 10%, rgba(47,231,255,.10), transparent 30%),
-        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.022)),
-        rgba(3,11,22,.92);
-      box-shadow:
-        0 36px 110px rgba(0,0,0,.44),
-        inset 0 1px 0 rgba(255,255,255,.08);
-      backdrop-filter: blur(22px);
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-
-    .about-console::before {
-      content: "";
-      position: absolute;
-      inset: -48%;
-      pointer-events: none;
-      background: conic-gradient(
-        transparent,
-        rgba(47,231,255,.11),
-        transparent 35%,
-        rgba(8,124,255,.10),
-        transparent 72%
-      );
-      animation: aboutAuraSpin 15s linear infinite;
-    }
-
-    @keyframes aboutAuraSpin {
-      to { transform: rotate(360deg); }
-    }
-
-    .about-console-top {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding-bottom: 17px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .about-console-top i {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 12px rgba(47,231,255,.55);
-    }
-
-    .about-console-top i:nth-child(2) { opacity: .7; }
-    .about-console-top i:nth-child(3) { opacity: .42; }
-
-    .about-console-top span {
-      margin-left: auto;
-      color: rgba(255,255,255,.42);
-      font-family: var(--mono);
-      font-size: .7rem;
-    }
-
-    .about-console-code {
-      position: relative;
-      z-index: 2;
-      min-height: 255px;
-      margin-top: 20px;
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,.075);
-      border-radius: 17px;
-      background: rgba(0,0,0,.22);
-      color: #dff8ff;
-      font-family: var(--mono);
-      font-size: .8rem;
-      line-height: 1.75;
-      white-space: pre-wrap;
-      overflow: hidden;
-    }
-
-    .about-code-comment { color: #65778d; }
-    .about-code-key { color: #fff; }
-    .about-code-function { color: var(--cyan); }
-    .about-code-string { color: #bcefff; }
-    .about-code-value { color: #6fb7ff; }
-
-    .about-console-cursor {
-      display: inline-block;
-      width: 7px;
-      height: 1em;
-      margin-left: 3px;
-      vertical-align: -.15em;
-      background: #fff;
-      box-shadow: 0 0 12px rgba(47,231,255,.75);
-      animation: aboutCursorBlink .72s steps(1) infinite;
-    }
-
-    @keyframes aboutCursorBlink {
-      0%, 46% { opacity: 1; }
-      47%, 100% { opacity: 0; }
-    }
-
-    .about-status {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      gap: 10px;
-      margin-top: 17px;
-      padding: 14px 15px;
-      border: 1px solid rgba(47,231,255,.15);
-      border-radius: 15px;
-      background: rgba(255,255,255,.03);
-    }
-
-    .about-status-copy {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      font-family: var(--mono);
-      font-size: .67rem;
-    }
-
-    .about-status-copy span {
-      color: var(--muted);
-    }
-
-    .about-status-copy strong {
-      color: var(--cyan);
-    }
-
-    .about-status-track {
-      height: 7px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: rgba(255,255,255,.065);
-    }
-
-    .about-status-track span {
-      display: block;
-      width: 0;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #fff, var(--cyan), var(--blue));
-      box-shadow: 0 0 18px rgba(47,231,255,.38);
-      transition: width .7s cubic-bezier(.16,1,.3,1);
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-top: 34px;
-    }
-
-    .about-stat {
-      position: relative;
-      overflow: hidden;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 21px;
-      background: rgba(255,255,255,.035);
-      text-align: center;
-      transition: transform .28s, border-color .28s;
-    }
-
-    .about-stat:hover {
-      transform: translateY(-5px);
-      border-color: rgba(47,231,255,.28);
-    }
-
-    .about-stat strong {
-      display: block;
-      font-size: 2rem;
-      letter-spacing: -.05em;
-    }
-
-    .about-stat span {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: .8rem;
-      line-height: 1.45;
-    }
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
-      gap: 30px;
-      align-items: start;
-    }
-
-    .about-sidebar {
-      position: sticky;
-      top: 110px;
-      display: grid;
-      gap: 15px;
-    }
-
-    .about-sidebar-card {
-      position: relative;
-      overflow: hidden;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 23px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.022));
-      box-shadow: 0 20px 62px rgba(0,0,0,.24);
-      backdrop-filter: blur(18px);
-    }
-
-    .about-sidebar-card h3 {
-      margin-bottom: 10px;
-      font-size: 1.15rem;
-      letter-spacing: -.04em;
-    }
-
-    .about-sidebar-card p {
-      color: var(--muted);
-      font-size: .88rem;
-      line-height: 1.65;
-    }
-
-    .about-nav {
-      display: grid;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .about-nav a {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 11px 12px;
-      border: 1px solid rgba(255,255,255,.075);
-      border-radius: 13px;
-      color: #d6e6f5;
-      background: rgba(255,255,255,.025);
-      font-size: .75rem;
-      font-weight: 800;
-      transition: .25s;
-    }
-
-    .about-nav a:hover,
-    .about-nav a.active {
-      color: #00111f;
-      background: linear-gradient(135deg, #fff, var(--cyan));
-      border-color: transparent;
-      transform: translateX(4px);
-      box-shadow: 0 12px 28px rgba(47,231,255,.12);
-    }
-
-    .about-content {
-      display: grid;
-      gap: 22px;
-    }
-
-    .about-story-card {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(26px, 4vw, 40px);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.067), rgba(255,255,255,.022)),
-        rgba(5,15,29,.76);
-      box-shadow: 0 24px 78px rgba(0,0,0,.26);
-      backdrop-filter: blur(18px);
-      scroll-margin-top: 110px;
-    }
-
-    .about-story-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0;
-      background: radial-gradient(
-        520px circle at var(--mouse-x,50%) var(--mouse-y,50%),
-        rgba(47,231,255,.12),
-        transparent 42%
-      );
-      transition: opacity .3s;
-    }
-
-    .about-story-card:hover::after {
-      opacity: 1;
-    }
-
-    .about-story-card > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .about-story-card h2 {
-      margin-bottom: 14px;
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
-      line-height: 1;
-      letter-spacing: -.065em;
-    }
-
-    .about-story-card p {
-      color: var(--muted);
-      font-size: .96rem;
-      line-height: 1.8;
-    }
-
-    .about-story-card p + p {
-      margin-top: 14px;
-    }
-
-    .value-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .value-row {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 17px;
-      border: 1px solid rgba(255,255,255,.075);
-      border-radius: 17px;
-      background: rgba(255,255,255,.025);
-      transition: transform .25s, border-color .25s;
-    }
-
-    .value-row:hover {
-      transform: translateX(5px);
-      border-color: rgba(47,231,255,.25);
-    }
-
-    .value-number {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      color: #00111f;
-      background: linear-gradient(135deg, #fff, var(--cyan));
-      font-family: var(--mono);
-      font-size: .7rem;
-      font-weight: 900;
-    }
-
-    .value-row h3 {
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-
-    .value-row p {
-      font-size: .84rem;
-      line-height: 1.6;
-    }
-
-    .capability-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .capability-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 230px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(255,255,255,.035);
-      transition: transform .28s, border-color .28s;
-    }
-
-    .capability-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(47,231,255,.28);
-    }
-
-    .capability-card span {
-      color: var(--cyan);
-      font-family: var(--mono);
-      font-size: .67rem;
-      font-weight: 900;
-    }
-
-    .capability-card h3 {
-      margin: 55px 0 9px;
-      font-size: 1.08rem;
-    }
-
-    .capability-card p {
-      color: var(--muted);
-      font-size: .85rem;
-      line-height: 1.6;
-    }
-
-    .about-work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .about-work-card {
-      position: relative;
-      overflow: hidden;
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      color: inherit;
-      transition: transform .3s, border-color .3s, box-shadow .3s;
-    }
-
-    .about-work-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(47,231,255,.28);
-      box-shadow: 0 28px 78px rgba(0,0,0,.32);
-    }
-
-    .about-work-screen {
-      position: relative;
-      overflow: hidden;
-      height: 220px;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(47,231,255,.14), transparent 35%),
-        #04101e;
-    }
-
-    .about-work-screen::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-      background-size: 36px 36px;
-      animation: aboutGridMove 12s linear infinite;
-    }
-
-    @keyframes aboutGridMove {
-      to { background-position: 36px 36px; }
-    }
-
-    .screen-lines {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      gap: 11px;
-      width: 78%;
-      padding: 35px;
-    }
-
-    .screen-lines span {
-      display: block;
-      height: 11px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.18);
-    }
-
-    .screen-lines span:first-child {
-      width: 70%;
-      height: 31px;
-      background: linear-gradient(90deg, #fff, var(--cyan));
-    }
-
-    .screen-lines span:nth-child(2) { width: 90%; }
-    .screen-lines span:nth-child(3) { width: 62%; }
-
-    .screen-lines span:last-child {
-      width: 115px;
-      height: 36px;
-      margin-top: 10px;
-      background: linear-gradient(90deg, #fff, var(--cyan));
-    }
-
-    .about-work-card h3 {
-      margin: 18px 0 8px;
-      font-size: 1.25rem;
-    }
-
-    .about-work-card p {
-      color: var(--muted);
-      font-size: .86rem;
-      line-height: 1.6;
-    }
-
-    .about-work-card .text-link {
-      display: inline-flex;
-      margin-top: 15px;
-      color: #fff;
-      font-weight: 900;
-      transition: color .25s, transform .25s;
-    }
-
-    .about-work-card:hover .text-link {
-      color: var(--cyan);
-      transform: translateX(5px);
-    }
-
-    .about-cta {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(36px, 6vw, 64px);
-      border: 1px solid var(--line-blue);
-      border-radius: 30px;
-      text-align: center;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(47,231,255,.11), transparent 45%),
-        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      box-shadow: 0 30px 95px rgba(0,0,0,.31);
-    }
-
-    .about-cta::before {
-      content: "";
-      position: absolute;
-      inset: -50%;
-      pointer-events: none;
-      background: conic-gradient(
-        transparent,
-        rgba(47,231,255,.09),
-        transparent 40%,
-        rgba(255,255,255,.05),
-        transparent 72%
-      );
-      animation: aboutAuraSpin 16s linear infinite;
-    }
-
-    .about-cta > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .about-cta h2 {
-      max-width: 900px;
-      margin: 8px auto 14px;
-      font-size: clamp(2.3rem, 5.2vw, 4.9rem);
-      line-height: .95;
-      letter-spacing: -.075em;
-    }
-
-    .about-cta p {
-      max-width: 720px;
-      margin: auto;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    @media (max-width: 1020px) {
-      .about-hero-grid,
-      .about-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .about-sidebar {
-        position: static;
-      }
-
-      .about-nav {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .about-stats,
-      .capability-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 650px) {
-      .about-hero {
-        padding-top: 125px;
-      }
-
-      .about-console {
-        min-height: auto;
-        padding: 18px;
-      }
-
-      .about-console-code {
-        min-height: 230px;
-        padding: 14px;
-        font-size: .68rem;
-      }
-
-      .about-nav,
-      .about-stats,
-      .capability-grid,
-      .about-work-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-story-card {
-        padding: 24px 18px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Moxi Corp | Australian Web Design</title>
+  <meta name="description" content="Learn how Moxi Corp creates professional, purposeful websites for Australian small businesses with direct communication and custom design.">
+  <meta name="theme-color" content="#02050a">
+  <link rel="icon" type="image/png" href="images/trans-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <canvas id="particleCanvas" aria-hidden="true"></canvas>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-  <nav class="site-nav" aria-label="Primary navigation">
-    <a href="index.html" class="logo magnetic" aria-label="Moxi Corp home">
-      <span class="logo-mark">
-        <img src="/images/newlogo3.png" alt="Moxi Corp logo">
-      </span>
-      <span>Moxi <b>Corp</b></span>
-    </a>
-
-    <button
-      class="menu-btn"
-      id="menuBtn"
-      type="button"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
-    >
-      <span></span><span></span><span></span>
-    </button>
-
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a class="active" href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="portfolio.html">Work</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="process.html">Process</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header has-social-bar">
+    <div class="social-bar">
+      <div class="container social-bar-inner">
+        <span class="social-bar-label">Follow Moxi Corp</span>
+        <div class="social-bar-links" aria-label="Moxi Corp social media">
+          <a href="https://www.instagram.com/moxicorpp/" target="_blank" rel="noopener noreferrer" aria-label="Moxi Corp Studio on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" class="social-icon-dot"></circle></svg><span>Instagram</span></a>
+          <a href="https://www.facebook.com/61590543224441" target="_blank" rel="noopener noreferrer" aria-label="Moxi Corp Studio on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2.1-2H18V1.4c-.7-.1-1.8-.2-3-.2-3 0-5 1.8-5 5.2V9H7v4h3v8h4Z"></path></svg><span>Facebook</span></a>
+        </div>
+      </div>
     </div>
-
-    <a class="nav-cta magnetic" href="pricing.html">View Packs</a>
-  </nav>
-
-  <header class="hero about-hero">
-    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
-
-    <div class="wrap about-hero-grid">
-      <div class="about-hero-copy">
-        <div class="kicker reveal">
-          <span class="live-dot"></span>
-          About Moxi Corp
-        </div>
-
-        <h1>
-          Websites built with
-          <span class="gradient-text">purpose.</span>
-        </h1>
-
-        <p class="reveal">
-          Moxi Corp is an Australian web development business focused on helping
-          small businesses look professional, explain their services clearly and
-          turn more website visitors into real enquiries.
-        </p>
-
-        <div class="cta-row reveal">
-          <a href="portfolio.html" class="btn magnetic">View Live Work →</a>
-          <a href="contact.html" class="btn secondary magnetic">Start A Project</a>
-        </div>
-
-        <div class="about-stats reveal">
-          <article class="about-stat spotlight-card">
-            <strong>100%</strong>
-            <span>Custom website builds</span>
-          </article>
-
-          <article class="about-stat spotlight-card">
-            <strong>1:1</strong>
-            <span>Direct communication</span>
-          </article>
-
-          <article class="about-stat spotlight-card">
-            <strong>AU</strong>
-            <span>Australian business support</span>
-          </article>
-
-          <article class="about-stat spotlight-card">
-            <strong>ABN</strong>
-            <span>Registered business</span>
-          </article>
-        </div>
-      </div>
-
-      <div class="about-console reveal" id="aboutConsole">
-        <div class="about-console-top">
-          <i></i><i></i><i></i>
-          <span>moxi_business_profile.js</span>
-        </div>
-
-        <pre class="about-console-code" id="aboutCode" aria-label="Animated Moxi Corp profile code"></pre>
-
-        <div class="about-status">
-          <div class="about-status-copy">
-            <span>BUSINESS PROFILE</span>
-            <strong id="aboutStatusText">Loading profile...</strong>
-          </div>
-
-          <div class="about-status-track">
-            <span id="aboutStatusFill"></span>
-          </div>
-        </div>
-      </div>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Moxi Corp home"><span class="brand-mark" aria-hidden="true"><img src="images/trans-logo.png" alt=""></span><span class="brand-copy"><strong>Moxi Corp</strong><small>Web Design</small></span></a>
+      <nav class="nav-menu" id="siteMenu" aria-label="Primary navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Work</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="process.html">Process</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav>
+      <a class="button nav-cta" href="contact.html">Request a quote</a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="siteMenu" aria-expanded="false"><span></span></button>
     </div>
   </header>
 
-  <main>
-    <section class="section alt" style="padding-top:55px;">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="kicker">The Moxi Standard</div>
-          <h2>More than a good-looking homepage.</h2>
-          <p>
-            A website should build confidence, explain the offer and make the next
-            step easy for the customer.
-          </p>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container page-hero-grid">
+        <div class="reveal">
+          <div class="hero-meta">About Moxi Corp</div>
+          <h1>Websites built with <span class="gradient-text">purpose.</span></h1>
         </div>
+        <div class="page-hero-aside reveal">
+          <p>Moxi Corp is an Australian web design business helping small businesses look credible, explain their services clearly and turn more visitors into real enquiries.</p>
+          <ul><li>Approach <span>Business-first</span></li><li>Communication <span>Direct and personal</span></li><li>Service area <span>Australia-wide</span></li></ul>
+          <div class="button-row"><a class="button" href="contact.html">Start a project →</a></div>
+        </div>
+      </div>
+    </section>
 
-        <div class="about-layout">
-          <aside class="about-sidebar reveal">
-            <div class="about-sidebar-card">
-              <h3>About this business</h3>
-              <p>Jump directly to the part you want to read.</p>
+    <section class="section">
+      <div class="container story-grid">
+        <aside class="story-sticky reveal">
+          <span class="section-kicker">The Moxi standard</span>
+          <h2>Pretty alone is not enough.</h2>
+          <p>A website should earn trust, make the offer easy to understand and guide people toward a useful next step.</p>
+          <div class="button-row"><a class="button secondary" href="portfolio.html">View selected work</a></div>
+        </aside>
 
-              <div class="about-nav" id="aboutNav">
-                <a href="#story">Our Approach <span>01</span></a>
-                <a href="#values">Our Values <span>02</span></a>
-                <a href="#capabilities">Capabilities <span>03</span></a>
-                <a href="#work">Proof Of Work <span>04</span></a>
-              </div>
+        <div class="story-content">
+          <article class="story-block reveal">
+            <span class="section-kicker">01 / Our approach</span>
+            <h2>Design starts with the customer journey.</h2>
+            <p>Many small-business websites are treated like online brochures: a logo, a few photos, a short paragraph and a contact form. That puts a business online, but it does not automatically explain why someone should choose it.</p>
+            <p>Moxi Corp takes a more structured approach. Each page is planned around what the customer needs to understand, what proof they need to see and what action they should take next.</p>
+          </article>
+
+          <article class="story-block reveal">
+            <span class="section-kicker">02 / What matters</span>
+            <h2>Clear communication and purposeful design.</h2>
+            <div class="value-grid">
+              <div class="value-item"><span>01</span><h3>Trust first</h3><p>Clean structure and strong presentation help a business feel established from the first screen.</p></div>
+              <div class="value-item"><span>02</span><h3>Clear offers</h3><p>Visitors should understand the service, who it helps and what to do next without confusion.</p></div>
+              <div class="value-item"><span>03</span><h3>Motion with purpose</h3><p>Animation adds polish when it supports hierarchy instead of distracting from the message.</p></div>
+              <div class="value-item"><span>04</span><h3>Real communication</h3><p>You speak directly with the person planning, designing and developing your website.</p></div>
             </div>
+          </article>
 
-            <div class="about-sidebar-card">
-              <h3>Ready to talk?</h3>
-              <p>
-                Send through your business details and I’ll recommend the right
-                website package and next step.
-              </p>
+          <article class="story-block reveal">
+            <span class="section-kicker">03 / The build</span>
+            <h2>Professional pages with real business value.</h2>
+            <p>Projects combine responsive layouts, clean HTML, CSS and JavaScript, practical SEO foundations, enquiry forms, payment pathways and a visual system that can keep growing with the business.</p>
+            <ul class="feature-lines"><li>Custom page structures</li><li>Conversion-focused content flow</li><li>Fast, mobile-first development</li><li>Growth-ready design systems</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-              <div class="cta-row" style="margin-top:16px;">
-                <a href="contact.html" class="btn magnetic" style="width:100%;">
-                  Request Free Quote
-                </a>
-              </div>
-            </div>
-          </aside>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal"><div><span class="section-kicker">How we work</span><h2>Small enough to care. Serious enough to deliver.</h2></div><p>Direct communication means less confusion, faster decisions and a website that stays closer to the original business goal.</p></div>
+        <div class="stats-rail reveal"><div class="stat"><strong>100%</strong><span>Custom project direction</span></div><div class="stat"><strong>1:1</strong><span>Direct communication</span></div><div class="stat"><strong>AU</strong><span>Australian business support</span></div><div class="stat"><strong>ABN</strong><span>Registered business</span></div></div>
+      </div>
+    </section>
 
-          <div class="about-content">
-            <article class="about-story-card reveal spotlight-card" id="story">
-              <div class="kicker">Our Approach</div>
-              <h2>Pretty alone is not enough.</h2>
-
-              <p>
-                Many small-business websites are treated like online brochures:
-                a logo, a few photos, a short paragraph and a contact form.
-                That may put a business online, but it does not necessarily explain
-                why the business is worth choosing.
-              </p>
-
-              <p>
-                Moxi Corp takes a more structured approach. Each section is planned
-                around what the customer needs to understand, what proof they need
-                to see and what action they should take next.
-              </p>
-
-              <p>
-                The goal is a modern website that feels credible, works properly on
-                mobile and supports real enquiries rather than existing as decoration.
-              </p>
-            </article>
-
-            <article class="about-story-card reveal spotlight-card" id="values">
-              <div class="kicker">Our Values</div>
-              <h2>Clear communication and purposeful design.</h2>
-
-              <div class="value-list">
-                <div class="value-row">
-                  <span class="value-number">01</span>
-                  <div>
-                    <h3>Trust first</h3>
-                    <p>
-                      Visitors make quick decisions. Clean structure, strong design
-                      and clear proof help a business feel more established.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="value-row">
-                  <span class="value-number">02</span>
-                  <div>
-                    <h3>Clear offers</h3>
-                    <p>
-                      People should understand what the business provides, who it is
-                      for and how to take the next step without confusion.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="value-row">
-                  <span class="value-number">03</span>
-                  <div>
-                    <h3>Motion with purpose</h3>
-                    <p>
-                      Animation should add energy and polish without distracting
-                      customers from enquiring, booking or purchasing.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="value-row">
-                  <span class="value-number">04</span>
-                  <div>
-                    <h3>Real communication</h3>
-                    <p>
-                      Clients communicate directly with the person planning,
-                      designing and developing the website.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="about-story-card reveal spotlight-card" id="capabilities">
-              <div class="kicker">Capabilities</div>
-              <h2>Professional pages with real business value.</h2>
-
-              <div class="capability-grid">
-                <article class="capability-card spotlight-card">
-                  <span>01</span>
-                  <h3>Custom structure</h3>
-                  <p>
-                    Pages and sections planned around the visitor journey and the
-                    information customers need before making contact.
-                  </p>
-                </article>
-
-                <article class="capability-card spotlight-card">
-                  <span>02</span>
-                  <h3>Conversion focus</h3>
-                  <p>
-                    Calls to action, service explanations, trust sections, pricing
-                    pathways and contact options designed to support enquiries.
-                  </p>
-                </article>
-
-                <article class="capability-card spotlight-card">
-                  <span>03</span>
-                  <h3>Modern development</h3>
-                  <p>
-                    Responsive layouts, clean HTML, CSS and JavaScript, animation
-                    systems, forms and Stripe payment pathways.
-                  </p>
-                </article>
-
-                <article class="capability-card spotlight-card">
-                  <span>04</span>
-                  <h3>Growth-ready builds</h3>
-                  <p>
-                    SEO foundations, scalable page layouts and a visual system that
-                    can continue growing with the business.
-                  </p>
-                </article>
-              </div>
-            </article>
-
-            <article class="about-story-card reveal spotlight-card" id="work">
-              <div class="kicker">Proof Of Work</div>
-              <h2>Different websites for different brands.</h2>
-
-              <p>
-                Moxi Corp builds more than one visual style. Artist websites and
-                local service-business websites require different content, energy
-                and customer pathways.
-              </p>
-
-              <div class="about-work-grid" style="margin-top:24px;">
-                <a
-                  class="about-work-card spotlight-card"
-                  href="https://asharmusic.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div class="about-work-screen">
-                    <div class="screen-lines">
-                      <span></span><span></span><span></span><span></span>
-                    </div>
-                  </div>
-
-                  <h3>Ashar Music</h3>
-                  <p>
-                    A music website designed around atmosphere, identity and
-                    audience connection.
-                  </p>
-                  <span class="text-link">Open live site →</span>
-                </a>
-
-                <a
-                  class="about-work-card spotlight-card"
-                  href="https://www.moxicleaningco.com.au/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div class="about-work-screen">
-                    <div class="screen-lines">
-                      <span></span><span></span><span></span><span></span>
-                    </div>
-                  </div>
-
-                  <h3>Moxi Cleaning Co</h3>
-                  <p>
-                    A local service-business website focused on trust, clear
-                    services and enquiry generation.
-                  </p>
-                  <span class="text-link">Open live site →</span>
-                </a>
-              </div>
-            </article>
+    <section class="section">
+      <div class="wide-container">
+        <div class="banner-frame banner-feature reveal" aria-labelledby="aboutBannerTitle">
+          <img src="images/banner1.png" alt="Abstract blue digital light trails representing modern web design" loading="lazy" width="1734" height="907">
+          <div class="banner-feature-content">
+            <h2 id="aboutBannerTitle">
+              Modern. Responsive.
+              <span class="banner-typing-line">Results-driven.</span>
+            </h2>
+            <p>Purposeful website design that helps your business look credible, communicate clearly and generate real enquiries.</p>
+            <a class="button" href="contact.html">Request a free quote <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:50px;">
-      <div class="wrap">
-        <div class="about-cta reveal spotlight-card">
-          <div class="kicker">Ready To Build?</div>
-
-          <h2>Give your business a website that looks serious.</h2>
-
-          <p>
-            Whether you are starting fresh or replacing an outdated website,
-            Moxi Corp can build a professional online presence that is easier
-            to trust and easier to contact.
-          </p>
-
-          <div class="cta-row center">
-            <a href="pricing.html" class="btn magnetic">View Website Packs →</a>
-            <a href="contact.html" class="btn secondary magnetic">Request Free Quote</a>
-          </div>
-        </div>
-      </div>
+    <section class="section section-tight">
+      <div class="container cta-panel reveal"><div><span class="section-kicker">Your next step</span><h2>Let’s turn your business into a stronger online presence.</h2><p>Share what you do, what you need and where your current website is falling short.</p></div><a class="button" href="contact.html">Request a free quote →</a></div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-grid">
-      <div>
-        <a href="index.html" class="footer-logo">Moxi <b>Corp</b></a>
-        <p>Real websites. Real communication. Built for real businesses.</p>
-      </div>
-
-      <div>
-        <strong>Contact</strong>
-        <a href="mailto:support@moxicorpstudio.com.au">
-          support@moxicorpstudio.com.au
-        </a>
-        <span>Donnybrook, Victoria</span>
-        <span>Australia-wide service</span>
-      </div>
-
-      <div>
-        <strong>Business</strong>
-        <span>ABN 18 936 263 775</span>
-        <a href="privacy-policy.html">Privacy Policy</a>
-      </div>
-    </div>
-
-    <div class="wrap footer-bottom">
-      © 2026 Moxi Corp. All rights reserved.
-    </div>
+  <footer class="site-footer">
+    <div class="container footer-grid"><div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="images/trans-logo.png" alt=""></span>
+      <span class="brand-copy"><strong>Moxi Corp</strong>
+        <small>Web Design</small></span></a>
+        <p>Professional websites for Australian businesses that value clear communication, strong design and real results.</p></div>
+        <div class="footer-column"><strong>Navigate</strong><a href="services.html">Services</a><a href="portfolio.html">Work</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="process.html">Process</a></div>
+        <div class="footer-column"><strong>Services</strong><a href="services.html#landing-pages">Landing pages</a><a href="services.html#business-websites">Business websites</a><a href="ecommerce.html">eCommerce</a><a href="addons.html">Add-ons</a></div>
+        <div class="footer-column"><strong>Contact</strong><a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a><a href="https://www.instagram.com/moxicorpp/" target="_blank" rel="noopener noreferrer" aria-label="Moxi Corp Studio on Instagram">Instagram ↗</a><a href="https://www.facebook.com/61590543224441" target="_blank" rel="noopener noreferrer" aria-label="Moxi Corp Studio on Facebook">Facebook ↗</a><span>Donnybrook, Victoria</span><span>Australia-wide service</span><span>ABN 18 936 263 775</span></div></div>
+    <div class="container footer-bottom"><span>© <span data-year>2026</span> Moxi Corp. All rights reserved.</span><a href="privacy-policy.html">Privacy Policy</a></div>
   </footer>
-
   <script src="script.js"></script>
-  <script src="about.js"></script>
 </body>
 </html>

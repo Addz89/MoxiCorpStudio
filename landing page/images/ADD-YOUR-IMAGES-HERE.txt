@@ -1,0 +1,13 @@
+KEEP OR COPY YOUR EXISTING WEBSITE IMAGES INTO THIS FOLDER.
+
+Required by the refreshed landing page:
+- program-hero.jpg
+- vcard-qr.png
+- newlogo2.svg
+- ashar-music.png
+- Web1.png
+- web5.png
+- web7.png
+
+The QR image should remain named vcard-qr.png. If it is missing, the page shows
+a stable placeholder instead of letting the quote layout collapse.

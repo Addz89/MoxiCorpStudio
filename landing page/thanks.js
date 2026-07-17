@@ -10,7 +10,7 @@
     if (!field || reduceMotion) return;
 
     const mobile = window.matchMedia("(max-width: 640px)").matches;
-    const count = mobile ? 18 : 30;
+    const count = mobile ? 6 : 12;
     const fragment = document.createDocumentFragment();
 
     for (let index = 0; index < count; index += 1) {
@@ -43,13 +43,12 @@
     element.textContent = "";
     element.classList.add("typing");
 
-    await sleep(1050);
+    await sleep(520);
 
     for (const character of text) {
       element.textContent += character;
 
-      const naturalVariation = Math.floor(Math.random() * 30) - 8;
-      await sleep(Math.max(45, 82 + naturalVariation));
+      await sleep(character === " " ? 22 : 55);
     }
 
     await sleep(240);
