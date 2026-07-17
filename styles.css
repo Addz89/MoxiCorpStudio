@@ -511,13 +511,30 @@ h3 {
 }
 
 .social-bar {
+  position: relative;
   min-height: 38px;
+  overflow: hidden;
   color: #ffffff;
   background: var(--navy);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  transform-origin: top center;
+  animation: socialBarReveal 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.social-bar::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 28%, rgba(89, 169, 255, 0.18) 48%, transparent 68%);
+  transform: translateX(-120%);
+  animation: socialBarSweep 1050ms 420ms ease-out both;
 }
 
 .social-bar-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   min-height: 38px;
   align-items: center;
@@ -532,6 +549,7 @@ h3 {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  animation: socialItemReveal 500ms 180ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
 .social-bar-links {
@@ -551,14 +569,19 @@ h3 {
   border-radius: 7px;
   font-size: 0.6rem;
   font-weight: 700;
-  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  animation: socialItemReveal 500ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
+
+.social-bar-links a:nth-child(1) { animation-delay: 300ms; }
+.social-bar-links a:nth-child(2) { animation-delay: 410ms; }
 
 .social-bar-links a:hover {
   color: var(--navy);
   border-color: #ffffff;
   background: #ffffff;
-  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
 }
 
 .social-bar-links a:focus-visible {
@@ -575,10 +598,28 @@ h3 {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.8;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+.social-bar-links a:hover svg { transform: scale(1.14) rotate(-6deg); }
 
 .social-bar-links svg path { fill: currentColor; stroke: none; }
 .social-bar-links .social-icon-dot { fill: currentColor; stroke: none; }
+
+@keyframes socialBarReveal {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes socialBarSweep {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(120%); }
+}
+
+@keyframes socialItemReveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 .site-header.has-social-bar + main .hero { padding-top: 170px; }
 
