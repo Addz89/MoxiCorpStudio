@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Connecting Facebook | Moxi Desk</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: #06111f; color: #eef6ff; }
+    main { width: min(520px, calc(100% - 40px)); padding: 36px; border: 1px solid #244568; border-radius: 18px; background: #0a192a; text-align: center; box-shadow: 0 24px 80px #0008; }
+    b { display: grid; place-items: center; width: 58px; height: 58px; margin: 0 auto 20px; border-radius: 14px; background: #1673e6; font-size: 25px; }
+    h1 { margin: 0 0 10px; font-size: 25px; }
+    p { margin: 0; color: #a9bdd2; line-height: 1.6; }
+    a { display: inline-flex; margin-top: 24px; padding: 12px 18px; border-radius: 9px; background: #1673e6; color: white; font-weight: 700; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <b>MC</b>
+    <h1>Returning to Moxi Desk</h1>
+    <p id="status">Facebook sign-in is complete. Moxi Desk should reopen automatically.</p>
+    <a id="open-app" href="moxidesk://facebook/callback">Open Moxi Desk</a>
+  </main>
+  <script>
+    const target = `moxidesk://facebook/callback${window.location.search}`;
+    document.getElementById('open-app').href = target;
+    window.location.replace(target);
+  </script>
+</body>
+</html>
