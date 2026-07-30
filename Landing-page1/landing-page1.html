@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Custom responsive websites built by Moxi Corp for Australian businesses.">
+  <title>Moxi Corp | Custom Websites</title>
+  <style>
+    :root{--red:#fa180c;--orange:#ff6b16;--blue:#129cff;--navy:#06152d;--green:#042817;--ink:#07152c}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+    a{color:inherit}
+    .skip{position:fixed;left:12px;top:-60px;z-index:1000;background:#fff;padding:12px}.skip:focus{top:12px}
+    .rush{height:84px;background:var(--red);color:#fff;position:relative;z-index:30}
+    .rush-in{width:min(1040px,calc(100% - 36px));height:100%;margin:auto;display:grid;grid-template-columns:auto 1fr auto auto;gap:28px;align-items:center}
+    .mark{font-size:23px;font-weight:1000;font-style:italic;border:4px solid #fff;padding:7px 5px;transform:skew(-14deg)}
+    .rush-copy{display:flex;flex-direction:column;font-size:20px;line-height:1}.rush-copy span{font-size:12px;margin-top:7px;font-weight:900}
+    .rush-words{display:flex;gap:10px;align-items:center;font-size:24px}.rush-words i{font-style:normal;opacity:.5}
+    .rush-cta{background:#fff;color:var(--red);text-decoration:none;padding:14px 17px;border-radius:5px;font-size:12px;font-weight:1000;transition:.25s}.rush-cta:hover{transform:scale(1.06) rotate(-1deg)}
+    .nav{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 1160px)/2));background:#fff;position:relative;z-index:20;box-shadow:0 8px 30px #00000012}
+    .brand{text-decoration:none;font-size:22px;font-weight:1000;letter-spacing:-1.5px}.brand span{display:inline-block;background:var(--blue);color:#fff;padding:6px 7px;margin-right:3px;transform:skew(-8deg)}
+    .links{display:flex;gap:34px}.links a{text-decoration:none;font-size:12px;font-weight:1000}.links a:hover{color:var(--red)}
+    .menu{display:none;border:0;background:none}.menu i{display:block;width:25px;height:3px;margin:5px;background:var(--ink)}
+    .hero{min-height:850px;background:radial-gradient(circle at 50% 20%,#174a28 0,#062516 43%,#00130b 100%);position:relative;overflow:hidden;padding-bottom:95px}
+    .glow{position:absolute;width:700px;height:700px;border-radius:50%;background:#17913c;filter:blur(160px);opacity:.18;left:50%;top:8%;transform:translateX(-50%);animation:breathe 6s ease-in-out infinite}
+    .rain{position:absolute;inset:0;overflow:hidden;pointer-events:none}.rain span{position:absolute;top:-70px;left:var(--x);min-width:44px;height:27px;padding:5px 7px;text-align:center;border:2px solid #2ce35e;border-radius:4px;background:#083d18;color:#a6ff9f;font:900 12px monospace;opacity:.58;transform:rotate(var(--r)) scale(var(--s));animation:rain 9s linear infinite var(--d)}
+    .hero-in{width:min(760px,calc(100% - 34px));margin:auto;text-align:center;position:relative;z-index:2;padding-top:60px}
+    .tag{display:inline-block;margin:0;background:var(--navy);color:#fff;border-radius:7px;padding:8px 14px;font-size:11px;font-weight:1000;letter-spacing:.12em}
+    h1{font-size:clamp(49px,6.7vw,91px);line-height:.86;letter-spacing:-.07em;margin:24px auto 15px;color:#fff;font-weight:1000;text-shadow:0 5px 0 #00000022}h1 span{color:#ffcc1a}
+    .lead{max-width:670px;margin:20px auto 28px;color:#d7e8dd;font-size:17px;line-height:1.55;font-weight:700}
+    .board{display:grid;gap:14px}.board-main{min-height:250px;background:#fff;border-radius:14px;padding:24px 30px;display:grid;grid-template-columns:1.15fr .85fr;text-align:left;align-items:center;box-shadow:0 13px 0 #0000002e;animation:float 5s ease-in-out infinite}
+    .board-main em{display:inline-block;background:var(--navy);color:#fff;font-style:normal;font-weight:1000;padding:6px 10px;border-radius:4px}.board-main strong{display:block;margin:10px 0 7px;font-size:43px;line-height:.87;letter-spacing:-.055em}.board-main small{color:#616a78;font-weight:800}
+    .screen{background:linear-gradient(145deg,#0a214b,#0f9cff);border:9px solid #0b1930;border-radius:14px;box-shadow:18px 18px 0 #ffbd00;transform:rotate(3deg);overflow:hidden}.screen-top{height:27px;background:#071329;padding:9px}.screen-top i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#fff;opacity:.55;margin-right:5px}.screen-body{height:150px;padding:18px;background:radial-gradient(circle at 78% 28%,#32d7ff,transparent 20%),linear-gradient(130deg,#07172f,#083c74);color:#fff;display:flex;flex-direction:column;gap:10px}.screen-body b{font-size:27px}.screen-body span{height:6px;width:76%;background:#fff;border-radius:10px;opacity:.75}.screen-body span:nth-of-type(2){width:54%;opacity:.38}.screen-body span:last-child{margin-top:auto;width:37%;height:25px;background:var(--orange)}
+    .details{display:grid;grid-template-columns:1fr 1fr;gap:14px}.detail{position:relative;background:#fff;border-radius:13px;text-align:left;padding:16px 70px 16px 20px;display:flex;flex-direction:column;box-shadow:0 8px 0 #00000025}.detail b{font-size:11px;color:#fff;background:var(--red);align-self:flex-start;padding:5px 8px;border-radius:5px}.detail:first-child b{background:#eba000}.detail strong{font-size:23px;margin:7px 0 2px}.detail small{color:#687181}.detail i{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-style:normal;font-size:40px;color:var(--red)}
+    .mega{height:78px;border-radius:10px;background:linear-gradient(100deg,#ff552d,#ff9a09);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:1000;text-decoration:none;box-shadow:0 0 25px #ff7c13,0 9px 0 #bd3908;animation:pulse 2.2s ease-in-out infinite;transition:.25s}.mega:hover{transform:translateY(-5px) scale(1.015)}
+    .tear{position:absolute;left:0;right:0;bottom:-1px;height:72px;background:#fff;clip-path:polygon(0 45%,3% 60%,6% 40%,9% 68%,13% 48%,17% 75%,21% 43%,25% 62%,29% 38%,33% 71%,37% 52%,41% 67%,45% 40%,49% 68%,53% 48%,57% 72%,61% 42%,65% 63%,69% 48%,73% 72%,77% 45%,81% 67%,85% 40%,89% 69%,93% 46%,97% 62%,100% 43%,100% 100%,0 100%)}
+    .proof{padding:90px 0 0;text-align:center;overflow:hidden}.laurel{color:var(--blue);font-size:29px;font-weight:1000}.laurel span{color:#000;font-size:19px;margin:0 17px}.proof h2,.services h2,.process h2,.faq h2,.contact h2{font-size:clamp(40px,5.4vw,72px);line-height:.91;letter-spacing:-.055em;margin:29px 0 15px;font-weight:1000}.proof h2 span,.process h2 span,.faq h2 span{color:var(--blue)}.proof>p{color:#5b5f68;font-weight:700}.stats{width:min(750px,calc(100% - 30px));margin:32px auto 50px;display:grid;grid-template-columns:repeat(3,1fr)}.stats div{display:flex;flex-direction:column;border-right:1px solid #e3e3e3}.stats div:last-child{border:0}.stats strong{font-size:50px;color:var(--blue)}.stats span{font-size:10px;color:#999;font-weight:1000;letter-spacing:.13em}
+    .rail{overflow:hidden;padding-bottom:80px}.track{display:flex;width:max-content;gap:15px;animation:track 30s linear infinite}.track:hover{animation-play-state:paused}.project{width:410px;background:#11c934;padding:14px;border-radius:23px;text-decoration:none;text-align:left;transition:.3s}.project:nth-child(2n){background:var(--orange)}.project:nth-child(3n){background:var(--blue)}.project:hover{transform:translateY(-10px) rotate(-1deg)}.shot{height:250px;background:#07172e;border-radius:14px;position:relative;overflow:hidden;color:#fff}.shot-nav{height:41px;background:#fff;color:#06152d;padding:12px 14px;font-weight:1000}.shot-copy{position:relative;z-index:2;padding:34px 23px;display:flex;flex-direction:column;align-items:flex-start}.shot-copy small{color:#2ed9ff;font-weight:1000}.shot-copy strong{font-size:30px;line-height:.9;margin:10px 0 22px}.shot-copy i{font-style:normal;background:#fff;color:var(--ink);padding:9px;font-size:10px;font-weight:1000}.orb{position:absolute;width:210px;height:210px;border-radius:50%;background:linear-gradient(135deg,#13a1ff,#792bff);right:-65px;bottom:-80px}.project>strong{display:block;color:#fff;padding:13px 5px 2px;font-size:18px}
+    .services{min-height:760px;background:radial-gradient(circle at 15% 20%,#12391f,#00150c 48%);color:#fff;position:relative;padding:110px 0 140px;overflow:hidden}.services-in,.contact-in{width:min(1160px,calc(100% - 40px));margin:auto;position:relative;z-index:2;display:grid;grid-template-columns:.85fr 1.15fr;gap:90px}.section-copy p,.process-title p,.faq-title p,.contact-copy p{font-size:12px;font-weight:1000;letter-spacing:.18em;color:#ffb20b}.services h2 span,.contact h2 span{color:#ffce18}.section-copy a{display:inline-block;margin-top:22px;background:var(--orange);padding:16px 20px;border-radius:5px;text-decoration:none;font-size:12px;font-weight:1000}.service-list{display:grid;gap:12px}.service{background:#fff;color:var(--ink);border-radius:13px;min-height:125px;padding:22px;display:grid;grid-template-columns:55px 1fr 35px;align-items:center;box-shadow:0 8px 0 #00000035;transition:.3s}.service:hover{transform:translateX(-10px);box-shadow:10px 12px 0 var(--orange)}.service>b{color:var(--red)}.service strong{font-size:23px}.service p{margin:6px 0 0;color:#657080;font-size:13px}.service>span{font-size:27px;color:var(--red)}
+    .process{padding:110px max(24px,calc((100vw - 1160px)/2));text-align:center}.process-title{max-width:800px;margin:auto}.process-title p{color:var(--red)}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:55px}.step{min-height:300px;background:#f3f6fa;border:2px solid #e1e6ed;border-radius:14px;padding:22px;text-align:left;transition:.3s}.step:hover{transform:translateY(-12px);border-color:var(--blue);box-shadow:0 18px 0 #dff3ff}.step>b{color:var(--blue)}.step i{display:grid;place-items:center;width:75px;height:75px;border-radius:50%;background:var(--blue);color:#fff;font:1000 22px monospace;margin:27px 0}.step strong{font-size:17px}.step p{font-size:13px;line-height:1.6;color:#687282}
+    .faq{background:#eef3f8;padding:110px max(24px,calc((100vw - 1160px)/2));display:grid;grid-template-columns:.85fr 1.15fr;gap:80px}.faq-title p{color:var(--red)}.faq-title a{font-size:13px;font-weight:1000;color:var(--blue)}.faq-list{background:#fff;border-radius:14px;padding:0 26px;box-shadow:0 12px 0 #d8e1eb}details{border-bottom:1px solid #dfe5ec}summary{list-style:none;min-height:82px;display:grid;grid-template-columns:42px 1fr 30px;align-items:center;cursor:pointer;font-weight:1000}summary::-webkit-details-marker{display:none}summary b{color:var(--blue);font-size:11px}summary i{font-size:23px;font-style:normal;transition:.25s}details[open] summary i{transform:rotate(45deg);color:var(--red)}details p{margin:-5px 30px 25px 42px;color:#657080;font-size:13px;line-height:1.6}
+    .contact{background:var(--red);color:#fff;position:relative;overflow:hidden;padding:110px 0}.contact .rain span{border-color:#ffb485;background:#b81408;color:#ffd7c5}.contact-copy>strong{display:block;max-width:480px;line-height:1.6}.form{background:#fff;color:var(--ink);border-radius:16px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px;box-shadow:0 12px 0 #a20d05}.form label{display:grid;gap:7px;font-size:10px;font-weight:1000}.form label:nth-of-type(3),.form label:nth-of-type(4),.form button{grid-column:1/-1}.form input,.form select,.form textarea{width:100%;border:2px solid #dde3eb;background:#f6f8fa;border-radius:6px;padding:13px;font:inherit;font-size:13px;outline:none}.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--blue)}.form button{height:62px;background:linear-gradient(100deg,#ff6e0c,#ffb000);border:0;border-radius:7px;color:#fff;font-size:18px;font-weight:1000;cursor:pointer;box-shadow:0 7px 0 #c43e00}.success{grid-column:1/-1;min-height:390px;display:none;place-items:center;text-align:center;align-content:center}.success b{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#e5f8ff;color:var(--blue);font-size:27px}.success h3{font-size:30px}.success button{border:0;background:none;color:var(--red);font-weight:1000;cursor:pointer}.form.sent>label,.form.sent>button[type=submit]{display:none}.form.sent .success{display:grid}
+    footer{background:#041127;color:#fff;padding:45px max(24px,calc((100vw - 1160px)/2));display:grid;grid-template-columns:1fr auto 1fr;gap:50px}footer>div{display:flex;flex-direction:column;gap:8px}footer p,footer span{font-size:10px;color:#8b99af}footer nav{display:flex;gap:24px}footer nav a,footer>div:last-child a{text-decoration:none;font-size:11px;font-weight:1000}footer>div:last-child{text-align:right}
+    .reveal{opacity:0;transform:translateY(35px) scale(.98);transition:.75s}.reveal.show{opacity:1;transform:none}
+    @keyframes rain{to{top:105%;transform:rotate(190deg) scale(var(--s))}}@keyframes breathe{50%{opacity:.3;transform:translateX(-50%) scale(1.12)}}@keyframes float{50%{transform:translateY(-8px)}}@keyframes pulse{50%{box-shadow:0 0 45px #ff7c13,0 9px 0 #bd3908}}@keyframes track{to{transform:translateX(calc(-50% - 7.5px))}}
+    @media(max-width:900px){.rush-in{grid-template-columns:auto 1fr auto}.rush-words{display:none}.links{position:absolute;top:70px;left:0;right:0;display:none;flex-direction:column;background:#fff;padding:25px;box-shadow:0 15px 30px #0002}.links.open{display:flex}.menu{display:block}.services-in,.faq,.contact-in{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}footer{grid-template-columns:1fr 1fr}footer nav{grid-column:1/-1;order:3}}
+    @media(max-width:620px){.rush{height:72px}.rush-in{grid-template-columns:auto 1fr}.rush-copy{font-size:14px}.rush-copy span{font-size:9px}.rush-cta{display:none}.nav{height:62px;padding:0 17px}.links{top:62px}.hero-in{padding-top:44px}h1{font-size:48px}.lead{font-size:14px}.board-main{grid-template-columns:1fr;padding:20px}.board-main strong{font-size:35px}.screen{display:none}.details{grid-template-columns:1fr}.mega{height:65px;font-size:19px}.laurel{font-size:18px}.laurel span{font-size:13px;margin:0 7px}.proof h2,.services h2,.process h2,.faq h2{font-size:42px}.stats strong{font-size:34px}.project{width:305px}.shot{height:200px}.services-in{gap:45px}.service{grid-template-columns:38px 1fr 25px;padding:17px}.service strong{font-size:19px}.steps{grid-template-columns:1fr}.step{min-height:auto}.faq{gap:40px}.contact-in{gap:45px}.contact h2{font-size:49px}.form{grid-template-columns:1fr;padding:20px}.form label{grid-column:1/-1}footer{grid-template-columns:1fr}footer nav{grid-column:auto;flex-wrap:wrap}footer>div:last-child{text-align:left}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="rush"><div class="rush-in"><b class="mark">MC</b><div class="rush-copy"><b>READY FOR A WEBSITE THAT HITS HARDER?</b><span>NOW BOOKING NEW PROJECTS</span></div><div class="rush-words"><b>DESIGN</b><i>+</i><b>BUILD</b><i>+</i><b>LAUNCH</b></div><a class="rush-cta" href="#contact">START NOW →</a></div></div>
+  <nav class="nav"><a class="brand" href="#"><span>MOXI</span>CORP</a><button class="menu" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i></button><div class="links"><a href="#services">SERVICES</a><a href="#work">WORK</a><a href="#process">PROCESS</a><a href="#faq">FAQ</a></div></nav>
+
+  <header class="hero">
+    <div class="glow"></div><div class="rain" aria-hidden="true"></div>
+    <div class="hero-in reveal">
+      <p class="tag">AUSTRALIAN WEBSITE DESIGN & DEVELOPMENT</p>
+      <h1>YOUR BUSINESS.<br><span>BUILT TO STAND OUT.</span></h1>
+      <p class="lead">Custom websites designed and coded by a real developer—built around your business, your customers and your next move.</p>
+      <div class="board">
+        <div class="board-main"><div><em>REAL DEVELOPER</em><strong>NO COOKIE-CUTTER<br>WEBSITES.</strong><small>Strategy. Design. Code. Direct support.</small></div><div class="screen"><div class="screen-top"><i></i><i></i><i></i></div><div class="screen-body"><b>MOXI</b><span></span><span></span><span></span></div></div></div>
+        <div class="details"><div class="detail"><b>DIRECT CONTACT</b><strong>ONE PERSON</strong><small>From first idea to final launch.</small><i>●</i></div><div class="detail"><b>CUSTOM BUILD</b><strong>YOUR BRAND</strong><small>Made to fit your actual goals.</small><i>✦</i></div></div>
+        <a class="mega" href="#contact">BUILD MY NEW WEBSITE →</a>
+      </div>
+    </div><div class="tear"></div>
+  </header>
+
+<div class="rail">
+  <div class="track">
+
+    <a class="project" href="https://asharmusic.com/" target="_blank" rel="noopener">
+      <div class="shot">
+        <img src="/images/ashar-music.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Ashar Music website">
+        <div class="shot-overlay">
+          <small>ARTIST WEBSITE</small>
+          <strong>ASHAR MUSIC</strong>
+          <span>VIEW PROJECT ↗</span>
+        </div>
+      </div>
+      <strong>ARTIST WEBSITE — ASHAR MUSIC</strong>
+    </a>
+
+    <a class="project" href="https://www.moxicleaningco.com.au/" target="_blank" rel="noopener">
+      <div class="shot">
+        <img src="/images/Web1.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Moxi Cleaning Co website">
+        <div class="shot-overlay">
+          <small>SERVICE BUSINESS</small>
+          <strong>MOXI CLEANING CO</strong>
+          <span>VIEW PROJECT ↗</span>
+        </div>
+      </div>
+      <strong>SERVICE BUSINESS — MOXI CLEANING CO</strong>
+    </a>
+
+    <a class="project" href="https://addz89.github.io/Moxirealestate_template/" target="_blank" rel="noopener">
+      <div class="shot">
+        <img src="/images/web5.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Real estate website concept">
+        <div class="shot-overlay">
+          <small>REAL ESTATE</small>
+          <strong>PROPERTY CONCEPT</strong>
+          <span>VIEW PROJECT ↗</span>
+        </div>
+      </div>
+      <strong>REAL ESTATE — PROPERTY CONCEPT</strong>
+    </a>
+
+    <a class="project" href="https://addz89.github.io/Photography_template/" target="_blank" rel="noopener">
+      <div class="shot">
+        <img src="/images/web7.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Photography portfolio website">
+        <div class="shot-overlay">
+          <small>PHOTOGRAPHY</small>
+          <strong>CREATIVE PORTFOLIO</strong>
+          <span>VIEW PROJECT ↗</span>
+        </div>
+      </div>
+      <strong>PHOTOGRAPHY — CREATIVE PORTFOLIO</strong>
+    </a>
+
+  </div>
+</div>
+
+    <section class="services" id="services"><div class="rain" aria-hidden="true"></div><div class="services-in"><div class="section-copy reveal"><p>WHAT I BUILD</p><h2>ONE DEVELOPER.<br><span>EVERYTHING YOUR SITE NEEDS.</span></h2><a href="#contact">TELL ME WHAT YOU NEED →</a></div><div class="service-list">
+      <article class="service reveal"><b>01</b><div><strong>LANDING PAGES</strong><p>One focused page built to turn attention into enquiries.</p></div><span>↗</span></article>
+      <article class="service reveal"><b>02</b><div><strong>BUSINESS WEBSITES</strong><p>A professional online home that makes your business look established.</p></div><span>↗</span></article>
+      <article class="service reveal"><b>03</b><div><strong>ONLINE STORES</strong><p>A clear, responsive shopping experience built around your products.</p></div><span>↗</span></article>
+      <article class="service reveal"><b>04</b><div><strong>CUSTOM BUILDS</strong><p>Tailored pages, features and interactions shaped around your goals.</p></div><span>↗</span></article>
+    </div></div><div class="tear"></div></section>
+
+    <section class="process" id="process"><div class="process-title reveal"><p>HOW IT WORKS</p><h2>FROM IDEA TO LIVE<br><span>WITHOUT THE RUNAROUND.</span></h2></div><div class="steps">
+      <article class="step reveal"><b>01</b><i>✎</i><strong>TELL ME THE GOAL</strong><p>Share your business, audience and what the website needs to achieve.</p></article>
+      <article class="step reveal"><b>02</b><i>✓</i><strong>LOCK THE PLAN</strong><p>I map the pages, content and features into one clear scope.</p></article>
+      <article class="step reveal"><b>03</b><i>&lt;/&gt;</i><strong>WATCH IT TAKE SHAPE</strong><p>Your site is designed, coded and refined with your feedback.</p></article>
+      <article class="step reveal"><b>04</b><i>↗</i><strong>GO LIVE</strong><p>Everything is checked across screen sizes before launch.</p></article>
+    </div></section>
+
+    <section class="faq" id="faq"><div class="faq-title reveal"><p>STRAIGHT ANSWERS</p><h2>NO CONFUSING<br><span>WEB JARGON.</span></h2><a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a></div><div class="faq-list reveal">
+      <details><summary><b>01</b><span>Do you use templates?</span><i>+</i></summary><p>No recycled layouts. Every project starts with your business, audience and the action the website needs to drive.</p></details>
+      <details><summary><b>02</b><span>Will it work on phones?</span><i>+</i></summary><p>Yes. Every page is built to adapt across mobile, tablet, laptop and large displays.</p></details>
+      <details><summary><b>03</b><span>Can I update it later?</span><i>+</i></summary><p>Yes. I can recommend an editing setup that matches how often you expect to change the website.</p></details>
+      <details><summary><b>04</b><span>Who do I deal with?</span><i>+</i></summary><p>You deal directly with me—the person designing and building the website.</p></details>
+    </div></section>
+
+    <section class="contact" id="contact"><div class="rain" aria-hidden="true"></div><div class="contact-in"><div class="contact-copy reveal"><p>READY WHEN YOU ARE</p><h2>LET’S BUILD<br><span>SOMETHING BETTER.</span></h2><strong>No sales maze. No agency handovers. Talk directly with the person who will build your site.</strong></div>
+      <form class="form reveal" id="projectForm"><label>YOUR NAME<input required name="name" placeholder="Enter your name"></label><label>EMAIL<input required type="email" name="email" placeholder="you@business.com.au"></label><label>WHAT DO YOU NEED?<select required name="type"><option value="">Choose a website type</option><option>Landing page</option><option>Business website</option><option>Online store</option><option>Custom build</option><option>Not sure yet</option></select></label><label>TELL ME ABOUT THE PROJECT<textarea required name="message" rows="5" placeholder="Your business, goals and the pages or features you need"></textarea></label><button type="submit">START MY PROJECT →</button><div class="success"><b>✓</b><h3>ENQUIRY READY.</h3><p>Your project details have been captured.</p><button type="button" id="resetForm">SEND ANOTHER</button></div></form>
+    </div></section>
+  </main>
+
+  <footer><div><a class="brand" href="#"><span>MOXI</span>CORP</a><p>REAL WEBSITES. DIRECT SUPPORT.</p></div><nav><a href="#services">SERVICES</a><a href="#work">WORK</a><a href="#process">PROCESS</a><a href="#faq">FAQ</a></nav><div><a href="mailto:support@moxicorpstudio.com.au">support@moxicorpstudio.com.au</a><span>ABN 18 936 263 775</span></div></footer>
+
+  <script>
+    const menuButton=document.querySelector('.menu');
+    const links=document.querySelector('.links');
+    menuButton.addEventListener('click',()=>{const open=links.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open))});
+    links.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{links.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
+
+    const words=['</>','CSS','JS','HTML','SEO','UX','{ }','↗','01','MC','WEB','LIVE'];
+    document.querySelectorAll('.rain').forEach(container=>{
+      for(let i=0;i<28;i++){const item=document.createElement('span');item.textContent=words[i%words.length];item.style.setProperty('--x',((i*37)%97)+'%');item.style.setProperty('--d',((i%9)*-.9)+'s');item.style.setProperty('--s',.72+(i%5)*.12);item.style.setProperty('--r',((i%2?1:-1)*(8+i%24))+'deg');container.appendChild(item)}
+    });
+
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('show')}),{threshold:.14});
+    document.querySelectorAll('.reveal').forEach(element=>observer.observe(element));
+
+    const form=document.getElementById('projectForm');
+    form.addEventListener('submit',event=>{event.preventDefault();form.classList.add('sent')});
+    document.getElementById('resetForm').addEventListener('click',()=>{form.reset();form.classList.remove('sent')});
+  </script>
+</body>
+</html>
